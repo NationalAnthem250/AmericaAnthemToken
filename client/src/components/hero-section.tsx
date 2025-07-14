@@ -65,7 +65,7 @@ export default function HeroSection() {
             <img
               src={logoImage}
               alt="Hannah Magnelli America250"
-              className="mx-auto w-full max-w-2xl h-auto"
+              className="mx-auto w-full max-w-xl h-auto"
             />
           </div>
           

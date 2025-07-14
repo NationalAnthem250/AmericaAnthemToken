@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <VideoSection />
       <main>
         <HeroSection />
-        <VideoSection />
         <TokenSection />
         <AboutSection />
         <America250Section />
