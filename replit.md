@@ -28,9 +28,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Database Architecture
 - **ORM**: Drizzle ORM for type-safe database operations
-- **Database**: PostgreSQL (configured for Neon serverless)
+- **Database**: PostgreSQL (configured for Neon serverless) - ACTIVE
 - **Migrations**: Drizzle Kit for schema migrations
 - **Schema**: Shared TypeScript schema definitions with Zod validation
+- **Tables**: Users table and Waitlist entries table with email uniqueness constraints
 
 ## Key Components
 
@@ -38,15 +39,16 @@ Preferred communication style: Simple, everyday language.
 - **Navigation**: Fixed header with smooth scrolling to sections
 - **Hero Section**: Landing area with countdown to America's 250th anniversary
 - **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
-- **Token Section**: Information about the NFT tokenization with waitlist functionality
+- **Token Section**: Information about the NFT tokenization with functional waitlist signup form
 - **About Section**: Biography and social media links for Hannah Magnelli
 - **America250 Section**: Partnership information with official America250 commemoration
 - **Footer**: Site-wide footer with links and contact information
 
 ### Backend Infrastructure
 - **Routes**: Modular route registration system in `/api` namespace
-- **Storage**: Abstracted storage interface with in-memory implementation (ready for database integration)
-- **Error Handling**: Centralized error middleware
+- **Storage**: Abstracted storage interface with PostgreSQL database implementation
+- **Waitlist API**: POST /api/waitlist and GET /api/waitlist endpoints with validation
+- **Error Handling**: Centralized error middleware with Zod validation
 - **Development**: Vite integration for hot module replacement
 - **Logging**: Request/response logging with timing information
 
@@ -73,8 +75,9 @@ Preferred communication style: Simple, everyday language.
 
 ### Database Schema
 - **Users Table**: Basic user model with username/password (extensible for authentication)
+- **Waitlist Entries Table**: Stores email, name, timestamp, and metadata for token launch waitlist
 - **Type Safety**: Drizzle generates TypeScript types from schema
-- **Validation**: Zod schemas ensure runtime type checking
+- **Validation**: Zod schemas ensure runtime type checking and form validation
 
 ## External Dependencies
 
