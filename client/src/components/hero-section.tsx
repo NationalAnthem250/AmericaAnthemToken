@@ -42,27 +42,79 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Full-screen video background */}
+      {/* Full-screen video background with fallbacks */}
       <div className="absolute inset-0 w-full h-full">
+        {/* Primary: Vimeo iframe with autoplay */}
         <iframe
-          src="https://player.vimeo.com/video/1101358569?background=1&autoplay=1&loop=1&byline=0&title=0&muted=0"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="https://player.vimeo.com/video/1101358569?background=1&autoplay=1&loop=1&byline=0&title=0&muted=0&autopause=0"
+          className="absolute top-0 left-0 w-full h-full"
           style={{
             width: '100vw',
             height: '100vh',
-            objectFit: 'cover',
             position: 'absolute',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             minWidth: '100%',
-            minHeight: '100%'
+            minHeight: '100%',
+            objectFit: 'cover'
           }}
           frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowFullScreen
           title="Hannah Magnelli - National Anthem Background"
         />
+        
+        {/* Fallback: Click to play overlay for browsers blocking autoplay */}
+        <div 
+          id="video-fallback" 
+          className="absolute inset-0 bg-patriot-navy/90 flex items-center justify-center cursor-pointer z-20 transition-opacity duration-500"
+          onClick={() => {
+            const fallback = document.getElementById('video-fallback');
+            const iframe = document.querySelector('iframe');
+            if (fallback && iframe) {
+              fallback.style.opacity = '0';
+              setTimeout(() => fallback.style.display = 'none', 500);
+              // Reload iframe with user interaction to trigger autoplay
+              iframe.src = iframe.src;
+            }
+          }}
+          style={{ display: 'none' }}
+        >
+          <div className="text-center text-white">
+            <div className="bg-patriot-red/80 backdrop-blur-sm rounded-full p-8 mb-6 inline-block">
+              <i className="fas fa-play text-6xl"></i>
+            </div>
+            <h3 className="text-3xl font-bold mb-4 text-shadow-lg">Experience Hannah's Performance</h3>
+            <p className="text-xl text-gray-300 text-shadow-md">Click to play the National Anthem video background</p>
+          </div>
+        </div>
       </div>
+      
+      {/* Auto-detect and show fallback if needed */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          setTimeout(function() {
+            const iframe = document.querySelector('iframe');
+            const fallback = document.getElementById('video-fallback');
+            if (iframe && fallback) {
+              // Check if video is likely blocked by detecting if iframe loaded
+              iframe.onload = function() {
+                // Additional check after a delay to see if autoplay worked
+                setTimeout(function() {
+                  try {
+                    // If we can't access iframe content, assume autoplay may be blocked
+                    fallback.style.display = 'flex';
+                  } catch(e) {
+                    // Cross-origin, can't detect - show fallback to be safe
+                    fallback.style.display = 'flex';
+                  }
+                }, 2000);
+              };
+            }
+          }, 1000);
+        `
+      }} />
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>
