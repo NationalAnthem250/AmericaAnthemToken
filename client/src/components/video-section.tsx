@@ -4,7 +4,7 @@ export default function VideoSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            EXPERIENCE THE <span className="text-patriot-red">NATIONAL ANTHEM</span>
+            OWN PART OF <span className="text-patriot-red">AMERICAN HISTORY</span>
             <span className="block mt-2">
               <span className="text-patriot-red">N</span>
               <span className="text-white">F</span>
