@@ -41,25 +41,35 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-white min-h-screen flex items-center pt-16">
-      {/* Clean background with subtle patriotic accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white"></div>
-      
-      {/* American Landmark Background Elements */}
-      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-blue via-patriot-gold to-patriot-red"></div>
-      
-      {/* Subtle Capitol dome silhouette */}
-      <div className="absolute top-20 right-10 opacity-5">
-        <div className="w-32 h-32 bg-patriot-navy rounded-full"></div>
-        <div className="w-40 h-8 bg-patriot-navy rounded-b-full -mt-4 -ml-4"></div>
+    <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
+      {/* Full-screen video background */}
+      <div className="absolute inset-0 w-full h-full">
+        <iframe
+          src="https://player.vimeo.com/video/1101358569?background=1&autoplay=1&loop=1&byline=0&title=0&muted=0"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{
+            width: '100vw',
+            height: '100vh',
+            objectFit: 'cover',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            minWidth: '100%',
+            minHeight: '100%'
+          }}
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          title="Hannah Magnelli - National Anthem Background"
+        />
       </div>
       
-      {/* Liberty Bell silhouette */}
-      <div className="absolute bottom-20 left-10 opacity-5">
-        <div className="w-20 h-24 bg-patriot-navy rounded-t-full"></div>
-        <div className="w-24 h-6 bg-patriot-navy rounded-b-lg -mt-2 -ml-2"></div>
-      </div>
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      {/* Patriotic border elements */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-blue via-patriot-gold to-patriot-red z-10"></div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
@@ -72,37 +82,37 @@ export default function HeroSection() {
             />
           </div>
           
-          {/* Main Title - America250 Enhanced */}
+          {/* Main Title - Video Background Enhanced */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-7xl font-black text-patriot-navy mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight text-shadow-lg">
               Celebrate America's 250th Anniversary 
-              <span className="block text-patriot-red">with Our Exclusive Token</span>
+              <span className="block text-patriot-gold">with Our Exclusive Token</span>
             </h1>
             
             <div className="max-w-4xl mx-auto mb-8">
-              <p className="text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
-                Professional mezzo soprano <strong>Hannah Magnelli</strong> presents the ultimate patriotic tribute - 
-                a tokenized version of the Star-Spangled Banner featuring authentic American landmarks and exclusive NFT ownership
+              <p className="text-xl md:text-2xl text-white font-medium leading-relaxed text-shadow-md">
+                Professional mezzo soprano <strong className="text-patriot-gold">Hannah Magnelli</strong> presents the ultimate patriotic tribute - 
+                a tokenized version of the Star-Spangled Banner featuring authentic American landmarks and exclusive ownership
               </p>
             </div>
 
-            {/* Enhanced Event Info Banner with Gold Accents */}
-            <div className="bg-patriot-navy text-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto mb-8 border-t-4 border-patriot-gold">
+            {/* Enhanced Event Info Banner with Video Background */}
+            <div className="bg-black/60 backdrop-blur-sm text-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto mb-8 border border-patriot-gold/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-patriot-gold text-patriot-navy px-6 py-2 rounded-full font-black text-lg">
                   OFFICIAL AMERICA250 PARTNERSHIP
                 </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-shadow-md">
                 JULY 4TH, 2026 • 8PM ET
               </h2>
-              <p className="text-lg md:text-xl mb-4">
+              <p className="text-lg md:text-xl mb-4 text-shadow-sm">
                 Watch the Token Launch Live from the U.S. Capitol
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
-                <span className="bg-patriot-gold/20 px-4 py-2 rounded border border-patriot-gold/30">📺 STREAM LIVE</span>
-                <span className="bg-patriot-gold/20 px-4 py-2 rounded border border-patriot-gold/30">🎵 EXCLUSIVE NFT</span>
-                <span className="bg-patriot-gold/20 px-4 py-2 rounded border border-patriot-gold/30">🏛️ HISTORIC LANDMARKS</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">📺 STREAM LIVE</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🎵 EXCLUSIVE TOKEN</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🏛️ HISTORIC LANDMARKS</span>
               </div>
             </div>
           </div>
@@ -155,31 +165,31 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Enhanced Token Launch Details with American Landmarks */}
-          <div className="bg-white border border-patriot-gold/30 rounded-lg p-8 max-w-4xl mx-auto shadow-lg">
+          {/* Enhanced Token Launch Details with Video Background */}
+          <div className="bg-black/60 backdrop-blur-sm border border-patriot-gold/50 rounded-lg p-8 max-w-4xl mx-auto shadow-lg">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-patriot-navy mb-2">Featuring Authentic American Landmarks</h3>
-              <p className="text-slate-600">High-resolution imagery of Liberty Bell, Capitol Dome, and historic sites</p>
+              <h3 className="text-xl font-bold text-white mb-2 text-shadow-md">Featuring Authentic American Landmarks</h3>
+              <p className="text-gray-300 text-shadow-sm">High-resolution imagery of Liberty Bell, Capitol Dome, and historic sites</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="bg-patriot-navy/5 rounded-lg p-4">
-                <div className="text-2xl font-bold text-patriot-navy">1,776</div>
-                <div className="text-sm text-slate-600">Total Tokens</div>
+              <div className="bg-patriot-navy/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
+                <div className="text-2xl font-bold text-white">1,776</div>
+                <div className="text-sm text-gray-300">Total Tokens</div>
                 <div className="text-xs text-patriot-gold font-semibold">Limited Edition</div>
               </div>
-              <div className="bg-patriot-red/5 rounded-lg p-4">
+              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
                 <div className="text-2xl font-bold text-patriot-red">0.25 ETH</div>
-                <div className="text-sm text-slate-600">Price Each</div>
+                <div className="text-sm text-gray-300">Price Each</div>
                 <div className="text-xs text-patriot-gold font-semibold">Fixed Price</div>
               </div>
-              <div className="bg-patriot-blue/5 rounded-lg p-4">
+              <div className="bg-patriot-blue/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
                 <div className="text-2xl font-bold text-patriot-blue">🎭</div>
-                <div className="text-sm text-slate-600">Mezzo-Soprano</div>
+                <div className="text-sm text-gray-300">Mezzo-Soprano</div>
                 <div className="text-xs text-patriot-gold font-semibold">Professional</div>
               </div>
-              <div className="bg-patriot-gold/10 rounded-lg p-4">
-                <div className="text-2xl font-bold text-patriot-navy">🏛️</div>
-                <div className="text-sm text-slate-600">America250</div>
+              <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
+                <div className="text-2xl font-bold text-patriot-gold">🏛️</div>
+                <div className="text-sm text-gray-300">America250</div>
                 <div className="text-xs text-patriot-gold font-semibold">Official</div>
               </div>
             </div>
