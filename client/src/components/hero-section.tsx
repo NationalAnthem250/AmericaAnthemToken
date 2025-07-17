@@ -42,41 +42,59 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Full-screen video background with fallbacks */}
+      {/* Full-screen MP4 video background */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Primary: Vimeo iframe with autoplay */}
-        <iframe
-          src="https://player.vimeo.com/video/1101358569?background=1&autoplay=1&loop=1&byline=0&title=0&muted=0&autopause=0"
-          className="absolute top-0 left-0 w-full h-full"
+        <video
+          id="hero-video"
+          autoPlay
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
           style={{
             width: '100vw',
             height: '100vh',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            minWidth: '100%',
-            minHeight: '100%',
             objectFit: 'cover'
           }}
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-          allowFullScreen
-          title="Hannah Magnelli - National Anthem Background"
-        />
+          onLoadedData={() => {
+            const video = document.getElementById('hero-video') as HTMLVideoElement;
+            const fallback = document.getElementById('video-fallback');
+            if (video && fallback) {
+              // Try to play with sound first
+              video.muted = false;
+              video.play().catch(() => {
+                // If blocked, show fallback overlay
+                fallback.style.display = 'flex';
+              });
+            }
+          }}
+        >
+          <source src="/path-to-your-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         
-        {/* Fallback: Click to play overlay for browsers blocking autoplay */}
+        {/* Click-to-play fallback overlay */}
         <div 
           id="video-fallback" 
           className="absolute inset-0 bg-patriot-navy/90 flex items-center justify-center cursor-pointer z-20 transition-opacity duration-500"
           onClick={() => {
+            const video = document.getElementById('hero-video') as HTMLVideoElement;
             const fallback = document.getElementById('video-fallback');
-            const iframe = document.querySelector('iframe');
-            if (fallback && iframe) {
-              fallback.style.opacity = '0';
-              setTimeout(() => fallback.style.display = 'none', 500);
-              // Reload iframe with user interaction to trigger autoplay
-              iframe.src = iframe.src;
+            if (video && fallback) {
+              video.muted = false;
+              video.play().then(() => {
+                fallback.style.opacity = '0';
+                setTimeout(() => fallback.style.display = 'none', 500);
+              }).catch(() => {
+                // If still blocked, try muted then unmute
+                video.muted = true;
+                video.play().then(() => {
+                  fallback.style.opacity = '0';
+                  setTimeout(() => {
+                    fallback.style.display = 'none';
+                    video.muted = false;
+                  }, 500);
+                });
+              });
             }
           }}
           style={{ display: 'none' }}
@@ -90,31 +108,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      
-      {/* Auto-detect and show fallback if needed */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          setTimeout(function() {
-            const iframe = document.querySelector('iframe');
-            const fallback = document.getElementById('video-fallback');
-            if (iframe && fallback) {
-              // Check if video is likely blocked by detecting if iframe loaded
-              iframe.onload = function() {
-                // Additional check after a delay to see if autoplay worked
-                setTimeout(function() {
-                  try {
-                    // If we can't access iframe content, assume autoplay may be blocked
-                    fallback.style.display = 'flex';
-                  } catch(e) {
-                    // Cross-origin, can't detect - show fallback to be safe
-                    fallback.style.display = 'flex';
-                  }
-                }, 2000);
-              };
-            }
-          }, 1000);
-        `
-      }} />
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>

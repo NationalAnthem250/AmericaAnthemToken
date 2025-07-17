@@ -44,8 +44,21 @@ Cons: No sound option, YouTube branding
 More complex but provides full control over video playback, fallbacks, and user experience.
 
 ### Current Status:
-✅ Vimeo background video implemented
+✅ HTML5 video background implemented (ready for MP4 file)
 ✅ Autoplay with sound attempted
-✅ Fallback overlay for blocked autoplay
+✅ Smart fallback handling (muted then unmuted if blocked)
+✅ Click-to-play overlay for browser restrictions
 ✅ Responsive scaling across devices
 ✅ Text overlay with proper contrast
+
+### MP4 Implementation Benefits:
+- Direct video control without iframe limitations
+- Better performance and loading
+- More reliable autoplay handling
+- Custom fallback strategies
+- No third-party dependencies
+
+### To Use Your MP4 File:
+1. Upload MP4 to `/public/` directory
+2. Update video source path in hero-section.tsx
+3. Video will auto-play with sound (with fallback for blocked browsers)
