@@ -24,14 +24,15 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Patriotic color scheme */
-  --patriot-red: hsl(0, 79%, 49%);
-  --patriot-red-hover: hsl(0, 79%, 42%);
-  --patriot-blue: hsl(221, 83%, 53%);
-  --patriot-blue-hover: hsl(221, 83%, 46%);
-  --patriot-navy: hsl(215, 28%, 17%);
-  --patriot-gold: hsl(45, 93%, 47%);
-  --patriot-light-blue: hsl(199, 89%, 48%);
+  /* Official America250 patriotic color scheme */
+  --patriot-red: #B22234;
+  --patriot-red-hover: #8B1A2B;
+  --patriot-blue: #002868;
+  --patriot-blue-hover: #001A4A;
+  --patriot-navy: #0C2340;
+  --patriot-gold: #FFD700;
+  --patriot-gold-hover: #E6C200;
+  --patriot-light-blue: #002868;
 }
 
 .dark {

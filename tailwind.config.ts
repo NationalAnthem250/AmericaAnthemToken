@@ -61,6 +61,14 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        'patriot-red': 'var(--patriot-red)',
+        'patriot-red-hover': 'var(--patriot-red-hover)',
+        'patriot-blue': 'var(--patriot-blue)',
+        'patriot-blue-hover': 'var(--patriot-blue-hover)',
+        'patriot-navy': 'var(--patriot-navy)',
+        'patriot-gold': 'var(--patriot-gold)',
+        'patriot-gold-hover': 'var(--patriot-gold-hover)',
+        'patriot-light-blue': 'var(--patriot-light-blue)',
       },
       keyframes: {
         "accordion-down": {
