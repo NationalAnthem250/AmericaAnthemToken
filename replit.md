@@ -37,8 +37,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Components
 - **Navigation**: Fixed header with smooth scrolling to sections
-- **Hero Section**: Landing area with countdown to America's 250th anniversary
+- **Hero Section**: PBS Capitol Fourth-style landing with bold banners and call-to-action messaging
+- **Performers Section**: Showcase of Hannah Magnelli with professional credentials and performance highlights
 - **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
+- **Viewing Party Section**: PBS-style viewing party kit and watch options (inspired by Capitol Fourth)
 - **Token Section**: Information about the NFT tokenization with fully functional database-backed waitlist signup
 - **About Section**: Biography and social media links for Hannah Magnelli
 - **America250 Section**: Partnership information with official America250 commemoration

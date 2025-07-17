@@ -14,9 +14,10 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { href: "#about", label: "About" },
+    { href: "#performers", label: "Performers" },
+    { href: "#video", label: "Watch Anthem" },
     { href: "#token", label: "Token Launch" },
-    { href: "#anthem", label: "National Anthem" },
+    { href: "#about", label: "About Hannah" },
     { href: "#america250", label: "America250" },
   ];
 
@@ -29,7 +30,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-lg" : "bg-white"
+        isScrolled ? "bg-patriot-navy/95 backdrop-blur-sm shadow-lg" : "bg-patriot-navy"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +50,7 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-patriot-navy hover:text-patriot-red transition-colors font-medium"
+                className="text-white hover:text-yellow-300 transition-colors font-medium"
               >
                 {link.label}
               </a>
