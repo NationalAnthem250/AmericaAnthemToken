@@ -10,18 +10,16 @@ export default function PerformersSection() {
   };
 
   return (
-    <section id="performers" className="py-20 bg-gradient-to-br from-patriot-navy to-patriot-blue">
+    <section id="performers" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Clean PBS Style */}
         <div className="text-center mb-16">
-          <div className="bg-patriot-red/90 backdrop-blur-sm border-4 border-white/40 rounded-3xl p-8 mb-8 shadow-2xl">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-              FEATURED PERFORMER
-            </h2>
-            <p className="text-xl md:text-2xl text-yellow-300 font-bold">
-              Experience world-class classical artistry for America's 250th celebration
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-patriot-navy mb-4">
+            Featured Performer
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Experience world-class classical artistry for America's 250th celebration
+          </p>
         </div>
 
         {/* Hannah Magnelli Showcase */}

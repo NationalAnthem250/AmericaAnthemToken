@@ -41,134 +41,115 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-patriot-navy via-patriot-blue to-patriot-red min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* PBS-style Banner Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-patriot-navy/95 via-patriot-blue/90 to-patriot-red/95"></div>
+    <section className="relative bg-white min-h-screen flex items-center pt-16">
+      {/* Clean background with subtle patriotic accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white"></div>
       
-      {/* Animated Stars */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-white opacity-30 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${8 + Math.random() * 12}px`
-            }}
-          >
-            ⭐
+      {/* Subtle patriotic border elements */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-white to-patriot-blue"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-blue via-white to-patriot-red"></div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center">
+          {/* Logo */}
+          <div className="mb-12">
+            <img
+              src={logoImage}
+              alt="Hannah Magnelli America250"
+              className="mx-auto w-full max-w-2xl h-auto"
+            />
           </div>
-        ))}
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-white">
-        {/* Main Hero Banner - PBS Style */}
-        <div className="text-center mb-8">
-          {/* Primary Title Banner */}
-          <div className="bg-patriot-red/90 backdrop-blur-sm border-4 border-white/40 rounded-3xl p-8 mb-8 shadow-2xl">
-            <div className="mb-6">
-              <img
-                src={logoImage}
-                alt="Hannah Magnelli America250"
-                className="mx-auto w-full max-w-lg h-auto filter drop-shadow-xl"
-              />
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tight">
-              AMERICA ANTHEM TOKEN
+          
+          {/* Main Title - Clean PBS Style */}
+          <div className="mb-12">
+            <h1 className="text-5xl md:text-7xl font-black text-patriot-navy mb-6 leading-tight">
+              A Capitol Fourth
+              <span className="block text-patriot-red">America Anthem Token</span>
             </h1>
-            <div className="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">
-              CELEBRATING AMERICA'S BIRTHDAY
-            </div>
-            <p className="text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Join the historic celebration with professional mezzo soprano <strong>Hannah Magnelli's</strong> revolutionary tokenized National Anthem performance
-            </p>
-          </div>
-
-          {/* Call-to-Action Banner - PBS Style */}
-          <div className="bg-white/95 text-patriot-navy border-4 border-patriot-red rounded-2xl p-6 mb-8 shadow-2xl">
-            <h2 className="text-2xl md:text-4xl font-black mb-4 text-patriot-red">
-              🎆 CELEBRATE AMERICA'S BIRTHDAY BY JOINING THE TOKEN LAUNCH! 🎆
-            </h2>
-            <p className="text-xl md:text-2xl font-bold mb-4 text-patriot-navy">
-              WATCH HANNAH'S PERFORMANCE LIVE • JOIN THE EXCLUSIVE WAITLIST • BE PART OF HISTORY
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 text-sm md:text-base font-semibold">
-              <span className="bg-patriot-red text-white px-4 py-2 rounded-full">🎵 EXCLUSIVE NFT COLLECTION</span>
-              <span className="bg-patriot-blue text-white px-4 py-2 rounded-full">🏛️ OFFICIAL AMERICA250 PARTNERSHIP</span>
-              <span className="bg-yellow-500 text-patriot-navy px-4 py-2 rounded-full">⚡ LIMITED 1,776 TOKENS</span>
-            </div>
-          </div>
-
-          {/* Token Launch Information - PBS Style */}
-          <div className="bg-gradient-to-r from-patriot-blue/90 to-patriot-red/90 backdrop-blur-sm border-2 border-white/30 rounded-2xl p-6 mb-8 shadow-xl">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-yellow-300">
-              🗓️ TOKEN LAUNCH: JULY 4TH, 2026 • 8PM ET
-            </h3>
             
-            {/* Countdown Display */}
-            <div className="grid grid-cols-3 gap-4 mb-6 max-w-md mx-auto">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center">
-                <div className="text-2xl md:text-3xl font-black text-yellow-300">{timeLeft.years}</div>
-                <div className="text-sm font-bold opacity-90">YEARS</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center">
-                <div className="text-2xl md:text-3xl font-black text-yellow-300">{timeLeft.months}</div>
-                <div className="text-sm font-bold opacity-90">MONTHS</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center">
-                <div className="text-2xl md:text-3xl font-black text-yellow-300">{timeLeft.days}</div>
-                <div className="text-sm font-bold opacity-90">DAYS</div>
-              </div>
+            <div className="max-w-4xl mx-auto mb-8">
+              <p className="text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
+                Celebrating America's 250th Birthday with professional mezzo soprano <strong>Hannah Magnelli's</strong> 
+                historic tokenized performance of the Star-Spangled Banner
+              </p>
             </div>
 
-            {/* Token Details */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-              <div className="bg-white/15 rounded-lg p-3">
-                <div className="text-lg font-bold">1,776</div>
-                <div className="text-xs opacity-90">Total Tokens</div>
-              </div>
-              <div className="bg-white/15 rounded-lg p-3">
-                <div className="text-lg font-bold">0.25 ETH</div>
-                <div className="text-xs opacity-90">Price Each</div>
-              </div>
-              <div className="bg-white/15 rounded-lg p-3">
-                <div className="text-lg font-bold">🎭</div>
-                <div className="text-xs opacity-90">Mezzo-Soprano</div>
-              </div>
-              <div className="bg-white/15 rounded-lg p-3">
-                <div className="text-lg font-bold">🏛️</div>
-                <div className="text-xs opacity-90">America250</div>
+            {/* PBS-style Event Info Banner */}
+            <div className="bg-patriot-red text-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                JULY 4TH, 2026 • 8PM ET
+              </h2>
+              <p className="text-lg md:text-xl mb-4">
+                Watch the Token Launch Live from the U.S. Capitol
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+                <span className="bg-white/20 px-4 py-2 rounded">📺 STREAM LIVE</span>
+                <span className="bg-white/20 px-4 py-2 rounded">🎵 EXCLUSIVE NFT</span>
+                <span className="bg-white/20 px-4 py-2 rounded">🏛️ AMERICA250 OFFICIAL</span>
               </div>
             </div>
           </div>
 
-          {/* Action Buttons - PBS Style */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* Countdown Timer - Clean Design */}
+          <div className="bg-slate-100 border border-slate-200 rounded-lg p-8 mb-12 max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-patriot-navy mb-6">
+              Countdown to America's 250th Anniversary
+            </h3>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.years}</div>
+                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Years</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.months}</div>
+                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Months</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.days}</div>
+                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Days</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call-to-Action Buttons - PBS Style */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               onClick={() => scrollToSection("video")}
-              className="bg-patriot-red hover:bg-red-700 text-white font-black py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl border-2 border-white/50"
+              className="bg-patriot-red hover:bg-red-700 text-white font-bold py-4 px-8 text-lg rounded-md transition-all shadow-lg"
             >
-              <i className="fas fa-play mr-3"></i>
-              🎵 WATCH PERFORMANCE NOW
+              <i className="fas fa-play mr-2"></i>
+              Watch Performance
             </Button>
             
             <Button
               onClick={() => scrollToSection("token")}
-              className="bg-yellow-500 hover:bg-yellow-400 text-patriot-navy font-black py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-xl border-2 border-patriot-navy/30"
+              className="bg-patriot-blue hover:bg-blue-700 text-white font-bold py-4 px-8 text-lg rounded-md transition-all shadow-lg"
             >
-              <i className="fas fa-star mr-3"></i>
-              🚀 JOIN WAITLIST TODAY
+              <i className="fas fa-coins mr-2"></i>
+              Join Token Launch
             </Button>
           </div>
 
-          {/* Footer Information */}
-          <div className="mt-8 text-center opacity-95">
-            <p className="text-sm md:text-base font-medium">
-              Official partnership with <strong>America250.org</strong> • Powered by blockchain technology • #America250Token
-            </p>
+          {/* Token Launch Details */}
+          <div className="bg-white border border-slate-200 rounded-lg p-6 max-w-4xl mx-auto shadow-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-patriot-navy">1,776</div>
+                <div className="text-sm text-slate-600">Total Tokens</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-patriot-navy">0.25 ETH</div>
+                <div className="text-sm text-slate-600">Price Each</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-patriot-navy">Mezzo-Soprano</div>
+                <div className="text-sm text-slate-600">Professional Grade</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-patriot-navy">America250</div>
+                <div className="text-sm text-slate-600">Official Partner</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
