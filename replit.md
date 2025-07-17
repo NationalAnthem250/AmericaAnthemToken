@@ -36,8 +36,8 @@ Preferred communication style: Simple, everyday language.
 ## Key Components
 
 ### Frontend Components
-- **Navigation**: Fixed header with smooth scrolling to sections
-- **Hero Section**: PBS Capitol Fourth-style landing with bold banners and call-to-action messaging
+- **Navigation**: Fixed red header with white text and smooth scrolling to sections
+- **Hero Section**: Full-screen video background featuring Hannah's National Anthem performance with auto-play and fallback handling
 - **Performers Section**: Showcase of Hannah Magnelli with professional credentials and performance highlights
 - **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
 - **Viewing Party Section**: PBS-style viewing party kit and watch options (inspired by Capitol Fourth)
