@@ -5,6 +5,11 @@ export default function VideoSection() {
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
             EXPERIENCE THE <span className="text-patriot-red">NATIONAL ANTHEM</span>
+            <span className="block mt-2">
+              <span className="text-patriot-red">N</span>
+              <span className="text-white">F</span>
+              <span className="text-patriot-blue">T</span>
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Hannah Magnelli's powerful interpretation of "The Star-Spangled Banner" brings classical excellence to America's most treasured song
