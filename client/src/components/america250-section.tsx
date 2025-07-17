@@ -38,7 +38,13 @@ export default function America250Section() {
                   variant="outline"
                   className="border-2 border-white hover:bg-white hover:text-patriot-navy text-white font-bold py-3 px-6 rounded-full transition-all"
                 >
-                  Learn More
+                  <a
+                    href="https://en.wikipedia.org/wiki/United_States_Semiquincentennial"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn More
+                  </a>
                 </Button>
               </div>
             </div>
