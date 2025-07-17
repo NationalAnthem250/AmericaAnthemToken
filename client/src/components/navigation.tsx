@@ -40,7 +40,7 @@ export default function Navigation() {
             <img
               src="https://static.wixstatic.com/media/0e0c7c_1f143d393adb45b08f096242c8f00253~mv2.png/v1/fill/w_196,h_125,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Hannah%20Magnelli%20Logo.png"
               alt="Hannah Magnelli America250"
-              className="h-10 w-auto"
+              className="h-8 w-auto"
             />
             <div className="ml-3 border-l-2 border-white pl-3">
               <div className="text-white font-bold text-sm">America250</div>
