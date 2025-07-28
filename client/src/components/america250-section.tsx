@@ -67,7 +67,7 @@ export default function America250Section() {
               BE PART OF <span className="text-patriot-gold">HISTORY</span>
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
-              Join us in celebrating America's 250th anniversary with this groundbreaking fusion of classical artistry and blockchain innovation
+              Own a piece of American heritage with the first-ever NFT of our National Anthem, preserving this patriotic treasure for future generations
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

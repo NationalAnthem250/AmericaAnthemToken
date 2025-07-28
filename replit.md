@@ -1,8 +1,8 @@
-# Hannah Magnelli America250 - National Anthem Token Launch
+# Hannah Magnelli America250 - Historic National Anthem NFT Launch
 
 ## Overview
 
-This is a full-stack web application showcasing professional mezzo soprano Hannah Magnelli's tokenized version of the US National Anthem in commemoration of America's 250th anniversary. The application features a modern React frontend with a Node.js/Express backend, styled with Tailwind CSS and shadcn/ui components.
+This is a full-stack web application for the launch of the first-ever NFT of the US National Anthem, performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary. The platform allows patriotic Americans to own a digital piece of American heritage through this groundbreaking fusion of classical performance and blockchain technology. The application features a modern React frontend with a Node.js/Express backend, styled with Tailwind CSS and shadcn/ui components.
 
 ## User Preferences
 
@@ -41,7 +41,7 @@ Preferred communication style: Simple, everyday language.
 - **Performers Section**: Showcase of Hannah Magnelli with professional credentials and performance highlights
 - **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
 - **Viewing Party Section**: PBS-style viewing party kit and watch options (inspired by Capitol Fourth)
-- **Token Section**: Information about the NFT tokenization with fully functional database-backed waitlist signup
+- **NFT Section**: Historic first-ever National Anthem NFT launch with fully functional database-backed waitlist signup
 - **About Section**: Biography and social media links for Hannah Magnelli
 - **America250 Section**: Partnership information with official America250 commemoration
 - **Footer**: Site-wide footer with links and contact information

@@ -14,10 +14,10 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { href: "#performers", label: "Performers" },
-    { href: "#video", label: "Watch Anthem" },
-    { href: "#token", label: "Token Launch" },
-    { href: "#about", label: "About Hannah" },
+    { href: "#performers", label: "About Hannah" },
+    { href: "#video", label: "Watch Performance" },
+    { href: "#token", label: "NFT Launch" },
+    { href: "#about", label: "Own History" },
     { href: "#america250", label: "America250" },
   ];
 

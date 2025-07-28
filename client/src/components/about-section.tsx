@@ -42,10 +42,10 @@ export default function AboutSection() {
             </h2>
             <h3 className="text-2xl font-bold text-patriot-gold mb-6">MEZZO SOPRANO</h3>
             <p className="text-xl text-gray-300 mb-6 leading-relaxed">
-              Hannah Magnelli is a professional mezzo soprano and operatic singer who brings her elevated classical training to innovative popular music. Her rich, lyric voice has been praised as "one of the most beautiful I've heard in years" by industry professionals.
+              Hannah Magnelli is a professional mezzo soprano who has made history as the first artist to create an NFT of the US National Anthem. Her rich, lyric voice has been praised as "one of the most beautiful I've heard in years" by industry professionals.
             </p>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-              With her unique ability to bridge classical excellence and contemporary appeal, Hannah represents the perfect artist to honor America's 250th anniversary through this historic tokenized musical tribute.
+              By combining her classical excellence with groundbreaking digital innovation, Hannah offers patriotic Americans the opportunity to own a piece of American heritage in the form of this historic NFT, commemorating our nation's 250th anniversary.
             </p>
             
             {/* Social Media Links */}

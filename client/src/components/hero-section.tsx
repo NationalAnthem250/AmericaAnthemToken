@@ -127,45 +127,45 @@ export default function HeroSection() {
             />
           </div>
           
-          {/* Main Title - Video Background Enhanced */}
+          {/* Main Title - NFT Token Launch Focus */}
           <div className="mb-12">
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight text-shadow-lg">
-              Celebrate America's 250th Anniversary 
-              <span className="block text-patriot-gold">with Our Exclusive Token</span>
+              Own a Piece of 
+              <span className="block text-patriot-gold">American History</span>
             </h1>
             
             <div className="max-w-4xl mx-auto mb-8">
               <p className="text-xl md:text-2xl text-white font-medium leading-relaxed text-shadow-md">
-                Professional mezzo soprano <strong className="text-patriot-gold">Hannah Magnelli</strong> presents the ultimate patriotic tribute - 
-                a tokenized version of the Star-Spangled Banner featuring authentic American landmarks and exclusive ownership
+                The <strong className="text-patriot-gold">first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
+                <strong className="text-patriot-gold"> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
               </p>
             </div>
 
-            {/* Enhanced Event Info Banner with Video Background */}
+            {/* NFT Token Launch Banner */}
             <div className="bg-black/60 backdrop-blur-sm text-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto mb-8 border border-patriot-gold/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-patriot-gold text-patriot-navy px-6 py-2 rounded-full font-black text-lg">
-                  OFFICIAL AMERICA250 PARTNERSHIP
+                  HISTORIC NFT TOKEN LAUNCH
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-shadow-md">
-                JULY 4TH, 2026 • 8PM ET
+                JULY 4TH, 2026 • AMERICA'S 250TH BIRTHDAY
               </h2>
               <p className="text-lg md:text-xl mb-4 text-shadow-sm">
-                Watch the Token Launch Live from the U.S. Capitol
+                Be among the first patriotic Americans to own this exclusive digital piece of our nation's heritage
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
-                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">📺 STREAM LIVE</span>
-                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🎵 EXCLUSIVE TOKEN</span>
-                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🏛️ HISTORIC LANDMARKS</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🏛️ FIRST ANTHEM NFT</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🎵 HANNAH MAGNELLI</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🇺🇸 250TH ANNIVERSARY</span>
               </div>
             </div>
           </div>
 
-          {/* Countdown Timer - Clean Design */}
+          {/* Countdown Timer - NFT Launch */}
           <div className="bg-slate-100 border border-slate-200 rounded-lg p-8 mb-12 max-w-2xl mx-auto">
             <h3 className="text-xl font-bold text-patriot-navy mb-6">
-              Countdown to America's 250th Anniversary
+              Countdown to Historic NFT Launch
             </h3>
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">

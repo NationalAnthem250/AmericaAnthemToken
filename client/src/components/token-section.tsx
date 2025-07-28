@@ -14,11 +14,15 @@ export default function TokenSection() {
 
   const joinWaitlistMutation = useMutation({
     mutationFn: async (data: { name: string; email: string }) => {
-      return apiRequest("/api/waitlist", {
+      const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+      if (!response.ok) {
+        throw new Error('Failed to join waitlist');
+      }
+      return response.json();
     },
     onSuccess: () => {
       toast({
@@ -62,43 +66,43 @@ export default function TokenSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            <span className="text-patriot-red">TOKENIZATION</span> OF HISTORY
+            <span className="text-patriot-red">FIRST EVER</span> ANTHEM NFT
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Be part of history as we launch the first tokenized version of the US National Anthem, commemorating America's 250th anniversary
+            Own a digital piece of American heritage with the first-ever NFT of the US National Anthem, performed by Hannah Magnelli in commemoration of America's 250th anniversary. Join patriotic Americans in preserving our nation's most treasured song.
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {/* Token Feature 1 */}
+          {/* NFT Feature 1 */}
           <Card className="bg-gradient-to-br from-[hsl(221,83%,53%)] to-[hsl(215,28%,17%)] text-white rounded-2xl p-8 shadow-xl">
             <div className="text-center">
-              <i className="fas fa-coins text-4xl text-patriot-gold mb-4"></i>
-              <h3 className="text-2xl font-bold mb-4">Limited Edition NFT</h3>
+              <i className="fas fa-certificate text-4xl text-patriot-gold mb-4"></i>
+              <h3 className="text-2xl font-bold mb-4">First Anthem NFT</h3>
               <p className="text-gray-200">
-                Exclusive digital collectible commemorating this historic musical tribute to America's 250th anniversary
+                Own the very first NFT of the US National Anthem, a historic digital collectible celebrating America's 250th birthday
               </p>
             </div>
           </Card>
           
-          {/* Token Feature 2 */}
+          {/* NFT Feature 2 */}
           <Card className="bg-gradient-to-br from-[hsl(0,79%,49%)] to-red-700 text-white rounded-2xl p-8 shadow-xl">
             <div className="text-center">
-              <i className="fas fa-music text-4xl text-white mb-4"></i>
-              <h3 className="text-2xl font-bold mb-4">Classical Excellence</h3>
+              <i className="fas fa-microphone text-4xl text-white mb-4"></i>
+              <h3 className="text-2xl font-bold mb-4">Hannah Magnelli</h3>
               <p className="text-gray-200">
-                Hannah's professional mezzo soprano training brings unparalleled artistry to this patriotic masterpiece
+                Professional mezzo soprano brings classical excellence to this groundbreaking patriotic digital masterpiece
               </p>
             </div>
           </Card>
           
-          {/* Token Feature 3 */}
+          {/* NFT Feature 3 */}
           <Card className="bg-gradient-to-br from-[hsl(45,93%,47%)] to-yellow-600 text-white rounded-2xl p-8 shadow-xl">
             <div className="text-center">
-              <i className="fas fa-flag-usa text-4xl text-white mb-4"></i>
-              <h3 className="text-2xl font-bold mb-4">Historic Milestone</h3>
+              <i className="fas fa-landmark text-4xl text-white mb-4"></i>
+              <h3 className="text-2xl font-bold mb-4">American Heritage</h3>
               <p className="text-gray-200">
-                Celebrate 250 years of American independence with this groundbreaking fusion of tradition and innovation
+                Preserve our nation's most treasured song in digital form for future generations of patriotic Americans
               </p>
             </div>
           </Card>
@@ -108,27 +112,27 @@ export default function TokenSection() {
         <Card className="bg-gray-50 rounded-2xl p-8 lg:p-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-black text-patriot-navy mb-6">Token Launch Details</h3>
+              <h3 className="text-3xl font-black text-patriot-navy mb-6">NFT Collection Details</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <i className="fas fa-calendar text-patriot-red mr-3"></i>
                   <span className="font-semibold">Launch Date:</span>
-                  <span className="ml-2">July 4, 2026</span>
+                  <span className="ml-2">July 4, 2026 - America's 250th Birthday</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-hashtag text-patriot-red mr-3"></i>
-                  <span className="font-semibold">Total Supply:</span>
-                  <span className="ml-2">1,776 Tokens</span>
+                  <span className="font-semibold">Limited Edition:</span>
+                  <span className="ml-2">1,776 NFTs (Commemorating 1776)</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-star text-patriot-red mr-3"></i>
-                  <span className="font-semibold">Initial Price:</span>
+                  <span className="font-semibold">Starting Price:</span>
                   <span className="ml-2">0.25 ETH</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-shield-alt text-patriot-red mr-3"></i>
                   <span className="font-semibold">Blockchain:</span>
-                  <span className="ml-2">Ethereum</span>
+                  <span className="ml-2">Ethereum Network</span>
                 </div>
               </div>
               
