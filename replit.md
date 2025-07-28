@@ -1,4 +1,4 @@
-# Hannah Magnelli America250 - 250STAR Token Launch
+# Anthem250 - 250STAR Token Launch
 
 ## Overview
 
