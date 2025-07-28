@@ -133,6 +133,11 @@ export default function HeroSection() {
               Own a Piece of 
               <span className="block text-patriot-gold">American History</span>
             </h1>
+            <div className="mb-6">
+              <span className="bg-patriot-gold text-patriot-navy px-6 py-3 rounded-full font-black text-2xl shadow-lg">
+                $250STAR TOKEN
+              </span>
+            </div>
             
             <div className="max-w-4xl mx-auto mb-8">
               <p className="text-xl md:text-2xl text-white font-medium leading-relaxed text-shadow-md">
@@ -145,7 +150,7 @@ export default function HeroSection() {
             <div className="bg-black/60 backdrop-blur-sm text-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto mb-8 border border-patriot-gold/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-patriot-gold text-patriot-navy px-6 py-2 rounded-full font-black text-lg">
-                  HISTORIC NFT TOKEN LAUNCH
+                  250STAR HISTORIC TOKEN LAUNCH
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-shadow-md">
@@ -155,7 +160,7 @@ export default function HeroSection() {
                 Be among the first patriotic Americans to own this exclusive digital piece of our nation's heritage
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold">
-                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🏛️ FIRST ANTHEM NFT</span>
+                <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🏛️ $250STAR TOKEN</span>
                 <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🎵 HANNAH MAGNELLI</span>
                 <span className="bg-patriot-gold/30 px-4 py-2 rounded border border-patriot-gold/50">🇺🇸 250TH ANNIVERSARY</span>
               </div>

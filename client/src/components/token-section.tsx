@@ -66,8 +66,13 @@ export default function TokenSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            <span className="text-patriot-red">FIRST EVER</span> ANTHEM NFT
+            <span className="text-patriot-red">250STAR</span> TOKEN LAUNCH
           </h2>
+          <div className="mb-6">
+            <span className="bg-patriot-navy text-white px-6 py-2 rounded-full font-bold text-xl">
+              First Ever National Anthem NFT
+            </span>
+          </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Own a digital piece of American heritage with the first-ever NFT of the US National Anthem, performed by Hannah Magnelli in commemoration of America's 250th anniversary. Join patriotic Americans in preserving our nation's most treasured song.
           </p>
@@ -112,8 +117,18 @@ export default function TokenSection() {
         <Card className="bg-gray-50 rounded-2xl p-8 lg:p-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-black text-patriot-navy mb-6">NFT Collection Details</h3>
+              <h3 className="text-3xl font-black text-patriot-navy mb-6">250STAR Token Details</h3>
               <div className="space-y-4">
+                <div className="flex items-center">
+                  <i className="fas fa-coins text-patriot-red mr-3"></i>
+                  <span className="font-semibold">Token Name:</span>
+                  <span className="ml-2 font-bold">250STAR</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="fas fa-tag text-patriot-red mr-3"></i>
+                  <span className="font-semibold">Ticker Symbol:</span>
+                  <span className="ml-2 font-bold">$250STAR</span>
+                </div>
                 <div className="flex items-center">
                   <i className="fas fa-calendar text-patriot-red mr-3"></i>
                   <span className="font-semibold">Launch Date:</span>
