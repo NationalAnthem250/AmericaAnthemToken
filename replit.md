@@ -42,7 +42,8 @@ Preferred communication style: Simple, everyday language.
 - **Performers Section**: Showcase of Hannah Magnelli with professional credentials and performance highlights
 - **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
 - **Viewing Party Section**: PBS-style viewing party kit and watch options (inspired by Capitol Fourth)
-- **NFT Section**: Historic first-ever National Anthem NFT launch with fully functional database-backed waitlist signup
+- **Token Section**: 250STAR token launch details with fully functional database-backed waitlist signup
+- **NFT Section**: Comprehensive NFT collection showcase with featured cards, stats, benefits, and holder utilities
 - **About Section**: Biography and social media links for Hannah Magnelli
 - **America250 Section**: Partnership information with official America250 commemoration
 - **Footer**: Site-wide footer with links and contact information

@@ -4,6 +4,7 @@ import PerformersSection from "@/components/performers-section";
 import VideoSection from "@/components/video-section";
 import ViewingPartySection from "@/components/viewing-party-section";
 import TokenSection from "@/components/token-section";
+import { NFTSection } from "@/components/nft-section";
 import AboutSection from "@/components/about-section";
 import America250Section from "@/components/america250-section";
 import Footer from "@/components/footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <PerformersSection />
         <ViewingPartySection />
         <TokenSection />
+        <NFTSection />
         <AboutSection />
         <America250Section />
       </main>

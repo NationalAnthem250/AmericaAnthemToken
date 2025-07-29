@@ -17,6 +17,7 @@ export default function Navigation() {
     { href: "#performers", label: "About Hannah" },
     { href: "#video", label: "Watch Performance" },
     { href: "#token", label: "250STAR Launch" },
+    { href: "#nft", label: "NFT Collection" },
     { href: "#about", label: "Own History" },
     { href: "#america250", label: "America250" },
   ];
