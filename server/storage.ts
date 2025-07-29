@@ -1,6 +1,6 @@
-import { users, waitlistEntries, type User, type InsertUser, type WaitlistEntry, type InsertWaitlist } from "@shared/schema";
+import { users, waitlistEntries, chatMessages, type User, type InsertUser, type WaitlistEntry, type InsertWaitlist, type ChatMessage, type InsertChatMessage } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -9,6 +9,9 @@ export interface IStorage {
   createWaitlistEntry(entry: InsertWaitlist): Promise<WaitlistEntry>;
   getWaitlistEntries(): Promise<WaitlistEntry[]>;
   getWaitlistEntryByEmail(email: string): Promise<WaitlistEntry | undefined>;
+  createChatMessage(message: InsertChatMessage): Promise<ChatMessage>;
+  getChatMessages(): Promise<ChatMessage[]>;
+  markChatMessageAsRead(id: number): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -45,6 +48,24 @@ export class DatabaseStorage implements IStorage {
   async getWaitlistEntryByEmail(email: string): Promise<WaitlistEntry | undefined> {
     const [entry] = await db.select().from(waitlistEntries).where(eq(waitlistEntries.email, email));
     return entry || undefined;
+  }
+
+  async createChatMessage(insertMessage: InsertChatMessage): Promise<ChatMessage> {
+    const [message] = await db
+      .insert(chatMessages)
+      .values(insertMessage)
+      .returning();
+    return message;
+  }
+
+  async getChatMessages(): Promise<ChatMessage[]> {
+    return await db.select().from(chatMessages).orderBy(desc(chatMessages.createdAt));
+  }
+
+  async markChatMessageAsRead(id: number): Promise<void> {
+    await db.update(chatMessages)
+      .set({ isRead: true })
+      .where(eq(chatMessages.id, id));
   }
 }
 
