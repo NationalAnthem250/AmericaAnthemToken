@@ -35,7 +35,7 @@ export function NFTSection() {
                 </div>
                 <p className="text-gray-300 text-sm">The original National Anthem NFT featuring high-resolution video and audio of Hannah's performance</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">0.25 ETH</span>
+                  <span className="text-patriot-gold font-bold">$750</span>
                   <Button size="sm" className="bg-patriot-red hover:bg-patriot-red/90 text-white">
                     View Details
                   </Button>
@@ -61,7 +61,7 @@ export function NFTSection() {
                 </div>
                 <p className="text-gray-300 text-sm">Exclusive behind-the-scenes content and alternate takes from the recording session</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">0.15 ETH</span>
+                  <span className="text-patriot-gold font-bold">$450</span>
                   <Button size="sm" className="bg-patriot-blue hover:bg-patriot-blue/90 text-white">
                     View Details
                   </Button>
@@ -87,7 +87,7 @@ export function NFTSection() {
                 </div>
                 <p className="text-gray-300 text-sm">Special edition commemorating America's 250th anniversary with historic imagery</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">0.25 ETH</span>
+                  <span className="text-patriot-gold font-bold">$750</span>
                   <Button size="sm" className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy">
                     View Details
                   </Button>
@@ -104,12 +104,12 @@ export function NFTSection() {
             <div className="text-white text-sm">Total Supply</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-red mb-2">0.25</div>
-            <div className="text-white text-sm">Floor Price (ETH)</div>
+            <div className="text-3xl font-bold text-patriot-red mb-2">$450</div>
+            <div className="text-white text-sm">Floor Price (USD)</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-blue mb-2">47.2K</div>
-            <div className="text-white text-sm">Total Volume</div>
+            <div className="text-3xl font-bold text-patriot-blue mb-2">$1.2M</div>
+            <div className="text-white text-sm">Total Volume (USD)</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
             <div className="text-3xl font-bold text-patriot-gold mb-2">12.4K</div>

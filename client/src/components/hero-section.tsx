@@ -228,9 +228,9 @@ export default function HeroSection() {
                 <div className="text-xs text-patriot-gold font-semibold">250STAR Tokens</div>
               </div>
               <div className="bg-patriot-red/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
-                <div className="text-2xl font-bold text-patriot-red">0.25 ETH</div>
+                <div className="text-2xl font-bold text-patriot-red">$0.25</div>
                 <div className="text-sm text-gray-300">Price Each</div>
-                <div className="text-xs text-patriot-gold font-semibold">Fixed Price</div>
+                <div className="text-xs text-patriot-gold font-semibold">USD Fixed</div>
               </div>
               <div className="bg-patriot-blue/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
                 <div className="text-2xl font-bold text-patriot-blue">🎭</div>
