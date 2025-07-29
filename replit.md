@@ -32,6 +32,7 @@ Preferred communication style: Simple, everyday language.
 - **Migrations**: Drizzle Kit for schema migrations via `npm run db:push`
 - **Schema**: Shared TypeScript schema definitions with Zod validation
 - **Tables**: Users table and Waitlist entries table with email uniqueness constraints
+- **Token Details**: 250STAR token with 1,776,000 total supply commemorating 1776
 
 ## Key Components
 
