@@ -37,14 +37,13 @@ Preferred communication style: Simple, everyday language.
 ## Key Components
 
 ### Frontend Components
-- **Navigation**: Fixed red header with white text and smooth scrolling to sections
+- **Navigation**: Fixed red header with countdown timer, optimized navigation links, and prominent "Join Waitlist" CTA button
 - **Hero Section**: Full-screen video background featuring Hannah's National Anthem performance with auto-play and fallback handling
-- **Performers Section**: Showcase of Hannah Magnelli with professional credentials and performance highlights
-- **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance
-- **Viewing Party Section**: PBS-style viewing party kit and watch options (inspired by Capitol Fourth)
-- **Token Section**: 250STAR token launch details with fully functional database-backed waitlist signup
+- **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance (now serves as About section)
+- **Tokenomics Section**: Professional token allocation visualization with supply details, pricing, and utility benefits
+- **How to Participate**: 3-step conversion flow (Join Waitlist → Connect Wallet → Own History) with integrated email signup
 - **NFT Section**: Comprehensive NFT collection showcase with featured cards, stats, benefits, and holder utilities
-- **About Section**: Biography and social media links for Hannah Magnelli
+- **Performers Section**: Showcase of Hannah Magnelli as team member with professional credentials (now serves as Team section)
 - **America250 Section**: Partnership information with official America250 commemoration
 - **Footer**: Site-wide footer with links and contact information
 

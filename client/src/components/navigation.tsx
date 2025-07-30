@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
+import CountdownTimer from "./countdown-timer";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,12 +15,12 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { href: "#performers", label: "About Hannah" },
-    { href: "#video", label: "Watch Performance" },
-    { href: "#token", label: "250STAR Launch" },
+    { href: "#about", label: "About" },
+    { href: "#tokenomics", label: "Tokenomics" },
+    { href: "#participate", label: "How to Join" },
     { href: "#nft", label: "NFT Collection" },
-    { href: "#about", label: "Own History" },
-    { href: "#america250", label: "America250" },
+    { href: "#performers", label: "Team" },
+    { href: "#america250", label: "Partnership" },
   ];
 
   const socialLinks = [
@@ -50,7 +51,7 @@ export default function Navigation() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -62,29 +63,20 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Social Icons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="http://instagram.com/hannah_magnelli"
-              className="text-white hover:text-patriot-gold transition-colors"
-              aria-label="Instagram"
+          {/* Countdown Timer */}
+          <div className="hidden md:block">
+            <CountdownTimer />
+          </div>
+
+          {/* Join Waitlist CTA */}
+          <div className="hidden lg:block">
+            <Button 
+              className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
+              onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB"
-              className="text-white hover:text-patriot-gold transition-colors"
-              aria-label="Spotify"
-            >
-              <Music className="w-5 h-5" />
-            </a>
-            <a
-              href="https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg"
-              className="text-white hover:text-patriot-gold transition-colors"
-              aria-label="YouTube"
-            >
-              <i className="fab fa-youtube text-xl"></i>
-            </a>
+              <i className="fas fa-star mr-2"></i>
+              Join Waitlist
+            </Button>
           </div>
 
           {/* Mobile menu */}
