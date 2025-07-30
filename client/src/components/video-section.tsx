@@ -2,13 +2,7 @@ export default function VideoSection() {
   return (
     <section id="anthem" className="py-20 bg-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Image */}
         <div className="text-center mb-12">
-          <img
-            src="@assets/ChatGPT Image Jul 29, 2025, 07_56_11 PM_1753875731882.png"
-            alt="Hannah Magnelli Anthem250 - Creating America's 250th Anniversary"
-            className="mx-auto mb-8 max-w-lg w-full h-auto rounded-lg shadow-2xl"
-          />
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
             OWN PART OF <span className="text-patriot-red">AMERICAN HISTORY</span>
           </h2>
