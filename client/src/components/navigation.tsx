@@ -37,13 +37,11 @@ export default function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Brand Text */}
           <div className="flex items-center">
-            <img
-              src="@assets/Gemini_Generated_Image_r2n0zir2n0zir2n0_1754501993606.png"
-              alt="250 - Hannah Magnelli Celebrates America's 250th Anniversary - The National Anthem"
-              className="h-12 w-auto"
-            />
+            <h1 className="text-xl font-black text-white">
+              ANTHEM250
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
