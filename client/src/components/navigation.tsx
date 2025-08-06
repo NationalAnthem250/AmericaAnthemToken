@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
-import CountdownTimer from "./countdown-timer";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,11 +54,6 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
-          </div>
-
-          {/* Countdown Timer */}
-          <div className="hidden md:block">
-            <CountdownTimer />
           </div>
 
           {/* Join Waitlist CTA */}
