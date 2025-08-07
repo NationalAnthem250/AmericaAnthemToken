@@ -56,8 +56,15 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Join Waitlist CTA */}
-          <div className="hidden lg:block">
+          {/* CTAs */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button 
+              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold"
+              onClick={() => window.open('https://discord.gg/JzntkGdA', '_blank')}
+            >
+              <i className="fab fa-discord mr-2"></i>
+              Join Discord
+            </Button>
             <Button 
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
               onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
@@ -86,21 +93,37 @@ export default function Navigation() {
                       {link.label}
                     </a>
                   ))}
-                  <div className="flex items-center space-x-4 pt-4">
-                    {socialLinks.map((social) => (
-                      <a
-                        key={social.href}
-                        href={social.href}
-                        className="text-patriot-navy hover:text-patriot-red transition-colors"
-                        aria-label={social.label}
-                      >
-                        {typeof social.icon === "string" ? (
-                          <i className={`${social.icon} text-xl`}></i>
-                        ) : (
-                          <social.icon className="w-5 h-5" />
-                        )}
-                      </a>
-                    ))}
+                  <div className="space-y-4 pt-4">
+                    <Button 
+                      className="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold"
+                      onClick={() => window.open('https://discord.gg/JzntkGdA', '_blank')}
+                    >
+                      <i className="fab fa-discord mr-2"></i>
+                      Join Discord
+                    </Button>
+                    <Button 
+                      className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
+                      onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      <i className="fas fa-star mr-2"></i>
+                      Join Waitlist
+                    </Button>
+                    <div className="flex items-center space-x-4 pt-4">
+                      {socialLinks.map((social) => (
+                        <a
+                          key={social.href}
+                          href={social.href}
+                          className="text-patriot-navy hover:text-patriot-red transition-colors"
+                          aria-label={social.label}
+                        >
+                          {typeof social.icon === "string" ? (
+                            <i className={`${social.icon} text-xl`}></i>
+                          ) : (
+                            <social.icon className="w-5 h-5" />
+                          )}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </SheetContent>
