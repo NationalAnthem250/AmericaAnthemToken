@@ -69,8 +69,14 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 Hannah Magnelli. Celebrating America's 250th Anniversary. All rights reserved.</p>
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <div className="mb-4">
+            <p className="text-xl md:text-2xl text-yellow-400 font-medium leading-relaxed">
+              The <strong>first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
+              <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
+            </p>
+          </div>
+          <p className="text-gray-400">&copy; 2026 Hannah Magnelli. Celebrating America's 250th Anniversary. All rights reserved.</p>
         </div>
       </div>
     </footer>
