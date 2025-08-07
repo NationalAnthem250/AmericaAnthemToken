@@ -18,10 +18,10 @@ export default function HeroSection() {
         <img
           src={heroImage}
           alt="Hannah Magnelli performing the National Anthem"
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
           style={{
-            width: '100vw',
-            height: '100vh',
+            width: '75vw',
+            height: '75vh',
             objectFit: 'cover'
           }}
         />
