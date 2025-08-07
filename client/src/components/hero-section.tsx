@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import logoImage from "@assets/ChatGPT Image Jul 14, 2025, 01_49_41 PM_1752533531371.png";
+import heroImage from "@assets/IMG_4165_1754527909411.jpeg";
 
 export default function HeroSection() {
   const [timeLeft, setTimeLeft] = useState({
@@ -42,71 +43,18 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Full-screen MP4 video background */}
+      {/* Full-screen image background */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          id="hero-video"
-          autoPlay
-          loop
-          playsInline
+        <img
+          src={heroImage}
+          alt="Hannah Magnelli performing the National Anthem"
           className="absolute top-0 left-0 w-full h-full object-cover"
           style={{
             width: '100vw',
             height: '100vh',
             objectFit: 'cover'
           }}
-          onLoadedData={() => {
-            const video = document.getElementById('hero-video') as HTMLVideoElement;
-            const fallback = document.getElementById('video-fallback');
-            if (video && fallback) {
-              // Try to play with sound first
-              video.muted = false;
-              video.play().catch(() => {
-                // If blocked, show fallback overlay
-                fallback.style.display = 'flex';
-              });
-            }
-          }}
-        >
-          <source src="/hannah-anthem.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Click-to-play fallback overlay */}
-        <div 
-          id="video-fallback" 
-          className="absolute inset-0 bg-patriot-navy/90 flex items-center justify-center cursor-pointer z-20 transition-opacity duration-500"
-          onClick={() => {
-            const video = document.getElementById('hero-video') as HTMLVideoElement;
-            const fallback = document.getElementById('video-fallback');
-            if (video && fallback) {
-              video.muted = false;
-              video.play().then(() => {
-                fallback.style.opacity = '0';
-                setTimeout(() => fallback.style.display = 'none', 500);
-              }).catch(() => {
-                // If still blocked, try muted then unmute
-                video.muted = true;
-                video.play().then(() => {
-                  fallback.style.opacity = '0';
-                  setTimeout(() => {
-                    fallback.style.display = 'none';
-                    video.muted = false;
-                  }, 500);
-                });
-              });
-            }
-          }}
-          style={{ display: 'none' }}
-        >
-          <div className="text-center text-white">
-            <div className="bg-patriot-red/80 backdrop-blur-sm rounded-full p-8 mb-6 inline-block">
-              <i className="fas fa-play text-6xl"></i>
-            </div>
-            <h3 className="text-3xl font-bold mb-4 text-shadow-lg">Experience Hannah's Performance</h3>
-            <p className="text-xl text-gray-300 text-shadow-md">Click to play the National Anthem video background</p>
-          </div>
-        </div>
+        />
       </div>
       
       {/* Dark overlay for better text readability */}
