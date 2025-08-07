@@ -18,7 +18,7 @@ export default function Navigation() {
     { href: "#tokenomics", label: "Tokenomics" },
     { href: "#participate", label: "How to Join" },
     { href: "#nft", label: "NFT Collection" },
-    { href: "#performers", label: "Team" },
+    { href: "#hannah", label: "Hannah" },
     { href: "#america250", label: "Partnership" },
   ];
 
