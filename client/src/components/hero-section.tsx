@@ -73,26 +73,7 @@ export default function HeroSection() {
 
           </div>
 
-          {/* Countdown Timer - NFT Launch */}
-          <div className="bg-slate-100 border border-slate-200 rounded-lg p-8 mb-12 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-patriot-navy mb-6">
-              Countdown to Historic NFT Launch
-            </h3>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.years}</div>
-                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Years</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.months}</div>
-                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Months</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-patriot-red mb-2">{timeLeft.days}</div>
-                <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Days</div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Enhanced Call-to-Action Buttons with Gold Accent */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
