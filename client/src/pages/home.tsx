@@ -25,6 +25,17 @@ export default function Home() {
         </section>
         <America250Section />
       </main>
+      
+      {/* Prominent Statement Section */}
+      <section className="bg-patriot-navy py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-2xl md:text-3xl text-yellow-400 font-medium leading-relaxed">
+            The <strong>first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
+            <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
+          </p>
+        </div>
+      </section>
+      
       <Footer />
     </div>
   );
