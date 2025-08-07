@@ -43,7 +43,7 @@ export default function America250Section() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-2 border-white hover:bg-white hover:text-patriot-navy text-white font-bold py-3 px-6 rounded-full transition-all"
+                  className="border-2 border-black hover:bg-black hover:text-white text-black bg-white font-bold py-3 px-6 rounded-full transition-all"
                 >
                   <a
                     href="https://en.wikipedia.org/wiki/United_States_Semiquincentennial"
