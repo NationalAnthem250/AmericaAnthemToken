@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 
 export default function America250Section() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="america250" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +78,10 @@ export default function America250Section() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white hover:bg-gray-100 text-patriot-red font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+              <Button 
+                className="bg-white hover:bg-gray-100 text-patriot-red font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
+                onClick={() => scrollToSection('participate')}
+              >
                 <i className="fas fa-envelope mr-2"></i>
                 Get Notified at Launch
               </Button>
