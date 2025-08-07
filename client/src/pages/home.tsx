@@ -1,6 +1,7 @@
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import VideoSection from "@/components/video-section";
+import HannahBioSection from "@/components/hannah-bio-section";
 import TokenomicsSection from "@/components/tokenomics-section";
 import HowToParticipate from "@/components/how-to-participate";
 import { NFTSection } from "@/components/nft-section";
@@ -17,6 +18,7 @@ export default function Home() {
         <section id="about">
           <VideoSection />
         </section>
+        <HannahBioSection />
         <TokenomicsSection />
         <HowToParticipate />
         <NFTSection />
