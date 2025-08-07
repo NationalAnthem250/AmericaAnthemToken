@@ -44,11 +44,11 @@ export default function HeroSection() {
   return (
     <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Full-screen image background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full z-0">
         <img
           src={heroImage}
           alt="Hannah Magnelli performing the National Anthem"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover z-10"
           style={{
             width: '100vw',
             height: '100vh',
@@ -58,13 +58,13 @@ export default function HeroSection() {
       </div>
       
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/20 z-20"></div>
       
       {/* Patriotic border elements */}
-      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue z-10"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-blue via-patriot-gold to-patriot-red z-10"></div>
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue z-30"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-blue via-patriot-gold to-patriot-red z-30"></div>
       
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           {/* Logo */}
           <div className="mb-12">
