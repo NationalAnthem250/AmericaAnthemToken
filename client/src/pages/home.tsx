@@ -5,7 +5,6 @@ import HannahBioSection from "@/components/hannah-bio-section";
 import TokenomicsSection from "@/components/tokenomics-section";
 import HowToParticipate from "@/components/how-to-participate";
 import { NFTSection } from "@/components/nft-section";
-import PerformersSection from "@/components/performers-section";
 import America250Section from "@/components/america250-section";
 import Footer from "@/components/footer";
 
@@ -22,9 +21,6 @@ export default function Home() {
         <TokenomicsSection />
         <HowToParticipate />
         <NFTSection />
-        <section id="performers">
-          <PerformersSection />
-        </section>
         <America250Section />
       </main>
       <Footer />
