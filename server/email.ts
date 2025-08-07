@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import type { ChatMessage, WaitlistEntry } from '@shared/schema';
 
-const ADMIN_EMAIL = 'gaspar.david@gmail.com';
+const ADMIN_EMAIL = 'anthem250th@gmail.com';
 
 // Create transporter (using Gmail for simplicity - you'll need to provide app password)
 const createTransporter = () => {
