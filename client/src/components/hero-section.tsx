@@ -65,18 +65,8 @@ export default function HeroSection() {
       
       <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          {/* Main Title - NFT Token Launch Focus */}
+          {/* Description */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight text-shadow-lg">
-              Own a Piece of 
-              <span className="block text-patriot-gold">American History</span>
-            </h1>
-            <div className="mb-6">
-              <span className="bg-patriot-gold text-patriot-navy px-6 py-3 rounded-full font-black text-2xl shadow-lg">
-                $250STAR TOKEN
-              </span>
-            </div>
-            
             <div className="max-w-4xl mx-auto mb-8">
               <p className="text-xl md:text-2xl text-white font-medium leading-relaxed text-shadow-md">
                 The <strong className="text-patriot-gold">first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
