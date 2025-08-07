@@ -46,32 +46,7 @@ export default function HeroSection() {
 
 
 
-          {/* Enhanced Call-to-Action Buttons with Gold Accent */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              onClick={() => scrollToSection("video")}
-              className="bg-patriot-gold hover:bg-patriot-gold-hover text-patriot-navy font-bold py-4 px-8 text-lg rounded-md transition-all shadow-lg transform hover:scale-105"
-            >
-              <i className="fas fa-play mr-2"></i>
-              Watch Performance
-            </Button>
-            
-            <Button
-              onClick={() => scrollToSection("token")}
-              className="bg-patriot-red hover:bg-patriot-red-hover text-white font-bold py-4 px-8 text-lg rounded-md transition-all shadow-lg transform hover:scale-105"
-            >
-              <i className="fas fa-coins mr-2"></i>
-              Get Started
-            </Button>
-            
-            <Button
-              onClick={() => scrollToSection("about")}
-              className="bg-patriot-blue hover:bg-patriot-blue-hover text-white font-bold py-4 px-8 text-lg rounded-md transition-all shadow-lg transform hover:scale-105"
-            >
-              <i className="fas fa-file-alt mr-2"></i>
-              View Whitepaper
-            </Button>
-          </div>
+
 
 
         </div>
