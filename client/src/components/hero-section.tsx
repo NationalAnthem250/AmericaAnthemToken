@@ -1,37 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useEffect, useState } from "react";
 import heroImage from "@assets/IMG_4165_1754527909411.jpeg";
 
 export default function HeroSection() {
-  const [timeLeft, setTimeLeft] = useState({
-    years: 0,
-    months: 11,
-    days: 20,
-  });
-
-  useEffect(() => {
-    // Calculate time until July 4, 2026
-    const targetDate = new Date("2026-07-04T00:00:00");
-    
-    const updateCountdown = () => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-      
-      if (difference > 0) {
-        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
-        const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-        
-        setTimeLeft({ years, months, days });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 86400000); // Update daily
-
-    return () => clearInterval(interval);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
