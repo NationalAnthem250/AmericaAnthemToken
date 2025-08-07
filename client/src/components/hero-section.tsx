@@ -73,35 +73,7 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Enhanced Token Launch Details with Video Background */}
-          <div className="bg-black/60 backdrop-blur-sm border border-patriot-gold/50 rounded-lg p-8 max-w-4xl mx-auto shadow-lg">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-white mb-2 text-shadow-md">Featuring Authentic American Landmarks</h3>
-              <p className="text-gray-300 text-shadow-sm">High-resolution imagery of Liberty Bell, Capitol Dome, and historic sites</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="bg-patriot-navy/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
-                <div className="text-2xl font-bold text-white">1.776M</div>
-                <div className="text-sm text-gray-300">Total Supply</div>
-                <div className="text-xs text-patriot-gold font-semibold">250STAR Tokens</div>
-              </div>
-              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
-                <div className="text-2xl font-bold text-patriot-red">$0.25</div>
-                <div className="text-sm text-gray-300">Price Each</div>
-                <div className="text-xs text-patriot-gold font-semibold">USD Fixed</div>
-              </div>
-              <div className="bg-patriot-blue/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
-                <div className="text-2xl font-bold text-patriot-blue">🎭</div>
-                <div className="text-sm text-gray-300">Mezzo-Soprano</div>
-                <div className="text-xs text-patriot-gold font-semibold">Professional</div>
-              </div>
-              <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-lg p-4 border border-patriot-gold/30">
-                <div className="text-2xl font-bold text-patriot-gold">🏛️</div>
-                <div className="text-sm text-gray-300">America250</div>
-                <div className="text-xs text-patriot-gold font-semibold">Official</div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
