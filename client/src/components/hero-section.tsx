@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import logoImage from "@assets/ChatGPT Image Jul 14, 2025, 01_49_41 PM_1752533531371.png";
 import heroImage from "@assets/IMG_4165_1754527909411.jpeg";
 
 export default function HeroSection() {
@@ -66,15 +65,6 @@ export default function HeroSection() {
       
       <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          {/* Logo */}
-          <div className="mb-12">
-            <img
-              src={logoImage}
-              alt="Hannah Magnelli America250"
-              className="mx-auto w-full max-w-2xl h-auto"
-            />
-          </div>
-          
           {/* Main Title - NFT Token Launch Focus */}
           <div className="mb-12">
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight text-shadow-lg">
