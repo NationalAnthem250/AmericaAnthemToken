@@ -18,25 +18,25 @@ export function NFTSection() {
 
         {/* NFT Showcase Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {/* Featured NFT Card */}
+          {/* Golden Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-patriot-gold/20 to-patriot-red/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-flag-usa text-6xl text-patriot-gold mb-4"></i>
-                  <p className="text-white font-bold">Original Performance</p>
-                  <p className="text-patriot-gold text-sm">Hannah Magnelli</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img
+                  src="/public-objects/Copilot_20250807_122142_1755202829804.png"
+                  alt="Golden Eagle Star-Spangled Banner NFT"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Anthem #001</h3>
-                  <Badge className="bg-patriot-gold text-patriot-navy">RARE</Badge>
+                  <h3 className="text-lg font-bold text-white">Golden Eagle #001</h3>
+                  <Badge className="bg-patriot-gold text-patriot-navy">LEGENDARY</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">The original National Anthem NFT featuring high-resolution video and audio of Hannah's performance</p>
+                <p className="text-gray-300 text-sm">"O Say Can You See" - Majestic golden eagle with patriotic anthem lyrics and musical notes</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$750</span>
-                  <Button size="sm" className="bg-patriot-red hover:bg-patriot-red/90 text-white">
+                  <span className="text-patriot-gold font-bold">$1,776</span>
+                  <Button size="sm" className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy">
                     View Details
                   </Button>
                 </div>
@@ -44,24 +44,24 @@ export function NFTSection() {
             </CardContent>
           </Card>
 
-          {/* Performance Series NFT */}
+          {/* Silver Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-patriot-blue/20 to-patriot-navy/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-music text-6xl text-patriot-blue mb-4"></i>
-                  <p className="text-white font-bold">Performance Series</p>
-                  <p className="text-patriot-gold text-sm">Limited Edition</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img
+                  src="/public-objects/Copilot_20250807_121136_1755202829806.png"
+                  alt="Silver Eagle Star-Spangled Banner NFT"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Performance #247</h3>
-                  <Badge className="bg-patriot-blue text-white">LIMITED</Badge>
+                  <h3 className="text-lg font-bold text-white">Silver Eagle #250</h3>
+                  <Badge className="bg-gray-400 text-black">RARE</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">Exclusive behind-the-scenes content and alternate takes from the recording session</p>
+                <p className="text-gray-300 text-sm">Elegant silver-toned eagle carrying the American flag with dawn's early light theme</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$450</span>
+                  <span className="text-patriot-gold font-bold">$876</span>
                   <Button size="sm" className="bg-patriot-blue hover:bg-patriot-blue/90 text-white">
                     View Details
                   </Button>
@@ -70,25 +70,25 @@ export function NFTSection() {
             </CardContent>
           </Card>
 
-          {/* Commemorative Series NFT */}
+          {/* Dawn's Light Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-patriot-red/20 to-patriot-gold/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-star text-6xl text-patriot-red mb-4"></i>
-                  <p className="text-white font-bold">Commemorative</p>
-                  <p className="text-patriot-gold text-sm">America's 250th</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img
+                  src="/public-objects/Copilot_20250807_120855_1755202829808.png"
+                  alt="Dawn's Light Eagle Star-Spangled Banner NFT"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Commemorative #1776</h3>
+                  <h3 className="text-lg font-bold text-white">Dawn's Light #1776</h3>
                   <Badge className="bg-patriot-red text-white">SPECIAL</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">Special edition commemorating America's 250th anniversary with historic imagery</p>
+                <p className="text-gray-300 text-sm">Brilliant sunrise edition featuring soaring eagle with flag against golden dawn sky</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$750</span>
-                  <Button size="sm" className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy">
+                  <span className="text-patriot-gold font-bold">$1,250</span>
+                  <Button size="sm" className="bg-patriot-red hover:bg-patriot-red/90 text-white">
                     View Details
                   </Button>
                 </div>
