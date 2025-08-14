@@ -108,7 +108,7 @@ export function NFTSection() {
             <div className="text-white text-sm">Floor Price (USD)</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-blue mb-2">$1.2M</div>
+            <div className="text-3xl font-bold text-white mb-2">$1.2M</div>
             <div className="text-white text-sm">Total Volume (USD)</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
