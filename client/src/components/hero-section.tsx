@@ -42,7 +42,7 @@ export default function HeroSection() {
               {/* Vimeo Video Player */}
               <div className="relative" style={{ padding: "56.25% 0 0 0" }}>
                 <iframe
-                  src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479"
+                  src="https://player.vimeo.com/video/1110087317"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                   style={{
