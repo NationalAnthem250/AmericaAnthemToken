@@ -57,7 +57,7 @@ export default function TokenomicsSection() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Network:</span>
-                  <span className="font-semibold text-patriot-blue">Ethereum</span>
+                  <span className="font-semibold text-patriot-blue">Solana</span>
                 </div>
               </div>
             </div>
