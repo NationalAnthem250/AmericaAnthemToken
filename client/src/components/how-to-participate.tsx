@@ -7,11 +7,12 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function HowToParticipate() {
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
   const joinWaitlistMutation = useMutation({
-    mutationFn: async (data: { email: string; name: string }) => {
+    mutationFn: async (data: { email: string; name: string; phone?: string }) => {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: {
@@ -32,6 +33,7 @@ export default function HowToParticipate() {
         description: "You've been added to the 250STAR launch waitlist!",
       });
       setEmail("");
+      setPhone("");
       queryClient.invalidateQueries({ queryKey: ["/api/waitlist"] });
     },
     onError: (error: any) => {
@@ -48,7 +50,8 @@ export default function HowToParticipate() {
     if (email) {
       joinWaitlistMutation.mutate({ 
         email: email, 
-        name: "Patriotic American" // Default name for email signups
+        name: "Patriotic American", // Default name for email signups
+        phone: phone || undefined
       });
     }
   };
@@ -99,7 +102,7 @@ export default function HowToParticipate() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">Own History</h3>
                 <p className="text-gray-300">
-                  Purchase 250STAR tokens at $0.25 each and own a piece of America's first National Anthem NFT.
+                  Purchase 250STAR tokens at $17.76 each and own a piece of America's first National Anthem NFT.
                 </p>
               </div>
             </div>
@@ -122,6 +125,13 @@ export default function HowToParticipate() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
                 required
+              />
+              <Input
+                type="tel"
+                placeholder="Enter your phone number (optional)"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
               />
               <Button
                 type="submit"

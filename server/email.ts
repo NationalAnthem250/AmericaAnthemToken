@@ -28,6 +28,7 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
           <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${entry.name}</p>
             <p><strong>Email:</strong> ${entry.email}</p>
+            ${entry.phone ? `<p><strong>Phone:</strong> ${entry.phone}</p>` : ''}
             <p><strong>Registration Time:</strong> ${entry.createdAt}</p>
             ${entry.metadata ? `<p><strong>Additional Info:</strong> ${JSON.stringify(entry.metadata)}</p>` : ''}
           </div>
