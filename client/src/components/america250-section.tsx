@@ -91,7 +91,7 @@ export default function America250Section() {
                 className="bg-patriot-navy hover:bg-gray-800 border-patriot-navy text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
               >
                 <a
-                  href="https://drive.google.com/file/d/1RFv9mtAK2g8yLkKCHLAWbK149qmy4k8D/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1XPVrrb6QuLfvoa5RFS72Ryf5CugCQgoa/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
