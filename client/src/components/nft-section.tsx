@@ -21,12 +21,12 @@ export function NFTSection() {
           {/* Golden Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <img
-                  src="/public-objects/Copilot_20250807_122142_1755202829804.png"
-                  alt="Golden Eagle Star-Spangled Banner NFT"
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-to-br from-patriot-gold/20 to-patriot-red/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
+                <div className="text-center">
+                  <i className="fas fa-flag-usa text-6xl text-patriot-gold mb-4"></i>
+                  <p className="text-white font-bold">"O Say Can You See"</p>
+                  <p className="text-patriot-gold text-sm">Golden Eagle Edition</p>
+                </div>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -47,12 +47,12 @@ export function NFTSection() {
           {/* Silver Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <img
-                  src="/public-objects/Copilot_20250807_121136_1755202829806.png"
-                  alt="Silver Eagle Star-Spangled Banner NFT"
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-to-br from-gray-300/20 to-patriot-blue/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
+                <div className="text-center">
+                  <i className="fas fa-music text-6xl text-gray-300 mb-4"></i>
+                  <p className="text-white font-bold">Dawn's Early Light</p>
+                  <p className="text-gray-300 text-sm">Silver Eagle Edition</p>
+                </div>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -73,12 +73,12 @@ export function NFTSection() {
           {/* Dawn's Light Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <img
-                  src="/public-objects/Copilot_20250807_120855_1755202829808.png"
-                  alt="Dawn's Light Eagle Star-Spangled Banner NFT"
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-square bg-gradient-to-br from-patriot-red/20 to-patriot-gold/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
+                <div className="text-center">
+                  <i className="fas fa-star text-6xl text-patriot-red mb-4"></i>
+                  <p className="text-white font-bold">Star Spangled Banner</p>
+                  <p className="text-patriot-gold text-sm">Dawn's Light Edition</p>
+                </div>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
