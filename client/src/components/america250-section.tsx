@@ -86,11 +86,18 @@ export default function America250Section() {
                 Get Notified at Launch
               </Button>
               <Button
+                asChild
                 variant="outline"
                 className="bg-patriot-navy hover:bg-gray-800 border-patriot-navy text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
               >
-                <i className="fas fa-file-alt mr-2"></i>
-                Read Whitepaper
+                <a
+                  href="https://drive.google.com/file/d/1RFv9mtAK2g8yLkKCHLAWbK149qmy4k8D/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fas fa-file-alt mr-2"></i>
+                  Read Whitepaper
+                </a>
               </Button>
             </div>
           </div>
