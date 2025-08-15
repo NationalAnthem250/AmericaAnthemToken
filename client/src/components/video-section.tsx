@@ -13,7 +13,7 @@ export default function VideoSection() {
         
         <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
           {/* Vimeo Video Player */}
-          <div style={{ padding: "120.33225% 0 0 0", position: "relative" }}>
+          <div style={{ padding: "108.299025% 0 0 0", position: "relative" }}>
             <iframe 
               src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&player_id=0&app_id=58479" 
               frameBorder="0" 
