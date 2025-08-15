@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="space-y-8">
             {/* Main Title */}
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-yellow-400">
-              Own a Piece of American History
+              Own a Piece of<br />American History
             </h1>
             
             {/* Subtitle */}
