@@ -40,30 +40,30 @@ export default function HeroSection() {
           <div className="space-y-8">
             {/* Main Title */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-patriot-red">Own a Piece of</span>
-              <span className="block text-white">American History</span>
+              <span className="block text-yellow-400">Own a Piece of</span>
+              <span className="block text-yellow-400">American History</span>
             </h1>
             
             {/* Subtitle */}
             <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-              <span className="block text-patriot-blue">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
+              <span className="block text-yellow-400">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
             </p>
             
             {/* Token Info */}
             <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-patriot-red font-bold text-lg">250STAR Token</span>
-                  <span className="text-white font-bold text-2xl">$17.76</span>
+                  <span className="text-yellow-400 font-bold text-lg">250STAR Token</span>
+                  <span className="text-yellow-400 font-bold text-2xl">$17.76</span>
                 </div>
                 <div className="text-sm">
                   <div className="flex justify-between">
-                    <span className="text-patriot-blue">Total Supply:</span>
-                    <span className="text-patriot-red">1,776,000 tokens</span>
+                    <span className="text-yellow-400">Total Supply:</span>
+                    <span className="text-yellow-400">1,776,000 tokens</span>
                   </div>
                   <div className="flex justify-between mt-1">
-                    <span className="text-white">Network:</span>
-                    <span className="text-patriot-blue">Solana</span>
+                    <span className="text-yellow-400">Network:</span>
+                    <span className="text-yellow-400">Solana</span>
                   </div>
                 </div>
               </div>
@@ -75,13 +75,13 @@ export default function HeroSection() {
                 onClick={() => scrollToSection('waitlist')}
                 className="bg-patriot-gold hover:bg-patriot-gold/90 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                <span className="text-patriot-red">Join</span> <span className="text-white">Waitlist</span>
+                <span className="text-yellow-400">Join</span> <span className="text-yellow-400">Waitlist</span>
               </button>
               <button 
                 onClick={() => scrollToSection('video')}
                 className="bg-transparent border-2 border-patriot-red hover:bg-patriot-red px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
               >
-                <span className="text-patriot-blue hover:text-white">Watch</span> <span className="text-patriot-red hover:text-white">Performance</span>
+                <span className="text-yellow-400 hover:text-white">Watch</span> <span className="text-yellow-400 hover:text-white">Performance</span>
               </button>
             </div>
           </div>
