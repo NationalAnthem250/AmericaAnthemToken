@@ -36,28 +36,7 @@ export default function HeroSection() {
       
       <div className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          {/* Video Player */}
-          <div className="mb-12">
-            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
-              {/* Vimeo Video Player */}
-              <div className="relative" style={{ padding: "56.25% 0 0 0" }}>
-                <iframe
-                  src="https://player.vimeo.com/video/1110087317?autoplay=1&muted=1&v=2"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                  }}
-                  title="Hannah Magnelli - National Anthem"
-                ></iframe>
-              </div>
-            </div>
-          </div>
+
 
 
 
