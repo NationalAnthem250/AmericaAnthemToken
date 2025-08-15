@@ -41,7 +41,7 @@ export default function HeroSection() {
           <div className="space-y-8">
             {/* Main Title */}
             <div className="max-w-4xl mx-auto">
-              <div className="text-base md:text-3xl lg:text-4xl font-bold leading-tight mb-4">
+              <div className="text-sm md:text-2xl lg:text-3xl font-bold leading-tight mb-4">
                 <h1 className="text-red-600 mb-2">
                   Own a Piece of American History
                 </h1>
