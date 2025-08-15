@@ -73,15 +73,15 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <button 
                 onClick={() => scrollToSection('waitlist')}
-                className="bg-patriot-gold hover:bg-patriot-gold/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-patriot-red hover:bg-patriot-red/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <span className="text-yellow-400">Join</span> <span className="text-yellow-400">Waitlist</span>
               </button>
               <button 
                 onClick={() => scrollToSection('video')}
-                className="bg-transparent border-2 border-patriot-red hover:bg-patriot-red px-8 py-4 rounded-xl font-bold text-base transition-all duration-300"
+                className="bg-patriot-red hover:bg-patriot-red/90 border-2 border-patriot-red px-8 py-4 rounded-xl font-bold text-base transition-all duration-300"
               >
-                <span className="text-yellow-400 hover:text-white">Watch</span> <span className="text-yellow-400 hover:text-white">Performance</span>
+                <span className="text-yellow-400">Watch</span> <span className="text-yellow-400">Performance</span>
               </button>
             </div>
           </div>
