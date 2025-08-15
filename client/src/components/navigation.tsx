@@ -14,13 +14,18 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#tokenomics", label: "Tokenomics" },
-    { href: "#participate", label: "How to Join" },
-    { href: "#nft", label: "NFT Collection" },
-    { href: "#hannah", label: "Hannah" },
-    { href: "#america250", label: "Partnership" },
+    { href: "video", label: "About" },
+    { href: "tokenomics", label: "Tokenomics" },
+    { href: "participate", label: "How to Join" },
+    { href: "nft", label: "NFT Collection" },
+    { href: "hannah", label: "Hannah" },
+    { href: "america250", label: "Partnership" },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const socialLinks = [
     { href: "http://instagram.com/hannah_magnelli", icon: Instagram, label: "Instagram" },
@@ -46,13 +51,13 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.href}
-                href={link.href}
+                onClick={() => scrollToSection(link.href)}
                 className="text-white hover:text-patriot-gold transition-colors font-medium"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -85,13 +90,13 @@ export default function Navigation() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
-                    <a
+                    <button
                       key={link.href}
-                      href={link.href}
-                      className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors"
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left"
                     >
                       {link.label}
-                    </a>
+                    </button>
                   ))}
                   <div className="space-y-4 pt-4">
                     <Button 
