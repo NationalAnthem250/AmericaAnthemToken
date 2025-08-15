@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroImage from "@assets/IMG_4165_1754527909411.jpeg";
+import CountdownTimer from "./countdown-timer";
 
 export default function HeroSection() {
 
@@ -71,6 +72,11 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
+            </div>
+            
+            {/* Countdown Timer */}
+            <div className="max-w-2xl mx-auto">
+              <CountdownTimer />
             </div>
             
             {/* Call to Action Buttons */}
