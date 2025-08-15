@@ -15,7 +15,7 @@ export default function VideoSection() {
           {/* Vimeo Video Player */}
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
-              src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&player_id=0&app_id=58479" 
+              src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=1&muted=1&player_id=0&app_id=58479" 
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
