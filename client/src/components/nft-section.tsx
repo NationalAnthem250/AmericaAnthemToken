@@ -217,7 +217,13 @@ export function NFTSection() {
             Join thousands of patriotic Americans who are preserving our nation's heritage through blockchain technology. Each NFT is a piece of American history that you can own forever.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold px-8 py-3 text-lg">
+            <Button 
+              className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold px-8 py-3 text-lg"
+              onClick={() => {
+                const element = document.getElementById('nft');
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <i className="fas fa-rocket mr-2"></i>
               Browse Collection
             </Button>
