@@ -16,7 +16,7 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-07-04T00:00:00').getTime();
+    const targetDate = new Date('2026-07-04T00:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -53,7 +53,7 @@ export default function CountdownTimer() {
           <span className="text-patriot-red">🇺🇸</span>
         </h3>
         <p className="text-patriot-gold text-sm font-semibold">
-          ⭐ Independence Day 2025 ⭐
+          ⭐ Independence Day 2026 ⭐
         </p>
       </div>
       
