@@ -65,7 +65,7 @@ export default function VideoSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <button 
               onClick={() => {
-                const element = document.getElementById('waitlist');
+                const element = document.getElementById('participate');
                 element?.scrollIntoView({ behavior: "smooth" });
               }}
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -73,7 +73,10 @@ export default function VideoSection() {
               Join Waitlist
             </button>
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => {
+                const element = document.getElementById('video');
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="bg-transparent border-2 border-patriot-red text-patriot-red hover:bg-patriot-red hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
             >
               Watch Performance

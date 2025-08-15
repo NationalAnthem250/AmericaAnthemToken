@@ -12,9 +12,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <main>
         <HeroSection />
-        <section id="about">
-          <VideoSection />
-        </section>
+        <VideoSection />
         <HannahBioSection />
         <TokenomicsSection />
         <HowToParticipate />
