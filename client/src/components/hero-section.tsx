@@ -78,7 +78,7 @@ export default function HeroSection() {
             {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <button 
-                onClick={() => scrollToSection('waitlist')}
+                onClick={() => scrollToSection('participate')}
                 className="bg-patriot-red hover:bg-patriot-red/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <span className="text-yellow-400">Join</span> <span className="text-yellow-400">Waitlist</span>

@@ -1,64 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useState } from "react";
 
 export default function TokenSection() {
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-  const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "" });
-
-  const joinWaitlistMutation = useMutation({
-    mutationFn: async (data: { name: string; email: string }) => {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to join waitlist');
-      }
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Successfully Joined Waitlist!",
-        description: "Thank you for your interest! We'll notify you when the token launch begins.",
-      });
-      setFormData({ name: "", email: "" });
-      setShowForm(false);
-      queryClient.invalidateQueries({ queryKey: ["/api/waitlist"] });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields.",
-        variant: "destructive",
-      });
-      return;
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    joinWaitlistMutation.mutate(formData);
   };
 
   const handleJoinWaitlist = () => {
-    if (!showForm) {
-      setShowForm(true);
-    }
+    scrollToSection('participate');
   };
 
   return (
@@ -152,72 +104,13 @@ export default function TokenSection() {
               </div>
               
               <div className="mt-8">
-                {!showForm ? (
-                  <Button
-                    onClick={handleJoinWaitlist}
-                    className="bg-patriot-red hover:bg-patriot-red-hover text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto"
-                  >
-                    <i className="fas fa-bell mr-2"></i>
-                    Join Waitlist
-                  </Button>
-                ) : (
-                  <Card className="bg-white p-6 rounded-xl shadow-lg">
-                    <h4 className="text-xl font-bold text-patriot-navy mb-4">Join the Waitlist</h4>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Full Name
-                        </label>
-                        <Input
-                          type="text"
-                          placeholder="Enter your full name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Email Address
-                        </label>
-                        <Input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          required
-                        />
-                      </div>
-                      <div className="flex gap-3">
-                        <Button
-                          type="submit"
-                          disabled={joinWaitlistMutation.isPending}
-                          className="bg-patriot-red hover:bg-patriot-red-hover text-white font-bold py-2 px-6 rounded-full transition-all"
-                        >
-                          {joinWaitlistMutation.isPending ? (
-                            <>
-                              <i className="fas fa-spinner fa-spin mr-2"></i>
-                              Joining...
-                            </>
-                          ) : (
-                            <>
-                              <i className="fas fa-check mr-2"></i>
-                              Join Waitlist
-                            </>
-                          )}
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={() => setShowForm(false)}
-                          className="border-gray-300 text-gray-600 hover:bg-gray-50 py-2 px-6 rounded-full"
-                        >
-                          Cancel
-                        </Button>
-                      </div>
-                    </form>
-                  </Card>
-                )}
+                <Button
+                  onClick={handleJoinWaitlist}
+                  className="bg-patriot-red hover:bg-patriot-red-hover text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                >
+                  <i className="fas fa-bell mr-2"></i>
+                  Join Waitlist
+                </Button>
               </div>
             </div>
             
