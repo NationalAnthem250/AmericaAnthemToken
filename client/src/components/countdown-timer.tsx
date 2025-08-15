@@ -44,49 +44,52 @@ export default function CountdownTimer() {
   }, []);
 
   return (
-    <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 border border-patriot-gold/30">
+    <div className="bg-gradient-to-br from-patriot-red/10 via-white/5 to-patriot-blue/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-patriot-gold/50 shadow-lg">
       <div className="text-center mb-4">
-        <h3 className="text-lg md:text-xl font-bold text-white mb-2">
-          🇺🇸 LAUNCH COUNTDOWN 🇺🇸
+        <h3 className="text-lg md:text-xl font-bold mb-2">
+          <span className="text-patriot-red">🇺🇸</span> 
+          <span className="text-white mx-2">LAUNCH</span>
+          <span className="text-patriot-blue">COUNTDOWN</span> 
+          <span className="text-patriot-red">🇺🇸</span>
         </h3>
-        <p className="text-patriot-gold text-sm">
-          Independence Day 2025
+        <p className="text-patriot-gold text-sm font-semibold">
+          ⭐ Independence Day 2025 ⭐
         </p>
       </div>
       
       <div className="grid grid-cols-4 gap-2 md:gap-4">
-        <div className="text-center bg-patriot-red/20 rounded-lg p-2 md:p-3 border border-patriot-red/30">
-          <div className="text-lg md:text-2xl font-bold text-white">
+        <div className="text-center bg-gradient-to-b from-patriot-red/30 to-patriot-red/20 rounded-lg p-2 md:p-3 border-2 border-patriot-red/50 shadow-md">
+          <div className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">
             {timeLeft.days.toString().padStart(2, '0')}
           </div>
-          <div className="text-xs md:text-sm text-patriot-gold font-medium">
+          <div className="text-xs md:text-sm text-patriot-gold font-bold">
             DAYS
           </div>
         </div>
         
-        <div className="text-center bg-patriot-blue/20 rounded-lg p-2 md:p-3 border border-patriot-blue/30">
-          <div className="text-lg md:text-2xl font-bold text-white">
+        <div className="text-center bg-gradient-to-b from-white/20 to-white/10 rounded-lg p-2 md:p-3 border-2 border-white/30 shadow-md">
+          <div className="text-lg md:text-2xl font-bold text-patriot-blue drop-shadow-lg">
             {timeLeft.hours.toString().padStart(2, '0')}
           </div>
-          <div className="text-xs md:text-sm text-patriot-gold font-medium">
+          <div className="text-xs md:text-sm text-patriot-red font-bold">
             HOURS
           </div>
         </div>
         
-        <div className="text-center bg-patriot-red/20 rounded-lg p-2 md:p-3 border border-patriot-red/30">
-          <div className="text-lg md:text-2xl font-bold text-white">
+        <div className="text-center bg-gradient-to-b from-patriot-blue/30 to-patriot-blue/20 rounded-lg p-2 md:p-3 border-2 border-patriot-blue/50 shadow-md">
+          <div className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">
             {timeLeft.minutes.toString().padStart(2, '0')}
           </div>
-          <div className="text-xs md:text-sm text-patriot-gold font-medium">
+          <div className="text-xs md:text-sm text-patriot-gold font-bold">
             MINS
           </div>
         </div>
         
-        <div className="text-center bg-patriot-blue/20 rounded-lg p-2 md:p-3 border border-patriot-blue/30">
-          <div className="text-lg md:text-2xl font-bold text-white">
+        <div className="text-center bg-gradient-to-b from-patriot-red/30 to-patriot-red/20 rounded-lg p-2 md:p-3 border-2 border-patriot-red/50 shadow-md">
+          <div className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">
             {timeLeft.seconds.toString().padStart(2, '0')}
           </div>
-          <div className="text-xs md:text-sm text-patriot-gold font-medium">
+          <div className="text-xs md:text-sm text-patriot-gold font-bold">
             SECS
           </div>
         </div>
