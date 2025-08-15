@@ -1,4 +1,33 @@
+import { useEffect } from "react";
+
 export default function VideoSection() {
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      // Find the iframe and try to unmute when user interacts with page
+      const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
+      if (iframe && iframe.contentWindow) {
+        // Post message to Vimeo player to unmute
+        iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+      }
+      // Remove event listeners after first interaction
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('scroll', handleUserInteraction);
+      document.removeEventListener('keydown', handleUserInteraction);
+    };
+
+    // Add event listeners for user interaction
+    document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('scroll', handleUserInteraction);
+    document.addEventListener('keydown', handleUserInteraction);
+
+    return () => {
+      // Cleanup event listeners on unmount
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('scroll', handleUserInteraction);
+      document.removeEventListener('keydown', handleUserInteraction);
+    };
+  }, []);
+
   return (
     <section id="video" className="py-20 bg-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,6 +44,7 @@ export default function VideoSection() {
           {/* Vimeo Video Player */}
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
+              id="video-player"
               src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=1&loop=1&background=1&player_id=0&app_id=58479" 
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
