@@ -51,7 +51,7 @@ export default function HeroSection() {
               </div>
               
               {/* Token Info */}
-              <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-base">
