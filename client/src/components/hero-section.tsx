@@ -40,32 +40,34 @@ export default function HeroSection() {
           {/* Main Hero Content */}
           <div className="space-y-8">
             {/* Main Title */}
-            <div className="text-lg md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto">
-              <h1 className="text-red-600 mb-2">
-                Own a Piece of American History
-              </h1>
-              <p className="text-lg md:text-xl leading-relaxed">
-                <span className="text-blue-600 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
-              </p>
-            </div>
-            
-            {/* Token Info */}
-            <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-base">
-                    <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> <span className="text-yellow-400">Token</span>
-                  </span>
-                  <span className="text-yellow-400 font-bold text-xl">$17.76</span>
-                </div>
-                <div className="text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-yellow-400">Total Supply:</span>
-                    <span className="text-yellow-400">1,776,000 tokens</span>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-lg md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+                <h1 className="text-red-600 mb-2">
+                  Own a Piece of American History
+                </h1>
+                <p className="text-lg md:text-xl leading-relaxed">
+                  <span className="text-blue-600 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
+                </p>
+              </div>
+              
+              {/* Token Info */}
+              <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="font-bold text-base">
+                      <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> <span className="text-yellow-400">Token</span>
+                    </span>
+                    <span className="text-yellow-400 font-bold text-xl">$17.76</span>
                   </div>
-                  <div className="flex justify-between mt-1">
-                    <span className="text-yellow-400">Network:</span>
-                    <span className="text-yellow-400">Solana</span>
+                  <div className="text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-yellow-400">Total Supply:</span>
+                      <span className="text-yellow-400">1,776,000 tokens</span>
+                    </div>
+                    <div className="flex justify-between mt-1">
+                      <span className="text-yellow-400">Network:</span>
+                      <span className="text-yellow-400">Solana</span>
+                    </div>
                   </div>
                 </div>
               </div>
