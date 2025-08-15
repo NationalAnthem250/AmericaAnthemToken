@@ -40,17 +40,14 @@ export default function HeroSection() {
           {/* Main Hero Content */}
           <div className="space-y-8">
             {/* Main Title */}
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-red-600">
-              Own a Piece of American History
-            </h1>
-            
-            {/* Line Break */}
-            <div className="border-t border-yellow-400 w-32 mx-auto"></div>
-            
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
-              <span className="block text-blue-600 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
-            </p>
+            <div className="text-lg md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+              <h1 className="text-red-600 mb-2">
+                Own a Piece of American History
+              </h1>
+              <p className="text-lg md:text-xl leading-relaxed">
+                <span className="text-blue-600 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
+              </p>
+            </div>
             
             {/* Token Info */}
             <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
