@@ -39,7 +39,14 @@ export function NFTSection() {
                 <p className="text-gray-300 text-sm">"O Say Can You See" - Majestic golden eagle with patriotic anthem lyrics and musical notes</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$1,776</span>
-                  <Button size="sm" className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy">
+                  <Button 
+                    size="sm" 
+                    className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy"
+                    onClick={() => {
+                      const element = document.getElementById('participate');
+                      element?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     View Details
                   </Button>
                 </div>
@@ -65,7 +72,14 @@ export function NFTSection() {
                 <p className="text-gray-300 text-sm">Elegant silver-toned eagle carrying the American flag with dawn's early light theme</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$876</span>
-                  <Button size="sm" className="bg-patriot-blue hover:bg-patriot-blue/90 text-white">
+                  <Button 
+                    size="sm" 
+                    className="bg-patriot-blue hover:bg-patriot-blue/90 text-white"
+                    onClick={() => {
+                      const element = document.getElementById('participate');
+                      element?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     View Details
                   </Button>
                 </div>
@@ -91,7 +105,14 @@ export function NFTSection() {
                 <p className="text-gray-300 text-sm">Brilliant sunrise edition featuring soaring eagle with flag against golden dawn sky</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$1,250</span>
-                  <Button size="sm" className="bg-patriot-red hover:bg-patriot-red/90 text-white">
+                  <Button 
+                    size="sm" 
+                    className="bg-patriot-red hover:bg-patriot-red/90 text-white"
+                    onClick={() => {
+                      const element = document.getElementById('participate');
+                      element?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     View Details
                   </Button>
                 </div>
