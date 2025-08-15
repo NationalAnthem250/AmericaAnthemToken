@@ -20,8 +20,8 @@ export default function HeroSection() {
           alt="Hannah Magnelli performing the National Anthem"
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
           style={{
-            width: '74.70703125vw',
-            height: '74.70703125vh',
+            width: '93.38378906vw',
+            height: '93.38378906vh',
             objectFit: 'cover'
           }}
         />
