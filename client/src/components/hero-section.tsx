@@ -12,7 +12,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-black min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
       {/* Full-screen image background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img

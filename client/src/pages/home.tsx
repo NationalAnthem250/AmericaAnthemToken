@@ -1,4 +1,3 @@
-import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import VideoSection from "@/components/video-section";
 import HannahBioSection from "@/components/hannah-bio-section";
@@ -11,7 +10,6 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
       <main>
         <HeroSection />
         <section id="about">
