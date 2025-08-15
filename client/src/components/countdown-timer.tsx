@@ -71,7 +71,7 @@ export default function CountdownTimer() {
           <div className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">
             {timeLeft.hours.toString().padStart(2, '0')}
           </div>
-          <div className="text-xs md:text-sm text-patriot-red font-bold">
+          <div className="text-xs md:text-sm text-patriot-gold font-bold">
             HOURS
           </div>
         </div>
