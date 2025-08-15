@@ -46,7 +46,7 @@ export default function HeroSection() {
             
             {/* Subtitle */}
             <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-              <span className="block text-yellow-400">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
+              <span className="block text-yellow-400 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
             </p>
             
             {/* Token Info */}
