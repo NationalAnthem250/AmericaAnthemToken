@@ -1,6 +1,9 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import goldenEagleNft from '@assets/generated_images/Golden_Eagle_NFT_Art_c77dc42e.png';
+import silverEagleNft from '@assets/generated_images/Silver_Eagle_NFT_Art_a1129093.png';
+import dawnLightNft from '@assets/generated_images/Dawn_Light_NFT_Art_6cf6df99.png';
 
 export function NFTSection() {
   return (
@@ -21,12 +24,12 @@ export function NFTSection() {
           {/* Golden Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-patriot-gold/20 to-patriot-red/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-flag-usa text-6xl text-patriot-gold mb-4"></i>
-                  <p className="text-white font-bold">"O Say Can You See"</p>
-                  <p className="text-patriot-gold text-sm">Golden Eagle Edition</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img 
+                  src={goldenEagleNft} 
+                  alt="Golden Eagle NFT - O Say Can You See"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -47,12 +50,12 @@ export function NFTSection() {
           {/* Silver Eagle Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-gray-300/20 to-patriot-blue/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-music text-6xl text-gray-300 mb-4"></i>
-                  <p className="text-white font-bold">Dawn's Early Light</p>
-                  <p className="text-gray-300 text-sm">Silver Eagle Edition</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img 
+                  src={silverEagleNft} 
+                  alt="Silver Eagle NFT - Dawn's Early Light"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -73,12 +76,12 @@ export function NFTSection() {
           {/* Dawn's Light Edition NFT */}
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
-              <div className="aspect-square bg-gradient-to-br from-patriot-red/20 to-patriot-gold/20 rounded-lg mb-4 flex items-center justify-center border border-patriot-gold/30">
-                <div className="text-center">
-                  <i className="fas fa-star text-6xl text-patriot-red mb-4"></i>
-                  <p className="text-white font-bold">Star Spangled Banner</p>
-                  <p className="text-patriot-gold text-sm">Dawn's Light Edition</p>
-                </div>
+              <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
+                <img 
+                  src={dawnLightNft} 
+                  alt="Dawn's Light NFT - Star Spangled Banner"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
