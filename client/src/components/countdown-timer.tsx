@@ -48,8 +48,8 @@ export default function CountdownTimer() {
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-bold mb-2">
           <span className="text-patriot-red">🇺🇸</span> 
-          <span className="text-white mx-2">LAUNCH</span>
-          <span className="text-patriot-blue">COUNTDOWN</span> 
+          <span className="text-sky-300 mx-2">LAUNCH</span>
+          <span className="text-sky-300">COUNTDOWN</span> 
           <span className="text-patriot-red">🇺🇸</span>
         </h3>
         <p className="text-patriot-gold text-sm font-semibold">
