@@ -41,12 +41,9 @@ export default function HeroSection() {
           <div className="space-y-8">
             {/* Main Title */}
             <div className="max-w-4xl mx-auto">
-              <div className="text-sm md:text-2xl lg:text-3xl font-bold leading-tight mb-4">
-                <h1 className="text-red-600 mb-2">
-                  Own a Piece of American History
-                </h1>
-                <p className="text-base md:text-lg leading-relaxed">
-                  <span className="text-sky-300 font-bold">The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary</span>
+              <div className="text-base md:text-lg leading-relaxed mb-4">
+                <p className="text-sky-300 font-bold">
+                  The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary
                 </p>
               </div>
               
