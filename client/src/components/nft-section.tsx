@@ -227,7 +227,14 @@ export function NFTSection() {
               <i className="fas fa-rocket mr-2"></i>
               Browse Collection
             </Button>
-            <Button variant="outline" className="border-patriot-gold text-patriot-gold hover:bg-patriot-gold hover:text-patriot-navy font-bold px-8 py-3 text-lg">
+            <Button 
+              variant="outline" 
+              className="border-patriot-gold text-patriot-gold hover:bg-patriot-gold hover:text-patriot-navy font-bold px-8 py-3 text-lg"
+              onClick={() => {
+                const element = document.getElementById('participate');
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <i className="fas fa-info-circle mr-2"></i>
               Learn More
             </Button>
