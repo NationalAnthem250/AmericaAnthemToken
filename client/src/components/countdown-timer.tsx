@@ -68,7 +68,7 @@ export default function CountdownTimer() {
         </div>
         
         <div className="text-center bg-gradient-to-b from-white/20 to-white/10 rounded-lg p-2 md:p-3 border-2 border-white/30 shadow-md">
-          <div className="text-lg md:text-2xl font-bold text-patriot-blue drop-shadow-lg">
+          <div className="text-lg md:text-2xl font-bold text-white drop-shadow-lg">
             {timeLeft.hours.toString().padStart(2, '0')}
           </div>
           <div className="text-xs md:text-sm text-patriot-red font-bold">
