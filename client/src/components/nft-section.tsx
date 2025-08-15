@@ -12,7 +12,7 @@ export function NFTSection() {
             <span className="text-patriot-gold">NFT</span> COLLECTION
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Own a unique piece of American history with our exclusive 250STAR NFT collection featuring Hannah Magnelli's National Anthem performance
+            Own a unique piece of American history with our exclusive <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> NFT collection featuring Hannah Magnelli's National Anthem performance
           </p>
         </div>
 

@@ -59,7 +59,9 @@ export default function HeroSection() {
             <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-yellow-400 font-bold text-base">250STAR Token</span>
+                  <span className="font-bold text-base">
+                    <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> <span className="text-yellow-400">Token</span>
+                  </span>
                   <span className="text-yellow-400 font-bold text-xl">$17.76</span>
                 </div>
                 <div className="text-sm">

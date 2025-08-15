@@ -12,8 +12,8 @@ export default function TokenomicsSection() {
     <section id="tokenomics" className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            250STAR <span className="text-patriot-red">TOKENOMICS</span>
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <span className="text-red-600">250</span><span className="text-white" style={{ WebkitTextStroke: '1px #000' }}>ST</span><span className="text-blue-600">AR</span> <span className="text-patriot-red">TOKENOMICS</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Transparent token allocation designed to honor America's 250th anniversary
@@ -30,7 +30,9 @@ export default function TokenomicsSection() {
                 <div className="absolute inset-4 bg-white rounded-full flex items-center justify-center">
                   <div className="text-center">
                     <div className="text-4xl font-black text-patriot-navy">1.776M</div>
-                    <div className="text-sm text-gray-600">250STAR Tokens</div>
+                    <div className="text-sm text-gray-600">
+                      <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> Tokens
+                    </div>
                     <div className="text-xs text-patriot-gold font-semibold">Commemorating 1776</div>
                   </div>
                 </div>
@@ -45,7 +47,9 @@ export default function TokenomicsSection() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Token Name:</span>
-                  <span className="font-semibold text-patriot-navy">250STAR</span>
+                  <span className="font-semibold">
+                    <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span>
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Total Supply:</span>
