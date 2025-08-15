@@ -39,7 +39,7 @@ export default function HeroSection() {
           {/* Main Hero Content */}
           <div className="space-y-8">
             {/* Main Title */}
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-white" style={{ 
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-red-600" style={{ 
               WebkitTextStroke: '1px #FFD700'
             }}>
               Own a Piece of American History
