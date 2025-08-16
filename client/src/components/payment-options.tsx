@@ -15,12 +15,48 @@ export default function PaymentOptions() {
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
             CHOOSE YOUR <span className="text-patriot-gold">PAYMENT METHOD</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
             We've made it easy for everyone to own a piece of American history
           </p>
+          <div className="inline-flex items-center bg-patriot-gold/20 backdrop-blur-sm rounded-full px-6 py-3 border border-patriot-gold/40">
+            <span className="text-patriot-gold font-bold text-lg mr-2">🚀</span>
+            <span className="text-patriot-gold font-semibold text-lg">COMING SOON</span>
+          </div>
         </div>
 
-        <Tabs defaultValue="credit-card" className="w-full">
+        <div className="relative">
+          {/* Coming Soon Overlay */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-2xl z-10 flex items-center justify-center">
+            <div className="text-center">
+              <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-2xl p-8 border border-patriot-gold/40">
+                <h3 className="text-3xl font-bold text-patriot-gold mb-4">Payment System Launching Soon!</h3>
+                <p className="text-white text-lg mb-6">
+                  We're putting the finishing touches on our secure payment infrastructure
+                </p>
+                <div className="space-y-3 text-gray-300">
+                  <p className="flex items-center justify-center gap-2">
+                    <span className="text-patriot-gold">✓</span>
+                    Credit card payments via MoonPay & Crossmint
+                  </p>
+                  <p className="flex items-center justify-center gap-2">
+                    <span className="text-patriot-gold">✓</span>
+                    Crypto wallet integration (Phantom, Solflare)
+                  </p>
+                  <p className="flex items-center justify-center gap-2">
+                    <span className="text-patriot-gold">✓</span>
+                    Secure Solana blockchain transactions
+                  </p>
+                </div>
+                <div className="mt-6 p-4 bg-patriot-red/20 rounded-lg border border-patriot-red/30">
+                  <p className="text-patriot-red font-semibold">
+                    Join the waitlist to be notified when purchasing goes live!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <Tabs defaultValue="credit-card" className="w-full opacity-30">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="credit-card" className="text-lg py-3">
               💳 Credit Card (Easiest)
@@ -191,6 +227,7 @@ export default function PaymentOptions() {
             </Card>
           </TabsContent>
         </Tabs>
+        </div>
       </div>
     </section>
   );
