@@ -359,7 +359,7 @@ html {
     /* Fix iOS viewport height issues */
     .ios-vh-fix {
       min-height: -webkit-fill-available;
-      min-height: fill-available;
+      min-height: stretch;
     }
   }
   
@@ -369,5 +369,33 @@ html {
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
     }
+  }
+  
+  /* Play button specific cross-browser fixes */
+  .play-button-enhanced {
+    /* Ensure proper touch targets on mobile */
+    min-height: 44px;
+    min-width: 44px;
+    /* Cross-browser user selection prevention */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Prevent context menu on long press */
+    -webkit-touch-callout: none;
+    /* Hardware acceleration for smooth animations */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* SVG icon rendering fixes */
+  .svg-icon-fix {
+    /* Prevent blurry SVGs in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Smooth scaling */
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
   }
 }

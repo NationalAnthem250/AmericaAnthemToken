@@ -11,10 +11,11 @@ export default function VideoSection() {
     
     // Enhanced browser detection for autoplay policies
     const isEdge = /Edg|Edge/.test(userAgent);
-    const isChrome = /Chrome/.test(userAgent) && !isEdge && /Google Inc/.test(navigator.vendor);
-    const isSafari = /Safari/.test(userAgent) && !isChrome && !isEdge && /Apple Computer/.test(navigator.vendor);
+    const isChrome = /Chrome/.test(userAgent) && !isEdge && !/Safari/.test(userAgent);
+    const isSafari = /Safari/.test(userAgent) && !isChrome && !isEdge && !/Chrome/.test(userAgent);
     const isFirefox = /Firefox/.test(userAgent);
     const isIE = /Trident|MSIE/.test(userAgent);
+    const isOpera = /OPR|Opera/.test(userAgent);
     
     // Comprehensive device and browser detection
     const detectEnvironment = () => {
@@ -24,6 +25,7 @@ export default function VideoSection() {
       
       let browser = 'Unknown';
       if (isEdge) browser = 'Edge';
+      else if (isOpera) browser = 'Opera';
       else if (isChrome) browser = 'Chrome';
       else if (isSafari) browser = 'Safari';
       else if (isFirefox) browser = 'Firefox';
@@ -37,26 +39,49 @@ export default function VideoSection() {
     
     const testAutoplaySupport = async () => {
       try {
-        // Edge-specific detection
-        if (isEdge) {
-          // Edge has stricter autoplay policies, assume blocked until interaction
+        // Edge and Safari have stricter autoplay policies
+        if (isEdge || isSafari) {
           setAutoplaySupported(false);
           return;
         }
         
+        // Better video data for testing
         const video = document.createElement('video');
         video.muted = true;
         video.autoplay = true;
         video.playsInline = true;
-        video.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMWlzaWVuZGF2Y2FzZ2NzdA==';
+        video.style.width = '1px';
+        video.style.height = '1px';
+        video.style.position = 'absolute';
+        video.style.top = '-1000px';
+        
+        // More comprehensive test video data
+        video.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMWlzaWVuZGF2Y2FzZ2NzdG1lZGF0YWF2YzFtZGF0';
+        
+        document.body.appendChild(video);
         
         const playPromise = video.play();
-        if (playPromise !== undefined) {
-          await playPromise;
-          setAutoplaySupported(true);
+        if (playPromise !== undefined && typeof playPromise.then === 'function') {
+          try {
+            await playPromise;
+            setAutoplaySupported(true);
+          } catch (playError) {
+            setAutoplaySupported(false);
+          }
         } else {
-          setAutoplaySupported(false);
+          // Fallback for older browsers
+          setTimeout(() => {
+            setAutoplaySupported(!video.paused);
+          }, 100);
         }
+        
+        // Cleanup
+        setTimeout(() => {
+          if (video.parentNode) {
+            video.parentNode.removeChild(video);
+          }
+        }, 500);
+        
       } catch (error) {
         console.log('Autoplay not supported:', error);
         setAutoplaySupported(false);
@@ -126,36 +151,57 @@ export default function VideoSection() {
           )}
           
           {/* Play Button Overlay - Shows when autoplay might be blocked */}
-          {(isMobile || !autoplaySupported || !hasInteracted || browserInfo.includes('Edge')) && (
+          {(isMobile || !autoplaySupported || !hasInteracted || browserInfo.includes('Edge') || browserInfo.includes('Safari')) && (
             <div 
-              className="absolute inset-0 flex items-center justify-center bg-black/60 z-10 cursor-pointer transition-opacity duration-300"
-              onClick={() => {
+              className="absolute inset-0 flex items-center justify-center bg-black/60 z-10 cursor-pointer transition-opacity duration-300 mobile-optimized play-button-enhanced"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 setHasInteracted(true);
+                
+                // Multiple attempts to ensure video plays across browsers
                 const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
                 if (iframe && iframe.contentWindow) {
                   try {
-                    iframe.contentWindow.postMessage('{"method":"play"}', '*');
-                    iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
-                    iframe.contentWindow.postMessage('{"method":"setMuted","value":false}', '*');
+                    // Wait a moment for iframe to be ready
+                    setTimeout(() => {
+                      try {
+                        iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+                        iframe.contentWindow?.postMessage('{"method":"setVolume","value":1}', '*');
+                        iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+                      } catch (innerError) {
+                        console.log('Retry video control failed:', innerError);
+                        // Fallback: reload iframe with play parameters
+                        const currentSrc = iframe.src;
+                        iframe.src = currentSrc.replace(/autoplay=0/, 'autoplay=1').replace(/muted=1/, 'muted=0');
+                      }
+                    }, 100);
                   } catch (error) {
                     console.log('Error starting video:', error);
                   }
                 }
               }}
+              onTouchStart={(e) => {
+                // Prevent double-firing on mobile
+                e.preventDefault();
+              }}
             >
               <div className="text-center">
-                <div className="bg-patriot-red/90 rounded-full p-6 shadow-2xl mb-4 hover:bg-patriot-red transition-colors">
+                <div className="bg-patriot-red/90 rounded-full p-6 shadow-2xl mb-4 hover:bg-patriot-red transition-all-enhanced hover:scale-105 active:scale-95 backface-hidden">
                   <svg 
-                    className="w-16 h-16 text-white ml-1" 
+                    className="w-16 h-16 text-white ml-1 pointer-events-none svg-icon-fix" 
                     fill="currentColor" 
                     viewBox="0 0 24 24"
+                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
                   >
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
                 <p className="text-white text-lg font-semibold">Watch Performance</p>
                 <p className="text-gray-300 text-sm mt-1">
-                  {browserInfo.includes('Edge') ? 'Click to play (Edge browser)' : 'Tap to play with sound'}
+                  {browserInfo.includes('Edge') ? 'Click to play (Edge browser)' : 
+                   browserInfo.includes('Safari') ? 'Click to play (Safari)' :
+                   isMobile ? 'Tap to play with sound' : 'Click to play with sound'}
                 </p>
               </div>
             </div>
@@ -165,12 +211,13 @@ export default function VideoSection() {
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
               id="video-player"
-              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted && autoplaySupported && !browserInfo.includes('Edge') ? '1' : '0'}&loop=1&muted=${hasInteracted && !browserInfo.includes('Edge') ? '0' : '1'}&background=${hasInteracted && autoplaySupported && !isMobile && !browserInfo.includes('Edge') ? '1' : '0'}&controls=${isMobile || !hasInteracted || browserInfo.includes('Edge') ? '1' : '0'}&player_id=0&app_id=58479&quality=auto`}
+              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted && autoplaySupported && !browserInfo.includes('Edge') && !browserInfo.includes('Safari') ? '1' : '0'}&loop=1&muted=${hasInteracted && !browserInfo.includes('Edge') && !browserInfo.includes('Safari') ? '0' : '1'}&background=${hasInteracted && autoplaySupported && !isMobile && !browserInfo.includes('Edge') && !browserInfo.includes('Safari') ? '1' : '0'}&controls=${isMobile || !hasInteracted || browserInfo.includes('Edge') || browserInfo.includes('Safari') ? '1' : '0'}&player_id=0&app_id=58479&quality=auto&responsive=1&keyboard=1`}
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
               title="Hannah Magnelli's Rendition National Anthem - Celebrating the 250th Anniversary of the United States of America"
+              loading="eager"
             ></iframe>
           </div>
         </div>
