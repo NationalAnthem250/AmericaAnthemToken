@@ -3,6 +3,7 @@ export default function Footer() {
     { href: "#about", label: "About Hannah" },
     { href: "#token", label: "Token Launch" },
     { href: "#anthem", label: "National Anthem" },
+    { href: "/terms", label: "Terms & Conditions" },
     { href: "https://america250.org/", label: "America250.org" },
   ];
 
