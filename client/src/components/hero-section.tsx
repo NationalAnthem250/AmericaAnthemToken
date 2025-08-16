@@ -14,13 +14,51 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
-      {/* American Flag Background */}
+      {/* Animated American Flag Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
           src={flagBackground}
           alt="American Flag waving majestically"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full animate-pulse"
+          style={{
+            animation: 'flagWave 4s ease-in-out infinite, slowZoom 20s ease-in-out infinite alternate'
+          }}
         />
+      </div>
+
+      {/* Animated Stars Field */}
+      <div className="absolute inset-0 w-full h-full z-5">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+              opacity: 0.3 + Math.random() * 0.7
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Patriotic Elements */}
+      <div className="absolute inset-0 w-full h-full z-15 pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-4xl opacity-20"
+            style={{
+              left: `${10 + (i * 15)}%`,
+              top: `${20 + (i * 10)}%`,
+              animation: `floatUpDown ${8 + i}s ease-in-out infinite`,
+              animationDelay: `${i * 0.5}s`
+            }}
+          >
+            {i % 3 === 0 ? '⭐' : i % 3 === 1 ? '🇺🇸' : '🦅'}
+          </div>
+        ))}
       </div>
       
       {/* Dark overlay for better text readability */}
