@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import flagBackground from "@assets/generated_images/American_flag_waving_background_be7a2567.png";
+import flagVideo from "@assets/u7663935958_full_american_flag_waving_in_the_wind_illustrated_7e3a5080-e3fc-4cc1-8477-b13c72069c5b_0_1755365095750.mp4";
 import CountdownTimer from "./countdown-timer";
 import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord } from "react-icons/fa";
 
@@ -15,16 +15,23 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
-      {/* Animated American Flag Background */}
+      {/* Animated American Flag Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <img
-          src={flagBackground}
-          alt="American Flag waving majestically"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full animate-pulse"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full"
           style={{
-            animation: 'flagWave 4s ease-in-out infinite, slowZoom 20s ease-in-out infinite alternate'
+            minWidth: '100%',
+            minHeight: '100%'
           }}
-        />
+        >
+          <source src={flagVideo} type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-patriot-red via-patriot-blue to-patriot-navy"></div>
+        </video>
       </div>
 
       {/* Animated Stars Field */}
