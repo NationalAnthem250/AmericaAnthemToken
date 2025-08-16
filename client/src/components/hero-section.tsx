@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import flagBackground from "@assets/generated_images/American_flag_waving_background_be7a2567.png";
 import CountdownTimer from "./countdown-timer";
+import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord } from "react-icons/fa";
 
 export default function HeroSection() {
 
@@ -63,6 +64,126 @@ export default function HeroSection() {
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40 z-20"></div>
+
+      {/* Social Media Icons - Vertical Right Side (Desktop) */}
+      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
+        <div className="flex flex-col space-y-4 bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-patriot-gold/30">
+          <a 
+            href="https://twitter.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Follow us on Twitter"
+          >
+            <FaTwitter />
+          </a>
+          <a 
+            href="https://facebook.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-600 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Follow us on Facebook"
+          >
+            <FaFacebook />
+          </a>
+          <a 
+            href="https://instagram.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-pink-500 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Follow us on Instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a 
+            href="https://youtube.com/@anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-red-500 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Subscribe to our YouTube"
+          >
+            <FaYoutube />
+          </a>
+          <a 
+            href="https://t.me/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Join our Telegram"
+          >
+            <FaTelegram />
+          </a>
+          <a 
+            href="https://discord.gg/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-500 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Join our Discord"
+          >
+            <FaDiscord />
+          </a>
+        </div>
+      </div>
+
+      {/* Social Media Icons - Horizontal Mobile Version */}
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 block lg:hidden">
+        <div className="flex space-x-4 bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-patriot-gold/30">
+          <a 
+            href="https://twitter.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Follow us on Twitter"
+          >
+            <FaTwitter />
+          </a>
+          <a 
+            href="https://facebook.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-600 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Follow us on Facebook"
+          >
+            <FaFacebook />
+          </a>
+          <a 
+            href="https://instagram.com/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-pink-500 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Follow us on Instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a 
+            href="https://youtube.com/@anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-red-500 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Subscribe to our YouTube"
+          >
+            <FaYoutube />
+          </a>
+          <a 
+            href="https://t.me/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-400 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Join our Telegram"
+          >
+            <FaTelegram />
+          </a>
+          <a 
+            href="https://discord.gg/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-500 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Join our Discord"
+          >
+            <FaDiscord />
+          </a>
+        </div>
+      </div>
       
       {/* Patriotic border elements */}
       <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue z-30"></div>
