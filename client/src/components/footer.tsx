@@ -69,14 +69,40 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <div className="mb-4">
-            <p className="text-xl md:text-2xl text-yellow-400 font-medium leading-relaxed">
-              The <strong>first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
-              <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
-            </p>
+        <div className="border-t border-gray-700 mt-8 pt-8">
+          {/* Crypto Token Disclaimer */}
+          <div className="bg-patriot-navy/50 rounded-lg p-6 mb-8 border border-gray-700">
+            <h4 className="text-patriot-gold font-bold text-lg mb-4 text-center">Important Disclosure</h4>
+            <div className="text-sm text-gray-300 leading-relaxed space-y-3">
+              <p>
+                <strong>250STAR tokens are intended to function as an expression of support for, and engagement with, the patriotic ideals and cultural heritage embodied by America's 250th anniversary celebration and Hannah Magnelli's National Anthem performance.</strong> 250STAR tokens are not intended to be, or to be the subject of, an investment opportunity, investment contract, or security of any type.
+              </p>
+              <p>
+                Anthem250.com is a commemorative cultural project celebrating American heritage and has no political affiliation with any political campaign, political office, or governmental agency. This project is focused solely on preserving and celebrating American musical and cultural history.
+              </p>
+              <p>
+                250STAR tokens are digital collectibles created to commemorate America's Semiquincentennial celebration. Token holders may receive access to exclusive content, performances, and community features, but tokens should not be purchased with any expectation of profit or financial return.
+              </p>
+              <p>
+                <strong>Network:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>Supply:</strong> 1,776,000 total tokens commemorating the year of American independence. <strong>Price:</strong> $17.76 per token in honor of 1776.
+              </p>
+              <p className="text-xs text-gray-400 mt-4">
+                This project is not affiliated with or endorsed by the official America250 Foundation. Please review our Terms & Conditions and Token Allocation details before participating. Cryptocurrency investments carry risk - never invest more than you can afford to lose.
+              </p>
+            </div>
           </div>
-          <p className="text-gray-400">&copy; 2026 Hannah Magnelli. Celebrating America's 250th Anniversary. All rights reserved.</p>
+
+          {/* Footer Copyright */}
+          <div className="text-center">
+            <div className="mb-4">
+              <p className="text-xl md:text-2xl text-yellow-400 font-medium leading-relaxed">
+                The <strong>first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
+                <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
+              </p>
+            </div>
+            <p className="text-gray-400">&copy; 2026 Hannah Magnelli. Celebrating America's 250th Anniversary. All rights reserved.</p>
+            <p className="text-xs text-gray-500 mt-2">250STAR • Solana Network • Contract: [Contract Address TBD]</p>
+          </div>
         </div>
       </div>
     </footer>
