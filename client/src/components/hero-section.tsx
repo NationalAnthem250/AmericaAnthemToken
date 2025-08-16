@@ -3,35 +3,88 @@ import { Card } from "@/components/ui/card";
 import flagVideo from "@assets/u7663935958_full_american_flag_waving_in_the_wind_illustrated_7e3a5080-e3fc-4cc1-8477-b13c72069c5b_0_1755365095750.mp4";
 import CountdownTimer from "./countdown-timer";
 import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord, FaWhatsapp } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoSupported, setIsVideoSupported] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    
+    // Handle video autoplay fallback
+    const handleVideoAutoplay = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (error) {
+          console.log("Autoplay not supported:", error);
+          // Set up user interaction to start video
+          const startVideoOnInteraction = () => {
+            if (videoRef.current) {
+              videoRef.current.play().catch(() => {
+                setIsVideoSupported(false);
+              });
+            }
+            document.removeEventListener('click', startVideoOnInteraction);
+            document.removeEventListener('touchstart', startVideoOnInteraction);
+          };
+          
+          document.addEventListener('click', startVideoOnInteraction);
+          document.addEventListener('touchstart', startVideoOnInteraction);
+        }
+      }
+    };
+
+    handleVideoAutoplay();
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Smooth scroll fallback for older browsers
+      if ('scrollBehavior' in document.documentElement.style) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        element.scrollIntoView();
+      }
     }
   };
 
   return (
-    <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
+    <section className="relative bg-black min-h-screen ios-vh-fix flex items-center overflow-hidden">
       {/* Animated American Flag Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full"
-          style={{
-            minWidth: '100%',
-            minHeight: '100%'
-          }}
-        >
-          <source src={flagVideo} type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          <div className="absolute inset-0 bg-gradient-to-br from-patriot-red via-patriot-blue to-patriot-navy"></div>
-        </video>
+        {isVideoSupported ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            controls={false}
+            disablePictureInPicture
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full"
+            style={{
+              minWidth: '100%',
+              minHeight: '100%'
+            }}
+            onError={() => setIsVideoSupported(false)}
+          >
+            <source src={flagVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          /* Fallback background for browsers that don't support video */
+          <div className="absolute inset-0 bg-gradient-to-br from-patriot-red via-patriot-blue to-patriot-navy animate-pulse"></div>
+        )}
       </div>
 
       {/* Animated Stars Field */}
@@ -56,12 +109,15 @@ export default function HeroSection() {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute text-4xl opacity-20"
+            className="absolute text-4xl opacity-20 backface-hidden"
             style={{
               left: `${10 + (i * 15)}%`,
               top: `${20 + (i * 10)}%`,
+              WebkitAnimation: `floatUpDown ${8 + i}s ease-in-out infinite`,
               animation: `floatUpDown ${8 + i}s ease-in-out infinite`,
-              animationDelay: `${i * 0.5}s`
+              WebkitAnimationDelay: `${i * 0.5}s`,
+              animationDelay: `${i * 0.5}s`,
+              fontFamily: 'Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, serif'
             }}
           >
             {i % 3 === 0 ? '⭐' : i % 3 === 1 ? '🇺🇸' : '🦅'}

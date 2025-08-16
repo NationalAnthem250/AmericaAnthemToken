@@ -18,7 +18,7 @@ export default function TokenSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            <span className="text-red-600">250</span><span className="text-white" style={{ WebkitTextStroke: '1px #000' }}>ST</span><span className="text-blue-600">AR</span> TOKEN LAUNCH
+            <span className="text-red-600">250</span><span className="text-gray-800 text-stroke">ST</span><span className="text-blue-600">AR</span> TOKEN LAUNCH
           </h2>
           <div className="mb-6">
             <span className="bg-patriot-navy text-white px-6 py-2 rounded-full font-bold text-xl">
