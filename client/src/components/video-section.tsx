@@ -7,25 +7,27 @@ export default function VideoSection() {
   const [browserInfo, setBrowserInfo] = useState<string>('');
 
   useEffect(() => {
+    const userAgent = navigator.userAgent;
+    
+    // Enhanced browser detection for autoplay policies
+    const isEdge = /Edg|Edge/.test(userAgent);
+    const isChrome = /Chrome/.test(userAgent) && !isEdge && /Google Inc/.test(navigator.vendor);
+    const isSafari = /Safari/.test(userAgent) && !isChrome && !isEdge && /Apple Computer/.test(navigator.vendor);
+    const isFirefox = /Firefox/.test(userAgent);
+    const isIE = /Trident|MSIE/.test(userAgent);
+    
     // Comprehensive device and browser detection
     const detectEnvironment = () => {
-      const userAgent = navigator.userAgent;
-      
       // Mobile detection
       const mobileCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
       setIsMobile(mobileCheck);
       
-      // Browser detection for autoplay policies
-      const isChrome = /Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor);
-      const isSafari = /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor);
-      const isFirefox = /Firefox/.test(userAgent);
-      const isEdge = /Edg/.test(userAgent);
-      
       let browser = 'Unknown';
-      if (isChrome) browser = 'Chrome';
+      if (isEdge) browser = 'Edge';
+      else if (isChrome) browser = 'Chrome';
       else if (isSafari) browser = 'Safari';
       else if (isFirefox) browser = 'Firefox';
-      else if (isEdge) browser = 'Edge';
+      else if (isIE) browser = 'IE';
       
       setBrowserInfo(`${browser} - ${mobileCheck ? 'Mobile' : 'Desktop'}`);
       
@@ -35,14 +37,25 @@ export default function VideoSection() {
     
     const testAutoplaySupport = async () => {
       try {
+        // Edge-specific detection
+        if (isEdge) {
+          // Edge has stricter autoplay policies, assume blocked until interaction
+          setAutoplaySupported(false);
+          return;
+        }
+        
         const video = document.createElement('video');
         video.muted = true;
+        video.autoplay = true;
+        video.playsInline = true;
         video.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMWlzaWVuZGF2Y2FzZ2NzdA==';
         
         const playPromise = video.play();
         if (playPromise !== undefined) {
           await playPromise;
           setAutoplaySupported(true);
+        } else {
+          setAutoplaySupported(false);
         }
       } catch (error) {
         console.log('Autoplay not supported:', error);
@@ -108,7 +121,7 @@ export default function VideoSection() {
           )}
           
           {/* Play Button Overlay - Shows when autoplay might be blocked */}
-          {(isMobile || !autoplaySupported || !hasInteracted) && (
+          {(isMobile || !autoplaySupported || !hasInteracted || browserInfo.includes('Edge')) && (
             <div 
               className="absolute inset-0 flex items-center justify-center bg-black/60 z-10 cursor-pointer transition-opacity duration-300"
               onClick={() => {
@@ -136,7 +149,9 @@ export default function VideoSection() {
                   </svg>
                 </div>
                 <p className="text-white text-lg font-semibold">Watch Performance</p>
-                <p className="text-gray-300 text-sm mt-1">Tap to play with sound</p>
+                <p className="text-gray-300 text-sm mt-1">
+                  {browserInfo.includes('Edge') ? 'Click to play (Edge browser)' : 'Tap to play with sound'}
+                </p>
               </div>
             </div>
           )}
@@ -145,7 +160,7 @@ export default function VideoSection() {
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
               id="video-player"
-              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted && autoplaySupported ? '1' : '0'}&loop=1&muted=${hasInteracted ? '0' : '1'}&background=${hasInteracted && autoplaySupported && !isMobile ? '1' : '0'}&controls=${isMobile || !hasInteracted ? '1' : '0'}&player_id=0&app_id=58479&quality=auto`}
+              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted && autoplaySupported && !browserInfo.includes('Edge') ? '1' : '0'}&loop=1&muted=${hasInteracted && !browserInfo.includes('Edge') ? '0' : '1'}&background=${hasInteracted && autoplaySupported && !isMobile && !browserInfo.includes('Edge') ? '1' : '0'}&controls=${isMobile || !hasInteracted || browserInfo.includes('Edge') ? '1' : '0'}&player_id=0&app_id=58479&quality=auto`}
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
