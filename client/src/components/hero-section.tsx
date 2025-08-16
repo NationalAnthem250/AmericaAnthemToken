@@ -39,11 +39,21 @@ export default function HeroSection() {
         <div className="text-center">
           {/* Main Hero Content */}
           <div className="space-y-8">
-            {/* Main Title */}
+            {/* Clear Mission Statement */}
             <div className="max-w-4xl mx-auto">
-              <div className="text-base md:text-lg leading-relaxed mb-4">
-                <p className="text-sky-300 font-bold">
-                  The first-ever NFT of the US National Anthem performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                WHAT IS <span className="text-patriot-gold">ANTHEM250?</span>
+              </h1>
+              <div className="text-lg md:text-xl leading-relaxed mb-6 space-y-4">
+                <p className="text-sky-300 font-semibold">
+                  A commemorative digital collectible celebrating America's 250th anniversary in 2026
+                </p>
+                <p className="text-gray-200">
+                  Professional mezzo soprano <span className="text-patriot-gold font-bold">Hannah Magnelli</span> has recorded 
+                  a beautiful rendition of our National Anthem to honor this historic milestone
+                </p>
+                <p className="text-gray-300 text-base">
+                  Own a piece of American history as we celebrate 250 years of freedom, independence, and the enduring spirit of our great nation
                 </p>
               </div>
               
@@ -71,8 +81,29 @@ export default function HeroSection() {
             </div>
             
             {/* Countdown Timer */}
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto mb-8">
               <CountdownTimer />
+            </div>
+            
+            {/* Clear Call to Action */}
+            <div className="text-center">
+              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-red/30 mb-8">
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  🇺🇸 Join America's Historic Celebration
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Be part of the largest patriotic milestone in our lifetime - America's 250th birthday
+                </p>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('onboarding');
+                    element?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Learn How to Participate
+                </button>
+              </div>
             </div>
             
             {/* Call to Action Buttons */}

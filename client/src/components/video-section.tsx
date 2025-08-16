@@ -103,11 +103,16 @@ export default function VideoSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            OWN PART OF <span className="text-patriot-red">AMERICAN HISTORY</span>
+            HEAR <span className="text-patriot-red">HANNAH'S PERFORMANCE</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Hannah Magnelli's powerful interpretation of "The Star-Spangled Banner" brings classical excellence to America's most treasured song
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+            Listen to this beautiful interpretation of "The Star-Spangled Banner" that will be preserved for America's 250th anniversary
           </p>
+          <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto border border-patriot-gold/30">
+            <p className="text-patriot-gold font-semibold">
+              🎵 This is the exact performance that will become part of America's historical record
+            </p>
+          </div>
         </div>
         
         <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">

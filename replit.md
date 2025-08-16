@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application for the launch of the 250STAR token - the first-ever NFT of the US National Anthem, performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary. The platform allows patriotic Americans to own a digital piece of American heritage through the $250STAR token, combining classical performance with blockchain innovation. The application features a modern React frontend with a Node.js/Express backend, styled with Tailwind CSS and shadcn/ui components.
+This is a comprehensive full-stack web application for the launch of the 250STAR token - the first-ever NFT of the US National Anthem, performed by professional mezzo soprano Hannah Magnelli in commemoration of America's 250th anniversary. The platform bridges both non-crypto and crypto audiences through dual onboarding flows, educational content, and flexible payment options. The application prioritizes clear storytelling and cultural significance while maintaining advanced tokenomics for experienced collectors.
 
 ## User Preferences
 
@@ -38,12 +38,17 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Components
 - **Navigation**: Fixed red header with countdown timer, optimized navigation links, and prominent "Join Waitlist" CTA button
-- **Hero Section**: Full-screen video background featuring Hannah's National Anthem performance with auto-play and fallback handling
-- **Video Section**: Embedded Vimeo player showcasing Hannah's National Anthem performance (now serves as About section)
+- **Hero Section**: Mission-first storytelling with clear "What is Anthem250?" explanation, cultural significance focus, and prominent CTA
+- **Video Section**: Enhanced Vimeo player with comprehensive browser compatibility (Chrome, Safari, Firefox, Edge) and mobile autoplay support
+- **Dual Onboarding**: Smart path selection allowing users to choose "New to NFTs" or "Experienced with Crypto" journeys
+- **NFT Education**: Plain-language explanations using metaphors (digital autograph, museum plaque) with comprehensive FAQ
+- **America Timeline**: Interactive timeline from 1776 to 2026 showing the anthem's historical journey
+- **Crypto Advanced**: Detailed tokenomics, utility breakdown, roadmap, smart contract transparency, and community features
+- **Payment Options**: Dual payment system with credit card (MoonPay/Crossmint) and crypto wallet options
 - **Tokenomics Section**: Professional token allocation visualization with supply details, pricing, and utility benefits
 - **How to Participate**: 3-step conversion flow (Join Waitlist → Connect Wallet → Own History) with integrated email signup
 - **NFT Section**: Comprehensive NFT collection showcase with featured cards, stats, benefits, and holder utilities
-- **Performers Section**: Showcase of Hannah Magnelli as team member with professional credentials (now serves as Team section)
+- **Hannah Bio Section**: Showcase of Hannah Magnelli with professional credentials and testimonials
 - **America250 Section**: Partnership information with official America250 commemoration
 - **Footer**: Site-wide footer with links and contact information
 
@@ -128,4 +133,21 @@ Preferred communication style: Simple, everyday language.
 - **Database**: PostgreSQL compatible database (Neon recommended)
 - **Environment Variables**: DATABASE_URL for database connection
 
-The architecture prioritizes developer experience with TypeScript throughout, fast build times with Vite/esbuild, and a clean separation between frontend and backend while maintaining type safety across the full stack.
+## Recent Major Updates (January 2025)
+
+### Dual Audience Optimization
+- **Non-Crypto Audience Path**: Clear storytelling, educational content, America timeline, credit card payments, cultural significance focus
+- **Crypto Audience Path**: Advanced tokenomics, smart contract transparency, utility details, wallet integration, community features
+- **Adaptive User Experience**: Dynamic content based on user path selection with smooth scrolling navigation
+
+### Enhanced Payment & Onboarding
+- **Credit Card Integration**: MoonPay, Crossmint, and Stripe support for non-crypto users
+- **Wallet Support**: Phantom, Solflare, and other Solana wallets for crypto users
+- **Educational Framework**: Plain-language NFT explanations with metaphors and comprehensive FAQ
+
+### Browser Compatibility Improvements
+- **Universal Autoplay Support**: Enhanced video playback across Chrome, Safari, Firefox, and Microsoft Edge
+- **Mobile Optimization**: Touch-friendly controls with device detection and fallback handling
+- **Cross-Platform Testing**: Comprehensive browser and device compatibility testing
+
+The architecture now bridges traditional and crypto audiences through intelligent onboarding flows while maintaining technical excellence with TypeScript throughout, fast build times with Vite/esbuild, and clean separation between frontend and backend with full-stack type safety.
