@@ -1,6 +1,87 @@
 import { useEffect, useState } from "react";
 
 export default function VideoSection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    // Aggressive autoplay strategy for all browsers
+    const enableAutoplay = () => {
+      setHasInteracted(true);
+      const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
+      if (iframe && iframe.contentWindow) {
+        try {
+          // Multiple attempts to ensure video plays with sound
+          iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+          iframe.contentWindow?.postMessage('{"method":"setVolume","value":1}', '*');
+          iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+          
+          // Additional attempts with different timing
+          setTimeout(() => {
+            try {
+              iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+              iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+            } catch (err) {
+              console.log('Delayed autoplay attempt:', err);
+            }
+          }, 500);
+          
+          setTimeout(() => {
+            try {
+              iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+            } catch (err) {
+              console.log('Final autoplay attempt:', err);
+            }
+          }, 2000);
+          
+        } catch (error) {
+          console.log('Video control attempt:', error);
+        }
+      }
+    };
+
+    // Immediate autoplay attempt (works in some browsers)
+    setTimeout(() => {
+      if (!hasInteracted) {
+        enableAutoplay();
+      }
+    }, 100);
+
+    // Listen for any user interaction to enable autoplay
+    const interactionEvents = ['click', 'touchstart', 'touchend', 'keydown', 'scroll', 'mousemove', 'mouseenter', 'focus'];
+    
+    const handleFirstInteraction = () => {
+      if (!hasInteracted) {
+        enableAutoplay();
+        // Remove listeners after first interaction
+        interactionEvents.forEach(event => {
+          document.removeEventListener(event, handleFirstInteraction);
+        });
+      }
+    };
+
+    // Add interaction listeners
+    interactionEvents.forEach(event => {
+      document.addEventListener(event, handleFirstInteraction, { passive: true });
+    });
+
+    // Try autoplay on page visibility change (works when switching tabs)
+    const handleVisibilityChange = () => {
+      if (!document.hidden && !hasInteracted) {
+        enableAutoplay();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Cleanup
+    return () => {
+      interactionEvents.forEach(event => {
+        document.removeEventListener(event, handleFirstInteraction);
+      });
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [hasInteracted]);
 
   return (
     <section id="video" className="py-20 bg-patriot-navy">
@@ -27,13 +108,55 @@ export default function VideoSection() {
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
               id="video-player"
-              src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=0&loop=1&muted=0&controls=1&player_id=0&app_id=58479&quality=auto&responsive=1&keyboard=1"
+              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted ? '1' : '1'}&loop=1&muted=${hasInteracted ? '0' : '1'}&background=0&controls=1&player_id=0&app_id=58479&quality=auto&responsive=1&keyboard=1&dnt=1`}
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
               title="Hannah Magnelli's Rendition National Anthem - Celebrating the 250th Anniversary of the United States of America"
               loading="eager"
+              onLoad={() => {
+                setIsLoaded(true);
+                // Multiple autoplay attempts with different strategies
+                const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
+                if (iframe && iframe.contentWindow) {
+                  // Immediate attempt
+                  try {
+                    iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+                    iframe.contentWindow?.postMessage('{"method":"setVolume","value":1}', '*');
+                    iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+                  } catch (error) {
+                    console.log('Immediate autoplay attempt:', error);
+                  }
+                  
+                  // Delayed attempts
+                  setTimeout(() => {
+                    try {
+                      iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+                      iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+                    } catch (error) {
+                      console.log('Delayed autoplay attempt 1:', error);
+                    }
+                  }, 500);
+                  
+                  setTimeout(() => {
+                    try {
+                      iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+                      iframe.contentWindow?.postMessage('{"method":"setMuted","value":false}', '*');
+                    } catch (error) {
+                      console.log('Delayed autoplay attempt 2:', error);
+                    }
+                  }, 2000);
+                  
+                  setTimeout(() => {
+                    try {
+                      iframe.contentWindow?.postMessage('{"method":"play"}', '*');
+                    } catch (error) {
+                      console.log('Final autoplay attempt:', error);
+                    }
+                  }, 5000);
+                }
+              }}
             ></iframe>
           </div>
         </div>
