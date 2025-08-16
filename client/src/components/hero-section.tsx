@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import flagVideo from "@assets/u7663935958_full_american_flag_waving_in_the_wind_illustrated_7e3a5080-e3fc-4cc1-8477-b13c72069c5b_0_1755365095750.mp4";
 import CountdownTimer from "./countdown-timer";
-import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord, FaWhatsapp } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord } from "react-icons/fa";
 
 export default function HeroSection() {
 
@@ -129,15 +129,6 @@ export default function HeroSection() {
           >
             <FaDiscord />
           </a>
-          <a 
-            href="https://wa.me/your-number" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white hover:text-green-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Contact us on WhatsApp"
-          >
-            <FaWhatsapp />
-          </a>
         </div>
       </div>
 
@@ -197,15 +188,6 @@ export default function HeroSection() {
             aria-label="Join our Discord"
           >
             <FaDiscord />
-          </a>
-          <a 
-            href="https://wa.me/your-number" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white hover:text-green-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Contact us on WhatsApp"
-          >
-            <FaWhatsapp />
           </a>
         </div>
       </div>
