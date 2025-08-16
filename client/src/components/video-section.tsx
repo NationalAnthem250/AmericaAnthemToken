@@ -3,14 +3,54 @@ import { useEffect, useState } from "react";
 export default function VideoSection() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [autoplaySupported, setAutoplaySupported] = useState(true);
+  const [browserInfo, setBrowserInfo] = useState<string>('');
 
   useEffect(() => {
-    // Detect mobile device
-    const checkMobile = () => {
-      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    // Comprehensive device and browser detection
+    const detectEnvironment = () => {
+      const userAgent = navigator.userAgent;
+      
+      // Mobile detection
+      const mobileCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+      setIsMobile(mobileCheck);
+      
+      // Browser detection for autoplay policies
+      const isChrome = /Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor);
+      const isSafari = /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor);
+      const isFirefox = /Firefox/.test(userAgent);
+      const isEdge = /Edg/.test(userAgent);
+      
+      let browser = 'Unknown';
+      if (isChrome) browser = 'Chrome';
+      else if (isSafari) browser = 'Safari';
+      else if (isFirefox) browser = 'Firefox';
+      else if (isEdge) browser = 'Edge';
+      
+      setBrowserInfo(`${browser} - ${mobileCheck ? 'Mobile' : 'Desktop'}`);
+      
+      // Test autoplay support
+      testAutoplaySupport();
     };
     
-    checkMobile();
+    const testAutoplaySupport = async () => {
+      try {
+        const video = document.createElement('video');
+        video.muted = true;
+        video.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMWlzaWVuZGF2Y2FzZ2NzdA==';
+        
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+          setAutoplaySupported(true);
+        }
+      } catch (error) {
+        console.log('Autoplay not supported:', error);
+        setAutoplaySupported(false);
+      }
+    };
+    
+    detectEnvironment();
 
     const handleUserInteraction = () => {
       if (!hasInteracted) {
@@ -19,25 +59,29 @@ export default function VideoSection() {
         // Find the iframe and try to play/unmute
         const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
         if (iframe && iframe.contentWindow) {
-          // Post messages to Vimeo player
-          iframe.contentWindow.postMessage('{"method":"play"}', '*');
-          iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+          // Post messages to Vimeo player with error handling
+          try {
+            iframe.contentWindow.postMessage('{"method":"play"}', '*');
+            iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+            iframe.contentWindow.postMessage('{"method":"setMuted","value":false}', '*');
+          } catch (error) {
+            console.log('Error controlling video:', error);
+          }
         }
       }
     };
 
-    // Add event listeners for user interaction
-    document.addEventListener('click', handleUserInteraction);
-    document.addEventListener('touchstart', handleUserInteraction);
-    document.addEventListener('scroll', handleUserInteraction);
-    document.addEventListener('keydown', handleUserInteraction);
+    // Enhanced event listeners for all interaction types
+    const events = ['click', 'touchstart', 'touchend', 'scroll', 'keydown', 'mousemove'];
+    events.forEach(event => {
+      document.addEventListener(event, handleUserInteraction, { passive: true });
+    });
 
     return () => {
       // Cleanup event listeners on unmount
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('scroll', handleUserInteraction);
-      document.removeEventListener('keydown', handleUserInteraction);
+      events.forEach(event => {
+        document.removeEventListener(event, handleUserInteraction);
+      });
     };
   }, [hasInteracted]);
 
@@ -54,36 +98,54 @@ export default function VideoSection() {
         </div>
         
         <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
-          {/* Mobile Play Button Overlay */}
-          {isMobile && !hasInteracted && (
+          {/* Debug Info (only in development) */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="absolute top-4 right-4 bg-black/80 text-white p-2 rounded text-xs z-20">
+              <div>Browser: {browserInfo}</div>
+              <div>Autoplay: {autoplaySupported ? 'Supported' : 'Blocked'}</div>
+              <div>Interacted: {hasInteracted ? 'Yes' : 'No'}</div>
+            </div>
+          )}
+          
+          {/* Play Button Overlay - Shows when autoplay might be blocked */}
+          {(isMobile || !autoplaySupported || !hasInteracted) && (
             <div 
-              className="absolute inset-0 flex items-center justify-center bg-black/50 z-10 cursor-pointer"
+              className="absolute inset-0 flex items-center justify-center bg-black/60 z-10 cursor-pointer transition-opacity duration-300"
               onClick={() => {
                 setHasInteracted(true);
                 const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
                 if (iframe && iframe.contentWindow) {
-                  iframe.contentWindow.postMessage('{"method":"play"}', '*');
-                  iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+                  try {
+                    iframe.contentWindow.postMessage('{"method":"play"}', '*');
+                    iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+                    iframe.contentWindow.postMessage('{"method":"setMuted","value":false}', '*');
+                  } catch (error) {
+                    console.log('Error starting video:', error);
+                  }
                 }
               }}
             >
-              <div className="bg-patriot-red/90 rounded-full p-6 shadow-2xl">
-                <svg 
-                  className="w-16 h-16 text-white ml-1" 
-                  fill="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
+              <div className="text-center">
+                <div className="bg-patriot-red/90 rounded-full p-6 shadow-2xl mb-4 hover:bg-patriot-red transition-colors">
+                  <svg 
+                    className="w-16 h-16 text-white ml-1" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <p className="text-white text-lg font-semibold">Watch Performance</p>
+                <p className="text-gray-300 text-sm mt-1">Tap to play with sound</p>
               </div>
             </div>
           )}
           
-          {/* Vimeo Video Player */}
+          {/* Vimeo Video Player with Dynamic Parameters */}
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
               id="video-player"
-              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${isMobile && !hasInteracted ? '0' : '1'}&loop=1&muted=${isMobile && !hasInteracted ? '1' : '0'}&background=${isMobile && !hasInteracted ? '0' : '1'}&player_id=0&app_id=58479`}
+              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${hasInteracted && autoplaySupported ? '1' : '0'}&loop=1&muted=${hasInteracted ? '0' : '1'}&background=${hasInteracted && autoplaySupported && !isMobile ? '1' : '0'}&controls=${isMobile || !hasInteracted ? '1' : '0'}&player_id=0&app_id=58479&quality=auto`}
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
