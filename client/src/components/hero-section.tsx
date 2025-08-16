@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import heroImage from "@assets/IMG_4165_1754527909411.jpeg";
+import flagBackground from "@assets/generated_images/American_flag_waving_background_be7a2567.png";
 import CountdownTimer from "./countdown-timer";
 
 export default function HeroSection() {
@@ -14,22 +14,17 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
-      {/* Full-screen image background */}
+      {/* American Flag Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
-          src={heroImage}
-          alt="Hannah Magnelli performing the National Anthem"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-          style={{
-            width: '102.72216797vw',
-            height: '102.72216797vh',
-            objectFit: 'cover'
-          }}
+          src={flagBackground}
+          alt="American Flag waving majestically"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 object-cover w-full h-full"
         />
       </div>
       
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/20 z-20"></div>
+      <div className="absolute inset-0 bg-black/40 z-20"></div>
       
       {/* Patriotic border elements */}
       <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-patriot-red via-patriot-gold to-patriot-blue z-30"></div>
