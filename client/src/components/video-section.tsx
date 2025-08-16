@@ -1,32 +1,45 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function VideoSection() {
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+
     const handleUserInteraction = () => {
-      // Find the iframe and try to unmute when user interacts with page
-      const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
-      if (iframe && iframe.contentWindow) {
-        // Post message to Vimeo player to unmute
-        iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+      if (!hasInteracted) {
+        setHasInteracted(true);
+        
+        // Find the iframe and try to play/unmute
+        const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
+        if (iframe && iframe.contentWindow) {
+          // Post messages to Vimeo player
+          iframe.contentWindow.postMessage('{"method":"play"}', '*');
+          iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+        }
       }
-      // Remove event listeners after first interaction
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('scroll', handleUserInteraction);
-      document.removeEventListener('keydown', handleUserInteraction);
     };
 
     // Add event listeners for user interaction
     document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('touchstart', handleUserInteraction);
     document.addEventListener('scroll', handleUserInteraction);
     document.addEventListener('keydown', handleUserInteraction);
 
     return () => {
       // Cleanup event listeners on unmount
       document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
       document.removeEventListener('scroll', handleUserInteraction);
       document.removeEventListener('keydown', handleUserInteraction);
     };
-  }, []);
+  }, [hasInteracted]);
 
   return (
     <section id="video" className="py-20 bg-patriot-navy">
@@ -41,11 +54,36 @@ export default function VideoSection() {
         </div>
         
         <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+          {/* Mobile Play Button Overlay */}
+          {isMobile && !hasInteracted && (
+            <div 
+              className="absolute inset-0 flex items-center justify-center bg-black/50 z-10 cursor-pointer"
+              onClick={() => {
+                setHasInteracted(true);
+                const iframe = document.querySelector('#video-player') as HTMLIFrameElement;
+                if (iframe && iframe.contentWindow) {
+                  iframe.contentWindow.postMessage('{"method":"play"}', '*');
+                  iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', '*');
+                }
+              }}
+            >
+              <div className="bg-patriot-red/90 rounded-full p-6 shadow-2xl">
+                <svg 
+                  className="w-16 h-16 text-white ml-1" 
+                  fill="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+          )}
+          
           {/* Vimeo Video Player */}
           <div style={{ padding: "97.4691225% 0 0 0", position: "relative" }}>
             <iframe 
               id="video-player"
-              src="https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=1&loop=1&background=1&player_id=0&app_id=58479" 
+              src={`https://player.vimeo.com/video/1110087317?badge=0&autopause=0&autoplay=${isMobile && !hasInteracted ? '0' : '1'}&loop=1&muted=${isMobile && !hasInteracted ? '1' : '0'}&background=${isMobile && !hasInteracted ? '0' : '1'}&player_id=0&app_id=58479`}
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
