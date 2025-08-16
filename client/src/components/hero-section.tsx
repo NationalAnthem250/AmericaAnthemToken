@@ -114,7 +114,7 @@ export default function HeroSection() {
             <FaTelegram />
           </a>
           <a 
-            href="https://discord.gg/anthem250" 
+            href="https://discord.gg/NTQYbXW5RX" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-purple-500 transition-colors duration-300 text-2xl hover:scale-110"
@@ -174,7 +174,7 @@ export default function HeroSection() {
             <FaTelegram />
           </a>
           <a 
-            href="https://discord.gg/anthem250" 
+            href="https://discord.gg/NTQYbXW5RX" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-purple-500 transition-colors duration-300 text-xl hover:scale-110"
