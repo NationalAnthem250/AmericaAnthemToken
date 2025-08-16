@@ -87,7 +87,7 @@ export default function HeroSection() {
             <FaFacebook />
           </a>
           <a 
-            href="https://instagram.com/anthem250" 
+            href="https://www.instagram.com/anthem250" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-2xl hover:scale-110"
@@ -147,7 +147,7 @@ export default function HeroSection() {
             <FaFacebook />
           </a>
           <a 
-            href="https://instagram.com/anthem250" 
+            href="https://www.instagram.com/anthem250" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-xl hover:scale-110"
