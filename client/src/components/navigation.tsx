@@ -64,13 +64,6 @@ export default function Navigation() {
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-3">
             <Button 
-              className="bg-[#25D366] hover:bg-[#20B954] text-white font-bold"
-              onClick={() => window.open('https://www.whatsapp.com/channel/0029VbBALc1DZ4LTR8A7sT3F', '_blank')}
-            >
-              <i className="fab fa-whatsapp mr-2"></i>
-              Join WhatsApp
-            </Button>
-            <Button 
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
               onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
             >
@@ -99,13 +92,6 @@ export default function Navigation() {
                     </button>
                   ))}
                   <div className="space-y-4 pt-4">
-                    <Button 
-                      className="w-full bg-[#25D366] hover:bg-[#20B954] text-white font-bold"
-                      onClick={() => window.open('https://www.whatsapp.com/channel/0029VbBALc1DZ4LTR8A7sT3F', '_blank')}
-                    >
-                      <i className="fab fa-whatsapp mr-2"></i>
-                      Join WhatsApp
-                    </Button>
                     <Button 
                       className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
                       onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
