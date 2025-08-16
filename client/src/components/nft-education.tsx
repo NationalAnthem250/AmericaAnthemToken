@@ -3,6 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function NFTEducation() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="py-20 bg-gradient-to-b from-black to-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,7 +125,10 @@ export default function NFTEducation() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 text-lg font-bold">
+          <Button 
+            className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 shadow-lg"
+            onClick={() => scrollToSection('participate')}
+          >
             I'm Ready to Own a Piece of History
           </Button>
         </div>
