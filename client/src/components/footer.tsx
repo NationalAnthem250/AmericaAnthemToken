@@ -65,18 +65,20 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <i className="fas fa-phone text-patriot-gold"></i>
                 <a 
-                  href="tel:+1-555-ANTHEM" 
+                  href="tel:+12026404040" 
                   className="hover:text-white transition-colors"
                 >
-                  +1 (555) ANTHEM
+                  202.640.4040
                 </a>
               </div>
               
               <div className="flex items-start space-x-3">
-                <i className="fas fa-map-marker-alt text-patriot-gold mt-1"></i>
+                <i className="fas fa-building text-patriot-gold mt-1"></i>
                 <div>
-                  <p>Anthem250 Project</p>
-                  <p>United States of America</p>
+                  <p className="font-semibold">Magnelli Productions, LLC</p>
+                  <p className="text-sm">996 Maine Ave SW</p>
+                  <p className="text-sm">Suite 930</p>
+                  <p className="text-sm">Washington DC, 20024</p>
                 </div>
               </div>
               
@@ -86,12 +88,12 @@ export default function Footer() {
               </div>
               
               <div className="mt-4 pt-4 border-t border-gray-700">
-                <h4 className="text-sm font-semibold text-patriot-gold mb-2">Support Categories</h4>
+                <h4 className="text-sm font-semibold text-patriot-gold mb-2">Business Information</h4>
                 <div className="text-xs space-y-1">
-                  <p><strong>General Inquiries:</strong> info@anthem250.com</p>
-                  <p><strong>Technical Support:</strong> support@anthem250.com</p>
-                  <p><strong>Partnership:</strong> partners@anthem250.com</p>
-                  <p><strong>Media/Press:</strong> press@anthem250.com</p>
+                  <p><strong>Company:</strong> Magnelli Productions, LLC</p>
+                  <p><strong>Primary Email:</strong> info@anthem250.com</p>
+                  <p><strong>Phone:</strong> 202.640.4040</p>
+                  <p><strong>Business Hours:</strong> Mon-Fri 9AM-6PM EST</p>
                 </div>
               </div>
             </div>
