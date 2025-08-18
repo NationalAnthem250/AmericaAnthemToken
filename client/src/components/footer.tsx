@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="bg-patriot-navy text-white py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img
               src="https://static.wixstatic.com/media/0e0c7c_1f143d393adb45b08f096242c8f00253~mv2.png/v1/fill/w_196,h_125,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Hannah%20Magnelli%20Logo.png"
@@ -49,9 +49,57 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
-            <h3 className="text-xl font-bold mb-4">Connect</h3>
-            <div className="flex space-x-4">
+          <div className="lg:col-span-1">
+            <h3 className="text-xl font-bold mb-4 text-patriot-gold">Contact Us</h3>
+            <div className="space-y-3 text-gray-400">
+              <div className="flex items-center space-x-3">
+                <i className="fas fa-envelope text-patriot-gold"></i>
+                <a 
+                  href="mailto:info@anthem250.com" 
+                  className="hover:text-white transition-colors"
+                >
+                  info@anthem250.com
+                </a>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <i className="fas fa-phone text-patriot-gold"></i>
+                <a 
+                  href="tel:+1-555-ANTHEM" 
+                  className="hover:text-white transition-colors"
+                >
+                  +1 (555) ANTHEM
+                </a>
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <i className="fas fa-map-marker-alt text-patriot-gold mt-1"></i>
+                <div>
+                  <p>Anthem250 Project</p>
+                  <p>United States of America</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <i className="fas fa-clock text-patriot-gold"></i>
+                <span>24/7 Community Support</span>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-gray-700">
+                <h4 className="text-sm font-semibold text-patriot-gold mb-2">Support Categories</h4>
+                <div className="text-xs space-y-1">
+                  <p><strong>General Inquiries:</strong> info@anthem250.com</p>
+                  <p><strong>Technical Support:</strong> support@anthem250.com</p>
+                  <p><strong>Partnership:</strong> partners@anthem250.com</p>
+                  <p><strong>Media/Press:</strong> press@anthem250.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <h3 className="text-xl font-bold mb-4 text-patriot-gold">Connect</h3>
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.href}
@@ -66,6 +114,60 @@ export default function Footer() {
                   <i className={`${social.icon} text-2xl`}></i>
                 </a>
               ))}
+            </div>
+            
+            {/* Additional Contact Methods */}
+            <div className="mt-6 space-y-2">
+              <h4 className="text-lg font-semibold text-patriot-gold">Community Channels</h4>
+              <div className="space-y-2 text-gray-400 text-sm">
+                <div className="flex items-center space-x-2">
+                  <i className="fab fa-discord text-patriot-blue"></i>
+                  <a 
+                    href="https://discord.gg/anthem250" 
+                    className="hover:text-white transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join Discord Community
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="fab fa-telegram text-patriot-blue"></i>
+                  <a 
+                    href="https://t.me/anthem250" 
+                    className="hover:text-white transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Telegram Updates
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-newspaper text-patriot-gold"></i>
+                  <a 
+                    href="mailto:press@anthem250.com" 
+                    className="hover:text-white transition-colors"
+                  >
+                    Press Inquiries
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-headset text-patriot-gold"></i>
+                  <a 
+                    href="mailto:support@anthem250.com" 
+                    className="hover:text-white transition-colors"
+                  >
+                    Technical Support
+                  </a>
+                </div>
+              </div>
+              
+              <div className="mt-4 pt-3 border-t border-gray-600">
+                <p className="text-xs text-gray-500">
+                  Response time: 24-48 hours<br/>
+                  Emergency support available via Discord
+                </p>
+              </div>
             </div>
           </div>
         </div>

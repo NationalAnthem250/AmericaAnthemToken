@@ -60,6 +60,13 @@ Preferred communication style: Simple, everyday language.
 - **Development**: Vite integration for hot module replacement
 - **Logging**: Request/response logging with timing information
 
+### Contact & Communication
+- **Contact Section**: Comprehensive footer contact information with multiple channels
+- **Email Categories**: Dedicated emails for general, technical, partnership, and press inquiries
+- **Community Channels**: Discord and Telegram integration for real-time support
+- **Support Structure**: 24/7 community support with categorized contact methods
+- **Response Times**: 24-48 hour standard response time with emergency Discord support
+
 ### UI System
 - **Design System**: shadcn/ui components with Tailwind CSS
 - **Theme**: Patriotic color scheme with CSS custom properties
