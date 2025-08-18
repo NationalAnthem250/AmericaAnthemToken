@@ -86,16 +86,7 @@ export default function Footer() {
                 <i className="fas fa-clock text-patriot-gold"></i>
                 <span>24/7 Community Support</span>
               </div>
-              
-              <div className="mt-4 pt-4 border-t border-gray-700">
-                <h4 className="text-sm font-semibold text-patriot-gold mb-2">Business Information</h4>
-                <div className="text-xs space-y-1">
-                  <p><strong>Company:</strong> Magnelli Productions, LLC</p>
-                  <p><strong>Primary Email:</strong> info@anthem250.com</p>
-                  <p><strong>Phone:</strong> 202.640.4040</p>
-                  <p><strong>Business Hours:</strong> Mon-Fri 9AM-6PM EST</p>
-                </div>
-              </div>
+
             </div>
           </div>
 
