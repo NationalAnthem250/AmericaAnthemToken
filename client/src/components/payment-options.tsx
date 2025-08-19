@@ -49,7 +49,19 @@ export default function PaymentOptions() {
                 </div>
                 <div className="mt-6 p-4 bg-patriot-red/20 rounded-lg border border-patriot-red/30">
                   <p className="text-patriot-red font-semibold">
-                    Join the waitlist to be notified when purchasing goes live!
+                    <a 
+                      href="#participate" 
+                      className="hover:text-patriot-gold transition-colors cursor-pointer underline decoration-patriot-red hover:decoration-patriot-gold"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('participate')?.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }}
+                    >
+                      Join the waitlist to be notified when purchasing goes live!
+                    </a>
                   </p>
                 </div>
               </div>
