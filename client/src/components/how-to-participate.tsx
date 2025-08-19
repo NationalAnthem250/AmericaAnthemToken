@@ -88,7 +88,7 @@ export default function HowToParticipate() {
                 2
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Connect Wallet</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Connect Wallet <span className="text-patriot-gold text-lg font-normal">(coming soon)</span></h3>
                 <p className="text-gray-300">
                   Connect your crypto wallet when the token launches to participate in the historic offering.
                 </p>

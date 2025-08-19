@@ -145,7 +145,7 @@ export default function PaymentOptions() {
             <Card className="bg-white/10 backdrop-blur-sm border-patriot-red/30">
               <CardHeader>
                 <CardTitle className="text-2xl text-white text-center">
-                  2. Connect Wallet <span className="text-patriot-gold text-lg font-normal ml-2">Coming Soon</span>
+                  2. Connect Wallet <span className="text-patriot-gold text-lg font-normal ml-2">(coming soon)</span>
                 </CardTitle>
                 <p className="text-gray-300 text-center">
                   For experienced crypto users

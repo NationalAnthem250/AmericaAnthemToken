@@ -89,7 +89,7 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Connect wallet directly
+                  Connect wallet directly (coming soon)
                 </li>
               </ul>
               <Button className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white">
