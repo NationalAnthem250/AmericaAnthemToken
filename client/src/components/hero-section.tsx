@@ -195,7 +195,7 @@ export default function HeroSection() {
             <FaWhatsapp />
           </a>
           <a 
-            href="https://www.tiktok.com/@anthem250" 
+            href="https://www.tiktok.com/@anthem250th" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-2xl hover:scale-110"
@@ -273,7 +273,7 @@ export default function HeroSection() {
             <FaWhatsapp />
           </a>
           <a 
-            href="https://www.tiktok.com/@anthem250" 
+            href="https://www.tiktok.com/@anthem250th" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-xl hover:scale-110"

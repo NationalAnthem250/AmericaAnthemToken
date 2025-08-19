@@ -260,7 +260,7 @@ export default function CryptoAdvanced() {
                 </Button>
               </a>
               <a 
-                href="https://www.tiktok.com/@anthem250"
+                href="https://www.tiktok.com/@anthem250th"
                 target="_blank"
                 rel="noopener noreferrer"
               >
