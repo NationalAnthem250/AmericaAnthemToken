@@ -11,6 +11,7 @@ export default function Footer() {
     { href: "http://instagram.com/hannah_magnelli", icon: "fab fa-instagram", label: "Instagram" },
     { href: "https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB", icon: "fab fa-spotify", label: "Spotify" },
     { href: "https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg", icon: "fab fa-youtube", label: "YouTube" },
+    { href: "https://www.linkedin.com/company/anthem250", icon: "fab fa-linkedin", label: "LinkedIn" },
     { href: "https://www.hannahmagnelli.com/", icon: "fas fa-globe", label: "Official Website" },
   ];
 
