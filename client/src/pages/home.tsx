@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import VideoSection from "@/components/video-section";
+import VisionMission from "@/components/vision-mission";
 import HannahBioSection from "@/components/hannah-bio-section";
 import TokenomicsSection from "@/components/tokenomics-section";
 import HowToParticipate from "@/components/how-to-participate";
@@ -32,6 +33,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <VideoSection />
+        <VisionMission />
         
         {/* Dual Onboarding Flow */}
         <DualOnboarding onSelectPath={handleSelectPath} />
