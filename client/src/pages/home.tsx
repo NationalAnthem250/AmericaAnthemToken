@@ -5,6 +5,7 @@ import VideoSection from "@/components/video-section";
 import VisionMission from "@/components/vision-mission";
 import HannahBioSection from "@/components/hannah-bio-section";
 import TokenomicsSection from "@/components/tokenomics-section";
+import TokenomicsRoadmap from "@/components/tokenomics-roadmap";
 import HowToParticipate from "@/components/how-to-participate";
 import { NFTSection } from "@/components/nft-section";
 import America250Section from "@/components/america250-section";
@@ -51,6 +52,7 @@ export default function Home() {
           {userPath === 'crypto' && (
             <>
               <CryptoAdvanced />
+              <TokenomicsRoadmap />
               <PaymentOptions />
             </>
           )}
@@ -70,7 +72,7 @@ export default function Home() {
         {!userPath && (
           <>
             <HannahBioSection />
-            <TokenomicsSection />
+            <TokenomicsRoadmap />
             <HowToParticipate />
             <NFTSection />
             <America250Section />

@@ -356,9 +356,9 @@ export default function HeroSection() {
               <CountdownTimer />
             </div>
             
-            {/* Clear Call to Action */}
-            <div className="text-center">
-              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-red/30 mb-8">
+            {/* Email Signup CTA */}
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-6 border border-patriot-red/30 mb-6">
                 <h3 className="text-2xl font-bold text-white mb-3">
                   🇺🇸 Join America's Historic Celebration
                 </h3>
@@ -367,12 +367,12 @@ export default function HeroSection() {
                 </p>
                 <button 
                   onClick={() => {
-                    const element = document.getElementById('onboarding');
+                    const element = document.getElementById('participate');
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Learn How to Participate
+                  Get Launch Notifications
                 </button>
               </div>
             </div>
