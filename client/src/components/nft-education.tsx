@@ -14,10 +14,10 @@ export default function NFTEducation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            WHAT IS A <span className="text-patriot-gold">DIGITAL COLLECTIBLE?</span>
+            WHAT IS A <span className="text-patriot-gold">PATRIOTIC NFT?</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Think of it like owning a digital certificate of authenticity for a piece of music and art history
+            Think of it like owning a digital certificate of authenticity for a piece of American music history - your personal piece of the National Anthem NFT
           </p>
         </div>
 

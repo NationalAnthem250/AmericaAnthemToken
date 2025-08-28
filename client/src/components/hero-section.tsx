@@ -313,18 +313,18 @@ export default function HeroSection() {
             {/* Clear Mission Statement */}
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                WHAT IS <span className="text-patriot-gold">ANTHEM250?</span>
+                THE FIRST <span className="text-patriot-gold">NATIONAL ANTHEM NFT</span>
               </h1>
               <div className="text-lg md:text-xl leading-relaxed mb-6 space-y-4">
                 <p className="text-sky-300 font-semibold">
-                  A commemorative digital collectible celebrating America's 250th anniversary in 2026
+                  Patriotic digital collectible celebrating America's 250th anniversary in 2026 - the most historic milestone of our lifetime
                 </p>
                 <p className="text-gray-200">
-                  Professional mezzo soprano <span className="text-patriot-gold font-bold">Hannah Magnelli</span> has recorded 
-                  a beautiful rendition of our National Anthem to honor this historic milestone
+                  Professional mezzo soprano <span className="text-patriot-gold font-bold">Hannah Magnelli</span> has created 
+                  the world's first National Anthem NFT to commemorate American independence and freedom
                 </p>
                 <p className="text-gray-300 text-base">
-                  Own a piece of American history as we celebrate 250 years of freedom, independence, and the enduring spirit of our great nation
+                  Own authentic American history as we celebrate 250 years of liberty, democracy, and the enduring patriotic spirit that defines our great nation
                 </p>
               </div>
               

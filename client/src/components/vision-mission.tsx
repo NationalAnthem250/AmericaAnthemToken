@@ -18,7 +18,7 @@ export default function VisionMission() {
             OUR <span className="text-patriot-gold">VISION</span> & <span className="text-patriot-red">MISSION</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Bridging American heritage with innovative technology to create lasting commemorative experiences
+            Bridging American heritage with blockchain technology to create patriotic digital collectibles that preserve our nation's musical legacy
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function VisionMission() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-lg text-gray-200 leading-relaxed">
-                To be the premier platform for commemorating America's most significant milestones through innovative digital collectibles that preserve our nation's musical heritage for future generations.
+                To be the premier platform for patriotic NFTs and American commemorative digital collectibles, preserving our nation's musical heritage through blockchain technology for future generations to own and treasure.
               </p>
               
               <div className="space-y-4">

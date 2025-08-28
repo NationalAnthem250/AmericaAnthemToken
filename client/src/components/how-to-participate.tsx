@@ -61,10 +61,10 @@ export default function HowToParticipate() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            HOW TO <span className="text-patriot-red">PARTICIPATE</span>
+            JOIN THE <span className="text-patriot-red">250STAR</span> LAUNCH
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join thousands of patriotic Americans in owning a piece of digital history
+            Join thousands of patriotic Americans investing in the first National Anthem NFT - own digital American history on the blockchain
           </p>
         </div>
 

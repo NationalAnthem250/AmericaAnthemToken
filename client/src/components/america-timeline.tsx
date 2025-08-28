@@ -39,10 +39,10 @@ export default function AmericaTimeline() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            AMERICA'S <span className="text-patriot-red">ANTHEM JOURNEY</span>
+            AMERICA'S <span className="text-patriot-red">250 YEAR JOURNEY</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From the birth of our nation to America's 250th anniversary celebration
+            From independence in 1776 to America's historic 250th anniversary milestone - commemorating freedom, liberty, and the National Anthem legacy
           </p>
         </div>
 
