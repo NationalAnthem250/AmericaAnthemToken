@@ -1,9 +1,9 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import goldenEagleNft from '@assets/generated_images/Golden_Eagle_NFT_Art_c77dc42e.png';
-import silverEagleNft from '@assets/generated_images/Silver_Eagle_NFT_Art_a1129093.png';
-import dawnLightNft from '@assets/generated_images/Dawn_Light_NFT_Art_6cf6df99.png';
+import goldenEagleNft from '@assets/u7663935958_Hyper-realistic_animation_of_a_giant_glowing_Amer_b4d1a621-900d-439b-8cc3-ff87b98bf928_1_1757458282203.png';
+import silverEagleNft from '@assets/u7663935958_Hyper-realistic_animation_of_a_giant_glowing_Amer_b4d1a621-900d-439b-8cc3-ff87b98bf928_2 (1)_1757458282204.png';
+import dawnLightNft from '@assets/u7663935958_Hyper-realistic_animation_of_a_giant_glowing_Amer_b4d1a621-900d-439b-8cc3-ff87b98bf928_3 (1)_1757458282205.png';
 
 export function NFTSection() {
   return (
@@ -27,7 +27,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <img 
                   src={goldenEagleNft} 
-                  alt="Golden Eagle NFT - O Say Can You See"
+                  alt="Golden Eagle NFT - Glowing Spirit of Freedom"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -36,7 +36,7 @@ export function NFTSection() {
                   <h3 className="text-lg font-bold text-white">Golden Eagle #001</h3>
                   <Badge className="bg-patriot-gold text-patriot-navy">LEGENDARY</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">"O Say Can You See" - Majestic golden eagle with patriotic anthem lyrics and musical notes</p>
+                <p className="text-gray-300 text-sm">"Glowing Spirit of Freedom" - Luminous digital eagle soaring through city streets with patriotic colors</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$1,776</span>
                   <Button 
@@ -60,7 +60,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <img 
                   src={silverEagleNft} 
-                  alt="Silver Eagle NFT - Dawn's Early Light"
+                  alt="Silver Eagle NFT - Digital Patriot"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -69,7 +69,7 @@ export function NFTSection() {
                   <h3 className="text-lg font-bold text-white">Silver Eagle #250</h3>
                   <Badge className="bg-gray-400 text-black">RARE</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">Elegant silver-toned eagle carrying the American flag with dawn's early light theme</p>
+                <p className="text-gray-300 text-sm">"Digital Patriot" - Radiant red, white, and blue eagle with outstretched wings in urban landscape</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$876</span>
                   <Button 
@@ -93,7 +93,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <img 
                   src={dawnLightNft} 
-                  alt="Dawn's Light NFT - Star Spangled Banner"
+                  alt="Dawn's Light NFT - America Rising"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -102,7 +102,7 @@ export function NFTSection() {
                   <h3 className="text-lg font-bold text-white">Dawn's Light #1776</h3>
                   <Badge className="bg-patriot-red text-white">SPECIAL</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">Brilliant sunrise edition featuring soaring eagle with flag against golden dawn sky</p>
+                <p className="text-gray-300 text-sm">"America Rising" - Ethereal flowing eagle with vibrant patriotic energy streaming through the city</p>
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-patriot-gold font-bold">$1,250</span>
                   <Button 
