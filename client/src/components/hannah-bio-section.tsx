@@ -1,4 +1,4 @@
-import hannahImage from "@assets/IMG_1028_edited_1754562210690.avif";
+import hannahImage from "@assets/82f267b12c0b788bfef3b9c786f981eedc826c98-1_1757459292112.jpeg";
 
 export default function HannahBioSection() {
   return (
