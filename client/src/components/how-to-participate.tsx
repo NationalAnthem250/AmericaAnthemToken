@@ -13,18 +13,7 @@ export default function HowToParticipate() {
 
   const joinWaitlistMutation = useMutation({
     mutationFn: async (data: { email: string; name: string; phone?: string }) => {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      
-      if (!response.ok) {
-        throw new Error("Failed to join waitlist");
-      }
-      
+      const response = await apiRequest("POST", "/api/waitlist", data);
       return response.json();
     },
     onSuccess: () => {

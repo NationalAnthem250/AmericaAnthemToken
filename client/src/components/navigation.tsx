@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
@@ -6,12 +6,19 @@ import { Menu, Instagram, Music } from "lucide-react";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll effect
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => {
+  // Handle scroll effect with proper cleanup
+  useEffect(() => {
+    const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
-    });
-  }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [])
 
   const navLinks = [
     { href: "video", label: "About" },
