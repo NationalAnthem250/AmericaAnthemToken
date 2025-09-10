@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Calendar, Clock, Send, Image, Video, Music, X, Plus, Settings, BarChart, Trash2, Eye, Globe2, MessageSquare } from "lucide-react";
+import { Calendar, Clock, Send, Image, Video, Music, X, Plus, Settings, BarChart, Trash2, Eye, Globe2, MessageSquare, Upload, FileImage, FileVideo, FileAudio } from "lucide-react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok, FaYoutube, FaReddit, FaPinterest, FaTelegram, FaGlobe } from "react-icons/fa";
 import type { SocialMediaPost } from "@shared/schema";
 
@@ -37,6 +37,9 @@ export default function SocialMediaDashboard() {
   const [scheduleDate, setScheduleDate] = useState("");
   const [scheduleTime, setScheduleTime] = useState("");
   const [showApiKeyDialog, setShowApiKeyDialog] = useState(false);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -154,7 +157,111 @@ export default function SocialMediaDashboard() {
     setMediaUrls(mediaUrls.filter((_, i) => i !== index));
   };
 
-  const handlePost = () => {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files) {
+      const newFiles = Array.from(files).filter(file => {
+        const isValid = file.type.startsWith('image/') || 
+                       file.type.startsWith('video/') || 
+                       file.type.startsWith('audio/');
+        if (!isValid) {
+          toast({
+            title: "Invalid file type",
+            description: `${file.name} is not a supported file type. Please upload images, videos, or audio files.`,
+            variant: "destructive",
+          });
+        }
+        return isValid;
+      });
+      setUploadedFiles([...uploadedFiles, ...newFiles]);
+    }
+  };
+
+  const handleRemoveFile = (index: number) => {
+    setUploadedFiles(uploadedFiles.filter((_, i) => i !== index));
+  };
+
+  const uploadFiles = async () => {
+    if (uploadedFiles.length === 0) return [];
+    
+    setIsUploading(true);
+    const uploadedUrls: string[] = [];
+
+    try {
+      for (const file of uploadedFiles) {
+        // Get presigned upload URL
+        const urlResponse = await fetch('/api/social-media/upload-url', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
+
+        if (!urlResponse.ok) {
+          const error = await urlResponse.json();
+          throw new Error(error.error || 'Failed to get upload URL');
+        }
+
+        const { uploadURL } = await urlResponse.json();
+
+        // Upload file directly to storage
+        const uploadResponse = await fetch(uploadURL, {
+          method: 'PUT',
+          body: file,
+          headers: {
+            'Content-Type': file.type,
+          },
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error('Failed to upload file to storage');
+        }
+
+        // Notify backend of successful upload
+        const completeResponse = await fetch('/api/social-media/upload-complete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({ uploadURL }),
+        });
+
+        if (!completeResponse.ok) {
+          const error = await completeResponse.json();
+          throw new Error(error.error || 'Failed to complete upload');
+        }
+
+        const { publicUrl } = await completeResponse.json();
+        uploadedUrls.push(publicUrl);
+      }
+
+      setUploadedFiles([]);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+      return uploadedUrls;
+    } catch (error: any) {
+      toast({
+        title: "Upload failed",
+        description: error.message || "Failed to upload files",
+        variant: "destructive",
+      });
+      return [];
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const getFileIcon = (file: File) => {
+    if (file.type.startsWith('image/')) return <FileImage className="h-4 w-4" />;
+    if (file.type.startsWith('video/')) return <FileVideo className="h-4 w-4" />;
+    if (file.type.startsWith('audio/')) return <FileAudio className="h-4 w-4" />;
+    return <Upload className="h-4 w-4" />;
+  };
+
+  const handlePost = async () => {
     if (!content || selectedPlatforms.length === 0) {
       toast({
         title: "Missing Information",
@@ -164,14 +271,18 @@ export default function SocialMediaDashboard() {
       return;
     }
 
+    // Upload files first if any
+    const uploadedUrls = await uploadFiles();
+    const allMediaUrls = [...mediaUrls, ...uploadedUrls];
+
     postMutation.mutate({
       content,
       platforms: selectedPlatforms,
-      mediaUrls: mediaUrls.length > 0 ? mediaUrls : undefined
+      mediaUrls: allMediaUrls.length > 0 ? allMediaUrls : undefined
     });
   };
 
-  const handleSchedule = () => {
+  const handleSchedule = async () => {
     if (!content || selectedPlatforms.length === 0 || !scheduleDate || !scheduleTime) {
       toast({
         title: "Missing Information",
@@ -181,12 +292,16 @@ export default function SocialMediaDashboard() {
       return;
     }
 
+    // Upload files first if any
+    const uploadedUrls = await uploadFiles();
+    const allMediaUrls = [...mediaUrls, ...uploadedUrls];
+
     const scheduledFor = new Date(`${scheduleDate}T${scheduleTime}`);
     scheduleMutation.mutate({
       postData: {
         content,
         platforms: selectedPlatforms,
-        mediaUrls: mediaUrls.length > 0 ? mediaUrls : undefined,
+        mediaUrls: allMediaUrls.length > 0 ? allMediaUrls : undefined,
         status: 'scheduled'
       },
       scheduleDate: scheduledFor
@@ -300,36 +415,94 @@ export default function SocialMediaDashboard() {
                     </div>
 
                     {/* Media Upload */}
-                    <div className="space-y-2">
+                    <div className="space-y-4">
                       <Label>Media (Optional)</Label>
-                      <div className="flex gap-2">
-                        <Input
-                          placeholder="Enter media URL (image/video/audio)"
-                          value={newMediaUrl}
-                          onChange={(e) => setNewMediaUrl(e.target.value)}
-                          data-testid="input-media-url"
-                        />
-                        <Button onClick={handleAddMedia} variant="outline" data-testid="button-add-media">
-                          <Plus className="w-4 h-4" />
-                        </Button>
-                      </div>
-                      {mediaUrls.length > 0 && (
-                        <div className="space-y-2 mt-2">
-                          {mediaUrls.map((url, index) => (
-                            <div key={index} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
-                              <span className="text-sm truncate flex-1">{url}</span>
-                              <Button
-                                size="sm"
-                                variant="ghost"
-                                onClick={() => handleRemoveMedia(index)}
-                                data-testid={`button-remove-media-${index}`}
-                              >
-                                <X className="w-4 h-4" />
-                              </Button>
-                            </div>
-                          ))}
+                      
+                      {/* File Upload Section */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <input
+                            ref={fileInputRef}
+                            type="file"
+                            multiple
+                            accept="image/*,video/*,audio/*"
+                            onChange={handleFileSelect}
+                            className="hidden"
+                            id="file-upload"
+                          />
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={isUploading}
+                            data-testid="button-upload-files"
+                          >
+                            <Upload className="w-4 h-4 mr-2" />
+                            Upload Files
+                          </Button>
+                          <span className="text-sm text-gray-500">
+                            Supports images, videos, and audio files
+                          </span>
                         </div>
-                      )}
+
+                        {/* Display uploaded files */}
+                        {uploadedFiles.length > 0 && (
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium text-gray-700">Files to upload:</p>
+                            {uploadedFiles.map((file, index) => (
+                              <div key={index} className="flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
+                                {getFileIcon(file)}
+                                <span className="text-sm truncate flex-1">{file.name}</span>
+                                <span className="text-xs text-gray-500">
+                                  {(file.size / 1024 / 1024).toFixed(2)} MB
+                                </span>
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  onClick={() => handleRemoveFile(index)}
+                                  data-testid={`button-remove-file-${index}`}
+                                >
+                                  <X className="w-4 h-4" />
+                                </Button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* URL Input Section */}
+                      <div className="space-y-2">
+                        <p className="text-sm font-medium text-gray-700">Or add media URLs:</p>
+                        <div className="flex gap-2">
+                          <Input
+                            placeholder="Enter media URL (image/video/audio)"
+                            value={newMediaUrl}
+                            onChange={(e) => setNewMediaUrl(e.target.value)}
+                            data-testid="input-media-url"
+                          />
+                          <Button onClick={handleAddMedia} variant="outline" data-testid="button-add-media">
+                            <Plus className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        {mediaUrls.length > 0 && (
+                          <div className="space-y-2 mt-2">
+                            {mediaUrls.map((url, index) => (
+                              <div key={index} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                                <Image className="w-4 h-4 text-gray-500" />
+                                <span className="text-sm truncate flex-1">{url}</span>
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  onClick={() => handleRemoveMedia(index)}
+                                  data-testid={`button-remove-media-${index}`}
+                                >
+                                  <X className="w-4 h-4" />
+                                </Button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {/* Schedule Options */}
@@ -355,22 +528,22 @@ export default function SocialMediaDashboard() {
                     <div className="flex gap-3">
                       <Button 
                         onClick={handlePost}
-                        disabled={postMutation.isPending || !content || selectedPlatforms.length === 0}
+                        disabled={postMutation.isPending || isUploading || !content || selectedPlatforms.length === 0}
                         className="flex-1"
                         data-testid="button-post-now"
                       >
                         <Send className="w-4 h-4 mr-2" />
-                        {postMutation.isPending ? "Posting..." : "Post Now"}
+                        {isUploading ? "Uploading..." : postMutation.isPending ? "Posting..." : "Post Now"}
                       </Button>
                       <Button 
                         onClick={handleSchedule}
-                        disabled={scheduleMutation.isPending || !content || selectedPlatforms.length === 0 || !scheduleDate || !scheduleTime}
+                        disabled={scheduleMutation.isPending || isUploading || !content || selectedPlatforms.length === 0 || !scheduleDate || !scheduleTime}
                         variant="outline"
                         className="flex-1"
                         data-testid="button-schedule"
                       >
                         <Clock className="w-4 h-4 mr-2" />
-                        {scheduleMutation.isPending ? "Scheduling..." : "Schedule"}
+                        {isUploading ? "Uploading..." : scheduleMutation.isPending ? "Scheduling..." : "Schedule"}
                       </Button>
                     </div>
                   </CardContent>
@@ -398,11 +571,16 @@ export default function SocialMediaDashboard() {
                               <p className="text-sm text-gray-700 whitespace-pre-wrap">
                                 {content || "Your message will appear here..."}
                               </p>
-                              {mediaUrls.length > 0 && (
-                                <div className="mt-2 flex gap-2">
+                              {(mediaUrls.length > 0 || uploadedFiles.length > 0) && (
+                                <div className="mt-2 flex gap-2 flex-wrap">
                                   {mediaUrls.map((_, index) => (
-                                    <div key={index} className="w-16 h-16 bg-gray-200 rounded flex items-center justify-center">
+                                    <div key={`url-${index}`} className="w-16 h-16 bg-gray-200 rounded flex items-center justify-center">
                                       <Image className="w-8 h-8 text-gray-400" />
+                                    </div>
+                                  ))}
+                                  {uploadedFiles.map((file, index) => (
+                                    <div key={`file-${index}`} className="w-16 h-16 bg-blue-100 rounded flex items-center justify-center">
+                                      {getFileIcon(file)}
                                     </div>
                                   ))}
                                 </div>

@@ -6,6 +6,8 @@ import { fromZodError } from "zod-validation-error";
 import { sendWaitlistNotification, sendChatNotification, sendEngagementNotification } from "./email";
 import { socialMediaService } from "./socialMediaService";
 import { setupAuth, requireAuth } from "./auth";
+import { ObjectStorageService, ObjectNotFoundError } from "./objectStorage";
+import { ObjectPermission } from "./objectAcl";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication first (sets up /api/register, /api/login, /api/logout, /api/user)
@@ -105,6 +107,78 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
     next();
   };
+
+  // Endpoint for serving private objects (uploaded files)
+  app.get("/objects/:objectPath(*)", requireAuth, async (req, res) => {
+    // Gets the authenticated user id
+    const userId = (req as any).user?.id?.toString();
+    const objectStorageService = new ObjectStorageService();
+    try {
+      const objectFile = await objectStorageService.getObjectEntityFile(
+        req.path,
+      );
+      const canAccess = await objectStorageService.canAccessObjectEntity({
+        objectFile,
+        userId: userId,
+        requestedPermission: ObjectPermission.READ,
+      });
+      if (!canAccess) {
+        return res.sendStatus(401);
+      }
+      objectStorageService.downloadObject(objectFile, res);
+    } catch (error) {
+      console.error("Error checking object access:", error);
+      if (error instanceof ObjectNotFoundError) {
+        return res.sendStatus(404);
+      }
+      return res.sendStatus(500);
+    }
+  });
+
+  // Endpoint for getting the upload URL for a file
+  app.post("/api/social-media/upload-url", requireAuth, async (req, res) => {
+    try {
+      const objectStorageService = new ObjectStorageService();
+      const uploadURL = await objectStorageService.getObjectEntityUploadURL();
+      res.json({ uploadURL });
+    } catch (error: any) {
+      console.error('Error getting upload URL:', error);
+      res.status(500).json({ error: error.message || 'Failed to get upload URL' });
+    }
+  });
+
+  // Endpoint for setting file metadata after upload
+  app.post("/api/social-media/upload-complete", requireAuth, async (req, res) => {
+    if (!req.body.uploadURL) {
+      return res.status(400).json({ error: "uploadURL is required" });
+    }
+
+    // Gets the authenticated user id
+    const userId = (req as any).user?.id?.toString();
+
+    try {
+      const objectStorageService = new ObjectStorageService();
+      const objectPath = await objectStorageService.trySetObjectEntityAclPolicy(
+        req.body.uploadURL,
+        {
+          owner: userId || 'system',
+          // Public visibility for social media posts
+          visibility: "public",
+        },
+      );
+
+      // Return the normalized path that can be used with Ayrshare
+      const publicUrl = `${req.protocol}://${req.get('host')}${objectPath}`;
+      
+      res.status(200).json({
+        objectPath: objectPath,
+        publicUrl: publicUrl
+      });
+    } catch (error: any) {
+      console.error("Error setting file ACL:", error);
+      res.status(500).json({ error: error.message || "Internal server error" });
+    }
+  });
 
   // Social Media endpoints
   app.post("/api/social-media/post", requireAuth, async (req: Request, res: Response) => {
