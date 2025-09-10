@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Calendar, Clock, Send, Image, Video, Music, X, Plus, Settings, BarChart, Trash2, Eye } from "lucide-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok, FaYoutube, FaReddit, FaPinterest, FaTelegram } from "react-icons/fa";
+import { Calendar, Clock, Send, Image, Video, Music, X, Plus, Settings, BarChart, Trash2, Eye, Globe2, MessageSquare } from "lucide-react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok, FaYoutube, FaReddit, FaPinterest, FaTelegram, FaGlobe } from "react-icons/fa";
 import type { SocialMediaPost } from "@shared/schema";
 
 const PLATFORMS = [
@@ -24,7 +24,9 @@ const PLATFORMS = [
   { id: 'youtube', name: 'YouTube', icon: FaYoutube, color: 'bg-red-600' },
   { id: 'reddit', name: 'Reddit', icon: FaReddit, color: 'bg-orange-600' },
   { id: 'pinterest', name: 'Pinterest', icon: FaPinterest, color: 'bg-red-700' },
-  { id: 'telegram', name: 'Telegram', icon: FaTelegram, color: 'bg-blue-500' }
+  { id: 'telegram', name: 'Telegram', icon: FaTelegram, color: 'bg-blue-500' },
+  { id: 'gettr', name: 'GETTR', icon: FaGlobe, color: 'bg-red-600' },
+  { id: 'truthsocial', name: 'Truth Social', icon: MessageSquare, color: 'bg-blue-600' }
 ];
 
 export default function SocialMediaDashboard() {

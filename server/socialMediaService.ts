@@ -11,7 +11,9 @@ export const SUPPORTED_PLATFORMS = [
   'youtube',
   'reddit',
   'pinterest',
-  'telegram'
+  'telegram',
+  'gettr',
+  'truthsocial'
 ] as const;
 
 export type SupportedPlatform = typeof SUPPORTED_PLATFORMS[number];
@@ -232,7 +234,9 @@ export class SocialMediaService {
       facebook: { maxImages: 10, maxVideos: 1 },
       linkedin: { maxImages: 9, maxVideos: 1 },
       tiktok: { maxImages: 0, maxVideos: 1 },
-      youtube: { maxImages: 0, maxVideos: 1 }
+      youtube: { maxImages: 0, maxVideos: 1 },
+      gettr: { maxImages: 4, maxVideos: 1 },
+      truthsocial: { maxImages: 4, maxVideos: 1 }
     };
 
     const limits = platformLimits[platform] || { maxImages: 4, maxVideos: 1 };
