@@ -391,6 +391,14 @@ export default function HeroSection() {
               >
                 <span className="text-yellow-400">Watch</span> <span className="text-yellow-400">Performance</span>
               </button>
+              <a 
+                href="https://vimeo.com/1117487359?share=copy#t=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-patriot-blue hover:bg-patriot-blue/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg text-white inline-block"
+              >
+                <span className="text-yellow-400">Watch</span> <span className="text-yellow-400">on</span> <span className="text-yellow-400">Vimeo</span>
+              </a>
             </div>
           </div>
 
