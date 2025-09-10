@@ -87,38 +87,9 @@ export function setupAuth(app: Express) {
     }
   });
 
-  // Register endpoint
+  // Register endpoint - CLOSED FOR NOW
   app.post("/api/register", async (req, res, next) => {
-    try {
-      const { username, password } = req.body;
-      
-      if (!username || !password) {
-        return res.status(400).json({ error: "Username and password are required" });
-      }
-      
-      if (password.length < 6) {
-        return res.status(400).json({ error: "Password must be at least 6 characters" });
-      }
-      
-      const existingUser = await storage.getUserByUsername(username);
-      if (existingUser) {
-        return res.status(400).json({ error: "Username already exists" });
-      }
-
-      const hashedPassword = await hashPassword(password);
-      const user = await storage.createUser({
-        username,
-        password: hashedPassword,
-      });
-
-      req.login(user, (err) => {
-        if (err) return next(err);
-        const { password: _, ...userWithoutPassword } = user;
-        res.status(201).json(userWithoutPassword);
-      });
-    } catch (error) {
-      next(error);
-    }
+    return res.status(403).json({ error: "Registration is currently closed" });
   });
 
   // Login endpoint

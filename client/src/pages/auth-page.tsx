@@ -43,14 +43,13 @@ export default function AuthPage() {
           <CardHeader>
             <CardTitle>Welcome to Anthem250</CardTitle>
             <CardDescription>
-              Login or create an account to access the platform
+              Login to access the platform
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
+              <TabsList className="grid w-full grid-cols-1">
                 <TabsTrigger value="login">Login</TabsTrigger>
-                <TabsTrigger value="register">Register</TabsTrigger>
               </TabsList>
               
               {/* Login Tab */}
@@ -95,70 +94,6 @@ export default function AuthPage() {
                       </>
                     ) : (
                       "Login"
-                    )}
-                  </Button>
-                </form>
-              </TabsContent>
-              
-              {/* Register Tab */}
-              <TabsContent value="register">
-                <form onSubmit={handleRegister} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="register-username">Username</Label>
-                    <Input
-                      id="register-username"
-                      type="text"
-                      placeholder="Choose a username"
-                      value={registerData.username}
-                      onChange={(e) => setRegisterData({ ...registerData, username: e.target.value })}
-                      required
-                      disabled={registerMutation.isPending}
-                      data-testid="input-register-username"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="register-password">Password</Label>
-                    <Input
-                      id="register-password"
-                      type="password"
-                      placeholder="Choose a password (min 6 characters)"
-                      value={registerData.password}
-                      onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
-                      required
-                      minLength={6}
-                      disabled={registerMutation.isPending}
-                      data-testid="input-register-password"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="register-confirm-password">Confirm Password</Label>
-                    <Input
-                      id="register-confirm-password"
-                      type="password"
-                      placeholder="Confirm your password"
-                      value={registerData.confirmPassword}
-                      onChange={(e) => setRegisterData({ ...registerData, confirmPassword: e.target.value })}
-                      required
-                      disabled={registerMutation.isPending}
-                      data-testid="input-register-confirm-password"
-                    />
-                    {registerData.password && registerData.confirmPassword && registerData.password !== registerData.confirmPassword && (
-                      <p className="text-sm text-red-500">Passwords do not match</p>
-                    )}
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
-                    disabled={registerMutation.isPending || (registerData.password !== registerData.confirmPassword && registerData.confirmPassword !== "")}
-                    data-testid="button-register"
-                  >
-                    {registerMutation.isPending ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Creating account...
-                      </>
-                    ) : (
-                      "Create Account"
                     )}
                   </Button>
                 </form>
