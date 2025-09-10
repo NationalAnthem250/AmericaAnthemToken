@@ -90,8 +90,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Simple auth middleware for social media endpoints
+  const requireAuth = (req: Request, res: Response, next: any) => {
+    const authToken = req.headers.authorization?.replace('Bearer ', '');
+    const adminToken = process.env.SOCIAL_MEDIA_ADMIN_TOKEN;
+    
+    // In production, use proper authentication
+    // For now, check for admin token or allow if no token is set
+    if (adminToken && authToken !== adminToken) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    next();
+  };
+
   // Social Media endpoints
-  app.post("/api/social-media/post", async (req: Request, res: Response) => {
+  app.post("/api/social-media/post", requireAuth, async (req: Request, res: Response) => {
     try {
       const validatedData = insertSocialMediaPostSchema.parse(req.body);
       
@@ -113,7 +126,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/social-media/schedule", async (req: Request, res: Response) => {
+  app.post("/api/social-media/schedule", requireAuth, async (req: Request, res: Response) => {
     try {
       const { postData, scheduleDate } = req.body;
       const validatedData = insertSocialMediaPostSchema.parse(postData);
@@ -136,7 +149,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/social-media/posts", async (req: Request, res: Response) => {
+  app.get("/api/social-media/posts", requireAuth, async (req: Request, res: Response) => {
     try {
       const posts = await storage.getSocialMediaPosts();
       res.json({ posts });
@@ -146,7 +159,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/social-media/post/:id", async (req: Request, res: Response) => {
+  app.get("/api/social-media/post/:id", requireAuth, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       const post = await storage.getSocialMediaPost(id);
@@ -162,7 +175,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete("/api/social-media/post/:id", async (req: Request, res: Response) => {
+  app.delete("/api/social-media/post/:id", requireAuth, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       await socialMediaService.deleteScheduledPost(id);
@@ -173,7 +186,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/social-media/post/:id/analytics", async (req: Request, res: Response) => {
+  app.get("/api/social-media/post/:id/analytics", requireAuth, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       const analytics = await socialMediaService.getPostAnalytics(id);
@@ -184,7 +197,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/social-media/accounts", async (req: Request, res: Response) => {
+  app.get("/api/social-media/accounts", requireAuth, async (req: Request, res: Response) => {
     try {
       const accounts = await storage.getSocialMediaAccounts();
       res.json({ accounts });
@@ -194,10 +207,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/social-media/accounts/connect", async (req: Request, res: Response) => {
+  app.post("/api/social-media/accounts/connect", requireAuth, async (req: Request, res: Response) => {
     try {
-      const { platform, credentials } = req.body;
-      const account = await socialMediaService.connectSocialAccount(platform, credentials);
+      const validatedData = insertSocialMediaAccountSchema.parse(req.body);
+      const account = await socialMediaService.connectSocialAccount(
+        validatedData.platform as any, 
+        validatedData
+      );
       res.json({ success: true, account });
     } catch (error: any) {
       // Log error internally without exposing details
@@ -205,7 +221,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete("/api/social-media/accounts/:id", async (req: Request, res: Response) => {
+  app.delete("/api/social-media/accounts/:id", requireAuth, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       await socialMediaService.disconnectSocialAccount(id);

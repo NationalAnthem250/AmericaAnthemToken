@@ -65,10 +65,38 @@ export class SocialMediaService {
 
   async postToSocialMedia(postData: InsertSocialMediaPost): Promise<SocialMediaPost> {
     try {
+      // Validate and preprocess media URLs
+      if (postData.mediaUrls && postData.mediaUrls.length > 0) {
+        // Validate all media URLs
+        for (const url of postData.mediaUrls) {
+          const isValid = await this.validateMediaUrl(url);
+          if (!isValid) {
+            throw new Error(`Invalid media URL: ${url}`);
+          }
+        }
+        
+        // Preprocess media for each platform
+        if (postData.platforms) {
+          const processedMedia: string[] = [];
+          for (const platform of postData.platforms) {
+            const platformMedia = await this.preprocessMediaForPlatform(
+              platform as SupportedPlatform, 
+              postData.mediaUrls
+            );
+            processedMedia.push(...platformMedia);
+          }
+          postData.mediaUrls = Array.from(new Set(processedMedia)); // Remove duplicates
+        }
+      }
+
+      // Determine initial status based on scheduling
+      const isScheduled = !!postData.scheduledFor;
+      const initialStatus = isScheduled ? 'scheduled' : 'pending';
+
       // Create post record in database first
       const post = await storage.createSocialMediaPost({
         ...postData,
-        status: 'pending'
+        status: initialStatus
       });
 
       // Prepare data for Ayrshare
@@ -87,11 +115,11 @@ export class SocialMediaService {
       // Make API request to Ayrshare
       const response = await this.makeAyrshareRequest('/post', ayrshareData);
 
-      // Update post with response
+      // Update post with response - handle scheduling vs immediate posting
       const updatedPost = await storage.updateSocialMediaPost(post.id, {
-        status: response.status === 'success' ? 'posted' : 'failed',
+        status: isScheduled ? 'scheduled' : (response.status === 'success' ? 'posted' : 'failed'),
         platformResponses: response as any,
-        postedAt: response.status === 'success' ? new Date() : undefined,
+        postedAt: (!isScheduled && response.status === 'success') ? new Date() : undefined,
         errorMessage: response.errors ? JSON.stringify(response.errors) : undefined
       });
 
@@ -116,10 +144,17 @@ export class SocialMediaService {
       throw new Error('Post not found');
     }
 
-    if (post.status === 'scheduled' && post.platformResponses) {
+    // Try to delete from Ayrshare if we have a platform response ID
+    // This handles both scheduled and posted content
+    if (post.platformResponses) {
       const response = post.platformResponses as any;
       if (response.id) {
-        await this.makeAyrshareRequest(`/post/${response.id}`, {}, 'DELETE');
+        try {
+          await this.makeAyrshareRequest(`/post/${response.id}`, {}, 'DELETE');
+        } catch (error) {
+          // If deletion from Ayrshare fails, still delete locally
+          // The post might already be deleted on Ayrshare
+        }
       }
     }
 
