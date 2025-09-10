@@ -204,7 +204,7 @@ export default function HeroSection() {
             <FaTiktok />
           </a>
           <a 
-            href="https://www.linkedin.com/company/anthem250" 
+            href="https://www.linkedin.com/in/anthem250/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-700 transition-colors duration-300 text-2xl hover:scale-110"
@@ -309,7 +309,7 @@ export default function HeroSection() {
             <FaTiktok />
           </a>
           <a 
-            href="https://www.linkedin.com/company/anthem250" 
+            href="https://www.linkedin.com/in/anthem250/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-700 transition-colors duration-300 text-xl hover:scale-110"
