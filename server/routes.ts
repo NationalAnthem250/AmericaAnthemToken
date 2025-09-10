@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertWaitlistSchema, insertChatMessageSchema, insertSocialMediaPostSchema, insertSocialMediaAccountSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
-import { sendWaitlistNotification, sendChatNotification } from "./email";
+import { sendWaitlistNotification, sendChatNotification, sendEngagementNotification } from "./email";
 import { socialMediaService } from "./socialMediaService";
 import { setupAuth, requireAuth } from "./auth";
 
@@ -232,6 +232,55 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error: any) {
       // Log error internally without exposing details
       res.status(500).json({ error: "Failed to disconnect account" });
+    }
+  });
+
+  // Webhook endpoint for Ayrshare engagement notifications
+  app.post("/api/webhooks/social-media/engagement", async (req: Request, res: Response) => {
+    try {
+      const { platform, type, postId, actor, content, metadata } = req.body;
+      
+      // Create activity record
+      const activity = await storage.createSocialMediaActivity({
+        postId: postId ? parseInt(postId) : null,
+        platform,
+        activityType: type, // like, comment, reply, share, mention
+        actorName: actor?.name,
+        actorHandle: actor?.handle,
+        actorProfileUrl: actor?.profileUrl,
+        content: content,
+        platformActivityId: metadata?.activityId,
+        metadata
+      });
+      
+      // Send email notification
+      await sendEngagementNotification(activity);
+      
+      // Mark as notified
+      await storage.markActivityEmailSent(activity.id);
+      
+      res.json({ success: true, activityId: activity.id });
+    } catch (error: any) {
+      console.error('Webhook error:', error);
+      res.status(500).json({ error: "Failed to process engagement webhook" });
+    }
+  });
+
+  // Get social media activities/engagement
+  app.get("/api/social-media/activities", requireAuth, async (req: Request, res: Response) => {
+    try {
+      const { postId } = req.query;
+      
+      let activities;
+      if (postId) {
+        activities = await storage.getSocialMediaActivitiesByPost(parseInt(postId as string));
+      } else {
+        activities = await storage.getSocialMediaActivities();
+      }
+      
+      res.json({ activities });
+    } catch (error: any) {
+      res.status(500).json({ error: "Failed to fetch activities" });
     }
   });
 
