@@ -10,13 +10,17 @@ import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 import ErrorBoundary from "@/components/error-boundary";
 import SocialMediaDashboard from "@/pages/social-media";
+import AuthPage from "@/pages/auth-page";
+import { AuthProvider } from "@/hooks/use-auth";
+import { ProtectedRoute } from "@/lib/protected-route";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/terms" component={Terms} />
-      <Route path="/social-media" component={SocialMediaDashboard} />
+      <ProtectedRoute path="/" component={Home} />
+      <ProtectedRoute path="/terms" component={Terms} />
+      <ProtectedRoute path="/social-media" component={SocialMediaDashboard} />
+      <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -27,16 +31,18 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ErrorBoundary>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ChatWindow 
-            isOpen={isChatOpen} 
-            onToggle={() => setIsChatOpen(!isChatOpen)} 
-          />
-        </TooltipProvider>
-      </ErrorBoundary>
+      <AuthProvider>
+        <ErrorBoundary>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+            <ChatWindow 
+              isOpen={isChatOpen} 
+              onToggle={() => setIsChatOpen(!isChatOpen)} 
+            />
+          </TooltipProvider>
+        </ErrorBoundary>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

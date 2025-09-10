@@ -5,8 +5,11 @@ import { insertWaitlistSchema, insertChatMessageSchema, insertSocialMediaPostSch
 import { fromZodError } from "zod-validation-error";
 import { sendWaitlistNotification, sendChatNotification } from "./email";
 import { socialMediaService } from "./socialMediaService";
+import { setupAuth, requireAuth } from "./auth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication first (sets up /api/register, /api/login, /api/logout, /api/user)
+  setupAuth(app);
   // Health check endpoint
   app.get("/api/health", (req, res) => {
     res.json({ ok: true });
