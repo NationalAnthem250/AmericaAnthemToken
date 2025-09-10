@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import flagVideo from "@assets/u7663935958_full_american_flag_waving_in_the_wind_illustrated_7e3a5080-e3fc-4cc1-8477-b13c72069c5b_0_1755365095750.mp4";
 import CountdownTimer from "./countdown-timer";
-import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord, FaWhatsapp, FaTiktok, FaLinkedin, FaReddit, FaPinterest, FaGlobe } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord, FaWhatsapp, FaTiktok, FaLinkedin, FaReddit, FaPinterest, FaGlobe, FaBroadcastTower } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
@@ -239,6 +239,15 @@ export default function HeroSection() {
           >
             <FaGlobe />
           </a>
+          <a 
+            href="https://gettr.com/user/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-green-500 transition-colors duration-300 text-2xl hover:scale-110"
+            aria-label="Follow us on Gettr"
+          >
+            <FaBroadcastTower />
+          </a>
         </div>
       </div>
 
@@ -352,6 +361,15 @@ export default function HeroSection() {
             aria-label="Follow us on Truth Social"
           >
             <FaGlobe />
+          </a>
+          <a 
+            href="https://gettr.com/user/anthem250" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-green-500 transition-colors duration-300 text-xl hover:scale-110"
+            aria-label="Follow us on Gettr"
+          >
+            <FaBroadcastTower />
           </a>
         </div>
       </div>
