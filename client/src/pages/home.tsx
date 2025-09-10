@@ -15,6 +15,7 @@ import NFTEducation from "@/components/nft-education";
 import AmericaTimeline from "@/components/america-timeline";
 import CryptoAdvanced from "@/components/crypto-advanced";
 import PaymentOptions from "@/components/payment-options";
+import SocialMediaLauncher from "@/components/social-media-launcher";
 
 export default function Home() {
   const [userPath, setUserPath] = useState<'newbie' | 'crypto' | null>(null);
@@ -80,6 +81,7 @@ export default function Home() {
         )}
       </main>
       <Footer />
+      <SocialMediaLauncher />
     </div>
   );
 }

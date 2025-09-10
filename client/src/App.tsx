@@ -9,12 +9,14 @@ import Home from "@/pages/home";
 import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 import ErrorBoundary from "@/components/error-boundary";
+import SocialMediaDashboard from "@/pages/social-media";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/terms" component={Terms} />
+      <Route path="/social-media" component={SocialMediaDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
