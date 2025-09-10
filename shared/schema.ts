@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, varchar, timestamp, json } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, varchar, timestamp, json, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -50,3 +50,51 @@ export type InsertWaitlist = z.infer<typeof insertWaitlistSchema>;
 export type WaitlistEntry = typeof waitlistEntries.$inferSelect;
 export type InsertChatMessage = z.infer<typeof insertChatMessageSchema>;
 export type ChatMessage = typeof chatMessages.$inferSelect;
+
+// Social Media Posting Schema
+export const socialMediaPosts = pgTable("social_media_posts", {
+  id: serial("id").primaryKey(),
+  content: text("content").notNull(),
+  mediaUrls: text("media_urls").array(),
+  platforms: text("platforms").array().notNull(),
+  status: text("status").notNull().default("draft"), // draft, scheduled, posted, failed
+  scheduledFor: timestamp("scheduled_for"),
+  postedAt: timestamp("posted_at"),
+  platformResponses: jsonb("platform_responses"),
+  errorMessage: text("error_message"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull()
+});
+
+export const insertSocialMediaPostSchema = createInsertSchema(socialMediaPosts).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+  postedAt: true,
+  platformResponses: true
+});
+export type InsertSocialMediaPost = z.infer<typeof insertSocialMediaPostSchema>;
+export type SocialMediaPost = typeof socialMediaPosts.$inferSelect;
+
+export const socialMediaAccounts = pgTable("social_media_accounts", {
+  id: serial("id").primaryKey(),
+  platform: text("platform").notNull(), // facebook, instagram, twitter, linkedin, tiktok, youtube
+  accountName: text("account_name").notNull(),
+  apiKey: text("api_key"),
+  accessToken: text("access_token"),
+  refreshToken: text("refresh_token"),
+  accountId: text("account_id"),
+  profileUrl: text("profile_url"),
+  isActive: boolean("is_active").default(true).notNull(),
+  lastSync: timestamp("last_sync"),
+  metadata: jsonb("metadata"),
+  createdAt: timestamp("created_at").defaultNow().notNull()
+});
+
+export const insertSocialMediaAccountSchema = createInsertSchema(socialMediaAccounts).omit({
+  id: true,
+  createdAt: true,
+  lastSync: true
+});
+export type InsertSocialMediaAccount = z.infer<typeof insertSocialMediaAccountSchema>;
+export type SocialMediaAccount = typeof socialMediaAccounts.$inferSelect;
