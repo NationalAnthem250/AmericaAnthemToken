@@ -8,6 +8,7 @@ import { useState } from "react";
 import Home from "@/pages/home";
 import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
+import ErrorBoundary from "@/components/error-boundary";
 
 function Router() {
   return (
@@ -24,14 +25,16 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-        <ChatWindow 
-          isOpen={isChatOpen} 
-          onToggle={() => setIsChatOpen(!isChatOpen)} 
-        />
-      </TooltipProvider>
+      <ErrorBoundary>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+          <ChatWindow 
+            isOpen={isChatOpen} 
+            onToggle={() => setIsChatOpen(!isChatOpen)} 
+          />
+        </TooltipProvider>
+      </ErrorBoundary>
     </QueryClientProvider>
   );
 }
