@@ -50,6 +50,11 @@ export default function SocialMediaDashboard() {
     queryKey: ['/api/social-media/accounts'],
   });
 
+  // Fetch activities
+  const { data: activitiesData, isLoading: activitiesLoading } = useQuery<{ activities: any[] }>({
+    queryKey: ['/api/social-media/activities'],
+  });
+
   // Post mutation
   const postMutation = useMutation({
     mutationFn: async (data: any) => {
@@ -233,9 +238,10 @@ export default function SocialMediaDashboard() {
         )}
 
         <Tabs defaultValue="compose" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 lg:w-[400px]">
+          <TabsList className="grid w-full grid-cols-4 lg:w-[500px]">
             <TabsTrigger value="compose">Compose</TabsTrigger>
             <TabsTrigger value="posts">Posts</TabsTrigger>
+            <TabsTrigger value="activities">Activities</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
 
@@ -479,6 +485,97 @@ export default function SocialMediaDashboard() {
                         )}
                       </div>
                     ))}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Activities Tab */}
+          <TabsContent value="activities" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Engagement Activities</CardTitle>
+                <CardDescription>Track all likes, comments, replies, and mentions across your social media</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {activitiesLoading ? (
+                  <div className="flex justify-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                  </div>
+                ) : !activitiesData?.activities || activitiesData.activities.length === 0 ? (
+                  <div className="text-center py-8">
+                    <BarChart className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                    <p className="text-gray-500">No activities yet</p>
+                    <p className="text-sm text-gray-400 mt-2">Engagement activities will appear here when people interact with your posts</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {activitiesData.activities.map((activity: any) => {
+                      const platform = PLATFORMS.find(p => p.id === activity.platform);
+                      const activityIcons: Record<string, any> = {
+                        like: '❤️',
+                        comment: '💬',
+                        reply: '↩️',
+                        share: '🔄',
+                        mention: '@'
+                      };
+                      const icon = activityIcons[activity.activityType] || '📢';
+                      
+                      return (
+                        <div key={activity.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xl">{icon}</span>
+                                {platform && <platform.icon className="w-5 h-5" />}
+                                <Badge variant="outline">
+                                  {activity.activityType}
+                                </Badge>
+                                <span className="text-sm text-gray-500">
+                                  on {activity.platform}
+                                </span>
+                              </div>
+                              
+                              {activity.actorName && (
+                                <div className="mb-2">
+                                  <span className="font-medium">{activity.actorName}</span>
+                                  {activity.actorHandle && (
+                                    <span className="text-gray-500 ml-1">@{activity.actorHandle}</span>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {activity.content && (
+                                <div className="bg-gray-50 p-3 rounded-md mb-2">
+                                  <p className="text-sm">{activity.content}</p>
+                                </div>
+                              )}
+                              
+                              <div className="flex items-center gap-4 text-xs text-gray-500">
+                                <span>{new Date(activity.createdAt).toLocaleString()}</span>
+                                {activity.emailNotificationSent && (
+                                  <Badge variant="secondary" className="text-xs">
+                                    Email sent
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                            
+                            {activity.actorProfileUrl && (
+                              <a
+                                href={activity.actorProfileUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-800"
+                              >
+                                <Eye className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </CardContent>
