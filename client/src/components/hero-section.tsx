@@ -18,30 +18,60 @@ export default function HeroSection() {
     
     checkMobile();
     
-    // Handle video autoplay fallback
+    // Handle video autoplay with enhanced cross-browser support
     const handleVideoAutoplay = async () => {
       if (videoRef.current) {
+        // Set up video with optimized settings for autoplay
+        videoRef.current.defaultMuted = true;
+        videoRef.current.muted = true;
+        
         try {
+          // Try to play with async/await
           await videoRef.current.play();
         } catch (error) {
           // Autoplay not supported, set up user interaction to start video
-          const startVideoOnInteraction = () => {
-            if (videoRef.current) {
-              videoRef.current.play().catch(() => {
-                setIsVideoSupported(false);
-              });
+          let interactionAttempts = 0;
+          const maxAttempts = 3;
+          
+          const startVideoOnInteraction = async () => {
+            if (videoRef.current && interactionAttempts < maxAttempts) {
+              interactionAttempts++;
+              
+              try {
+                // Ensure video is muted for autoplay policies
+                videoRef.current.muted = true;
+                await videoRef.current.play();
+                
+                // Successfully played, remove listeners
+                document.removeEventListener('click', startVideoOnInteraction);
+                document.removeEventListener('touchstart', startVideoOnInteraction);
+                document.removeEventListener('scroll', startVideoOnInteraction);
+              } catch (playError) {
+                if (interactionAttempts >= maxAttempts) {
+                  // Fall back to static image after multiple attempts
+                  setIsVideoSupported(false);
+                  document.removeEventListener('click', startVideoOnInteraction);
+                  document.removeEventListener('touchstart', startVideoOnInteraction);
+                  document.removeEventListener('scroll', startVideoOnInteraction);
+                }
+              }
             }
-            document.removeEventListener('click', startVideoOnInteraction);
-            document.removeEventListener('touchstart', startVideoOnInteraction);
           };
           
-          document.addEventListener('click', startVideoOnInteraction);
-          document.addEventListener('touchstart', startVideoOnInteraction);
+          // Add multiple event listeners for better coverage
+          document.addEventListener('click', startVideoOnInteraction, { once: false });
+          document.addEventListener('touchstart', startVideoOnInteraction, { once: false });
+          document.addEventListener('scroll', startVideoOnInteraction, { once: false });
         }
       }
     };
 
-    handleVideoAutoplay();
+    // Small delay to ensure DOM is ready
+    const timeoutId = setTimeout(handleVideoAutoplay, 100);
+    
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
