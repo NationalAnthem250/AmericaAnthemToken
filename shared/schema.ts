@@ -98,3 +98,27 @@ export const insertSocialMediaAccountSchema = createInsertSchema(socialMediaAcco
 });
 export type InsertSocialMediaAccount = z.infer<typeof insertSocialMediaAccountSchema>;
 export type SocialMediaAccount = typeof socialMediaAccounts.$inferSelect;
+
+// Social Media Activities/Engagement Tracking
+export const socialMediaActivities = pgTable("social_media_activities", {
+  id: serial("id").primaryKey(),
+  postId: integer("post_id").references(() => socialMediaPosts.id),
+  platform: text("platform").notNull(),
+  activityType: text("activity_type").notNull(), // like, comment, reply, share, mention
+  actorName: text("actor_name"),
+  actorHandle: text("actor_handle"),
+  actorProfileUrl: text("actor_profile_url"),
+  content: text("content"), // For comments/replies
+  platformActivityId: text("platform_activity_id"), // Unique ID from the platform
+  emailNotificationSent: boolean("email_notification_sent").default(false),
+  metadata: jsonb("metadata"), // Additional platform-specific data
+  createdAt: timestamp("created_at").defaultNow().notNull()
+});
+
+export const insertSocialMediaActivitySchema = createInsertSchema(socialMediaActivities).omit({
+  id: true,
+  createdAt: true,
+  emailNotificationSent: true
+});
+export type InsertSocialMediaActivity = z.infer<typeof insertSocialMediaActivitySchema>;
+export type SocialMediaActivity = typeof socialMediaActivities.$inferSelect;

@@ -1,9 +1,10 @@
 import { 
-  users, waitlistEntries, chatMessages, socialMediaPosts, socialMediaAccounts,
+  users, waitlistEntries, chatMessages, socialMediaPosts, socialMediaAccounts, socialMediaActivities,
   type User, type InsertUser, type WaitlistEntry, type InsertWaitlist, 
   type ChatMessage, type InsertChatMessage,
   type SocialMediaPost, type InsertSocialMediaPost,
-  type SocialMediaAccount, type InsertSocialMediaAccount
+  type SocialMediaAccount, type InsertSocialMediaAccount,
+  type SocialMediaActivity, type InsertSocialMediaActivity
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc } from "drizzle-orm";
@@ -29,6 +30,13 @@ export interface IStorage {
   getSocialMediaAccount(id: number): Promise<SocialMediaAccount | undefined>;
   updateSocialMediaAccount(id: number, updates: Partial<SocialMediaAccount>): Promise<SocialMediaAccount>;
   deleteSocialMediaAccount(id: number): Promise<void>;
+  // Social Media Activities Methods
+  createSocialMediaActivity(activity: InsertSocialMediaActivity): Promise<SocialMediaActivity>;
+  getSocialMediaActivities(): Promise<SocialMediaActivity[]>;
+  getSocialMediaActivitiesByPost(postId: number): Promise<SocialMediaActivity[]>;
+  getSocialMediaActivity(id: number): Promise<SocialMediaActivity | undefined>;
+  markActivityEmailSent(id: number): Promise<void>;
+  getUnnotifiedActivities(): Promise<SocialMediaActivity[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -144,6 +152,42 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSocialMediaAccount(id: number): Promise<void> {
     await db.delete(socialMediaAccounts).where(eq(socialMediaAccounts.id, id));
+  }
+
+  // Social Media Activities Methods Implementation
+  async createSocialMediaActivity(insertActivity: InsertSocialMediaActivity): Promise<SocialMediaActivity> {
+    const [activity] = await db
+      .insert(socialMediaActivities)
+      .values(insertActivity)
+      .returning();
+    return activity;
+  }
+
+  async getSocialMediaActivities(): Promise<SocialMediaActivity[]> {
+    return await db.select().from(socialMediaActivities).orderBy(desc(socialMediaActivities.createdAt));
+  }
+
+  async getSocialMediaActivitiesByPost(postId: number): Promise<SocialMediaActivity[]> {
+    return await db.select().from(socialMediaActivities)
+      .where(eq(socialMediaActivities.postId, postId))
+      .orderBy(desc(socialMediaActivities.createdAt));
+  }
+
+  async getSocialMediaActivity(id: number): Promise<SocialMediaActivity | undefined> {
+    const [activity] = await db.select().from(socialMediaActivities).where(eq(socialMediaActivities.id, id));
+    return activity || undefined;
+  }
+
+  async markActivityEmailSent(id: number): Promise<void> {
+    await db.update(socialMediaActivities)
+      .set({ emailNotificationSent: true })
+      .where(eq(socialMediaActivities.id, id));
+  }
+
+  async getUnnotifiedActivities(): Promise<SocialMediaActivity[]> {
+    return await db.select().from(socialMediaActivities)
+      .where(eq(socialMediaActivities.emailNotificationSent, false))
+      .orderBy(desc(socialMediaActivities.createdAt));
   }
 }
 
