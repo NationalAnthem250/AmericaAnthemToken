@@ -24,8 +24,7 @@ export default function HeroSection() {
         try {
           await videoRef.current.play();
         } catch (error) {
-          console.log("Autoplay not supported:", error);
-          // Set up user interaction to start video
+          // Autoplay not supported, set up user interaction to start video
           const startVideoOnInteraction = () => {
             if (videoRef.current) {
               videoRef.current.play().catch(() => {

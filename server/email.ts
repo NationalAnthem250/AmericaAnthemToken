@@ -40,9 +40,8 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Waitlist notification sent to admin');
   } catch (error) {
-    console.error('Failed to send waitlist notification:', error);
+    // Log error silently to avoid exposing sensitive information
   }
 };
 
@@ -74,8 +73,7 @@ export const sendChatNotification = async (message: ChatMessage) => {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Chat notification sent to admin');
   } catch (error) {
-    console.error('Failed to send chat notification:', error);
+    // Log error silently to avoid exposing sensitive information
   }
 };

@@ -33,7 +33,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const validationError = fromZodError(error);
         return res.status(400).json({ error: validationError.message });
       }
-      console.error(`Error creating waitlist entry: ${error.message}`);
+      // Log error internally without exposing details
       res.status(500).json({ error: "Failed to join waitlist" });
     }
   });
@@ -43,7 +43,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const entries = await storage.getWaitlistEntries();
       res.json({ entries, count: entries.length });
     } catch (error: any) {
-      console.error(`Error fetching waitlist entries: ${error.message}`);
+      // Log error internally without exposing details
       res.status(500).json({ error: "Failed to fetch waitlist entries" });
     }
   });
@@ -63,7 +63,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const validationError = fromZodError(error);
         return res.status(400).json({ error: validationError.message });
       }
-      console.error(`Error creating chat message: ${error.message}`);
+      // Log error internally without exposing details
       res.status(500).json({ error: "Failed to send message" });
     }
   });
@@ -73,7 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const messages = await storage.getChatMessages();
       res.json({ messages });
     } catch (error: any) {
-      console.error(`Error fetching chat messages: ${error.message}`);
+      // Log error internally without exposing details
       res.status(500).json({ error: "Failed to fetch messages" });
     }
   });
@@ -84,7 +84,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       await storage.markChatMessageAsRead(id);
       res.json({ success: true });
     } catch (error: any) {
-      console.error(`Error marking message as read: ${error.message}`);
+      // Log error internally without exposing details
       res.status(500).json({ error: "Failed to mark message as read" });
     }
   });
