@@ -78,7 +78,7 @@ export type SocialMediaPost = typeof socialMediaPosts.$inferSelect;
 
 export const socialMediaAccounts = pgTable("social_media_accounts", {
   id: serial("id").primaryKey(),
-  platform: text("platform").notNull(), // facebook, instagram, twitter, linkedin, tiktok, youtube, reddit, pinterest, telegram, gettr, truthsocial
+  platform: text("platform").notNull(), // facebook, instagram, twitter, linkedin, threads, tiktok, youtube, snapchat, reddit, pinterest, telegram, gettr, truthsocial
   accountName: text("account_name").notNull(),
   apiKey: text("api_key"),
   accessToken: text("access_token"),

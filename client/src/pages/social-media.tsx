@@ -12,7 +12,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Calendar, Clock, Send, Image, Video, Music, X, Plus, Settings, BarChart, Trash2, Eye, Globe2, MessageSquare, Upload, FileImage, FileVideo, FileAudio } from "lucide-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok, FaYoutube, FaReddit, FaPinterest, FaTelegram, FaGlobe } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok, FaYoutube, FaReddit, FaPinterest, FaTelegram, FaGlobe, FaSnapchat } from "react-icons/fa";
+import { SiThreads } from "react-icons/si";
 import type { SocialMediaPost } from "@shared/schema";
 
 const PLATFORMS = [
@@ -20,8 +21,10 @@ const PLATFORMS = [
   { id: 'twitter', name: 'X (Twitter)', icon: FaTwitter, color: 'bg-black' },
   { id: 'instagram', name: 'Instagram', icon: FaInstagram, color: 'bg-gradient-to-r from-purple-600 to-pink-600' },
   { id: 'linkedin', name: 'LinkedIn', icon: FaLinkedin, color: 'bg-blue-700' },
+  { id: 'threads', name: 'Threads', icon: SiThreads, color: 'bg-black' },
   { id: 'tiktok', name: 'TikTok', icon: FaTiktok, color: 'bg-black' },
   { id: 'youtube', name: 'YouTube', icon: FaYoutube, color: 'bg-red-600' },
+  { id: 'snapchat', name: 'Snapchat', icon: FaSnapchat, color: 'bg-yellow-400' },
   { id: 'reddit', name: 'Reddit', icon: FaReddit, color: 'bg-orange-600' },
   { id: 'pinterest', name: 'Pinterest', icon: FaPinterest, color: 'bg-red-700' },
   { id: 'telegram', name: 'Telegram', icon: FaTelegram, color: 'bg-blue-500' },
