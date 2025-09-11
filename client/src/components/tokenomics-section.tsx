@@ -1,11 +1,11 @@
 export default function TokenomicsSection() {
   const tokenomicsData = [
-    { label: "Total Supply", value: "1,776,000", color: "text-patriot-red", percentage: 100 },
-    { label: "Public Sale", value: "888,000", color: "text-patriot-gold", percentage: 50 },
-    { label: "Team & Advisors", value: "177,600", color: "text-patriot-blue", percentage: 10 },
-    { label: "Marketing", value: "266,400", color: "text-green-400", percentage: 15 },
-    { label: "Development", value: "266,400", color: "text-purple-400", percentage: 15 },
-    { label: "Reserve", value: "177,600", color: "text-orange-400", percentage: 10 },
+    { label: "Total Supply", value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
+    { label: "Public Sale", value: "888,000,000", color: "text-patriot-gold", percentage: 50 },
+    { label: "Team & Advisors", value: "177,600,000", color: "text-patriot-blue", percentage: 10 },
+    { label: "Marketing", value: "266,400,000", color: "text-green-400", percentage: 15 },
+    { label: "Development", value: "266,400,000", color: "text-purple-400", percentage: 15 },
+    { label: "Reserve", value: "177,600,000", color: "text-orange-400", percentage: 10 },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function TokenomicsSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-patriot-red via-patriot-blue to-patriot-gold opacity-20"></div>
                 <div className="absolute inset-4 bg-white rounded-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-4xl font-black text-patriot-navy">1.776M</div>
+                    <div className="text-4xl font-black text-patriot-navy">1.776B</div>
                     <div className="text-sm text-gray-600">
                       <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> Tokens
                     </div>
@@ -53,11 +53,11 @@ export default function TokenomicsSection() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Total Supply:</span>
-                  <span className="font-semibold text-patriot-red">1,776,000</span>
+                  <span className="font-semibold text-patriot-red">1,776,000,000</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Launch Price:</span>
-                  <span className="font-semibold text-patriot-gold">$17.76 USD</span>
+                  <span className="font-semibold text-patriot-gold">$1.77 USD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Network:</span>

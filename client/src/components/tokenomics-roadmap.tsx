@@ -34,12 +34,12 @@ import {
 export default function TokenomicsRoadmap() {
   // Token allocation data
   const tokenAllocation = [
-    { name: "Public Sale", value: 40, amount: 710400, color: "#DC2626" },
-    { name: "Community Rewards", value: 25, amount: 444000, color: "#EAB308" },
-    { name: "Hannah Magnelli", value: 15, amount: 266400, color: "#1D4ED8" },
-    { name: "Development", value: 10, amount: 177600, color: "#059669" },
-    { name: "Marketing", value: 5, amount: 88800, color: "#7C3AED" },
-    { name: "Reserve/Treasury", value: 5, amount: 88800, color: "#DC2626" }
+    { name: "Public Sale", value: 40, amount: 710400000, color: "#DC2626" },
+    { name: "Community Rewards", value: 25, amount: 444000000, color: "#EAB308" },
+    { name: "Hannah Magnelli", value: 15, amount: 266400000, color: "#1D4ED8" },
+    { name: "Development", value: 10, amount: 177600000, color: "#059669" },
+    { name: "Marketing", value: 5, amount: 88800000, color: "#7C3AED" },
+    { name: "Reserve/Treasury", value: 5, amount: 88800000, color: "#DC2626" }
   ];
 
   // Revenue projection data
@@ -134,7 +134,7 @@ export default function TokenomicsRoadmap() {
 
   // Price milestones
   const priceMilestones = [
-    { holders: "5K", price: "$17.76", target: "Launch Price" },
+    { holders: "5K", price: "$1.77", target: "Launch Price" },
     { holders: "10K", price: "$25.00", target: "Early Adoption" },
     { holders: "25K", price: "$50.00", target: "Mass Awareness" }, 
     { holders: "50K", price: "$100.00", target: "America250 Peak" }
@@ -159,7 +159,7 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-gold/30 text-center">
             <CardContent className="p-6">
               <Coins className="w-8 h-8 text-patriot-gold mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">1,776,000</div>
+              <div className="text-3xl font-bold text-white">1,776,000,000</div>
               <div className="text-gray-400">Total Supply</div>
               <div className="text-xs text-patriot-gold mt-1">Commemorating 1776</div>
             </CardContent>
@@ -168,7 +168,7 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-red/30 text-center">
             <CardContent className="p-6">
               <Star className="w-8 h-8 text-patriot-red mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">$17.76</div>
+              <div className="text-3xl font-bold text-white">$1.77</div>
               <div className="text-gray-400">Launch Price</div>
               <div className="text-xs text-patriot-red mt-1">Historical Significance</div>
             </CardContent>

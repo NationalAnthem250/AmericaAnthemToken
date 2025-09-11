@@ -32,7 +32,7 @@ Preferred communication style: Simple, everyday language.
 - **Migrations**: Drizzle Kit for schema migrations via `npm run db:push`
 - **Schema**: Shared TypeScript schema definitions with Zod validation
 - **Tables**: Users table and Waitlist entries table with email uniqueness constraints
-- **Token Details**: 250STAR token with 1,776,000 total supply commemorating 1776
+- **Token Details**: 250STAR token with 1,776,000,000 total supply commemorating 1776
 
 ## Key Components
 
@@ -146,7 +146,7 @@ Preferred communication style: Simple, everyday language.
 - **Advanced Token Economics Section**: Complete 250STAR tokenomics with interactive charts showing token allocation, revenue projections, and growth milestones
 - **Strategic Roadmap**: 4-phase development plan from launch to America's 250th anniversary with milestone tracking and completion status
 - **Utility Framework**: Detailed breakdown of token benefits including exclusive content access, collector status, event access, governance rights, and global recognition
-- **Price Target Analysis**: Data-driven price projections from $17.76 launch to $100+ target at America250 milestone
+- **Price Target Analysis**: Data-driven price projections from $1.77 launch to $100+ target at America250 milestone
 - **Visual Data Presentation**: Interactive pie charts, bar graphs, and progress indicators using Recharts library
 - **Smart Integration**: Tokenomics section appears for both crypto-savvy users and as default content, ensuring comprehensive coverage
 

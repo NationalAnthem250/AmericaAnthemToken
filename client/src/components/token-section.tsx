@@ -95,12 +95,12 @@ export default function TokenSection() {
                 <div className="flex items-center">
                   <i className="fas fa-hashtag text-patriot-red mr-3"></i>
                   <span className="font-semibold">Total Supply:</span>
-                  <span className="ml-2">1,776,000 Tokens (Commemorating 1776)</span>
+                  <span className="ml-2">1,776,000,000 Tokens (Commemorating 1776)</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-star text-patriot-red mr-3"></i>
                   <span className="font-semibold">Starting Price:</span>
-                  <span className="ml-2">$0.25 USD</span>
+                  <span className="ml-2">$1.77 USD</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-shield-alt text-patriot-red mr-3"></i>
