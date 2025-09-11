@@ -121,19 +121,19 @@ export function NFTSection() {
           </Card>
         </div>
 
-        {/* NFT Collection Stats */}
+        {/* 250STAR Token Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-gold mb-2">1.776M</div>
+            <div className="text-2xl font-bold text-white mb-1">250STAR Token</div>
+            <div className="text-3xl font-bold text-patriot-gold">$17.76</div>
+          </div>
+          <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
+            <div className="text-3xl font-bold text-patriot-red mb-2">1,776,000</div>
             <div className="text-white text-sm">Total Supply</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-red mb-2">$450</div>
-            <div className="text-white text-sm">Floor Price (USD)</div>
-          </div>
-          <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-white mb-2">$1.2M</div>
-            <div className="text-white text-sm">Total Volume (USD)</div>
+            <div className="text-3xl font-bold text-white mb-2">Solana</div>
+            <div className="text-white text-sm">Network</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
             <div className="text-3xl font-bold text-patriot-gold mb-2">12.4K</div>
