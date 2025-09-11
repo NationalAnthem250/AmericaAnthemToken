@@ -100,7 +100,7 @@ export default function TokenSection() {
                 <div className="flex items-center">
                   <i className="fas fa-star text-patriot-red mr-3"></i>
                   <span className="font-semibold">Starting Price:</span>
-                  <span className="ml-2">$1.77 USD</span>
+                  <span className="ml-2">$17.76 USD</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-shield-alt text-patriot-red mr-3"></i>

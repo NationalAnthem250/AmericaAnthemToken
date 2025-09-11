@@ -60,7 +60,7 @@ export default function TokenomicsSection() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Launch Price:</span>
-                  <span className="font-semibold text-patriot-gold">$1.77 USD</span>
+                  <span className="font-semibold text-patriot-gold">$17.76 USD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Network:</span>
