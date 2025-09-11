@@ -33,7 +33,7 @@ export default function CryptoAdvanced() {
               <CardTitle className="text-patriot-red text-lg">Mint Price</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-white">$17.76</div>
+              <div className="text-3xl font-bold text-white">$1.77</div>
               <p className="text-gray-400 text-sm">Fixed price per token</p>
             </CardContent>
           </Card>

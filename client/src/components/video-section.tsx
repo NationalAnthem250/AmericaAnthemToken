@@ -63,7 +63,7 @@ export default function VideoSection() {
                 <span className="font-bold text-lg">
                   <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> <span className="text-patriot-gold">Token</span>
                 </span>
-                <span className="text-white font-bold text-2xl">$17.76</span>
+                <span className="text-white font-bold text-2xl">$1.77</span>
               </div>
               <div className="text-gray-300 text-sm">
                 <div className="flex justify-between">

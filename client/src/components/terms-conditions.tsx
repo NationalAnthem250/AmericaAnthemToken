@@ -51,7 +51,7 @@ export default function TermsConditions() {
                   <strong className="text-white">Supply:</strong> Total supply of 1,776,000,000 tokens commemorating the year 1776 of American independence.
                 </p>
                 <p className="leading-relaxed">
-                  <strong className="text-white">Price:</strong> $17.76 per token in honor of 1776.
+                  <strong className="text-white">Price:</strong> $1.77 per token in honor of 1776.
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-white">Technical Risks:</strong> Blockchain technology involves inherent risks including but not limited to network congestion, transaction failures, smart contract vulnerabilities, and potential loss of access to tokens.

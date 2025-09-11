@@ -134,7 +134,7 @@ export default function TokenomicsRoadmap() {
 
   // Price milestones
   const priceMilestones = [
-    { holders: "5K", price: "$17.76", target: "Launch Price" },
+    { holders: "5K", price: "$1.77", target: "Launch Price" },
     { holders: "10K", price: "$25.00", target: "Early Adoption" },
     { holders: "25K", price: "$50.00", target: "Mass Awareness" }, 
     { holders: "50K", price: "$100.00", target: "America250 Peak" }
@@ -168,7 +168,7 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-red/30 text-center">
             <CardContent className="p-6">
               <Star className="w-8 h-8 text-patriot-red mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">$17.76</div>
+              <div className="text-3xl font-bold text-white">$1.77</div>
               <div className="text-gray-400">Launch Price</div>
               <div className="text-xs text-patriot-red mt-1">Historical Significance</div>
             </CardContent>

@@ -91,7 +91,7 @@ export default function HowToParticipate() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">Own History</h3>
                 <p className="text-gray-300">
-                  Purchase 250STAR tokens at $17.76 each and own a piece of America's first National Anthem NFT.
+                  Purchase 250STAR tokens at $1.77 each and own a piece of America's first National Anthem NFT.
                 </p>
               </div>
             </div>

@@ -208,7 +208,7 @@ export default function PaymentOptions() {
                           <div className="text-gray-400 text-sm">Fast & low-cost transactions</div>
                         </div>
                       </div>
-                      <div className="text-patriot-gold font-bold">$17.76</div>
+                      <div className="text-patriot-gold font-bold">$1.77</div>
                     </div>
                   </CardContent>
                 </Card>
