@@ -279,7 +279,7 @@ export default function TokenomicsRoadmap() {
                     <div className="text-gray-400 text-xs">Target Holders by 2026</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-lg font-bold text-white">$100+</div>
+                    <div className="text-lg font-bold text-white">$100.00</div>
                     <div className="text-gray-400 text-xs">America250 Target Price</div>
                   </div>
                 </div>
