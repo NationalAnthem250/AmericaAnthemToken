@@ -3,11 +3,12 @@ import SocialShareButtons from "@/components/social-share-buttons";
 export default function TokenomicsSection() {
   const tokenomicsData = [
     { label: "Total Supply", value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
-    { label: "Public Sale", value: "888,000,000", color: "text-patriot-gold", percentage: 50 },
-    { label: "Team & Advisors", value: "177,600,000", color: "text-patriot-blue", percentage: 10 },
-    { label: "Marketing", value: "266,400,000", color: "text-green-400", percentage: 15 },
-    { label: "Development", value: "266,400,000", color: "text-purple-400", percentage: 15 },
-    { label: "Reserve", value: "177,600,000", color: "text-orange-400", percentage: 10 },
+    { label: "Public Sale", value: "710,400,000", color: "text-patriot-gold", percentage: 40 },
+    { label: "Community Rewards", value: "444,000,000", color: "text-green-400", percentage: 25 },
+    { label: "Hannah Magnelli", value: "266,400,000", color: "text-patriot-blue", percentage: 15 },
+    { label: "Development", value: "177,600,000", color: "text-purple-400", percentage: 10 },
+    { label: "Marketing", value: "88,800,000", color: "text-pink-400", percentage: 5 },
+    { label: "Reserve/Treasury", value: "88,800,000", color: "text-orange-400", percentage: 5 },
   ];
 
   return (

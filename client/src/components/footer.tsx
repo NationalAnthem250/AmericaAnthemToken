@@ -181,7 +181,7 @@ export default function Footer() {
                 250STAR tokens are digital collectibles created to commemorate America's Semiquincentennial celebration. Token holders may receive access to exclusive content, performances, and community features, but tokens should not be purchased with any expectation of profit or financial return.
               </p>
               <p>
-                <strong>Network:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>Supply:</strong> 1,776,000 total tokens commemorating the year of American independence. <strong>Price:</strong> $17.76 per token in honor of 1776.
+                <strong>Network:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>Supply:</strong> 1,776,000,000 total tokens commemorating the year of American independence. <strong>Price:</strong> $17.76 per token in honor of 1776.
               </p>
               <p className="text-xs text-gray-400 mt-4">
                 This project is not affiliated with or endorsed by the official America250 Foundation. Please review our Terms & Conditions and Token Allocation details before participating. Cryptocurrency investments carry risk - never invest more than you can afford to lose.

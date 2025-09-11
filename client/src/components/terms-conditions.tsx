@@ -48,7 +48,7 @@ export default function TermsConditions() {
                   <strong className="text-white">Network:</strong> 250STAR tokens are built on the Solana blockchain for fast, low-cost transactions.
                 </p>
                 <p className="leading-relaxed">
-                  <strong className="text-white">Supply:</strong> Total supply of 1,776,000 tokens commemorating the year 1776 of American independence.
+                  <strong className="text-white">Supply:</strong> Total supply of 1,776,000,000 tokens commemorating the year 1776 of American independence.
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-white">Price:</strong> $17.76 per token in honor of 1776.

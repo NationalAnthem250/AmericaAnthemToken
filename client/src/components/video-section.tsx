@@ -68,7 +68,7 @@ export default function VideoSection() {
               <div className="text-gray-300 text-sm">
                 <div className="flex justify-between">
                   <span>Total Supply:</span>
-                  <span className="text-patriot-gold">1,776,000 tokens</span>
+                  <span className="text-patriot-gold">1,776,000,000 tokens</span>
                 </div>
                 <div className="flex justify-between mt-1">
                   <span>Network:</span>
