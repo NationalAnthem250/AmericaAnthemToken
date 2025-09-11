@@ -141,7 +141,7 @@ export default function TokenomicsRoadmap() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black via-patriot-navy to-black">
+    <section id="tokenomics" className="py-20 bg-gradient-to-b from-black via-patriot-navy to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
