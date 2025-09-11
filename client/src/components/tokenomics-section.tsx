@@ -1,3 +1,5 @@
+import SocialShareButtons from "@/components/social-share-buttons";
+
 export default function TokenomicsSection() {
   const tokenomicsData = [
     { label: "Total Supply", value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
@@ -118,6 +120,16 @@ export default function TokenomicsSection() {
               Access exclusive NFT drops, merchandise, and America250 commemorative events
             </p>
           </div>
+        </div>
+        
+        {/* Share Buttons */}
+        <div className="mt-16">
+          <SocialShareButtons 
+            variant="compact" 
+            position="center"
+            title="Check out the 250STAR Tokenomics - Commemorating America's 250th Anniversary"
+            description="Learn about the transparent token allocation designed for America's semiquincentennial celebration"
+          />
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import SocialShareButtons from '@/components/social-share-buttons';
 import goldenEagleNft from '@assets/Gemini_Generated_Image_bfizbxbfizbxbfiz_1757458891316.png';
 import silverEagleNft from '@assets/Gemini_Generated_Image_mltjs7mltjs7mltj_1757458891317.png';
 import dawnLightNft from '@assets/Gemini_Generated_Image_jjmgmmjjmgmmjjmg_1757458891318.png';
@@ -239,6 +240,16 @@ export function NFTSection() {
               Learn More
             </Button>
           </div>
+        </div>
+        
+        {/* Share This Collection */}
+        <div className="mt-12">
+          <SocialShareButtons 
+            variant="inline" 
+            position="center"
+            title="Discover the Anthem250 NFT Collection - Own American History"
+            description="Join the exclusive NFT collection featuring Hannah Magnelli's National Anthem performance for America's 250th anniversary"
+          />
         </div>
       </div>
     </section>
