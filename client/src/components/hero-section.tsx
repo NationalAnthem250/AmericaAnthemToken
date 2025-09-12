@@ -19,7 +19,12 @@ export default function HeroSection() {
   // Waitlist mutation
   const waitlistMutation = useMutation({
     mutationFn: async (data: { email: string }) => {
-      const response = await apiRequest("POST", "/api/waitlist", data);
+      // Include a default name value (can be updated to collect actual name if needed)
+      const requestData = {
+        email: data.email,
+        name: "Early Access User" // Default name for quick signup
+      };
+      const response = await apiRequest("POST", "/api/waitlist", requestData);
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.error || "Failed to join waitlist");
