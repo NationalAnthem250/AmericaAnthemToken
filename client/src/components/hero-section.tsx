@@ -1,14 +1,53 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import flagVideo from "@assets/u7663935958_full_american_flag_waving_in_the_wind_illustrated_7e3a5080-e3fc-4cc1-8477-b13c72069c5b_0_1755365095750.mp4";
 import CountdownTimer from "./countdown-timer";
 import { FaTwitter, FaFacebook, FaInstagram, FaYoutube, FaTelegram, FaDiscord, FaWhatsapp, FaTiktok, FaLinkedin, FaReddit, FaPinterest, FaGlobe, FaBroadcastTower } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoSupported, setIsVideoSupported] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
+  
+  // Waitlist mutation
+  const waitlistMutation = useMutation({
+    mutationFn: async (data: { email: string }) => {
+      const response = await apiRequest("POST", "/api/waitlist", data);
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to join waitlist");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Success!",
+        description: "You've been added to the waitlist. Check your email for confirmation.",
+      });
+      setEmail("");
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to join waitlist. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+  
+  const handleWaitlistSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      waitlistMutation.mutate({ email });
+    }
+  };
 
   useEffect(() => {
     // Detect mobile devices
@@ -422,25 +461,46 @@ export default function HeroSection() {
                 Limited 250STAR collectibles celebrating America's 250th — learn, join the drop, or reserve your token today.
               </p>
               
+              {/* Prominent Email Capture Form */}
+              <div className="bg-gradient-to-r from-patriot-red/20 to-patriot-blue/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mb-8 border border-patriot-gold/50">
+                <h3 className="text-xl md:text-2xl font-bold text-patriot-gold mb-3">
+                  Join the waitlist for exclusive presale access & a free commemorative NFT drop
+                </h3>
+                <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-lg"
+                    required
+                    disabled={waitlistMutation.isPending}
+                  />
+                  <Button
+                    type="submit"
+                    disabled={waitlistMutation.isPending}
+                    className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap"
+                  >
+                    {waitlistMutation.isPending ? "Joining..." : "Get Early Access"}
+                  </Button>
+                </form>
+              </div>
+              
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                {/* Primary CTA */}
-                <button 
-                  onClick={() => {
-                    const element = document.getElementById('participate');
-                    element?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Join the Waitlist
-                </button>
-                
-                {/* Secondary CTA */}
+                {/* Learn How It Works Button */}
                 <button 
                   onClick={() => scrollToSection('nft-education')}
-                  className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
+                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
                 >
-                  Learn How It Works
+                  Learn How It Works →
+                </button>
+                <span className="text-gray-400 hidden sm:inline">|</span>
+                <button 
+                  onClick={() => scrollToSection('video')}
+                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
+                >
+                  Watch the Performance →
                 </button>
               </div>
               
