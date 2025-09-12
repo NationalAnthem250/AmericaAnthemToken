@@ -10,6 +10,29 @@ import { ObjectStorageService, ObjectNotFoundError } from "./objectStorage";
 import { ObjectPermission } from "./objectAcl";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Add caching middleware for static assets and performance
+  app.use((req, res, next) => {
+    // Enable compression for all responses
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    
+    // Cache static assets for 1 year
+    if (req.url.match(/\.(js|css|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|eot)$/)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      res.setHeader('Expires', new Date(Date.now() + 31536000000).toUTCString());
+    }
+    // Cache HTML for 1 hour
+    else if (req.url.match(/\\.html$/)) {
+      res.setHeader('Cache-Control', 'public, max-age=3600, must-revalidate');
+    }
+    // API responses - no cache
+    else if (req.url.startsWith('/api/')) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+    next();
+  });
+
   // Setup authentication first (sets up /api/register, /api/login, /api/logout, /api/user)
   setupAuth(app);
   // Health check endpoint
