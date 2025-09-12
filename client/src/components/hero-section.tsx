@@ -486,6 +486,40 @@ export default function HeroSection() {
                 </form>
               </div>
               
+              {/* Essential Quick Info Bullets */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 max-w-2xl mx-auto mb-8 border border-white/20">
+                <div className="grid md:grid-cols-2 gap-4 text-left">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-patriot-gold text-xl">•</span>
+                    <div>
+                      <p className="text-white font-semibold">What is it?</p>
+                      <p className="text-gray-300 text-sm">Digital collectible of the National Anthem performed by Hannah Magnelli</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-patriot-gold text-xl">•</span>
+                    <div>
+                      <p className="text-white font-semibold">How to buy?</p>
+                      <p className="text-gray-300 text-sm">Connect Solana wallet (Phantom/Solflare) or use credit card via MoonPay</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-patriot-gold text-xl">•</span>
+                    <div>
+                      <p className="text-white font-semibold">Chain & Requirements</p>
+                      <p className="text-gray-300 text-sm">Solana blockchain • $1.77 per token • Low gas fees</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-patriot-gold text-xl">•</span>
+                    <div>
+                      <p className="text-white font-semibold">Launch Date</p>
+                      <p className="text-gray-300 text-sm">July 4, 2026 - America's 250th Birthday</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 {/* Learn How It Works Button */}
