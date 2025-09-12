@@ -411,119 +411,59 @@ export default function HeroSection() {
         <div className="text-center">
           {/* Main Hero Content */}
           <div className="space-y-8">
-            {/* Clear Mission Statement */}
             <div className="max-w-4xl mx-auto">
-              {/* WHAT: Crystal Clear Value Proposition */}
-              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-patriot-gold/50">
-                <h2 className="text-xl md:text-2xl font-bold text-patriot-gold">
-                  Own the First-Ever National Anthem NFT for $1.77
-                </h2>
-              </div>
-              
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                AMERICA'S 250TH <span className="text-patriot-gold">ANNIVERSARY</span><br/>
-                <span className="text-2xl md:text-4xl">Digital Collectible Commemorating 1776</span>
+              {/* Clean, Focused Headline */}
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
+                Own a piece of American history — the first tokenized rendition of The Star-Spangled Banner.
               </h1>
               
-              {/* WHY: The Historic Significance */}
-              <div className="text-lg md:text-xl leading-relaxed mb-6 space-y-4">
-                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border-l-4 border-patriot-gold">
-                  <p className="text-white font-bold text-2xl mb-2">
-                    🇺🇸 2026 is America's 250th Birthday
-                  </p>
-                  <p className="text-gray-200">
-                    The most historic patriotic milestone of our lifetime - and you can own a permanent piece of this celebration through Hannah Magnelli's professional National Anthem performance
-                  </p>
-                </div>
-                
-                <div className="grid md:grid-cols-3 gap-4 mt-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-patriot-gold">$1.77</div>
-                    <div className="text-sm text-gray-300">Per Token</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-white">1.776B</div>
-                    <div className="text-sm text-gray-300">Total Supply</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-patriot-red">2026</div>
-                    <div className="text-sm text-gray-300">Launch Year</div>
-                  </div>
-                </div>
-              </div>
+              {/* Clear Subline */}
+              <p className="text-xl md:text-2xl text-gray-200 mb-8">
+                Limited 250STAR collectibles celebrating America's 250th — learn, join the drop, or reserve your token today.
+              </p>
               
-              {/* Token Info */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-patriot-gold/30">
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-base">
-                      <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> <span className="text-white">Token</span>
-                    </span>
-                    <span className="text-white font-bold text-xl">$1.77</span>
-                  </div>
-                  <div className="text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-white">Total Supply:</span>
-                      <span className="text-white">1,776,000,000 tokens</span>
-                    </div>
-                    <div className="flex justify-between mt-1">
-                      <span className="text-white">Network:</span>
-                      <span className="text-white">Solana</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Countdown Timer */}
-            <div className="max-w-2xl mx-auto mb-8">
-              <CountdownTimer />
-            </div>
-            
-            {/* WHAT TO DO NEXT: Primary Call to Action */}
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="bg-gradient-to-r from-patriot-red to-patriot-blue p-8 rounded-3xl border-2 border-patriot-gold shadow-2xl">
-                <h3 className="text-3xl font-black text-white mb-4">
-                  WHAT TO DO NOW:
-                </h3>
-                <p className="text-xl text-gray-100 mb-6">
-                  Join the waitlist to secure priority access when tokens launch
-                </p>
-                
-                {/* Primary CTA Button */}
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                {/* Primary CTA */}
                 <button 
                   onClick={() => {
                     const element = document.getElementById('participate');
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-12 py-5 rounded-xl font-black text-2xl transition-all duration-300 transform hover:scale-110 shadow-2xl animate-pulse"
+                  className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  🇺🇸 JOIN WAITLIST NOW
+                  Join the Waitlist
                 </button>
                 
-                <div className="mt-6 text-gray-200">
-                  <p className="text-lg">✓ No payment required now</p>
-                  <p className="text-lg">✓ Get exclusive launch updates</p>
-                  <p className="text-lg">✓ Priority access to purchase</p>
-                </div>
+                {/* Secondary CTA */}
+                <button 
+                  onClick={() => scrollToSection('nft-education')}
+                  className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
+                >
+                  Learn How It Works
+                </button>
               </div>
               
-              {/* Secondary Actions */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                <button 
-                  onClick={() => scrollToSection('video')}
-                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
-                >
-                  Watch Hannah's Performance →
-                </button>
-                <span className="text-gray-400 hidden sm:inline">|</span>
-                <button 
-                  onClick={() => scrollToSection('tokenomics')}
-                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
-                >
-                  View Token Details →
-                </button>
+              {/* Key Info Bar */}
+              <div className="flex flex-wrap justify-center gap-8 text-center mt-12">
+                <div>
+                  <div className="text-2xl font-bold text-patriot-gold">$1.77</div>
+                  <div className="text-sm text-gray-300">Per Token</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white">1.776B</div>
+                  <div className="text-sm text-gray-300">Total Supply</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-patriot-red">2026</div>
+                  <div className="text-sm text-gray-300">Launch Year</div>
+                </div>
               </div>
+            </div>
+            
+            {/* Countdown Timer */}
+            <div className="max-w-2xl mx-auto">
+              <CountdownTimer />
             </div>
           </div>
 
