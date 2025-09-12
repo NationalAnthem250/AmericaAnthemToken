@@ -520,6 +520,77 @@ export default function HeroSection() {
                 </div>
               </div>
               
+              {/* Trust Elements */}
+              <div className="max-w-4xl mx-auto mb-8">
+                <div className="flex flex-wrap justify-center items-center gap-6">
+                  {/* Audit Badge */}
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-2 flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-white font-semibold text-sm">Audit Scheduled Q2 2026</span>
+                  </div>
+                  
+                  {/* Legal Link */}
+                  <button
+                    onClick={() => scrollToSection('terms-conditions')}
+                    className="text-gray-300 hover:text-white text-sm underline transition-colors"
+                  >
+                    Terms & Conditions
+                  </button>
+                  
+                  {/* Team Link */}
+                  <button
+                    onClick={() => scrollToSection('hannah-bio')}
+                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                  >
+                    <img
+                      src="https://static.wixstatic.com/media/0e0c7c_09bdf1e0833143d7a9628ceb9936f3d6~mv2.jpg/v1/fill/w_465,h_481,al_c,lg_1,q_80,enc_avif,quality_auto/image%20(2)_edited.jpg"
+                      alt="Hannah Magnelli"
+                      className="w-8 h-8 rounded-full object-cover border border-patriot-gold"
+                    />
+                    <span className="text-sm">Meet the Team</span>
+                  </button>
+                  
+                  {/* Press Kit */}
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('contact');
+                    }}
+                    className="text-gray-300 hover:text-white text-sm underline transition-colors"
+                  >
+                    Press Kit & Contact
+                  </a>
+                </div>
+                
+                {/* Security & Compliance Bar */}
+                <div className="mt-4 flex flex-wrap justify-center items-center gap-4 text-xs text-gray-400">
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Secured on Solana
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
+                    </svg>
+                    KYC Compliant
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                    </svg>
+                    Transparent Tokenomics
+                  </span>
+                </div>
+              </div>
+              
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 {/* Learn How It Works Button */}
