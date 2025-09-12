@@ -413,20 +413,43 @@ export default function HeroSection() {
           <div className="space-y-8">
             {/* Clear Mission Statement */}
             <div className="max-w-4xl mx-auto">
+              {/* WHAT: Crystal Clear Value Proposition */}
+              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-patriot-gold/50">
+                <h2 className="text-xl md:text-2xl font-bold text-patriot-gold">
+                  Own the First-Ever National Anthem NFT for $1.77
+                </h2>
+              </div>
+              
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                THE FIRST <span className="text-patriot-gold">NATIONAL ANTHEM NFT</span>
+                AMERICA'S 250TH <span className="text-patriot-gold">ANNIVERSARY</span><br/>
+                <span className="text-2xl md:text-4xl">Digital Collectible Commemorating 1776</span>
               </h1>
+              
+              {/* WHY: The Historic Significance */}
               <div className="text-lg md:text-xl leading-relaxed mb-6 space-y-4">
-                <p className="text-sky-300 font-semibold">
-                  Patriotic digital collectible celebrating America's 250th anniversary in 2026 - the most historic milestone of our lifetime
-                </p>
-                <p className="text-gray-200">
-                  Professional mezzo soprano <span className="text-patriot-gold font-bold">Hannah Magnelli</span> has created 
-                  the world's first National Anthem NFT to commemorate American independence and freedom
-                </p>
-                <p className="text-gray-300 text-base">
-                  Own authentic American history as we celebrate 250 years of liberty, democracy, and the enduring patriotic spirit that defines our great nation
-                </p>
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border-l-4 border-patriot-gold">
+                  <p className="text-white font-bold text-2xl mb-2">
+                    🇺🇸 2026 is America's 250th Birthday
+                  </p>
+                  <p className="text-gray-200">
+                    The most historic patriotic milestone of our lifetime - and you can own a permanent piece of this celebration through Hannah Magnelli's professional National Anthem performance
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4 mt-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-patriot-gold">$1.77</div>
+                    <div className="text-sm text-gray-300">Per Token</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white">1.776B</div>
+                    <div className="text-sm text-gray-300">Total Supply</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-patriot-red">2026</div>
+                    <div className="text-sm text-gray-300">Launch Year</div>
+                  </div>
+                </div>
               </div>
               
               {/* Token Info */}
@@ -457,49 +480,50 @@ export default function HeroSection() {
               <CountdownTimer />
             </div>
             
-            {/* Email Signup CTA */}
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="bg-patriot-red/20 backdrop-blur-sm rounded-2xl p-6 border border-patriot-red/30 mb-6">
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  🇺🇸 Join America's Historic Celebration
+            {/* WHAT TO DO NEXT: Primary Call to Action */}
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="bg-gradient-to-r from-patriot-red to-patriot-blue p-8 rounded-3xl border-2 border-patriot-gold shadow-2xl">
+                <h3 className="text-3xl font-black text-white mb-4">
+                  WHAT TO DO NOW:
                 </h3>
-                <p className="text-gray-300 mb-4">
-                  Be part of the largest patriotic milestone in our lifetime - America's 250th birthday
+                <p className="text-xl text-gray-100 mb-6">
+                  Join the waitlist to secure priority access when tokens launch
                 </p>
+                
+                {/* Primary CTA Button */}
                 <button 
                   onClick={() => {
                     const element = document.getElementById('participate');
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-12 py-5 rounded-xl font-black text-2xl transition-all duration-300 transform hover:scale-110 shadow-2xl animate-pulse"
                 >
-                  Get Launch Notifications
+                  🇺🇸 JOIN WAITLIST NOW
+                </button>
+                
+                <div className="mt-6 text-gray-200">
+                  <p className="text-lg">✓ No payment required now</p>
+                  <p className="text-lg">✓ Get exclusive launch updates</p>
+                  <p className="text-lg">✓ Priority access to purchase</p>
+                </div>
+              </div>
+              
+              {/* Secondary Actions */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                <button 
+                  onClick={() => scrollToSection('video')}
+                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
+                >
+                  Watch Hannah's Performance →
+                </button>
+                <span className="text-gray-400 hidden sm:inline">|</span>
+                <button 
+                  onClick={() => scrollToSection('tokenomics')}
+                  className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
+                >
+                  View Token Details →
                 </button>
               </div>
-            </div>
-            
-            {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <button 
-                onClick={() => scrollToSection('participate')}
-                className="bg-patriot-red hover:bg-patriot-red/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                <span className="text-yellow-400">Join</span> <span className="text-yellow-400">Waitlist</span>
-              </button>
-              <button 
-                onClick={() => scrollToSection('video')}
-                className="bg-patriot-red hover:bg-patriot-red/90 border-2 border-patriot-red px-8 py-4 rounded-xl font-bold text-base transition-all duration-300"
-              >
-                <span className="text-yellow-400">Watch</span> <span className="text-yellow-400">Performance</span>
-              </button>
-              <a 
-                href="https://vimeo.com/1117487359?share=copy#t=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-patriot-blue hover:bg-patriot-blue/90 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 shadow-lg text-white inline-block"
-              >
-                <span className="text-yellow-400">Watch</span> <span className="text-yellow-400">on</span> <span className="text-yellow-400">Vimeo</span>
-              </a>
             </div>
           </div>
 
