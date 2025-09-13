@@ -2,7 +2,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SocialShareButtons from '@/components/social-share-buttons';
-import LazyImage from './lazy-image';
+import { OptimizedImage } from './optimized-image';
 import goldenEagleNft from '@assets/Gemini_Generated_Image_bfizbxbfizbxbfiz_1757458891316.png';
 import silverEagleNft from '@assets/Gemini_Generated_Image_mltjs7mltjs7mltj_1757458891317.png';
 import dawnLightNft from '@assets/Gemini_Generated_Image_jjmgmmjjmgmmjjmg_1757458891318.png';
@@ -27,10 +27,11 @@ export function NFTSection() {
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <LazyImage 
+                <OptimizedImage 
                   src={goldenEagleNft} 
                   alt="Golden Eagle NFT - Mount Rushmore Legacy"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="space-y-3">
@@ -60,10 +61,11 @@ export function NFTSection() {
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <LazyImage 
+                <OptimizedImage 
                   src={silverEagleNft} 
                   alt="Silver Eagle NFT - Capitol Guardian"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="space-y-3">
@@ -93,10 +95,11 @@ export function NFTSection() {
           <Card className="bg-black/40 backdrop-blur-sm border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300 transform hover:scale-105">
             <CardContent className="p-6">
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
-                <img 
+                <OptimizedImage 
                   src={dawnLightNft} 
                   alt="Dawn's Light NFT - Liberty's Flight"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="space-y-3">
