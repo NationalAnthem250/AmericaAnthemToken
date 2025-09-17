@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
+import { LanguageSelector } from "./language-selector";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,8 +69,9 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTAs */}
+          {/* CTAs and Language Selector */}
           <div className="hidden lg:flex items-center space-x-3">
+            <LanguageSelector />
             <Button 
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
               onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
@@ -80,7 +82,8 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <LanguageSelector />
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-white hover:text-patriot-gold">
@@ -121,6 +124,9 @@ export default function Navigation() {
                           )}
                         </a>
                       ))}
+                    </div>
+                    <div className="pt-4 border-t">
+                      <LanguageSelector isMobile={true} />
                     </div>
                   </div>
                 </div>
