@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from '@/contexts/language-context';
 
 interface DualOnboardingProps {
   onSelectPath: (path: 'newbie' | 'crypto') => void;
 }
 
 export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
+  const { t } = useLanguage();
   return (
     <section id="onboarding" className="py-20 bg-gradient-to-b from-patriot-navy to-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +31,7 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
-              <CardTitle className="text-2xl text-white">I'm New to NFTs</CardTitle>
+              <CardTitle className="text-2xl text-white">{t('onboarding.newTitle')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-center">
@@ -54,7 +56,7 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                 </li>
               </ul>
               <Button className="w-full bg-patriot-blue hover:bg-patriot-blue/90 text-white">
-                Learn About Digital Collectibles
+                {t('onboarding.learnMore')}
               </Button>
             </CardContent>
           </Card>
@@ -68,7 +70,7 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
               </div>
-              <CardTitle className="text-2xl text-white">I'm Experienced with Crypto</CardTitle>
+              <CardTitle className="text-2xl text-white">{t('onboarding.cryptoTitle')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-center">
@@ -93,7 +95,7 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                 </li>
               </ul>
               <Button className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white">
-                View Advanced Details
+                {t('onboarding.viewTokenomics')}
               </Button>
             </CardContent>
           </Card>
