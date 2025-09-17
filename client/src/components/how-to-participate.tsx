@@ -4,8 +4,10 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function HowToParticipate() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const { toast } = useToast();
@@ -65,7 +67,7 @@ export default function HowToParticipate() {
                 1
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Join Waitlist</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step1')}</h3>
                 <p className="text-gray-300">
                   Sign up to get notified when the 250STAR token launches and secure your priority access.
                 </p>
@@ -77,7 +79,7 @@ export default function HowToParticipate() {
                 2
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Connect Wallet <span className="text-patriot-gold text-lg font-normal">(coming soon)</span></h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step2')} <span className="text-patriot-gold text-lg font-normal">(coming soon)</span></h3>
                 <p className="text-gray-300">
                   Connect your crypto wallet when the token launches to participate in the historic offering.
                 </p>
@@ -89,7 +91,7 @@ export default function HowToParticipate() {
                 3
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Own History</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step3')}</h3>
                 <p className="text-gray-300">
                   Purchase 250STAR tokens at $1.77 each and own a piece of America's first National Anthem NFT.
                 </p>
@@ -135,7 +137,7 @@ export default function HowToParticipate() {
                 ) : (
                   <>
                     <i className="fas fa-star mr-2"></i>
-                    Join Waitlist
+                    {t('nav.joinWaitlist')}
                   </>
                 )}
               </Button>

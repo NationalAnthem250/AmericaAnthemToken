@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function America250Section() {
+  const { t } = useLanguage();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,10 +15,10 @@ export default function America250Section() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            IN PARTNERSHIP WITH <span className="text-patriot-red">AMERICA250</span>
+            {t('america250.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Proudly supporting the official commemoration of America's 250th anniversary of independence
+            {t('america250.subtitle')}
           </p>
         </div>
         

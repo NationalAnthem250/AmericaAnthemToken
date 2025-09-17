@@ -1,14 +1,16 @@
 import hannahImage from "@assets/82f267b12c0b788bfef3b9c786f981eedc826c98-1_1757459292112.jpeg";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function HannahBioSection() {
+  const { t } = useLanguage();
   return (
     <section id="hannah" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            MEET <span className="text-patriot-red">HANNAH MAGNELLI</span>
+            {t('hannah.title')}
           </h2>
-          <h3 className="text-2xl font-bold text-patriot-gold mb-6">PROFESSIONAL MEZZO SOPRANO</h3>
+          <h3 className="text-2xl font-bold text-patriot-gold mb-6">{t('hannah.subtitle')}</h3>
         </div>
         
         <div className="grid lg:grid-cols-3 gap-12 items-start">
