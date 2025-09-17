@@ -1,12 +1,80 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/language-context';
+import { translations } from '@/translations';
+
+// Build a Set of all English translation strings for exact matching
+function buildEnglishStringSet(): Set<string> {
+  const strings = new Set<string>();
+  
+  function extractStrings(obj: any, visited = new WeakSet()) {
+    if (!obj || typeof obj !== 'object' || visited.has(obj)) return;
+    visited.add(obj);
+    
+    for (const value of Object.values(obj)) {
+      if (typeof value === 'string') {
+        const trimmed = value.trim();
+        if (trimmed) strings.add(trimmed);
+      } else if (typeof value === 'object') {
+        extractStrings(value, visited);
+      }
+    }
+  }
+  
+  extractStrings(translations.en);
+  return strings;
+}
+
+// Brand terms and technical terms that should never be translated
+const IGNORE_TERMS = new Set([
+  '250STAR',
+  'NFT',
+  'NFTs',
+  'Solana',
+  'SOL',
+  'America250',
+  'Hannah Magnelli',
+  'Anthem250',
+  'Token',
+  'MoonPay',
+  'Crossmint',
+  'Stripe',
+  'Phantom',
+  'Solflare',
+  'Discord',
+  'Telegram',
+  'Twitter',
+  'Facebook',
+  'LinkedIn',
+  'GitHub',
+  'API',
+  'USD',
+  '$',
+  '1.77',
+  '1,776,000,000',
+  '2026',
+  '2024',
+  '2025'
+]);
 
 export function UntranslatedDetector() {
   const { language } = useLanguage();
   const [untranslatedElements, setUntranslatedElements] = useState<Element[]>([]);
+  const [englishStrings, setEnglishStrings] = useState<Set<string>>(new Set());
+
+  // Build the English string set once on mount
+  useEffect(() => {
+    setEnglishStrings(buildEnglishStringSet());
+  }, []);
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'development') return;
+    // Only run in development mode
+    if (import.meta.env.MODE !== 'development') return;
+    
+    // Only check for untranslated text when NOT in English mode
+    if (language === 'en') {
+      setUntranslatedElements([]);
+      return;
+    }
 
     const detectUntranslatedText = () => {
       const elements: Element[] = [];
@@ -22,14 +90,29 @@ export function UntranslatedDetector() {
               return NodeFilter.FILTER_REJECT;
             }
             
-            const text = node.textContent?.trim() || '';
-            // Skip empty text, numbers only, and very short text
-            if (!text || text.length < 2 || /^\d+$/.test(text)) {
+            // Check if element has ignore attribute
+            if (parent.hasAttribute('data-i18n-ignore')) {
               return NodeFilter.FILTER_REJECT;
             }
             
-            // Check for common untranslated patterns (English text when not in English mode)
-            if (language !== 'en' && containsEnglishText(text)) {
+            const text = node.textContent?.trim() || '';
+            
+            // Skip empty text
+            if (!text) return NodeFilter.FILTER_REJECT;
+            
+            // Skip if it's a brand/technical term
+            if (IGNORE_TERMS.has(text)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            
+            // Skip pure numbers, dates, and prices
+            if (/^[\d,.$%\s-]+$/.test(text)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            
+            // Check if this exact text exists in the English translations
+            // This means the component is showing English text instead of a translation
+            if (englishStrings.has(text)) {
               return NodeFilter.FILTER_ACCEPT;
             }
             
@@ -54,7 +137,7 @@ export function UntranslatedDetector() {
     
     // Re-detect when language changes
     return () => clearTimeout(timer);
-  }, [language]);
+  }, [language, englishStrings]);
 
   useEffect(() => {
     // Apply visual highlighting to untranslated elements
@@ -70,7 +153,8 @@ export function UntranslatedDetector() {
     };
   }, [untranslatedElements]);
 
-  if (process.env.NODE_ENV !== 'development') return null;
+  // Only show in development mode and when not in English
+  if (import.meta.env.MODE !== 'development' || language === 'en') return null;
 
   return (
     <>
@@ -84,11 +168,16 @@ export function UntranslatedDetector() {
             {untranslatedElements.length} element(s) contain untranslated text.
             They are highlighted in yellow.
           </p>
+          <p className="text-xs mt-1 opacity-75">
+            (Showing in {language.toUpperCase()} mode but displaying English text)
+          </p>
           <button
             onClick={() => {
-              console.log('Untranslated elements:', untranslatedElements);
+              console.log('Untranslated elements in', language.toUpperCase(), 'mode:');
+              console.log('Total count:', untranslatedElements.length);
               untranslatedElements.forEach(el => {
-                console.log('Element:', el.tagName, 'Text:', el.textContent?.trim());
+                const text = el.textContent?.trim();
+                console.log(`- "${text}" (${el.tagName} ${el.className})`);
               });
             }}
             className="mt-2 text-xs underline"
@@ -99,21 +188,4 @@ export function UntranslatedDetector() {
       )}
     </>
   );
-}
-
-function containsEnglishText(text: string): boolean {
-  // Common English words that shouldn't appear in other languages
-  const englishIndicators = [
-    'the', 'and', 'or', 'for', 'with', 'from', 'to', 'of', 'in', 'on', 'at',
-    'is', 'are', 'was', 'were', 'been', 'have', 'has', 'had',
-    'will', 'would', 'could', 'should', 'may', 'might',
-    'this', 'that', 'these', 'those', 'what', 'which', 'who', 'when', 'where', 'why', 'how',
-    'Token', 'NFT', 'Network', 'Price', 'Supply', 'Launch', 'Buy', 'Join', 'Learn'
-  ];
-  
-  const lowerText = text.toLowerCase();
-  return englishIndicators.some(word => {
-    const regex = new RegExp(`\\b${word}\\b`, 'i');
-    return regex.test(lowerText);
-  });
 }
