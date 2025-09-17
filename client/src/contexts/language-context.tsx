@@ -1,4 +1,14 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { 
+  formatNumber, 
+  formatCurrency, 
+  formatDate, 
+  formatRelativeTime, 
+  formatPercent, 
+  formatCompactNumber, 
+  formatTokenAmount,
+  formatList 
+} from '@/lib/i18n-formatters';
 
 export type Language = 
   | "en" // English
@@ -17,6 +27,16 @@ interface LanguageContextType {
   setLanguage: (language: Language) => void;
   t: (key: string) => string;
   isRTL: boolean;
+  formatters: {
+    number: (value: number) => string;
+    currency: (value: number, currency?: string) => string;
+    date: (date: Date | string, style?: 'short' | 'long' | 'full') => string;
+    relativeTime: (date: Date | string) => string;
+    percent: (value: number) => string;
+    compactNumber: (value: number) => string;
+    tokenAmount: (amount: number) => string;
+    list: (items: string[], type?: 'conjunction' | 'disjunction') => string;
+  };
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -68,8 +88,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
   }, [language, isRTL]);
 
+  // Create formatter shortcuts that automatically use current language
+  const formatters = {
+    number: (value: number) => formatNumber(value, language),
+    currency: (value: number, currency?: string) => formatCurrency(value, language, currency),
+    date: (date: Date | string, style?: 'short' | 'long' | 'full') => formatDate(date, language, style),
+    relativeTime: (date: Date | string) => formatRelativeTime(date, language),
+    percent: (value: number) => formatPercent(value, language),
+    compactNumber: (value: number) => formatCompactNumber(value, language),
+    tokenAmount: (amount: number) => formatTokenAmount(amount, language),
+    list: (items: string[], type?: 'conjunction' | 'disjunction') => formatList(items, language, type),
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isRTL, formatters }}>
       {children}
     </LanguageContext.Provider>
   );

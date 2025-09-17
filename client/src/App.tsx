@@ -9,6 +9,7 @@ import ErrorBoundary from "@/components/error-boundary";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import { LanguageProvider } from "@/contexts/language-context";
+import { UntranslatedDetector } from "@/components/untranslated-detector";
 
 // Lazy load non-critical components
 const ChatWindow = lazy(() => import("@/components/chat-window").then(m => ({ default: m.ChatWindow })));
@@ -55,6 +56,7 @@ function App() {
           <ErrorBoundary>
             <TooltipProvider>
               <Toaster />
+              <UntranslatedDetector />
               <Router />
               <Suspense fallback={null}>
                 <ChatWindow 
