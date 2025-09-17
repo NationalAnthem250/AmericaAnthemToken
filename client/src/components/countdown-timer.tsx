@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from '@/contexts/language-context';
 
 interface TimeLeft {
   days: number;
@@ -8,6 +9,7 @@ interface TimeLeft {
 }
 
 export default function CountdownTimer() {
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
@@ -48,8 +50,7 @@ export default function CountdownTimer() {
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-bold mb-2">
           <span className="text-patriot-red">🇺🇸</span> 
-          <span className="text-sky-300 mx-2">LAUNCH</span>
-          <span className="text-sky-300">COUNTDOWN</span> 
+          <span className="text-sky-300 mx-2">{t('countdown.until')}</span>
           <span className="text-patriot-red">🇺🇸</span>
         </h3>
         <p className="text-patriot-gold text-sm font-semibold">
@@ -63,7 +64,7 @@ export default function CountdownTimer() {
             {timeLeft.days.toString().padStart(2, '0')}
           </div>
           <div className="text-xs md:text-sm text-patriot-gold font-bold">
-            DAYS
+            {t('countdown.days')}
           </div>
         </div>
         
@@ -72,7 +73,7 @@ export default function CountdownTimer() {
             {timeLeft.hours.toString().padStart(2, '0')}
           </div>
           <div className="text-xs md:text-sm text-patriot-gold font-bold">
-            HOURS
+            {t('countdown.hours')}
           </div>
         </div>
         
@@ -81,7 +82,7 @@ export default function CountdownTimer() {
             {timeLeft.minutes.toString().padStart(2, '0')}
           </div>
           <div className="text-xs md:text-sm text-patriot-gold font-bold">
-            MINS
+            {t('countdown.minutes')}
           </div>
         </div>
         
@@ -90,7 +91,7 @@ export default function CountdownTimer() {
             {timeLeft.seconds.toString().padStart(2, '0')}
           </div>
           <div className="text-xs md:text-sm text-patriot-gold font-bold">
-            SECS
+            {t('countdown.seconds')}
           </div>
         </div>
       </div>
