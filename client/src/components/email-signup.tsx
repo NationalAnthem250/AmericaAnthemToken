@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { Bell, Mail, Users, Star, Gift, Zap } from "lucide-react";
+import { useLanguage } from '@/contexts/language-context';
 
 interface EmailSignupProps {
   variant?: 'hero' | 'sidebar' | 'footer' | 'popup';
@@ -20,6 +21,7 @@ export default function EmailSignup({
   subtitle,
   className = ""
 }: EmailSignupProps) {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
@@ -91,9 +93,9 @@ export default function EmailSignup({
             <div className="w-16 h-16 bg-patriot-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Star className="w-8 h-8 text-patriot-gold" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">You're In!</h3>
+            <h3 className="text-xl font-bold text-white mb-2">{t('emailSignup.success')}</h3>
             <p className="text-gray-300 text-sm">
-              Welcome to America's most historic NFT launch. Check your email for confirmation.
+              {t('waitlist.successMessage')}
             </p>
           </div>
           

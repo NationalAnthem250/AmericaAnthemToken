@@ -2,17 +2,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function CryptoAdvanced() {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-gradient-to-b from-black to-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            ADVANCED <span className="text-patriot-gold">TOKENOMICS</span>
+            {t('cryptoAdvanced.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive details for experienced collectors and crypto enthusiasts
+            {t('cryptoAdvanced.subtitle')}
           </p>
         </div>
 

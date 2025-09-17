@@ -1,35 +1,37 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function AmericaTimeline() {
+  const { t } = useLanguage();
   const timelineEvents = [
     {
       year: "1776",
-      title: "Birth of America",
-      description: "Declaration of Independence signed, founding our great nation",
+      title: t('timeline.event1Title'),
+      description: t('timeline.event1Desc'),
       icon: "🗽"
     },
     {
       year: "1814",
-      title: "Star-Spangled Banner Written",
-      description: "Francis Scott Key pens our National Anthem during the War of 1812",
+      title: t('timeline.event2Title'),
+      description: t('timeline.event2Desc'),
       icon: "🎵"
     },
     {
       year: "1931",
-      title: "Official National Anthem",
-      description: "Congress officially adopts 'The Star-Spangled Banner' as our National Anthem",
+      title: t('timeline.event3Title'),
+      description: t('timeline.event3Desc'),
       icon: "🇺🇸"
     },
     {
       year: "2024",
-      title: "Hannah's Performance",
-      description: "Professional mezzo soprano Hannah Magnelli records commemorative rendition",
+      title: t('timeline.event4Title'),
+      description: t('timeline.event4Desc'),
       icon: "🎤"
     },
     {
       year: "2026",
-      title: "America's 250th Birthday",
-      description: "Semiquincentennial celebration of American independence and freedom",
+      title: t('timeline.event5Title'),
+      description: t('timeline.event5Desc'),
       icon: "🎆"
     }
   ];
