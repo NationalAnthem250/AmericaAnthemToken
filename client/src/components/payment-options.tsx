@@ -4,23 +4,25 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function PaymentOptions() {
   const [selectedAmount, setSelectedAmount] = useState(1);
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-gradient-to-b from-patriot-navy to-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            CHOOSE YOUR <span className="text-patriot-gold">PAYMENT METHOD</span>
+            {t('paymentOptions.title')} <span className="text-patriot-gold">{t('paymentOptions.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
-            We've made it easy for everyone to own a piece of American history
+            {t('paymentOptions.subtitle')}
           </p>
           <div className="inline-flex items-center bg-patriot-gold/20 backdrop-blur-sm rounded-full px-6 py-3 border border-patriot-gold/40">
             <span className="text-patriot-gold font-bold text-lg mr-2">🚀</span>
-            <span className="text-patriot-gold font-semibold text-lg">COMING SOON</span>
+            <span className="text-patriot-gold font-semibold text-lg">{t('paymentOptions.comingSoon')}</span>
           </div>
         </div>
 
@@ -29,22 +31,22 @@ export default function PaymentOptions() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-2xl z-10 flex items-center justify-center">
             <div className="text-center">
               <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-2xl p-8 border border-patriot-gold/40">
-                <h3 className="text-3xl font-bold text-patriot-gold mb-4">Payment System Launching Soon!</h3>
+                <h3 className="text-3xl font-bold text-patriot-gold mb-4">{t('paymentOptions.paymentSystemLaunching')}</h3>
                 <p className="text-white text-lg mb-6">
-                  We're putting the finishing touches on our secure payment infrastructure
+                  {t('paymentOptions.finishingTouches')}
                 </p>
                 <div className="space-y-3 text-gray-300">
                   <p className="flex items-center justify-center gap-2">
                     <span className="text-patriot-gold">✓</span>
-                    Credit card payments via MoonPay & Crossmint
+                    {t('paymentOptions.creditCardPayments')}
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <span className="text-patriot-gold">✓</span>
-                    Crypto wallet integration (Phantom, Solflare)
+                    {t('paymentOptions.cryptoWalletIntegration')}
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <span className="text-patriot-gold">✓</span>
-                    Secure Solana blockchain transactions
+                    {t('paymentOptions.secureBlockchain')}
                   </p>
                 </div>
                 <div className="mt-6 p-4 bg-patriot-red/20 rounded-lg border border-patriot-red/30">
@@ -60,7 +62,7 @@ export default function PaymentOptions() {
                         });
                       }}
                     >
-                      Join the waitlist to be notified when purchasing goes live!
+                      {t('paymentOptions.joinWaitlistNotification')}
                     </a>
                   </p>
                 </div>
@@ -71,10 +73,10 @@ export default function PaymentOptions() {
           <Tabs defaultValue="credit-card" className="w-full opacity-30">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="credit-card" className="text-lg py-3">
-              💳 Credit Card (Easiest)
+              {t('paymentOptions.creditCardTab')}
             </TabsTrigger>
             <TabsTrigger value="crypto" className="text-lg py-3">
-              🔗 Crypto Wallet
+              {t('paymentOptions.cryptoTab')}
             </TabsTrigger>
           </TabsList>
 
@@ -82,16 +84,16 @@ export default function PaymentOptions() {
             <Card className="bg-white/10 backdrop-blur-sm border-patriot-gold/30">
               <CardHeader>
                 <CardTitle className="text-2xl text-white text-center">
-                  Pay with Credit Card
+                  {t('paymentOptions.payWithCreditCard')}
                 </CardTitle>
                 <p className="text-gray-300 text-center">
-                  Just like any online purchase - no wallet needed
+                  {t('paymentOptions.justLikeOnline')}
                 </p>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Amount Selection */}
                 <div>
-                  <Label className="text-white text-lg mb-4 block">Select Quantity</Label>
+                  <Label className="text-white text-lg mb-4 block">{t('paymentOptions.selectQuantity')}</Label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {[1, 5, 10, 25].map((amount) => (
                       <button
@@ -115,7 +117,7 @@ export default function PaymentOptions() {
                   <CardContent className="p-4">
                     <div className="flex justify-between items-center text-lg">
                       <span className="text-gray-300">
-                        {selectedAmount} × 250STAR Token{selectedAmount > 1 ? 's' : ''}
+                        {selectedAmount} × 250STAR {selectedAmount > 1 ? t('paymentOptions.tokensPlural') : t('paymentOptions.tokens')}
                       </span>
                       <span className="text-patriot-gold font-bold">
                         ${(selectedAmount * 17.76).toFixed(2)}

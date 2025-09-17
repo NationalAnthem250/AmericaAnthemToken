@@ -41,7 +41,7 @@ export default function HowToParticipate() {
     if (email) {
       joinWaitlistMutation.mutate({ 
         email: email, 
-        name: "Patriotic American", // Default name for email signups
+        name: t('participate.defaultName'), // Default name for email signups
         phone: phone || undefined
       });
     }
@@ -145,7 +145,7 @@ export default function HowToParticipate() {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-400">
-                🇺🇸 {t('participate.title')} <span className="text-patriot-gold font-semibold">{formatters.number(12847)}</span> patriotic Americans
+                🇺🇸 {t('participate.joinPatriots')} <span className="text-patriot-gold font-semibold">{formatters.number(12847)}</span> {t('participate.patrioticAmericans')}
               </p>
             </div>
           </div>

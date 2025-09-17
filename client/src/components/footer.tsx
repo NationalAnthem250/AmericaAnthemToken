@@ -88,7 +88,7 @@ export default function Footer() {
               
               <div className="flex items-center space-x-3">
                 <i className="fas fa-clock text-patriot-gold"></i>
-                <span>24/7 Community Support</span>
+                <span>{t('footer.support247')}</span>
               </div>
 
             </div>
@@ -115,7 +115,7 @@ export default function Footer() {
             
             {/* Additional Contact Methods */}
             <div className="mt-6 space-y-2">
-              <h4 className="text-lg font-semibold text-patriot-gold">Community Channels</h4>
+              <h4 className="text-lg font-semibold text-patriot-gold">{t('footer.communityChannels')}</h4>
               <div className="space-y-2 text-gray-400 text-sm">
                 <div className="flex items-center space-x-2">
                   <i className="fab fa-discord text-patriot-blue"></i>
@@ -125,7 +125,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Join Discord Community
+                    {t('footer.joinDiscord')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -136,7 +136,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Telegram Updates
+                    {t('footer.telegramUpdates')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -145,7 +145,7 @@ export default function Footer() {
                     href="mailto:press@anthem250.com" 
                     className="hover:text-white transition-colors"
                   >
-                    Press Inquiries
+                    {t('footer.pressInquiries')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -154,15 +154,15 @@ export default function Footer() {
                     href="mailto:support@anthem250.com" 
                     className="hover:text-white transition-colors"
                   >
-                    Technical Support
+                    {t('footer.technicalSupport')}
                   </a>
                 </div>
               </div>
               
               <div className="mt-4 pt-3 border-t border-gray-600">
                 <p className="text-xs text-gray-500">
-                  Response time: 24-48 hours<br/>
-                  Emergency support available via Discord
+                  {t('footer.responseTime')}<br/>
+                  {t('footer.emergencySupport')}
                 </p>
               </div>
             </div>
@@ -178,16 +178,16 @@ export default function Footer() {
                 <strong>{t('footer.disclaimerText').split('.')[0]}.</strong> {t('footer.disclaimerText').split('.').slice(1, 3).join('.')}
               </p>
               <p>
-                Anthem250.com is a commemorative cultural project celebrating American heritage and has no political affiliation with any political campaign, political office, or governmental agency. This project is focused solely on preserving and celebrating American musical and cultural history.
+                {t('footer.politicalDisclaimer')}
               </p>
               <p>
-                250STAR tokens are digital collectibles created to commemorate America's Semiquincentennial celebration. Token holders may receive access to exclusive content, performances, and community features, but tokens should not be purchased with any expectation of profit or financial return.
+                {t('footer.tokenDisclaimer')}
               </p>
               <p>
                 <strong>{t('token.network')}:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>{t('token.supply')}:</strong> {formatters.tokenAmount(1776000000)} total tokens commemorating the year of American independence. <strong>{t('token.price')}:</strong> {formatters.currency(1.77)} per token in honor of 1776.
               </p>
               <p className="text-xs text-gray-400 mt-4">
-                This project is not affiliated with or endorsed by the official America250 Foundation. Please review our Terms & Conditions and Token Allocation details before participating. Cryptocurrency investments carry risk - never invest more than you can afford to lose.
+                {t('footer.projectDisclaimer')}
               </p>
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function Footer() {
               </p>
             </div>
             <p className="text-gray-400">{t('footer.copyright')}</p>
-            <p className="text-xs text-gray-500 mt-2">250STAR • Solana Network • Contract: [Contract Address TBD]</p>
+            <p className="text-xs text-gray-500 mt-2">{t('footer.contractAddress')}</p>
           </div>
         </div>
       </div>

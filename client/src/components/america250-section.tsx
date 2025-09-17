@@ -62,8 +62,8 @@ export default function America250Section() {
               {/* America250 celebration image */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                 <i className="fas fa-flag-usa text-8xl text-patriot-red mb-4"></i>
-                <p className="text-xl font-bold text-white">America's 250th Anniversary</p>
-                <p className="text-gray-300">July 4, 2026</p>
+                <p className="text-xl font-bold text-white">{t('america250.anniversaryTitle')}</p>
+                <p className="text-gray-300">{t('america250.anniversaryDate')}</p>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function America250Section() {
         <div className="mt-16 py-20 bg-gradient-to-r from-[hsl(0,79%,49%)] to-red-700 rounded-2xl text-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              BE PART OF <span className="text-patriot-gold">HISTORY</span>
+              {t('america250.bePartOfHistory')} <span className="text-patriot-gold">{t('america250.history')}</span>
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
               {t('america250.subtitle')}

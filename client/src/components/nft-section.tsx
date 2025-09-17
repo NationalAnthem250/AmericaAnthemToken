@@ -31,7 +31,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <OptimizedImage 
                   src={goldenEagleNft} 
-                  alt="Golden Eagle NFT - Mount Rushmore Legacy"
+                  alt={t('nftAltText.goldenEagle')}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -65,7 +65,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <OptimizedImage 
                   src={silverEagleNft} 
-                  alt="Silver Eagle NFT - Capitol Guardian"
+                  alt={t('nftAltText.silverEagle')}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -99,7 +99,7 @@ export function NFTSection() {
               <div className="aspect-square rounded-lg mb-4 overflow-hidden border border-patriot-gold/30">
                 <OptimizedImage 
                   src={dawnLightNft} 
-                  alt="Dawn's Light NFT - Liberty's Flight"
+                  alt={t('nftAltText.dawnsLight')}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -131,20 +131,20 @@ export function NFTSection() {
         {/* 250STAR Token Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-2xl font-bold text-white mb-1">250STAR Token</div>
-            <div className="text-3xl font-bold text-patriot-gold">$1.77</div>
+            <div className="text-2xl font-bold text-white mb-1">{t('nft.tokenPrice')}</div>
+            <div className="text-3xl font-bold text-patriot-gold">{formatters.currency(1.77)}</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-red mb-2">1,776,000,000</div>
-            <div className="text-white text-sm">Total Supply</div>
+            <div className="text-3xl font-bold text-patriot-red mb-2">{formatters.tokenAmount(1776000000)}</div>
+            <div className="text-white text-sm">{t('nft.totalSupply')}</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
             <div className="text-3xl font-bold text-white mb-2">Solana</div>
-            <div className="text-white text-sm">Network</div>
+            <div className="text-white text-sm">{t('nft.network')}</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-gold mb-2">12.4K</div>
-            <div className="text-white text-sm">Holders</div>
+            <div className="text-3xl font-bold text-patriot-gold mb-2">{formatters.number(12400)}</div>
+            <div className="text-white text-sm">{t('nft.holders')}</div>
           </div>
         </div>
 
@@ -153,32 +153,32 @@ export function NFTSection() {
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-8 border border-patriot-gold/20">
             <h3 className="text-2xl font-bold text-white mb-6">
               <i className="fas fa-gems text-patriot-gold mr-3"></i>
-              NFT Features
+              {t('nft.nftFeatures')}
             </h3>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                High-resolution 4K video performance
+                {t('nft.feature1')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                Lossless audio recording (48kHz/24-bit)
+                {t('nft.feature2')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                Exclusive behind-the-scenes content
+                {t('nft.feature3')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                Historical landmark photography
+                {t('nft.feature4')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                Digital certificate of authenticity
+                {t('nft.feature5')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-check text-patriot-gold mr-3"></i>
-                Commemorative America250 branding
+                {t('nft.feature6')}
               </li>
             </ul>
           </div>
@@ -186,32 +186,32 @@ export function NFTSection() {
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-8 border border-patriot-gold/20">
             <h3 className="text-2xl font-bold text-white mb-6">
               <i className="fas fa-crown text-patriot-gold mr-3"></i>
-              Holder Benefits
+              {t('nft.holderBenefits')}
             </h3>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                Exclusive community access
+                {t('nft.benefit1')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                Early access to future drops
+                {t('nft.benefit2')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                Special America250 events invitations
+                {t('nft.benefit3')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                Hannah Magnelli signed memorabilia
+                {t('nft.benefit4')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                Governance voting rights
+                {t('nft.benefit5')}
               </li>
               <li className="flex items-center">
                 <i className="fas fa-star text-patriot-gold mr-3"></i>
-                250STAR token airdrops
+                {t('nft.benefit6')}
               </li>
             </ul>
           </div>
@@ -219,9 +219,9 @@ export function NFTSection() {
 
         {/* Call to Action */}
         <div className="text-center bg-gradient-to-r from-patriot-gold/10 to-patriot-red/10 rounded-lg p-8 border border-patriot-gold/30">
-          <h3 className="text-3xl font-bold text-white mb-4">Ready to Own History?</h3>
+          <h3 className="text-3xl font-bold text-white mb-4">{t('nft.readyToOwn')}</h3>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Join thousands of patriotic Americans who are preserving our nation's heritage through blockchain technology. Each NFT is a piece of American history that you can own forever.
+            {t('nft.readyDesc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -232,7 +232,7 @@ export function NFTSection() {
               }}
             >
               <i className="fas fa-rocket mr-2"></i>
-              Browse Collection
+              {t('nft.browseCollection')}
             </Button>
             <Button 
               variant="outline" 
@@ -243,7 +243,7 @@ export function NFTSection() {
               }}
             >
               <i className="fas fa-info-circle mr-2"></i>
-              Learn More
+              {t('nft.learnMore')}
             </Button>
           </div>
         </div>
@@ -253,8 +253,8 @@ export function NFTSection() {
           <SocialShareButtons 
             variant="inline" 
             position="center"
-            title="Discover the Anthem250 NFT Collection - Own American History"
-            description="Join the exclusive NFT collection featuring Hannah Magnelli's National Anthem performance for America's 250th anniversary"
+            title={t('nft.discoverTitle')}
+            description={t('nft.discoverDesc')}
           />
         </div>
       </div>

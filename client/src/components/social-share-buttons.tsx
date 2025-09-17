@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useLanguage } from '@/contexts/language-context';
 
 interface ShareButtonsProps {
   url?: string;
@@ -27,14 +28,18 @@ interface ShareButtonsProps {
 
 export default function SocialShareButtons({ 
   url = typeof window !== 'undefined' ? window.location.href : '',
-  title = "Join Anthem250 - America's 250th Anniversary NFT",
-  description = "Be part of history with the first-ever NFT of the US National Anthem. Commemorating America's 250th anniversary with 250STAR tokens.",
+  title,
+  description,
   variant = "inline",
   position = "center"
 }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
+  
+  const defaultTitle = title || t('socialShare.title');
+  const defaultDescription = description || t('socialShare.description');
 
   const shareButtons = [
     {
@@ -42,7 +47,7 @@ export default function SocialShareButtons({
       icon: FaTwitter,
       color: "hover:bg-black",
       bgGradient: "from-gray-800 to-black",
-      shareUrl: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+      shareUrl: `https://twitter.com/intent/tweet?text=${encodeURIComponent(defaultTitle)}&url=${encodeURIComponent(url)}`,
       animation: "hover:rotate-12"
     },
     {
@@ -66,7 +71,7 @@ export default function SocialShareButtons({
       icon: FaWhatsapp,
       color: "hover:bg-green-600",
       bgGradient: "from-green-500 to-green-600",
-      shareUrl: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`,
+      shareUrl: `https://wa.me/?text=${encodeURIComponent(defaultTitle + ' ' + url)}`,
       animation: "hover:bounce"
     },
     {
@@ -74,7 +79,7 @@ export default function SocialShareButtons({
       icon: FaTelegram,
       color: "hover:bg-blue-500",
       bgGradient: "from-blue-400 to-blue-500",
-      shareUrl: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+      shareUrl: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(defaultTitle)}`,
       animation: "hover:translate-x-1"
     },
     {
@@ -82,7 +87,7 @@ export default function SocialShareButtons({
       icon: FaReddit,
       color: "hover:bg-orange-600",
       bgGradient: "from-orange-500 to-orange-600",
-      shareUrl: `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+      shareUrl: `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(defaultTitle)}`,
       animation: "hover:translate-y-[-4px]"
     },
     {
@@ -90,7 +95,7 @@ export default function SocialShareButtons({
       icon: FaPinterest,
       color: "hover:bg-red-600",
       bgGradient: "from-red-600 to-red-700",
-      shareUrl: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(description)}`,
+      shareUrl: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(defaultDescription)}`,
       animation: "hover:pulse"
     }
   ];
@@ -98,8 +103,8 @@ export default function SocialShareButtons({
   const handleShare = (shareUrl: string, platform: string) => {
     window.open(shareUrl, '_blank', 'width=600,height=400');
     toast({
-      title: "Sharing to " + platform,
-      description: "Opening share dialog...",
+      title: t('socialShare.sharingTo') + " " + platform,
+      description: t('socialShare.openingDialog'),
     });
   };
 
@@ -108,14 +113,14 @@ export default function SocialShareButtons({
       await navigator.clipboard.writeText(url);
       setCopied(true);
       toast({
-        title: "Link Copied!",
-        description: "The link has been copied to your clipboard.",
+        title: t('socialShare.linkCopied'),
+        description: t('socialShare.linkCopiedDesc'),
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
-        title: "Failed to copy",
-        description: "Please try again or copy the link manually.",
+        title: t('socialShare.failedToCopy'),
+        description: t('socialShare.failedToCopyDesc'),
         variant: "destructive",
       });
     }
@@ -135,7 +140,7 @@ export default function SocialShareButtons({
           </PopoverTrigger>
           <PopoverContent className="w-80 p-4 bg-white/95 backdrop-blur-lg border-2 border-patriot-gold/20">
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-patriot-navy">Share Anthem250</h3>
+              <h3 className="text-lg font-bold text-patriot-navy">{t('socialShare.shareTitle')}</h3>
               <div className="grid grid-cols-4 gap-2">
                 {shareButtons.map((button) => (
                   <button
@@ -159,7 +164,7 @@ export default function SocialShareButtons({
                 >
                   {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
                   <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {copied ? 'Copied!' : 'Copy Link'}
+                    {copied ? t('socialShare.copied') : t('socialShare.copyLink')}
                   </span>
                 </button>
               </div>
@@ -200,7 +205,7 @@ export default function SocialShareButtons({
   // Default inline variant with animated cards
   return (
     <div className={`py-8 ${position === 'center' ? 'text-center' : position === 'right' ? 'text-right' : 'text-left'}`}>
-      <h3 className="text-2xl font-bold text-patriot-navy mb-6">Share the Revolution</h3>
+      <h3 className="text-2xl font-bold text-patriot-navy mb-6">{t('tokenomics.shareRevolution')}</h3>
       <div className={`flex flex-wrap gap-3 ${position === 'center' ? 'justify-center' : position === 'right' ? 'justify-end' : 'justify-start'}`}>
         {shareButtons.map((button, index) => (
           <button

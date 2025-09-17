@@ -1,14 +1,16 @@
 import SocialShareButtons from "@/components/social-share-buttons";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function TokenomicsSection() {
+  const { t } = useLanguage();
   const tokenomicsData = [
-    { label: "Total Supply", value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
-    { label: "Public Sale", value: "710,400,000", color: "text-patriot-gold", percentage: 40 },
-    { label: "Community Rewards", value: "444,000,000", color: "text-green-400", percentage: 25 },
-    { label: "Hannah Magnelli", value: "266,400,000", color: "text-patriot-blue", percentage: 15 },
-    { label: "Development", value: "177,600,000", color: "text-purple-400", percentage: 10 },
-    { label: "Marketing", value: "88,800,000", color: "text-pink-400", percentage: 5 },
-    { label: "Reserve/Treasury", value: "88,800,000", color: "text-orange-400", percentage: 5 },
+    { label: t('tokenomics.totalSupply'), value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
+    { label: t('tokenomics.publicSale'), value: "710,400,000", color: "text-patriot-gold", percentage: 40 },
+    { label: t('tokenomics.communityRewards'), value: "444,000,000", color: "text-green-400", percentage: 25 },
+    { label: t('tokenomics.hannahMagnelli'), value: "266,400,000", color: "text-patriot-blue", percentage: 15 },
+    { label: t('tokenomics.development'), value: "177,600,000", color: "text-purple-400", percentage: 10 },
+    { label: t('tokenomics.marketing'), value: "88,800,000", color: "text-pink-400", percentage: 5 },
+    { label: t('tokenomics.reserveTreasury'), value: "88,800,000", color: "text-orange-400", percentage: 5 },
   ];
 
   return (
@@ -16,10 +18,10 @@ export default function TokenomicsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
-            <span className="text-red-600">250</span><span className="text-white" style={{ WebkitTextStroke: '1px #000' }}>ST</span><span className="text-blue-600">AR</span> <span className="text-patriot-red">TOKENOMICS</span>
+            <span className="text-red-600">250</span><span className="text-white" style={{ WebkitTextStroke: '1px #000' }}>ST</span><span className="text-blue-600">AR</span> <span className="text-patriot-red">{t('tokenomics.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transparent token allocation designed to honor America's 250th anniversary
+            {t('tokenomics.subtitle')}
           </p>
         </div>
 
@@ -34,9 +36,9 @@ export default function TokenomicsSection() {
                   <div className="text-center">
                     <div className="text-4xl font-black text-patriot-navy">1.776B</div>
                     <div className="text-sm text-gray-600">
-                      <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> Tokens
+                      <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> {t('tokenomics.tokens')}
                     </div>
-                    <div className="text-xs text-patriot-gold font-semibold">Commemorating 1776</div>
+                    <div className="text-xs text-patriot-gold font-semibold">{t('tokenomics.commemorating')}</div>
                   </div>
                 </div>
               </div>
@@ -46,25 +48,25 @@ export default function TokenomicsSection() {
           {/* Token Details */}
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-patriot-navy mb-4">Token Details</h3>
+              <h3 className="text-2xl font-bold text-patriot-navy mb-4">{t('tokenomics.tokenDetails')}</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Token Name:</span>
+                  <span className="text-gray-600">{t('tokenomics.tokenName')}:</span>
                   <span className="font-semibold">
                     <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span>
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Total Supply:</span>
+                  <span className="text-gray-600">{t('tokenomics.totalSupply')}:</span>
                   <span className="font-semibold text-patriot-red">1,776,000,000</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Launch Price:</span>
+                  <span className="text-gray-600">{t('tokenomics.launchPrice')}:</span>
                   <span className="font-semibold text-patriot-gold">$1.77 USD</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Network:</span>
-                  <span className="font-semibold text-patriot-blue">Solana</span>
+                  <span className="text-gray-600">{t('tokenomics.network')}:</span>
+                  <span className="font-semibold text-patriot-blue">{t('tokenomics.solana')}</span>
                 </div>
               </div>
             </div>
@@ -83,7 +85,7 @@ export default function TokenomicsSection() {
                       style={{ width: `${item.percentage}%` }}
                     ></div>
                   </div>
-                  <div className="text-sm text-gray-600 mt-1">{item.percentage}% of total supply</div>
+                  <div className="text-sm text-gray-600 mt-1">{item.percentage}% {t('tokenomics.ofTotalSupply')}</div>
                 </div>
               ))}
             </div>
@@ -96,9 +98,9 @@ export default function TokenomicsSection() {
             <div className="w-16 h-16 bg-patriot-red rounded-full flex items-center justify-center mx-auto mb-4">
               <i className="fas fa-shield-alt text-white text-2xl"></i>
             </div>
-            <h4 className="text-xl font-bold text-patriot-navy mb-2">Deflationary</h4>
+            <h4 className="text-xl font-bold text-patriot-navy mb-2">{t('tokenomics.deflationary')}</h4>
             <p className="text-gray-600">
-              Token burns with each NFT mint reduce supply over time, increasing scarcity
+              {t('tokenomics.deflationaryDesc')}
             </p>
           </div>
 
@@ -106,9 +108,9 @@ export default function TokenomicsSection() {
             <div className="w-16 h-16 bg-patriot-blue rounded-full flex items-center justify-center mx-auto mb-4">
               <i className="fas fa-vote-yea text-white text-2xl"></i>
             </div>
-            <h4 className="text-xl font-bold text-patriot-navy mb-2">Governance</h4>
+            <h4 className="text-xl font-bold text-patriot-navy mb-2">{t('tokenomics.governance')}</h4>
             <p className="text-gray-600">
-              Token holders vote on future developments and commemorative projects
+              {t('tokenomics.governanceDesc')}
             </p>
           </div>
 
@@ -116,9 +118,9 @@ export default function TokenomicsSection() {
             <div className="w-16 h-16 bg-patriot-gold rounded-full flex items-center justify-center mx-auto mb-4">
               <i className="fas fa-coins text-patriot-navy text-2xl"></i>
             </div>
-            <h4 className="text-xl font-bold text-patriot-navy mb-2">Utility</h4>
+            <h4 className="text-xl font-bold text-patriot-navy mb-2">{t('tokenomics.utility')}</h4>
             <p className="text-gray-600">
-              Access exclusive NFT drops, merchandise, and America250 commemorative events
+              {t('tokenomics.utilityDesc')}
             </p>
           </div>
         </div>
