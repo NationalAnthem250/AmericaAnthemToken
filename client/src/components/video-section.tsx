@@ -17,7 +17,7 @@ export default function VideoSection() {
           </p>
           <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto border border-patriot-gold/30">
             <p className="text-patriot-gold font-semibold">
-              🎵 This is the exact performance that will become part of America's historical record
+              {t('video.performanceNote')}
             </p>
           </div>
         </div>
@@ -48,14 +48,14 @@ export default function VideoSection() {
         <div className="text-center mt-12 space-y-8">
           {/* Main Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-            Own a Piece of
-            <span className="block text-patriot-gold">American History</span>
+            {t('video.heroTitle')}
+            <span className="block text-patriot-gold">{t('video.heroTitleGold')}</span>
           </h1>
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            The first-ever NFT of the US National Anthem performed by professional mezzo soprano 
-            <span className="text-patriot-gold font-semibold"> Hannah Magnelli</span> in commemoration of America's 250th anniversary
+            {t('video.heroSubtitle1')} 
+            <span className="text-patriot-gold font-semibold"> {t('video.heroSubtitle2')}</span> {t('video.heroSubtitle3')}
           </p>
           
           {/* Token Info */}
@@ -69,11 +69,11 @@ export default function VideoSection() {
               </div>
               <div className="text-gray-300 text-sm">
                 <div className="flex justify-between">
-                  <span>Total Supply:</span>
+                  <span>{t('token.supply')}:</span>
                   <span className="text-patriot-gold">1,776,000,000 tokens</span>
                 </div>
                 <div className="flex justify-between mt-1">
-                  <span>Network:</span>
+                  <span>{t('token.network')}:</span>
                   <span className="text-patriot-blue">Solana</span>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function VideoSection() {
               }}
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              {t('nav.joinWaitlist')}
+              {t('video.joinWaitlist')}
             </button>
             <button 
               onClick={() => {
@@ -98,17 +98,17 @@ export default function VideoSection() {
               }}
               className="bg-transparent border-2 border-patriot-red text-patriot-red hover:bg-patriot-red hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
             >
-              {t('video.learnMore')}
+              {t('video.watchPerformance')}
             </button>
           </div>
         </div>
         
         <div className="text-center mt-12">
           <p className="text-gray-300 italic text-lg">
-            "One of the most beautiful and rich lyric mezzo voices I've heard in years."
+            {t('video.quote')}
           </p>
           <p className="text-patriot-gold font-semibold mt-2">
-            - Richard Nechamkin, Mississippi Opera
+            {t('video.quoteAuthor')}
           </p>
         </div>
       </div>
