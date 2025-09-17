@@ -3,21 +3,23 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SocialShareButtons from '@/components/social-share-buttons';
 import { OptimizedImage } from './optimized-image';
+import { useLanguage } from '@/contexts/language-context';
 import goldenEagleNft from '@assets/Gemini_Generated_Image_bfizbxbfizbxbfiz_1757458891316.png';
 import silverEagleNft from '@assets/Gemini_Generated_Image_mltjs7mltjs7mltj_1757458891317.png';
 import dawnLightNft from '@assets/Gemini_Generated_Image_jjmgmmjjmgmmjjmg_1757458891318.png';
 
 export function NFTSection() {
+  const { t } = useLanguage();
   return (
     <section id="nft" className="py-20 bg-gradient-to-br from-patriot-navy via-patriot-blue to-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            <span className="text-patriot-gold">NFT</span> COLLECTION
+            {t('nft.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Own a unique piece of American history with our exclusive <span className="text-red-600">250</span><span className="text-white">ST</span><span className="text-blue-600">AR</span> NFT collection featuring Hannah Magnelli's National Anthem performance
+            {t('nft.subtitle')}
           </p>
         </div>
 
@@ -50,7 +52,7 @@ export function NFTSection() {
                       element?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    View Details
+                    {t('nft.viewDetails')}
                   </Button>
                 </div>
               </div>
@@ -84,7 +86,7 @@ export function NFTSection() {
                       element?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    View Details
+                    {t('nft.viewDetails')}
                   </Button>
                 </div>
               </div>
@@ -118,7 +120,7 @@ export function NFTSection() {
                       element?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    View Details
+                    {t('nft.viewDetails')}
                   </Button>
                 </div>
               </div>

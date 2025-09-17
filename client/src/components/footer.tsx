@@ -1,4 +1,7 @@
+import { useLanguage } from '@/contexts/language-context';
+
 export default function Footer() {
+  const { t } = useLanguage();
   const quickLinks = [
     { href: "#about", label: "About Hannah" },
     { href: "#token", label: "Token Launch" },
@@ -31,7 +34,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 text-gray-400">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -51,7 +54,7 @@ export default function Footer() {
           </div>
           
           <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold mb-4 text-patriot-gold">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-patriot-gold">{t('footer.contact')}</h3>
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <i className="fas fa-envelope text-patriot-gold"></i>
@@ -92,7 +95,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold mb-4 text-patriot-gold">Connect</h3>
+            <h3 className="text-xl font-bold mb-4 text-patriot-gold">{t('footer.followUs')}</h3>
             <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -197,7 +200,7 @@ export default function Footer() {
                 <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
               </p>
             </div>
-            <p className="text-gray-400">&copy; 2026 Hannah Magnelli. Celebrating America's 250th Anniversary. All rights reserved.</p>
+            <p className="text-gray-400">{t('footer.copyright')}</p>
             <p className="text-xs text-gray-500 mt-2">250STAR • Solana Network • Contract: [Contract Address TBD]</p>
           </div>
         </div>
