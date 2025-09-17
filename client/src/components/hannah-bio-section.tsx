@@ -23,7 +23,7 @@ export default function HannahBioSection() {
                 className="w-full h-auto rounded-lg shadow-lg border-4 border-patriot-gold/30"
               />
               <div className="absolute -bottom-4 -right-4 bg-patriot-gold text-patriot-navy px-4 py-2 rounded-full font-bold text-sm shadow-lg">
-                🎭 FEATURED PERFORMER
+                🎭 {t('hannah.featuredPerformer')}
               </div>
             </div>
           </div>

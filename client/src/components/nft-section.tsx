@@ -9,7 +9,7 @@ import silverEagleNft from '@assets/Gemini_Generated_Image_mltjs7mltjs7mltj_1757
 import dawnLightNft from '@assets/Gemini_Generated_Image_jjmgmmjjmgmmjjmg_1757458891318.png';
 
 export function NFTSection() {
-  const { t } = useLanguage();
+  const { t, formatters } = useLanguage();
   return (
     <section id="nft" className="py-20 bg-gradient-to-br from-patriot-navy via-patriot-blue to-patriot-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,12 +38,12 @@ export function NFTSection() {
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Golden Eagle #001</h3>
-                  <Badge className="bg-patriot-gold text-patriot-navy">LEGENDARY</Badge>
+                  <h3 className="text-lg font-bold text-white">{t('nft.goldenEagle1')}</h3>
+                  <Badge className="bg-patriot-gold text-patriot-navy">{t('nft.legendary')}</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">"Mount Rushmore Legacy" - Majestic glowing eagle over America's founding fathers with patriotic reflections</p>
+                <p className="text-gray-300 text-sm">{t('nft.goldenEagle1Desc')}</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$1,776</span>
+                  <span className="text-patriot-gold font-bold">{formatters.currency(1776)}</span>
                   <Button 
                     size="sm" 
                     className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy"
@@ -72,12 +72,12 @@ export function NFTSection() {
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Silver Eagle #250</h3>
-                  <Badge className="bg-gray-400 text-black">RARE</Badge>
+                  <h3 className="text-lg font-bold text-white">{t('nft.silverEagle1')}</h3>
+                  <Badge className="bg-gray-400 text-black">{t('nft.rare')}</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">"Capitol Guardian" - Luminous eagle soaring over the US Capitol with flowing patriotic light trails</p>
+                <p className="text-gray-300 text-sm">{t('nft.silverEagle1Desc')}</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$876</span>
+                  <span className="text-patriot-gold font-bold">{formatters.currency(876)}</span>
                   <Button 
                     size="sm" 
                     className="bg-patriot-blue hover:bg-patriot-blue/90 text-white"
@@ -106,12 +106,12 @@ export function NFTSection() {
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-white">Dawn's Light #1776</h3>
-                  <Badge className="bg-patriot-red text-white">SPECIAL</Badge>
+                  <h3 className="text-lg font-bold text-white">{t('nft.dawnLight1')}</h3>
+                  <Badge className="bg-patriot-red text-white">{t('nft.epic')}</Badge>
                 </div>
-                <p className="text-gray-300 text-sm">"Liberty's Flight" - Brilliant eagle with red, white, and blue wings soaring over the Statue of Liberty</p>
+                <p className="text-gray-300 text-sm">{t('nft.dawnLight1Desc')}</p>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-patriot-gold font-bold">$1,250</span>
+                  <span className="text-patriot-gold font-bold">{formatters.currency(1250)}</span>
                   <Button 
                     size="sm" 
                     className="bg-patriot-red hover:bg-patriot-red/90 text-white"

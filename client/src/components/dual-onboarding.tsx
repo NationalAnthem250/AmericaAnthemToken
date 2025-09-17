@@ -14,10 +14,10 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            CHOOSE YOUR <span className="text-patriot-gold">JOURNEY</span>
+            {t('onboarding.title')} <span className="text-patriot-gold">{t('onboarding.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Whether you're new to digital collectibles or an experienced collector, we've made it easy to own a piece of American history
+            {t('onboarding.subtitle')}
           </p>
         </div>
 
@@ -35,24 +35,24 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-center">
-                Perfect for art lovers and patriots who want to learn about digital collectibles
+                {t('onboarding.newDescription')}
               </p>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Simple explanation of digital ownership
+                  {t('onboarding.newFeature1')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Credit card payment options
+                  {t('onboarding.newFeature2')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Focus on cultural significance
+                  {t('onboarding.newFeature3')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  No wallet required initially
+                  {t('onboarding.newFeature4')}
                 </li>
               </ul>
               <Button className="w-full bg-patriot-blue hover:bg-patriot-blue/90 text-white">
@@ -74,24 +74,24 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-center">
-                For collectors who want detailed tokenomics and advanced features
+                {t('onboarding.cryptoDescription')}
               </p>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Detailed tokenomics & supply data
+                  {t('onboarding.cryptoFeature1')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Smart contract transparency
+                  {t('onboarding.cryptoFeature2')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Token utility & roadmap
+                  {t('onboarding.cryptoFeature3')}
                 </li>
                 <li className="flex items-center">
                   <span className="text-patriot-gold mr-2">•</span>
-                  Connect wallet directly (coming soon)
+                  {t('onboarding.cryptoFeature4')}
                 </li>
               </ul>
               <Button className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white">

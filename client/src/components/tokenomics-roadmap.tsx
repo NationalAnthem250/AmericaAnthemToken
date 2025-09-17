@@ -30,22 +30,24 @@ import {
   Music,
   Globe
 } from "lucide-react";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function TokenomicsRoadmap() {
+  const { t, formatters } = useLanguage();
   // Token allocation data
   const tokenAllocation = [
-    { name: "Public Sale", value: 40, amount: 710400000, color: "#DC2626" },
-    { name: "Community Rewards", value: 25, amount: 444000000, color: "#EAB308" },
-    { name: "Hannah Magnelli", value: 15, amount: 266400000, color: "#1D4ED8" },
-    { name: "Development", value: 10, amount: 177600000, color: "#059669" },
-    { name: "Marketing", value: 5, amount: 88800000, color: "#7C3AED" },
-    { name: "Reserve/Treasury", value: 5, amount: 88800000, color: "#DC2626" }
+    { name: t('tokenomicsRoadmap.publicSale'), value: 40, amount: 710400000, color: "#DC2626" },
+    { name: t('tokenomicsRoadmap.communityRewards'), value: 25, amount: 444000000, color: "#EAB308" },
+    { name: t('tokenomicsRoadmap.hannahMagnelli'), value: 15, amount: 266400000, color: "#1D4ED8" },
+    { name: t('tokenomicsRoadmap.development'), value: 10, amount: 177600000, color: "#059669" },
+    { name: t('tokenomicsRoadmap.marketing'), value: 5, amount: 88800000, color: "#7C3AED" },
+    { name: t('tokenomicsRoadmap.reserveTreasury'), value: 5, amount: 88800000, color: "#DC2626" }
   ];
 
   // Revenue projection data
   const revenueProjection = [
-    { phase: "Launch", revenue: 12.6, holders: 5000 },
-    { phase: "Q2 2024", revenue: 25.2, holders: 12000 },
+    { phase: t('tokenomicsRoadmap.launchPhase'), revenue: 12.6, holders: 5000 },
+    { phase: t('tokenomicsRoadmap.q2_q3_2024').split('-')[0], revenue: 25.2, holders: 12000 },
     { phase: "Q4 2024", revenue: 44.8, holders: 25000 },
     { phase: "America250", revenue: 100, holders: 50000 }
   ];
@@ -54,90 +56,90 @@ export default function TokenomicsRoadmap() {
   const utilityFeatures = [
     {
       icon: <Music className="w-6 h-6" />,
-      title: "Exclusive Content Access",
-      description: "High-quality audio files, behind-the-scenes recordings, and alternate versions",
-      launch: "Phase 1"
+      title: t('tokenomicsRoadmap.exclusiveContent'),
+      description: t('tokenomicsRoadmap.exclusiveContentDesc'),
+      launch: t('tokenomicsRoadmap.phase1').split(':')[0]
     },
     {
       icon: <Trophy className="w-6 h-6" />,
-      title: "Collector Status",
-      description: "Verified ownership certificate and special recognition in community",
-      launch: "Phase 1"
+      title: t('tokenomicsRoadmap.collectorStatus'),
+      description: t('tokenomicsRoadmap.collectorStatusDesc'),
+      launch: t('tokenomicsRoadmap.phase1').split(':')[0]
     },
     {
       icon: <Gift className="w-6 h-6" />,
-      title: "Event Access",
-      description: "Priority tickets to Hannah Magnelli performances and America250 events",
-      launch: "Phase 2"
+      title: t('tokenomicsRoadmap.eventAccess'),
+      description: t('tokenomicsRoadmap.eventAccessDesc'),
+      launch: t('tokenomicsRoadmap.phase2').split(':')[0]
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Community Governance",
-      description: "Vote on future projects and community initiatives",
-      launch: "Phase 3"
+      title: t('tokenomicsRoadmap.communityGovernance'),
+      description: t('tokenomicsRoadmap.communityGovernanceDesc'),
+      launch: t('tokenomicsRoadmap.phase3').split(':')[0]
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Global Recognition",
-      description: "Featured in America250 official commemorative materials",
-      launch: "Phase 4"
+      title: t('tokenomicsRoadmap.globalRecognition'),
+      description: t('tokenomicsRoadmap.globalRecognitionDesc'),
+      launch: t('tokenomicsRoadmap.phase4').split(':')[0]
     }
   ];
 
   // Roadmap phases
   const roadmapPhases = [
     {
-      phase: "Phase 1: Foundation",
-      timeline: "Q1 2024",
-      status: "current",
+      phase: t('tokenomicsRoadmap.phase1'),
+      timeline: t('tokenomicsRoadmap.q1_2024'),
+      status: t('tokenomicsRoadmap.currentStatus'),
       milestones: [
-        { title: "Token Launch", completed: false, critical: true },
-        { title: "Initial 10,000 holders", completed: false, critical: true },
-        { title: "Solana integration", completed: true, critical: true },
-        { title: "Community platform launch", completed: false, critical: false }
+        { title: t('tokenomicsRoadmap.tokenLaunch'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.initial10kHolders'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.solanaIntegration'), completed: true, critical: true },
+        { title: t('tokenomicsRoadmap.communityPlatform'), completed: false, critical: false }
       ]
     },
     {
-      phase: "Phase 2: Growth", 
-      timeline: "Q2-Q3 2024",
-      status: "upcoming",
+      phase: t('tokenomicsRoadmap.phase2'), 
+      timeline: t('tokenomicsRoadmap.q2_q3_2024'),
+      status: t('tokenomicsRoadmap.upcomingStatus'),
       milestones: [
-        { title: "Partnership with America250.org", completed: false, critical: true },
-        { title: "Hannah Magnelli concert series", completed: false, critical: true },
-        { title: "25,000 token holders", completed: false, critical: false },
-        { title: "Secondary market launch", completed: false, critical: false }
+        { title: t('tokenomicsRoadmap.america250Partnership'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.hannahConcertSeries'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.holders25k'), completed: false, critical: false },
+        { title: t('tokenomicsRoadmap.secondaryMarket'), completed: false, critical: false }
       ]
     },
     {
-      phase: "Phase 3: Expansion",
-      timeline: "Q4 2024 - Q2 2025", 
-      status: "planned",
+      phase: t('tokenomicsRoadmap.phase3'),
+      timeline: t('tokenomicsRoadmap.q4_2024_q2_2025'), 
+      status: t('tokenomicsRoadmap.plannedStatus'),
       milestones: [
-        { title: "International outreach program", completed: false, critical: false },
-        { title: "Additional artist collaborations", completed: false, critical: false },
-        { title: "Educational institution partnerships", completed: false, critical: true },
-        { title: "50,000 token holders", completed: false, critical: false }
+        { title: t('tokenomicsRoadmap.internationalOutreach'), completed: false, critical: false },
+        { title: t('tokenomicsRoadmap.additionalArtists'), completed: false, critical: false },
+        { title: t('tokenomicsRoadmap.educationalPartnerships'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.holders50k'), completed: false, critical: false }
       ]
     },
     {
-      phase: "Phase 4: America250 Celebration",
-      timeline: "2025-2026",
-      status: "planned",
+      phase: t('tokenomicsRoadmap.phase4'),
+      timeline: t('tokenomicsRoadmap.year_2025_2026'),
+      status: t('tokenomicsRoadmap.plannedStatus'),
       milestones: [
-        { title: "Official America250 integration", completed: false, critical: true },
-        { title: "National media campaign", completed: false, critical: true },
-        { title: "Live performance at key events", completed: false, critical: true },
-        { title: "Historical preservation milestone", completed: false, critical: true }
+        { title: t('tokenomicsRoadmap.officialIntegration'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.nationalMediaCampaign'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.livePerformances'), completed: false, critical: true },
+        { title: t('tokenomicsRoadmap.historicalPreservation'), completed: false, critical: true }
       ]
     }
   ];
 
   // Price milestones
   const priceMilestones = [
-    { holders: "5K", price: "$1.77", target: "Launch Price" },
-    { holders: "10K", price: "$25.00", target: "Early Adoption" },
-    { holders: "25K", price: "$50.00", target: "Mass Awareness" }, 
-    { holders: "50K", price: "$100.00", target: "America250 Peak" }
+    { holders: "5K", price: formatters.currency(1.77), target: t('tokenomicsRoadmap.launchPrice') },
+    { holders: "10K", price: formatters.currency(25.00), target: t('tokenomicsRoadmap.earlyAdoption') },
+    { holders: "25K", price: formatters.currency(50.00), target: t('tokenomicsRoadmap.massAwareness') }, 
+    { holders: "50K", price: formatters.currency(100.00), target: t('tokenomicsRoadmap.america250Peak') }
   ];
 
   return (
@@ -147,10 +149,10 @@ export default function TokenomicsRoadmap() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            TOKEN <span className="text-patriot-gold">ECONOMICS</span> & <span className="text-patriot-red">ROADMAP</span>
+            {t('tokenomicsRoadmap.title')} <span className="text-patriot-gold">{t('tokenomicsRoadmap.economicsText')}</span> {t('tokenomicsRoadmap.andText')} <span className="text-patriot-red">{t('tokenomicsRoadmap.roadmapText')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            Comprehensive breakdown of 250STAR tokenomics, utility features, and strategic roadmap to America's 250th anniversary
+            {t('tokenomicsRoadmap.subtitle')}
           </p>
         </div>
 
@@ -159,17 +161,17 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-gold/30 text-center">
             <CardContent className="p-6">
               <Coins className="w-8 h-8 text-patriot-gold mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">1,776,000,000</div>
-              <div className="text-gray-400">Total Supply</div>
-              <div className="text-xs text-patriot-gold mt-1">Commemorating 1776</div>
+              <div className="text-3xl font-bold text-white">{formatters.tokenAmount(1776000000)}</div>
+              <div className="text-gray-400">{t('tokenomicsRoadmap.totalSupply')}</div>
+              <div className="text-xs text-patriot-gold mt-1">{t('tokenomicsRoadmap.commemorating1776')}</div>
             </CardContent>
           </Card>
 
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-red/30 text-center">
             <CardContent className="p-6">
               <Star className="w-8 h-8 text-patriot-red mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">$1.77</div>
-              <div className="text-gray-400">Launch Price</div>
+              <div className="text-3xl font-bold text-white">{formatters.currency(1.77)}</div>
+              <div className="text-gray-400">{t('tokenomicsRoadmap.launchPrice')}</div>
               <div className="text-xs text-patriot-red mt-1">Historical Significance</div>
             </CardContent>
           </Card>
@@ -177,8 +179,8 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-blue/30 text-center">
             <CardContent className="p-6">
               <Shield className="w-8 h-8 text-patriot-blue mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">Solana</div>
-              <div className="text-gray-400">Blockchain</div>
+              <div className="text-3xl font-bold text-white">{t('hero.solana')}</div>
+              <div className="text-gray-400">{t('tokenomicsRoadmap.blockchain')}</div>
               <div className="text-xs text-patriot-blue mt-1">Fast & Efficient</div>
             </CardContent>
           </Card>
@@ -200,7 +202,7 @@ export default function TokenomicsRoadmap() {
             <CardHeader>
               <CardTitle className="text-2xl text-white flex items-center">
                 <PieChart className="w-6 h-6 mr-2 text-patriot-gold" />
-                Token Allocation
+                {t('tokenomicsRoadmap.tokenAllocation')}
               </CardTitle>
             </CardHeader>
             <CardContent>

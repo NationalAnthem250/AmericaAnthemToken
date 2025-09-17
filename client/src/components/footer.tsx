@@ -1,21 +1,21 @@
 import { useLanguage } from '@/contexts/language-context';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, formatters } = useLanguage();
   const quickLinks = [
-    { href: "#about", label: "About Hannah" },
-    { href: "#token", label: "Token Launch" },
-    { href: "#anthem", label: "National Anthem" },
-    { href: "/terms", label: "Terms & Conditions" },
-    { href: "https://america250.org/", label: "America250.org" },
+    { href: "#about", label: t('footer.linkAboutHannah') },
+    { href: "#token", label: t('footer.linkTokenLaunch') },
+    { href: "#anthem", label: t('footer.linkNationalAnthem') },
+    { href: "/terms", label: t('footer.linkTermsConditions') },
+    { href: "https://america250.org/", label: t('footer.linkAmerica250') },
   ];
 
   const socialLinks = [
-    { href: "http://instagram.com/hannah_magnelli", icon: "fab fa-instagram", label: "Instagram" },
-    { href: "https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB", icon: "fab fa-spotify", label: "Spotify" },
-    { href: "https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg", icon: "fab fa-youtube", label: "YouTube" },
-    { href: "https://www.linkedin.com/company/anthem250", icon: "fab fa-linkedin", label: "LinkedIn" },
-    { href: "https://www.hannahmagnelli.com/", icon: "fas fa-globe", label: "Official Website" },
+    { href: "http://instagram.com/hannah_magnelli", icon: "fab fa-instagram", label: t('footer.instagram') },
+    { href: "https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB", icon: "fab fa-spotify", label: t('footer.spotify') },
+    { href: "https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg", icon: "fab fa-youtube", label: t('footer.youtube') },
+    { href: "https://www.linkedin.com/company/anthem250", icon: "fab fa-linkedin", label: t('footer.linkedin') },
+    { href: "https://www.hannahmagnelli.com/", icon: "fas fa-globe", label: t('footer.officialWebsite') },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Footer() {
               className="h-12 w-auto mb-4 filter brightness-0 invert"
             />
             <p className="text-gray-400">
-              Professional mezzo soprano celebrating America's 250th anniversary through innovative musical tokenization.
+              {t('footer.professionalMezzo')}
             </p>
           </div>
           
@@ -79,10 +79,10 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <i className="fas fa-building text-patriot-gold mt-1"></i>
                 <div>
-                  <p className="font-semibold">Magnelli Productions, LLC</p>
-                  <p className="text-sm">996 Maine Ave SW</p>
-                  <p className="text-sm">Suite 930</p>
-                  <p className="text-sm">Washington DC, 20024</p>
+                  <p className="font-semibold">{t('footer.magnelliProductions')}</p>
+                  <p className="text-sm">{t('footer.address1')}</p>
+                  <p className="text-sm">{t('footer.address2')}</p>
+                  <p className="text-sm">{t('footer.address3')}</p>
                 </div>
               </div>
               
@@ -172,10 +172,10 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8">
           {/* Crypto Token Disclaimer */}
           <div className="bg-patriot-navy/50 rounded-lg p-6 mb-8 border border-gray-700">
-            <h4 className="text-patriot-gold font-bold text-lg mb-4 text-center">Important Disclosure</h4>
+            <h4 className="text-patriot-gold font-bold text-lg mb-4 text-center">{t('footer.disclaimer')}</h4>
             <div className="text-sm text-gray-300 leading-relaxed space-y-3">
               <p>
-                <strong>250STAR tokens are intended to function as an expression of support for, and engagement with, the patriotic ideals and cultural heritage embodied by America's 250th anniversary celebration and Hannah Magnelli's National Anthem performance.</strong> 250STAR tokens are not intended to be, or to be the subject of, an investment opportunity, investment contract, or security of any type.
+                <strong>{t('footer.disclaimerText').split('.')[0]}.</strong> {t('footer.disclaimerText').split('.').slice(1, 3).join('.')}
               </p>
               <p>
                 Anthem250.com is a commemorative cultural project celebrating American heritage and has no political affiliation with any political campaign, political office, or governmental agency. This project is focused solely on preserving and celebrating American musical and cultural history.
@@ -184,7 +184,7 @@ export default function Footer() {
                 250STAR tokens are digital collectibles created to commemorate America's Semiquincentennial celebration. Token holders may receive access to exclusive content, performances, and community features, but tokens should not be purchased with any expectation of profit or financial return.
               </p>
               <p>
-                <strong>Network:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>Supply:</strong> 1,776,000,000 total tokens commemorating the year of American independence. <strong>Price:</strong> $1.77 per token in honor of 1776.
+                <strong>{t('token.network')}:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>{t('token.supply')}:</strong> {formatters.tokenAmount(1776000000)} total tokens commemorating the year of American independence. <strong>{t('token.price')}:</strong> {formatters.currency(1.77)} per token in honor of 1776.
               </p>
               <p className="text-xs text-gray-400 mt-4">
                 This project is not affiliated with or endorsed by the official America250 Foundation. Please review our Terms & Conditions and Token Allocation details before participating. Cryptocurrency investments carry risk - never invest more than you can afford to lose.
@@ -196,8 +196,9 @@ export default function Footer() {
           <div className="text-center">
             <div className="mb-4">
               <p className="text-xl md:text-2xl text-yellow-400 font-medium leading-relaxed">
-                The <strong>first-ever NFT</strong> of America's National Anthem, performed by professional mezzo soprano 
-                <strong> Hannah Magnelli</strong>, in commemoration of the United States' 250th Anniversary
+                {t('video.heroSubtitle1')} 
+                <strong>{t('video.heroSubtitle2')}</strong>
+                {t('video.heroSubtitle3')}
               </p>
             </div>
             <p className="text-gray-400">{t('footer.copyright')}</p>

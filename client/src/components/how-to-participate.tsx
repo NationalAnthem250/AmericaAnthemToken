@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from '@/contexts/language-context';
 
 export default function HowToParticipate() {
-  const { t } = useLanguage();
+  const { t, formatters } = useLanguage();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const { toast } = useToast();
@@ -20,8 +20,8 @@ export default function HowToParticipate() {
     },
     onSuccess: () => {
       toast({
-        title: "Success!",
-        description: "You've been added to the 250STAR launch waitlist!",
+        title: t('participate.successTitle'),
+        description: t('participate.successMessage'),
       });
       setEmail("");
       setPhone("");
@@ -29,8 +29,8 @@ export default function HowToParticipate() {
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
+        title: t('participate.errorTitle'),
+        description: error.message || t('participate.errorMessage'),
         variant: "destructive",
       });
     },
@@ -52,10 +52,10 @@ export default function HowToParticipate() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            JOIN THE <span className="text-patriot-red">250STAR</span> LAUNCH
+            {t('participate.title')} <span className="text-patriot-red">{t('participate.titleHighlight')}</span> {t('participate.titleEnd')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join thousands of patriotic Americans investing in the first National Anthem NFT - own digital American history on the blockchain
+            {t('participate.subtitle')}
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function HowToParticipate() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step1')}</h3>
                 <p className="text-gray-300">
-                  Sign up to get notified when the 250STAR token launches and secure your priority access.
+                  {t('participate.step1Desc')}
                 </p>
               </div>
             </div>
@@ -79,9 +79,9 @@ export default function HowToParticipate() {
                 2
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step2')} <span className="text-patriot-gold text-lg font-normal">(coming soon)</span></h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step2')} <span className="text-patriot-gold text-lg font-normal">{t('participate.step2ComingSoon')}</span></h3>
                 <p className="text-gray-300">
-                  Connect your crypto wallet when the token launches to participate in the historic offering.
+                  {t('participate.step2Desc')}
                 </p>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function HowToParticipate() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">{t('participate.step3')}</h3>
                 <p className="text-gray-300">
-                  Purchase 250STAR tokens at $1.77 each and own a piece of America's first National Anthem NFT.
+                  {t('participate.step3Desc')}
                 </p>
               </div>
             </div>
@@ -102,16 +102,16 @@ export default function HowToParticipate() {
           {/* Email Signup */}
           <div className="bg-gradient-to-br from-patriot-red/20 to-patriot-blue/20 rounded-2xl p-8 border border-patriot-gold/30 backdrop-blur-sm">
             <div className="text-center mb-6">
-              <h3 className="text-3xl font-bold text-white mb-2">Get Priority Access</h3>
+              <h3 className="text-3xl font-bold text-white mb-2">{t('participate.getPriorityAccess')}</h3>
               <p className="text-gray-300">
-                Be among the first to own America's historic National Anthem token
+                {t('participate.getPriorityAccessDesc')}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t('participate.emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -119,7 +119,7 @@ export default function HowToParticipate() {
               />
               <Input
                 type="tel"
-                placeholder="Enter your phone number (optional)"
+                placeholder={t('participate.phonePlaceholder')}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -132,12 +132,12 @@ export default function HowToParticipate() {
                 {joinWaitlistMutation.isPending ? (
                   <div className="flex items-center">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                    Joining...
+                    {t('participate.joining')}
                   </div>
                 ) : (
                   <>
                     <i className="fas fa-star mr-2"></i>
-                    {t('nav.joinWaitlist')}
+                    {t('participate.joinWaitlist')}
                   </>
                 )}
               </Button>
@@ -145,7 +145,7 @@ export default function HowToParticipate() {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-400">
-                🇺🇸 Join <span className="text-patriot-gold font-semibold">12,847</span> patriotic Americans
+                🇺🇸 {t('participate.title')} <span className="text-patriot-gold font-semibold">{formatters.number(12847)}</span> patriotic Americans
               </p>
             </div>
           </div>

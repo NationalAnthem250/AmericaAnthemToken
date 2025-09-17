@@ -25,9 +25,9 @@ export default function America250Section() {
         <div className="bg-gradient-to-br from-[hsl(221,83%,53%)] to-[hsl(215,28%,17%)] text-white rounded-2xl p-8 lg:p-12 shadow-2xl">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-black mb-6">Honor the Nation. Celebrate 250 Years of Freedom.</h3>
+              <h3 className="text-3xl font-black mb-6">{t('america250.celebrationTitle')}</h3>
               <p className="text-lg text-gray-200 mb-6 leading-relaxed">
-                On July 4, 2026, our nation will commemorate and celebrate the 250th anniversary of the signing of the Declaration of Independence. This historic milestone is an opportunity to pause and reflect on our nation's past, honor the contributions of all Americans, and look ahead toward the future.
+                {t('america250.celebrationDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -40,7 +40,7 @@ export default function America250Section() {
                     rel="noopener noreferrer"
                   >
                     <i className="fas fa-external-link-alt mr-2"></i>
-                    Visit America250.org
+                    {t('america250.visitButton')}
                   </a>
                 </Button>
                 <Button
@@ -52,7 +52,7 @@ export default function America250Section() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Learn More
+                    {t('america250.learnMoreButton')}
                   </a>
                 </Button>
               </div>
@@ -76,7 +76,7 @@ export default function America250Section() {
               BE PART OF <span className="text-patriot-gold">HISTORY</span>
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
-              Own a piece of American heritage with the first-ever NFT of our National Anthem, preserving this patriotic treasure for future generations
+              {t('america250.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -85,7 +85,7 @@ export default function America250Section() {
                 onClick={() => scrollToSection('participate')}
               >
                 <i className="fas fa-envelope mr-2"></i>
-                Get Notified at Launch
+                {t('emailSignup.button')}
               </Button>
               <Button
                 asChild
@@ -98,7 +98,7 @@ export default function America250Section() {
                   rel="noopener noreferrer"
                 >
                   <i className="fas fa-file-alt mr-2"></i>
-                  Read Whitepaper
+                  {t('america250.readWhitepaper')}
                 </a>
               </Button>
             </div>
