@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   // Handle scroll effect with proper cleanup
   useEffect(() => {
@@ -22,12 +24,12 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: "video", label: "About" },
-    { href: "tokenomics", label: "Tokenomics" },
-    { href: "participate", label: "How to Join" },
-    { href: "nft", label: "NFT Collection" },
-    { href: "hannah", label: "Hannah" },
-    { href: "america250", label: "Partnership" },
+    { href: "video", label: t("nav.about") },
+    { href: "tokenomics", label: t("nav.tokenomics") },
+    { href: "participate", label: t("nav.howToJoin") },
+    { href: "nft", label: t("nav.nftCollection") },
+    { href: "hannah", label: t("nav.hannah") },
+    { href: "america250", label: t("nav.partnership") },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -77,7 +79,7 @@ export default function Navigation() {
               onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <i className="fas fa-star mr-2"></i>
-              Join Waitlist
+              {t("nav.joinWaitlist")}
             </Button>
           </div>
 
@@ -107,7 +109,7 @@ export default function Navigation() {
                       onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       <i className="fas fa-star mr-2"></i>
-                      Join Waitlist
+                      {t("nav.joinWaitlist")}
                     </Button>
                     <div className="flex items-center space-x-4 pt-4">
                       {socialLinks.map((social) => (

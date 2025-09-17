@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -15,6 +16,7 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const { t } = useLanguage();
   
   // Waitlist mutation
   const waitlistMutation = useMutation({
@@ -33,15 +35,15 @@ export default function HeroSection() {
     },
     onSuccess: () => {
       toast({
-        title: "Success!",
-        description: "You've been added to the waitlist. Check your email for confirmation.",
+        title: t("waitlist.success"),
+        description: t("waitlist.successMessage"),
       });
       setEmail("");
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
+        title: t("waitlist.error"),
+        description: error.message || t("waitlist.errorMessage"),
         variant: "destructive",
       });
     },
@@ -458,23 +460,23 @@ export default function HeroSection() {
             <div className="max-w-4xl mx-auto">
               {/* Clean, Focused Headline */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
-                Own a piece of American history — the first tokenized rendition of The Star-Spangled Banner.
+                {t("hero.title")}
               </h1>
               
               {/* Clear Subline */}
               <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                Limited 250STAR collectibles celebrating America's 250th — learn, join the drop, or reserve your token today.
+                {t("hero.subtitle")}
               </p>
               
               {/* Prominent Email Capture Form */}
               <div className="bg-gradient-to-r from-patriot-red/20 to-patriot-blue/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mb-8 border border-patriot-gold/50">
                 <h3 className="text-xl md:text-2xl font-bold text-patriot-gold mb-3">
-                  Join the waitlist for exclusive presale access & a free commemorative NFT drop
+                  {t("hero.exclusiveAccess")}
                 </h3>
                 <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                   <Input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t("hero.emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-lg"
@@ -486,7 +488,7 @@ export default function HeroSection() {
                     disabled={waitlistMutation.isPending}
                     className="bg-patriot-gold hover:bg-yellow-400 text-patriot-navy px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg whitespace-nowrap"
                   >
-                    {waitlistMutation.isPending ? "Joining..." : "Get Early Access"}
+                    {waitlistMutation.isPending ? "..." : t("hero.getEarlyAccess")}
                   </Button>
                 </form>
               </div>
@@ -518,8 +520,8 @@ export default function HeroSection() {
                   <div className="flex items-start space-x-3">
                     <span className="text-patriot-gold text-xl">•</span>
                     <div>
-                      <p className="text-white font-semibold">Launch Date</p>
-                      <p className="text-gray-300 text-sm">July 4, 2026 - America's 250th Birthday</p>
+                      <p className="text-white font-semibold">{t("hero.launchDate")}</p>
+                      <p className="text-gray-300 text-sm">{t("hero.january2025")}</p>
                     </div>
                   </div>
                 </div>

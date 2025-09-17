@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,14 +8,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
-interface Language {
+type LanguageInfo = {
   code: string;
   name: string;
   flag: string;
   nativeName: string;
-}
+};
 
-const languages: Language[] = [
+const languages: LanguageInfo[] = [
   { code: "en", name: "English", flag: "🇺🇸", nativeName: "English" },
   { code: "zh", name: "Chinese", flag: "🇨🇳", nativeName: "中文" },
   { code: "es", name: "Spanish", flag: "🇪🇸", nativeName: "Español" },
@@ -35,13 +35,11 @@ export function LanguageSelector({
   isMobile?: boolean;
   className?: string;
 }) {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const { language, setLanguage } = useLanguage();
+  const selectedLanguage = languages.find(l => l.code === language) || languages[0];
 
-  const handleLanguageChange = (language: Language) => {
-    setSelectedLanguage(language);
-    // Here you would typically trigger a language change in your app
-    // For now, we'll just update the selected state
-    console.log(`Language changed to: ${language.name}`);
+  const handleLanguageChange = (lang: LanguageInfo) => {
+    setLanguage(lang.code as any);
   };
 
   if (isMobile) {

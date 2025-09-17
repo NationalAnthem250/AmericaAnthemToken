@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import ErrorBoundary from "@/components/error-boundary";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
+import { LanguageProvider } from "@/contexts/language-context";
 
 // Lazy load non-critical components
 const ChatWindow = lazy(() => import("@/components/chat-window").then(m => ({ default: m.ChatWindow })));
@@ -49,20 +50,22 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ErrorBoundary>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-            <Suspense fallback={null}>
-              <ChatWindow 
-                isOpen={isChatOpen} 
-                onToggle={() => setIsChatOpen(!isChatOpen)} 
-              />
-            </Suspense>
-          </TooltipProvider>
-        </ErrorBoundary>
-      </AuthProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <ErrorBoundary>
+            <TooltipProvider>
+              <Toaster />
+              <Router />
+              <Suspense fallback={null}>
+                <ChatWindow 
+                  isOpen={isChatOpen} 
+                  onToggle={() => setIsChatOpen(!isChatOpen)} 
+                />
+              </Suspense>
+            </TooltipProvider>
+          </ErrorBoundary>
+        </AuthProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
