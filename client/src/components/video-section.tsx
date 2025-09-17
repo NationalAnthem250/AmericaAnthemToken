@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLanguage } from '@/contexts/language-context';
 
 export default function VideoSection() {
-  const { t } = useLanguage();
+  const { t, formatters } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
