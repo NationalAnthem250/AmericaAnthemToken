@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function VideoSection() {
+  const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -8,10 +10,10 @@ export default function VideoSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            HEAR <span className="text-patriot-red">HANNAH'S PERFORMANCE</span>
+            {t('video.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
-            Listen to this beautiful interpretation of "The Star-Spangled Banner" that will be preserved for America's 250th anniversary
+            {t('video.subtitle')}
           </p>
           <div className="bg-patriot-gold/20 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto border border-patriot-gold/30">
             <p className="text-patriot-gold font-semibold">
@@ -87,7 +89,7 @@ export default function VideoSection() {
               }}
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              Join Waitlist
+              {t('nav.joinWaitlist')}
             </button>
             <button 
               onClick={() => {
@@ -96,7 +98,7 @@ export default function VideoSection() {
               }}
               className="bg-transparent border-2 border-patriot-red text-patriot-red hover:bg-patriot-red hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
             >
-              Watch Performance
+              {t('video.learnMore')}
             </button>
           </div>
         </div>

@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from '@/contexts/language-context';
 
 export default function TokenSection() {
+  const { t } = useLanguage();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -18,11 +20,11 @@ export default function TokenSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            <span className="text-red-600">250</span><span className="text-gray-800 text-stroke">ST</span><span className="text-blue-600">AR</span> TOKEN LAUNCH
+            {t('token.title')}
           </h2>
           <div className="mb-6">
             <span className="bg-patriot-navy text-white px-6 py-2 rounded-full font-bold text-xl">
-              First Ever National Anthem NFT
+              {t('token.subtitle')}
             </span>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -94,17 +96,17 @@ export default function TokenSection() {
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-hashtag text-patriot-red mr-3"></i>
-                  <span className="font-semibold">Total Supply:</span>
+                  <span className="font-semibold">{t('token.supply')}:</span>
                   <span className="ml-2">1,776,000,000 Tokens (Commemorating 1776)</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-star text-patriot-red mr-3"></i>
-                  <span className="font-semibold">Starting Price:</span>
+                  <span className="font-semibold">{t('token.price')}:</span>
                   <span className="ml-2">$1.77 USD</span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-shield-alt text-patriot-red mr-3"></i>
-                  <span className="font-semibold">Blockchain:</span>
+                  <span className="font-semibold">{t('token.network')}:</span>
                   <span className="ml-2">Ethereum Network</span>
                 </div>
               </div>
@@ -115,7 +117,7 @@ export default function TokenSection() {
                   className="bg-patriot-red hover:bg-patriot-red-hover text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto"
                 >
                   <i className="fas fa-bell mr-2"></i>
-                  Join Waitlist
+                  {t('nav.joinWaitlist')}
                 </Button>
               </div>
             </div>

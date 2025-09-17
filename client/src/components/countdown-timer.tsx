@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from '@/contexts/language-context';
+import { useLanguage } from '@/contexts/language-context';
 
 interface TimeLeft {
   days: number;
@@ -9,7 +9,7 @@ interface TimeLeft {
 }
 
 export default function CountdownTimer() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
