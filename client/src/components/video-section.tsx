@@ -35,7 +35,7 @@ export default function VideoSection() {
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }} 
-              title="Hannah Magnelli's Rendition National Anthem - Celebrating the 250th Anniversary of the United States of America"
+              title={t('common.hannahNationalAnthem')}
               loading="eager"
               onLoad={() => {
                 setIsLoaded(true);

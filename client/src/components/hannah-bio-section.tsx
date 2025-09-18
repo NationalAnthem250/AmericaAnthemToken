@@ -19,7 +19,7 @@ export default function HannahBioSection() {
             <div className="relative">
               <img
                 src={hannahImage}
-                alt="Hannah Magnelli - Professional Mezzo Soprano"
+                alt={t('common.hannahMagnelliMezzo')}
                 className="w-full h-auto rounded-lg shadow-lg border-4 border-patriot-gold/30"
               />
               <div className="absolute -bottom-4 -right-4 bg-patriot-gold text-patriot-navy px-4 py-2 rounded-full font-bold text-sm shadow-lg">
@@ -33,24 +33,24 @@ export default function HannahBioSection() {
             <div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                  Hannah Magnelli is a professional mezzo soprano who has made history as the first artist to create an NFT of the US National Anthem. Her rich, lyric voice has been praised as <em>"one of the most beautiful and rich lyric mezzo voices I've heard in years"</em> by industry professionals.
+                  {t('hannah.bio1')}
                 </p>
                 
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  With her elevated classical training and professional performance experience, Hannah brings unparalleled artistry to America's most treasured song. Her powerful interpretation of "The Star-Spangled Banner" combines classical precision with heartfelt patriotism.
+                  {t('hannah.bio2')}
                 </p>
                 
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  By combining her classical excellence with groundbreaking digital innovation, Hannah offers patriotic Americans the opportunity to own a piece of American heritage in the form of this historic NFT, commemorating our nation's 250th anniversary.
+                  {t('hannah.bio3')}
                 </p>
               </div>
               
               <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
                 <blockquote className="text-lg italic text-gray-700 mb-4">
-                  "One of the most beautiful and rich lyric mezzo voices I've heard in years."
+                  "{t('hannah.quote')}"
                 </blockquote>
                 <cite className="text-patriot-gold font-semibold">
-                  - Richard Nechamkin, Mississippi Opera
+                  {t('hannah.quoteAuthor')}
                 </cite>
               </div>
             </div>

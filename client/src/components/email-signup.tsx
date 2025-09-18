@@ -133,21 +133,21 @@ export default function EmailSignup({
       <div className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-patriot-gold/30 ${className}`}>
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold text-white mb-2">
-            {title || "Get Launch Notifications"}
+            {title || t('emailSignup.getLaunchNotifications')}
           </h3>
           <p className="text-gray-300 text-sm">
-            {subtitle || "Be first in line for America's historic NFT launch"}
+            {subtitle || t('emailSignup.beFirstInLine')}
           </p>
           <Badge className="mt-2 bg-patriot-red text-white">
             <Users className="w-3 h-3 mr-1" />
-            Join 1,000+ Patriots
+            {t('common.join')} 1,000+ Patriots
           </Badge>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <Input
             type="text"
-            placeholder="Your name"
+            placeholder={t('common.yourName')}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -155,7 +155,7 @@ export default function EmailSignup({
           />
           <Input
             type="email"
-            placeholder="Email address"
+            placeholder={t('common.emailAddress')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -169,12 +169,12 @@ export default function EmailSignup({
             {joinWaitlistMutation.isPending ? (
               <div className="flex items-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                Joining...
+                t('common.join')ing...
               </div>
             ) : (
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                Notify Me First
+                {t('emailSignup.notifyMe')}
               </div>
             )}
           </Button>
@@ -190,17 +190,17 @@ export default function EmailSignup({
         <CardHeader className="pb-4">
           <CardTitle className="text-lg text-white flex items-center">
             <Bell className="w-5 h-5 mr-2 text-patriot-gold" />
-            {title || "Launch Alerts"}
+            {title || t('emailSignup.launchAlerts')}
           </CardTitle>
           <p className="text-gray-400 text-sm">
-            {subtitle || "Get notified when 250STAR launches"}
+            {subtitle || t('emailSignup.getNotified')}
           </p>
         </CardHeader>
         <CardContent className="pt-0">
           <form onSubmit={handleSubmit} className="space-y-3">
             <Input
               type="text"
-              placeholder="Name"
+              placeholder={t('common.name')}
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-sm"
@@ -208,7 +208,7 @@ export default function EmailSignup({
             />
             <Input
               type="email"
-              placeholder="Email"
+              placeholder={t('common.email')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-sm"
@@ -220,7 +220,7 @@ export default function EmailSignup({
               size="sm"
               className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white"
             >
-              {joinWaitlistMutation.isPending ? "..." : "Notify Me"}
+              {joinWaitlistMutation.isPending ? "..." : t('emailSignup.notifyMe')}
             </Button>
           </form>
         </CardContent>
@@ -232,14 +232,14 @@ export default function EmailSignup({
   if (variant === 'footer') {
     return (
       <div className={className}>
-        <h4 className="text-lg font-semibold text-patriot-gold mb-3">Launch Notifications</h4>
+        <h4 className="text-lg font-semibold text-patriot-gold mb-3">{t('emailSignup.launchNotifications')}</h4>
         <p className="text-gray-400 text-sm mb-4">
-          Be first to own America's National Anthem NFT
+          {t('emailSignup.beFirst')}
         </p>
         <form onSubmit={handleSubmit} className="space-y-2">
           <Input
             type="text"
-            placeholder="Your name"
+            placeholder={t('common.yourName')}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-sm"
@@ -248,7 +248,7 @@ export default function EmailSignup({
           <div className="flex space-x-2">
             <Input
               type="email"
-              placeholder="Email address"
+              placeholder={t('common.emailAddress')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold text-sm flex-1"
@@ -260,7 +260,7 @@ export default function EmailSignup({
               size="sm"
               className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold px-4"
             >
-              {joinWaitlistMutation.isPending ? "..." : "Join"}
+              {joinWaitlistMutation.isPending ? "..." : t('common.join')}
             </Button>
           </div>
         </form>
@@ -274,17 +274,17 @@ export default function EmailSignup({
       <CardHeader>
         <CardTitle className="text-xl text-white text-center flex items-center justify-center">
           <Mail className="w-5 h-5 mr-2 text-patriot-gold" />
-          {title || "Join the 250STAR Launch"}
+          {title || t('emailSignup.joinLaunch')}
         </CardTitle>
         <p className="text-gray-300 text-center text-sm">
-          {subtitle || "Get priority access to America's first National Anthem NFT"}
+          {subtitle || t('emailSignup.getPriority')}
         </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             type="text"
-            placeholder="Your name"
+            placeholder={t('common.yourName')}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -292,7 +292,7 @@ export default function EmailSignup({
           />
           <Input
             type="email"
-            placeholder="Email address"
+            placeholder={t('common.emailAddress')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white/10 border-patriot-gold/30 text-white placeholder:text-gray-400 focus:border-patriot-gold"
@@ -306,10 +306,10 @@ export default function EmailSignup({
             {joinWaitlistMutation.isPending ? (
               <div className="flex items-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                Joining Waitlist...
+                t('common.join')ing Waitlist...
               </div>
             ) : (
-              "Get Launch Notifications"
+              "t('emailSignup.getLaunchNotifications')"
             )}
           </Button>
         </form>

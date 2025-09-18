@@ -1,6 +1,7 @@
 import { Component, ErrorInfo, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/language-context";
 
 interface Props {
   children?: ReactNode;
@@ -38,18 +39,18 @@ export default class ErrorBoundary extends Component<Props, State> {
           <Card className="max-w-lg w-full bg-white/10 backdrop-blur-sm border-patriot-gold/30">
             <CardHeader>
               <CardTitle className="text-2xl text-white text-center">
-                Oops! Something went wrong
+                {window.localStorage.getItem('language') === 'es' ? '¡Ups! Algo salió mal' : 'Oops! Something went wrong'}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-center">
-                We encountered an unexpected error. Please try refreshing the page.
+                {window.localStorage.getItem('language') === 'es' ? 'Encontramos un error inesperado. Por favor intenta actualizar la página.' : 'We encountered an unexpected error. Please try refreshing the page.'}
               </p>
               <Button 
                 onClick={this.handleReset}
                 className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
               >
-                Refresh Page
+                {window.localStorage.getItem('language') === 'es' ? 'Actualizar Página' : 'Refresh Page'}
               </Button>
             </CardContent>
           </Card>

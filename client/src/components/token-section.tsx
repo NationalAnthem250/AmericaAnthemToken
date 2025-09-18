@@ -126,7 +126,7 @@ export default function TokenSection() {
               {/* Hannah Magnelli professional photo */}
               <img
                 src="https://static.wixstatic.com/media/0e0c7c_09bdf1e0833143d7a9628ceb9936f3d6~mv2.jpg/v1/fill/w_465,h_481,al_c,lg_1,q_80,enc_avif,quality_auto/image%20(2)_edited.jpg"
-                alt="Hannah Magnelli Professional Photo"
+                alt={t('common.hannahMagnelliPhoto')}
                 className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
               />
             </div>

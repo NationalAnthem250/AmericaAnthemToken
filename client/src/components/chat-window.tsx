@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { MessageCircle, X, Send } from 'lucide-react';
+import { useLanguage } from '@/contexts/language-context';
 
 interface ChatWindowProps {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
   const [message, setMessage] = useState('');
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { t } = useLanguage();
 
   const sendMessageMutation = useMutation({
     mutationFn: async (data: { name: string; email: string; message: string }) => {
@@ -32,8 +34,8 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
     },
     onSuccess: () => {
       toast({
-        title: 'Message Sent!',
-        description: 'Thank you for your message. We\'ll get back to you soon.',
+        title: t('chatWindow.messageSent'),
+        description: t('chatWindow.thankYouMessage'),
       });
       setName('');
       setEmail('');
@@ -42,8 +44,8 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
     },
     onError: (error: any) => {
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to send message. Please try again.',
+        title: t('common.error'),
+        description: error.message || t('errors.failedToSend'),
         variant: 'destructive',
       });
     },
@@ -53,8 +55,8 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast({
-        title: 'Missing Information',
-        description: 'Please fill in all fields.',
+        title: t('errors.missingInformation'),
+        description: t('errors.fillAllFields'),
         variant: 'destructive',
       });
       return;
@@ -79,7 +81,7 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
       <Card className="w-80 shadow-xl border-patriot-gold/20">
         <CardHeader className="bg-patriot-navy text-white rounded-t-lg">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-lg">Contact Us</CardTitle>
+            <CardTitle className="text-lg">{t('chatWindow.contactUs')}</CardTitle>
             <Button
               variant="ghost"
               size="sm"
@@ -89,13 +91,13 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
               <X className="h-4 w-4" />
             </Button>
           </div>
-          <p className="text-sm text-patriot-gold">Ask about the 250STAR token launch</p>
+          <p className="text-sm text-patriot-gold">{t('chatWindow.askAbout250STAR')}</p>
         </CardHeader>
         <CardContent className="p-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Input
-                placeholder="Your name"
+                placeholder={t('chatWindow.yourName')}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="border-patriot-blue/20 focus:border-patriot-gold"
@@ -104,7 +106,7 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
             <div>
               <Input
                 type="email"
-                placeholder="Your email"
+                placeholder={t('chatWindow.yourEmail')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="border-patriot-blue/20 focus:border-patriot-gold"
@@ -112,7 +114,7 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
             </div>
             <div>
               <Textarea
-                placeholder="Your message..."
+                placeholder={t('chatWindow.yourMessage')}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
@@ -125,17 +127,17 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
               className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-semibold"
             >
               {sendMessageMutation.isPending ? (
-                'Sending...'
+                t('chatWindow.sending')
               ) : (
                 <>
                   <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  {t('chatWindow.sendMessage')}
                 </>
               )}
             </Button>
           </form>
           <div className="mt-4 text-xs text-gray-500 text-center">
-            We'll respond within 24 hours
+            {t('chatWindow.respondWithin24')}
           </div>
         </CardContent>
       </Card>

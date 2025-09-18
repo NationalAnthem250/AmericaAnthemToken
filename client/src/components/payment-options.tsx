@@ -129,22 +129,22 @@ export default function PaymentOptions() {
                 {/* Payment Form */}
                 <div className="space-y-4">
                   <div>
-                    <Label className="text-white">Email Address</Label>
+                    <Label className="text-white">{t('paymentOptions.emailAddress')}</Label>
                     <Input 
                       type="email" 
-                      placeholder="your@email.com"
+                      placeholder={t('paymentOptions.emailPlaceholder')}
                       className="bg-white/10 border-gray-600 text-white"
                     />
                   </div>
                   
                   <Button className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy py-6 text-xl font-bold">
-                    Continue to Payment
+                    {t('paymentOptions.continueToPayment')}
                   </Button>
                 </div>
 
                 {/* Payment Partners */}
                 <div className="text-center pt-4">
-                  <p className="text-gray-400 text-sm mb-3">Powered by secure payment partners</p>
+                  <p className="text-gray-400 text-sm mb-3">{t('paymentOptions.poweredBy')}</p>
                   <div className="flex justify-center items-center gap-6 opacity-70">
                     <div className="text-white font-bold">MoonPay</div>
                     <div className="text-white font-bold">Crossmint</div>
@@ -159,10 +159,10 @@ export default function PaymentOptions() {
             <Card className="bg-white/10 backdrop-blur-sm border-patriot-red/30">
               <CardHeader>
                 <CardTitle className="text-2xl text-white text-center">
-                  2. Connect Wallet <span className="text-patriot-gold text-lg font-normal ml-2">(coming soon)</span>
+                  {t('paymentOptions.connectWallet')} <span className="text-patriot-gold text-lg font-normal ml-2">({t('paymentOptions.comingSoon')})</span>
                 </CardTitle>
                 <p className="text-gray-300 text-center">
-                  For experienced crypto users
+                  {t('paymentOptions.forExperiencedUsers')}
                 </p>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -175,7 +175,7 @@ export default function PaymentOptions() {
                     <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16l-.29 1.248c-.117.461-.423.564-.857.35l-2.225-.87c-.064-.025-.112-.039-.151-.039-.128 0-.224.08-.288.24l-.353 1.48c-.048.195-.144.282-.288.282-.096 0-.176-.048-.24-.144l-.968-1.632-.968 1.632c-.064.096-.144.144-.24.144-.144 0-.24-.087-.288-.282l-.353-1.48c-.064-.16-.16-.24-.288-.24-.039 0-.087.014-.151.039l-2.225.87c-.434.214-.74.111-.857-.35L4.432 8.16c-.117-.461.062-.788.467-.788.096 0 .192.014.288.043l7.813 2.4 7.813-2.4c.096-.029.192-.043.288-.043.405 0 .584.327.467.788z"/>
                     </svg>
-                    Connect Phantom Wallet
+                    {t('paymentOptions.connectPhantom')}
                   </Button>
                   
                   <Button 
@@ -185,7 +185,7 @@ export default function PaymentOptions() {
                     <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2a10 10 0 110 20 10 10 0 010-20z"/>
                     </svg>
-                    Connect Solflare Wallet
+                    {t('paymentOptions.connectSolflare')}
                   </Button>
 
                   <Button 
@@ -195,7 +195,7 @@ export default function PaymentOptions() {
                     <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5 13h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                     </svg>
-                    Other Wallets
+                    {t('paymentOptions.otherWallets')}
                   </Button>
                 </div>
 

@@ -7,12 +7,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Loader2 } from "lucide-react";
 import { Redirect } from "wouter";
+import { useLanguage } from "@/contexts/language-context";
 
 // Reference to javascript_auth_all_persistance integration
 export default function AuthPage() {
   const { user, loginMutation, registerMutation } = useAuth();
   const [loginData, setLoginData] = useState({ username: "", password: "" });
   const [registerData, setRegisterData] = useState({ username: "", password: "", confirmPassword: "" });
+  const { t } = useLanguage();
 
   // Redirect if already logged in
   if (user) {
@@ -41,26 +43,26 @@ export default function AuthPage() {
         {/* Authentication Forms */}
         <Card className="w-full max-w-md mx-auto">
           <CardHeader>
-            <CardTitle>Welcome to Anthem250</CardTitle>
+            <CardTitle>{t('auth.welcomeToAnthem')}</CardTitle>
             <CardDescription>
-              Login to access the platform
+              {t('auth.loginToAccess')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
               <TabsList className="grid w-full grid-cols-1">
-                <TabsTrigger value="login">Login</TabsTrigger>
+                <TabsTrigger value="login">{t('auth.login')}</TabsTrigger>
               </TabsList>
               
               {/* Login Tab */}
               <TabsContent value="login">
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="login-username">Username</Label>
+                    <Label htmlFor="login-username">{t('auth.username')}</Label>
                     <Input
                       id="login-username"
                       type="text"
-                      placeholder="Enter your username"
+                      placeholder={t('auth.enterUsername')}
                       value={loginData.username}
                       onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
                       required
@@ -69,11 +71,11 @@ export default function AuthPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="login-password">Password</Label>
+                    <Label htmlFor="login-password">{t('auth.password')}</Label>
                     <Input
                       id="login-password"
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder={t('auth.enterPassword')}
                       value={loginData.password}
                       onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                       required
@@ -90,10 +92,10 @@ export default function AuthPage() {
                     {loginMutation.isPending ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Logging in...
+                        {t('auth.loggingIn')}
                       </>
                     ) : (
-                      "Login"
+                      t('auth.login')
                     )}
                   </Button>
                 </form>
@@ -105,28 +107,26 @@ export default function AuthPage() {
         {/* Hero Section */}
         <div className="hidden lg:block text-center lg:text-left px-8">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
-            Anthem250
+            {t('common.anthem250')}
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            Celebrating America's 250th Anniversary
+            {t('auth.celebrating250')}
           </p>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              Join us in commemorating the United States' 250th anniversary with the 
-              first-ever NFT of the National Anthem.
+              {t('auth.joinUsCommemorating')}
             </p>
             <p>
-              Own a piece of history with the 250STAR token, featuring a professional
-              performance by mezzo soprano Hannah Magnelli.
+              {t('auth.ownPieceOfHistory')}
             </p>
             <div className="pt-6">
-              <h3 className="font-semibold text-foreground mb-2">Platform Features:</h3>
+              <h3 className="font-semibold text-foreground mb-2">{t('auth.platformFeatures')}</h3>
               <ul className="space-y-2 text-sm">
-                <li>✓ Exclusive NFT ownership</li>
-                <li>✓ Limited token supply of 1,776,000</li>
-                <li>✓ Collector benefits and governance rights</li>
-                <li>✓ Access to exclusive events</li>
-                <li>✓ Social media management tools</li>
+                <li>✓ {t('auth.exclusiveNFT')}</li>
+                <li>✓ {t('auth.limitedSupply')}</li>
+                <li>✓ {t('auth.collectorBenefits')}</li>
+                <li>✓ {t('auth.accessToEvents')}</li>
+                <li>✓ {t('auth.socialMediaTools')}</li>
               </ul>
             </div>
           </div>

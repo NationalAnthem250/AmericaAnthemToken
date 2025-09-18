@@ -379,7 +379,7 @@ export default function SocialMediaDashboard() {
                       <Label htmlFor="content">Message</Label>
                       <Textarea
                         id="content"
-                        placeholder="What's on your mind?"
+                        placeholder={t('socialMedia.whatsOnYourMind')}
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         className="min-h-[150px]"
@@ -441,17 +441,17 @@ export default function SocialMediaDashboard() {
                             data-testid="button-upload-files"
                           >
                             <Upload className="w-4 h-4 mr-2" />
-                            Upload Files
+                            {t('common.uploadFiles')}
                           </Button>
                           <span className="text-sm text-gray-500">
-                            Supports images, videos, and audio files
+                            {t('common.supportsMediaFiles')}
                           </span>
                         </div>
 
                         {/* Display uploaded files */}
                         {uploadedFiles.length > 0 && (
                           <div className="space-y-2">
-                            <p className="text-sm font-medium text-gray-700">Files to upload:</p>
+                            <p className="text-sm font-medium text-gray-700">{t('common.filesToUpload')}</p>
                             {uploadedFiles.map((file, index) => (
                               <div key={index} className="flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
                                 {getFileIcon(file)}
@@ -475,10 +475,10 @@ export default function SocialMediaDashboard() {
 
                       {/* URL Input Section */}
                       <div className="space-y-2">
-                        <p className="text-sm font-medium text-gray-700">Or add media URLs:</p>
+                        <p className="text-sm font-medium text-gray-700">{t('socialMedia.orAddMediaUrls')}</p>
                         <div className="flex gap-2">
                           <Input
-                            placeholder="Enter media URL (image/video/audio)"
+                            placeholder={t('socialMedia.enterMediaUrl')}
                             value={newMediaUrl}
                             onChange={(e) => setNewMediaUrl(e.target.value)}
                             data-testid="input-media-url"
@@ -612,10 +612,10 @@ export default function SocialMediaDashboard() {
               </CardHeader>
               <CardContent>
                 {postsLoading ? (
-                  <div className="text-center py-8 text-gray-500">Loading posts...</div>
+                  <div className="text-center py-8 text-gray-500">{t('common.loadingPosts')}</div>
                 ) : posts.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
-                    No posts yet. Create your first post above!
+                    {t('socialMedia.noPostsYet')}
                   </div>
                 ) : (
                   <div className="space-y-4">

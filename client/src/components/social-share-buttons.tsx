@@ -159,7 +159,7 @@ export default function SocialShareButtons({
                 <button
                   onClick={handleCopyLink}
                   className="group relative p-3 rounded-lg bg-gradient-to-br from-gray-600 to-gray-700 text-white transition-all duration-300 transform hover:scale-110 hover:shadow-xl"
-                  aria-label="Copy link"
+                  aria-label={t('common.copyLink')}
                   data-testid="button-copy-link"
                 >
                   {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
@@ -193,7 +193,7 @@ export default function SocialShareButtons({
         <button
           onClick={handleCopyLink}
           className="p-2 rounded-full bg-gray-100 hover:bg-gray-700 hover:text-white transition-all duration-300 transform hover:scale-110"
-          aria-label="Copy link"
+          aria-label={t('common.copyLink')}
           data-testid="button-copy-link-compact"
         >
           {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -228,7 +228,7 @@ export default function SocialShareButtons({
           onClick={handleCopyLink}
           className="group relative overflow-hidden px-4 py-3 rounded-xl bg-gradient-to-br from-gray-600 to-gray-700 text-white font-medium transition-all duration-300 transform hover:scale-110 hover:shadow-2xl animate-fade-in"
           style={{ animationDelay: `${shareButtons.length * 100}ms` }}
-          aria-label="Copy link"
+          aria-label={t('common.copyLink')}
           data-testid="button-copy-link-inline"
         >
           <span className="flex items-center space-x-2">

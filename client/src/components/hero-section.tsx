@@ -211,7 +211,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-400 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Twitter"
+            aria-label={t('common.followUsOnTwitter')}
           >
             <FaTwitter />
           </a>
@@ -220,7 +220,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-600 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Facebook"
+            aria-label={t('common.followUsOnFacebook')}
           >
             <FaFacebook />
           </a>
@@ -229,7 +229,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Instagram"
+            aria-label={t('common.followUsOnInstagram')}
           >
             <FaInstagram />
           </a>
@@ -238,7 +238,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-red-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Subscribe to our YouTube"
+            aria-label={t('common.subscribeToOurYouTube')}
           >
             <FaYoutube />
           </a>
@@ -247,7 +247,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-400 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Join our Telegram"
+            aria-label={t('common.joinOurTelegram')}
           >
             <FaTelegram />
           </a>
@@ -256,7 +256,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-purple-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Join our Discord"
+            aria-label={t('common.joinOurDiscord')}
           >
             <FaDiscord />
           </a>
@@ -265,7 +265,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-green-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Join our WhatsApp Channel"
+            aria-label={t('common.joinOurWhatsApp')}
           >
             <FaWhatsapp />
           </a>
@@ -274,7 +274,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on TikTok"
+            aria-label={t('common.followUsOnTikTok')}
           >
             <FaTiktok />
           </a>
@@ -283,7 +283,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-700 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on LinkedIn"
+            aria-label={t('common.followUsOnLinkedIn')}
           >
             <FaLinkedin />
           </a>
@@ -292,7 +292,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-orange-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Reddit"
+            aria-label={t('common.followUsOnReddit')}
           >
             <FaReddit />
           </a>
@@ -301,7 +301,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-red-600 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Pinterest"
+            aria-label={t('common.followUsOnPinterest')}
           >
             <FaPinterest />
           </a>
@@ -310,7 +310,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Truth Social"
+            aria-label={t('common.followUsOnTruthSocial')}
           >
             <FaGlobe />
           </a>
@@ -319,7 +319,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-green-500 transition-colors duration-300 text-2xl hover:scale-110"
-            aria-label="Follow us on Gettr"
+            aria-label={t('common.followUsOnGettr')}
           >
             <FaBroadcastTower />
           </a>
@@ -334,7 +334,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-400 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Twitter"
+            aria-label={t('common.followUsOnTwitter')}
           >
             <FaTwitter />
           </a>
@@ -343,7 +343,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-600 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Facebook"
+            aria-label={t('common.followUsOnFacebook')}
           >
             <FaFacebook />
           </a>
@@ -352,7 +352,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Instagram"
+            aria-label={t('common.followUsOnInstagram')}
           >
             <FaInstagram />
           </a>
@@ -361,7 +361,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-red-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Subscribe to our YouTube"
+            aria-label={t('common.subscribeToOurYouTube')}
           >
             <FaYoutube />
           </a>
@@ -370,7 +370,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-400 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Join our Telegram"
+            aria-label={t('common.joinOurTelegram')}
           >
             <FaTelegram />
           </a>
@@ -379,7 +379,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-purple-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Join our Discord"
+            aria-label={t('common.joinOurDiscord')}
           >
             <FaDiscord />
           </a>
@@ -388,7 +388,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-green-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Join our WhatsApp Channel"
+            aria-label={t('common.joinOurWhatsApp')}
           >
             <FaWhatsapp />
           </a>
@@ -397,7 +397,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-pink-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on TikTok"
+            aria-label={t('common.followUsOnTikTok')}
           >
             <FaTiktok />
           </a>
@@ -406,7 +406,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-700 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on LinkedIn"
+            aria-label={t('common.followUsOnLinkedIn')}
           >
             <FaLinkedin />
           </a>
@@ -415,7 +415,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-orange-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Reddit"
+            aria-label={t('common.followUsOnReddit')}
           >
             <FaReddit />
           </a>
@@ -424,7 +424,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-red-600 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Pinterest"
+            aria-label={t('common.followUsOnPinterest')}
           >
             <FaPinterest />
           </a>
@@ -433,7 +433,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Truth Social"
+            aria-label={t('common.followUsOnTruthSocial')}
           >
             <FaGlobe />
           </a>
@@ -442,7 +442,7 @@ export default function HeroSection() {
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-green-500 transition-colors duration-300 text-xl hover:scale-110"
-            aria-label="Follow us on Gettr"
+            aria-label={t('common.followUsOnGettr')}
           >
             <FaBroadcastTower />
           </a>
