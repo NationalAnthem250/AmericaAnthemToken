@@ -1,12 +1,6 @@
 // Import complete translations from separate files
 import { completeTranslations } from './complete-translations';
 import { ru } from './complete-translations-ru';
-import { ko } from './complete-translations-ko';
-import { ja } from './complete-translations-ja';
-import { pt } from './complete-translations-pt';
-import { ar } from './complete-translations-ar';
-import { tr } from './complete-translations-tr';
-import { hi } from './complete-translations-hi';
 
 // Main translations object with all 10 languages
 export const translations = {
@@ -595,22 +589,6 @@ export const translations = {
       silverEagle: "Silver Eagle NFT - Capitol Guardian",
       dawnsLight: "Dawn's Light NFT - Liberty's Flight",
     },
-    socialShare: {
-      title: "Join Anthem250 - America's 250th Anniversary NFT",
-      description: "Be part of history with the first-ever NFT of the US National Anthem. Commemorating America's 250th anniversary with 250STAR tokens.",
-      shareTitle: "Share Anthem250",
-      sharingTo: "Sharing to",
-      openingDialog: "Opening share dialog...",
-      linkCopied: "Link Copied!",
-      linkCopiedDesc: "The link has been copied to your clipboard.",
-      failedToCopy: "Failed to copy",
-      failedToCopyDesc: "Please try again or copy the link manually.",
-      shareText: "Share",
-      copied: "Copied!",
-      copyLink: "Copy Link",
-      joinCommunity: "Join the Community",
-      bePartOfHistory: "Be Part of History",
-    },
     errors: {
       oopsError: "Oops! Something went wrong",
       unexpectedError: "We encountered an unexpected error. Please try refreshing the page.",
@@ -900,21 +878,4 @@ export const translations = {
   // Russian translations
   ru,
   
-  // Korean translations
-  ko,
-  
-  // Japanese translations
-  ja,
-  
-  // Portuguese translations
-  pt,
-  
-  // Arabic translations (RTL)
-  ar,
-  
-  // Turkish translations
-  tr,
-  
-  // Hindi translations
-  hi,
 };
