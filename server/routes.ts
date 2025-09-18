@@ -8,6 +8,8 @@ import { socialMediaService } from "./socialMediaService";
 import { setupAuth, requireAuth } from "./auth";
 import { ObjectStorageService, ObjectNotFoundError } from "./objectStorage";
 import { ObjectPermission } from "./objectAcl";
+import fs from "fs";
+import path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Add caching middleware for static assets and performance
@@ -38,6 +40,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Health check endpoint
   app.get("/api/health", (req, res) => {
     res.json({ ok: true });
+  });
+
+  // Download export endpoint
+  app.get("/download/export", (req, res) => {
+    const exportDir = path.join(process.cwd(), 'anthem250-export');
+    
+    // Find the latest tar.gz file
+    if (!fs.existsSync(exportDir)) {
+      return res.status(404).json({ error: 'Export directory not found' });
+    }
+    
+    const files = fs.readdirSync(exportDir);
+    const tarFile = files.find(file => file.endsWith('.tar.gz'));
+    
+    if (!tarFile) {
+      return res.status(404).json({ error: 'No export file found' });
+    }
+    
+    const filePath = path.join(exportDir, tarFile);
+    const fileSize = fs.statSync(filePath).size;
+    
+    // Set headers for download
+    res.setHeader('Content-Type', 'application/gzip');
+    res.setHeader('Content-Disposition', `attachment; filename="${tarFile}"`);
+    res.setHeader('Content-Length', fileSize.toString());
+    
+    // Stream the file
+    const stream = fs.createReadStream(filePath);
+    stream.pipe(res);
   });
 
   // Waitlist endpoints
