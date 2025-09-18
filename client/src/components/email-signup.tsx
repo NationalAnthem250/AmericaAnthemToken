@@ -169,7 +169,7 @@ export default function EmailSignup({
             {joinWaitlistMutation.isPending ? (
               <div className="flex items-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                t('common.join')ing...
+                {`${t('common.join')}ing...`}
               </div>
             ) : (
               <div className="flex items-center">
@@ -306,10 +306,10 @@ export default function EmailSignup({
             {joinWaitlistMutation.isPending ? (
               <div className="flex items-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                t('common.join')ing Waitlist...
+                {`${t('common.join')}ing Waitlist...`}
               </div>
             ) : (
-              "t('emailSignup.getLaunchNotifications')"
+              t('emailSignup.getLaunchNotifications')
             )}
           </Button>
         </form>
