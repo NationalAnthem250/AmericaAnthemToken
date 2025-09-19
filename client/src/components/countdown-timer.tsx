@@ -54,7 +54,7 @@ export default function CountdownTimer() {
           <span className="text-patriot-red">🇺🇸</span>
         </h3>
         <p className="text-patriot-gold text-sm font-semibold">
-          ⭐ Independence Day 2026 ⭐
+          {t('countdown.independenceDay2026')}
         </p>
       </div>
       

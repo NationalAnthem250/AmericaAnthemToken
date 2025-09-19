@@ -41,10 +41,10 @@ export default function AmericaTimeline() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            AMERICA'S <span className="text-patriot-red">250 YEAR JOURNEY</span>
+            {t('timeline.title')} <span className="text-patriot-red">{t('timeline.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From independence in 1776 to America's historic 250th anniversary milestone - commemorating freedom, liberty, and the National Anthem legacy
+            {t('timeline.subtitle')}
           </p>
         </div>
 
@@ -84,14 +84,14 @@ export default function AmericaTimeline() {
         {/* Call to Action */}
         <div className="text-center mt-16 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-patriot-gold/30">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Be Part of America's Next Chapter
+            {t('timeline.ctaTitle')}
           </h3>
           <p className="text-xl text-gray-300 mb-6">
-            Own a piece of this historic journey as we celebrate 250 years of American freedom and independence
+            {t('timeline.ctaDesc')}
           </p>
           <div className="text-center">
             <span className="inline-block bg-patriot-red text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
-              LIMITED TIME: America's 250th Anniversary
+              {t('timeline.limitedTime')}
             </span>
           </div>
         </div>

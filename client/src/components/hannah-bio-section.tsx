@@ -58,7 +58,7 @@ export default function HannahBioSection() {
             {/* Professional Highlights */}
             <div>
               <div className="bg-patriot-navy text-white p-8 rounded-lg shadow-lg">
-                <h4 className="text-2xl font-bold mb-6 text-patriot-gold">Professional Highlights</h4>
+                <h4 className="text-2xl font-bold mb-6 text-patriot-gold">{t('hannah.professionalHighlights')}</h4>
                 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
@@ -66,8 +66,8 @@ export default function HannahBioSection() {
                       <i className="fas fa-music text-sm"></i>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-patriot-gold">Classical Training</h5>
-                      <p className="text-gray-300">Professionally trained mezzo soprano with years of performance experience</p>
+                      <h5 className="font-semibold text-patriot-gold">{t('hannah.classicalTraining')}</h5>
+                      <p className="text-gray-300">{t('hannah.achievement1')}</p>
                     </div>
                   </div>
                   
@@ -76,8 +76,8 @@ export default function HannahBioSection() {
                       <i className="fas fa-flag text-sm"></i>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-patriot-gold">Historic Achievement</h5>
-                      <p className="text-gray-300">First artist to create an NFT of America's National Anthem</p>
+                      <h5 className="font-semibold text-patriot-gold">{t('hannah.historicAchievement')}</h5>
+                      <p className="text-gray-300">{t('hannah.achievement2')}</p>
                     </div>
                   </div>
                   
@@ -86,19 +86,19 @@ export default function HannahBioSection() {
                       <i className="fas fa-landmark text-sm"></i>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-patriot-gold">America250 Official</h5>
-                      <p className="text-gray-300">Commemorating the United States' 250th Anniversary</p>
+                      <h5 className="font-semibold text-patriot-gold">{t('hannah.america250Official')}</h5>
+                      <p className="text-gray-300">{t('hannah.achievement3')}</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="border-t border-gray-600 pt-6">
-                  <h5 className="font-semibold text-patriot-gold mb-3">Performance Features</h5>
+                  <h5 className="font-semibold text-patriot-gold mb-3">{t('hannah.performanceFeatures')}</h5>
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <span className="bg-patriot-gold/20 px-3 py-2 rounded border border-patriot-gold/50">🏛️ Capitol Dome</span>
-                    <span className="bg-patriot-red/20 px-3 py-2 rounded border border-patriot-red/50">🔔 Liberty Bell</span>
-                    <span className="bg-patriot-blue/20 px-3 py-2 rounded border border-patriot-blue/50">🗽 Historic Sites</span>
-                    <span className="bg-patriot-gold/20 px-3 py-2 rounded border border-patriot-gold/50">🎭 Classical Excellence</span>
+                    <span className="bg-patriot-gold/20 px-3 py-2 rounded border border-patriot-gold/50">🏛️ {t('hannah.capitolDome')}</span>
+                    <span className="bg-patriot-red/20 px-3 py-2 rounded border border-patriot-red/50">🔔 {t('hannah.interestBell')}</span>
+                    <span className="bg-patriot-blue/20 px-3 py-2 rounded border border-patriot-blue/50">🗽 {t('hannah.interestSites')}</span>
+                    <span className="bg-patriot-gold/20 px-3 py-2 rounded border border-patriot-gold/50">🎭 {t('hannah.interestExcellence')}</span>
                   </div>
                 </div>
               </div>
