@@ -207,7 +207,7 @@ export const ru = {
     celebrationDate: "4 июля 2026",
     declarationText: "Декларация независимости",
     celebrationText: "250-летие Америки",
-    readWhitepaper: "Читать Белую книгу",
+    readWhitepaper: "Прочитать белую книгу",
     explore: "Изучить партнерство",
   },
   visionMission: {
@@ -844,5 +844,17 @@ export const ru = {
     successMessage: "Вы добавлены в список ожидания. Проверьте свою электронную почту для подтверждения.",
     error: "Ошибка",
     errorMessage: "Не удалось присоединиться к списку ожидания. Пожалуйста, попробуйте еще раз.",
+  },
+  chatWindow: {
+    contactUs: "Связаться с нами",
+    askAbout250STAR: "Задать вопрос о запуске токена 250STAR",
+    yourName: "Ваше имя",
+    yourEmail: "Ваш email",
+    yourMessage: "Ваше сообщение...",
+    sending: "Отправка...",
+    sendMessage: "Отправить сообщение",
+    respondWithin24: "Мы ответим в течение 24 часов",
+    messageSent: "Сообщение отправлено!",
+    thankYouMessage: "Спасибо за ваше сообщение. Мы скоро свяжемся с вами.",
   },
 };
