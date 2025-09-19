@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/language-context';
 
 export default function PaymentOptions() {
   const [selectedAmount, setSelectedAmount] = useState(1);
-  const { t } = useLanguage();
+  const { t, formatters } = useLanguage();
 
   return (
     <section className="py-20 bg-gradient-to-b from-patriot-navy to-black">
@@ -106,7 +106,7 @@ export default function PaymentOptions() {
                         }`}
                       >
                         <div className="font-bold text-lg">{amount}</div>
-                        <div className="text-sm">${(amount * 17.76).toFixed(2)}</div>
+                        <div className="text-sm">{formatters.currency(amount * 17.76)}</div>
                       </button>
                     ))}
                   </div>
@@ -120,7 +120,7 @@ export default function PaymentOptions() {
                         {selectedAmount} × 250STAR {selectedAmount > 1 ? t('paymentOptions.tokensPlural') : t('paymentOptions.tokens')}
                       </span>
                       <span className="text-patriot-gold font-bold">
-                        ${(selectedAmount * 17.76).toFixed(2)}
+                        {formatters.currency(selectedAmount * 17.76)}
                       </span>
                     </div>
                   </CardContent>
@@ -210,7 +210,7 @@ export default function PaymentOptions() {
                           <div className="text-gray-400 text-sm">{t('paymentOptions.lowerTransactionFeesSolana')}</div>
                         </div>
                       </div>
-                      <div className="text-patriot-gold font-bold">$1.77</div>
+                      <div className="text-patriot-gold font-bold">{formatters.currency(1.77)}</div>
                     </div>
                   </CardContent>
                 </Card>
