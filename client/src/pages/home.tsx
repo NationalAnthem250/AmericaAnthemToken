@@ -17,6 +17,7 @@ import CryptoAdvanced from "@/components/crypto-advanced";
 import PaymentOptions from "@/components/payment-options";
 import SocialMediaLauncher from "@/components/social-media-launcher";
 import SocialShareButtons from "@/components/social-share-buttons";
+import { TranslationDebug } from "@/components/translation-debug";
 
 export default function Home() {
   const [userPath, setUserPath] = useState<'newbie' | 'crypto' | null>(null);
@@ -33,6 +34,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <TranslationDebug />
       <main>
         <HeroSection />
         <VideoSection />
