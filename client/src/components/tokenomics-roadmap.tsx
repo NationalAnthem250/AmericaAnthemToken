@@ -47,9 +47,9 @@ export default function TokenomicsRoadmap() {
   // Revenue projection data
   const revenueProjection = [
     { phase: t('tokenomicsRoadmap.launchPhase'), revenue: 12.6, holders: 5000 },
-    { phase: t('tokenomicsRoadmap.q2_q3_2024').split('-')[0], revenue: 25.2, holders: 12000 },
-    { phase: "Q4 2024", revenue: 44.8, holders: 25000 },
-    { phase: "America250", revenue: 100, holders: 50000 }
+    { phase: t('tokenomicsRoadmap.q2_2024'), revenue: 25.2, holders: 12000 },
+    { phase: t('tokenomicsRoadmap.q4_2024'), revenue: 44.8, holders: 25000 },
+    { phase: t('tokenomicsRoadmap.america250'), revenue: 100, holders: 50000 }
   ];
 
   // Utility breakdown
@@ -58,31 +58,31 @@ export default function TokenomicsRoadmap() {
       icon: <Music className="w-6 h-6" />,
       title: t('tokenomicsRoadmap.exclusiveContent'),
       description: t('tokenomicsRoadmap.exclusiveContentDesc'),
-      launch: t('tokenomicsRoadmap.phase1').split(':')[0]
+      launch: t('tokenomicsRoadmap.phase1Label')
     },
     {
       icon: <Trophy className="w-6 h-6" />,
       title: t('tokenomicsRoadmap.collectorStatus'),
       description: t('tokenomicsRoadmap.collectorStatusDesc'),
-      launch: t('tokenomicsRoadmap.phase1').split(':')[0]
+      launch: t('tokenomicsRoadmap.phase1Label')
     },
     {
       icon: <Gift className="w-6 h-6" />,
       title: t('tokenomicsRoadmap.eventAccess'),
       description: t('tokenomicsRoadmap.eventAccessDesc'),
-      launch: t('tokenomicsRoadmap.phase2').split(':')[0]
+      launch: t('tokenomicsRoadmap.phase2Label')
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: t('tokenomicsRoadmap.communityGovernance'),
       description: t('tokenomicsRoadmap.communityGovernanceDesc'),
-      launch: t('tokenomicsRoadmap.phase3').split(':')[0]
+      launch: t('tokenomicsRoadmap.phase3Label')
     },
     {
       icon: <Globe className="w-6 h-6" />,
       title: t('tokenomicsRoadmap.globalRecognition'),
       description: t('tokenomicsRoadmap.globalRecognitionDesc'),
-      launch: t('tokenomicsRoadmap.phase4').split(':')[0]
+      launch: t('tokenomicsRoadmap.phase4Label')
     }
   ];
 
@@ -172,7 +172,7 @@ export default function TokenomicsRoadmap() {
               <Star className="w-8 h-8 text-patriot-red mx-auto mb-3" />
               <div className="text-3xl font-bold text-white">{formatters.currency(1.77)}</div>
               <div className="text-gray-400">{t('tokenomicsRoadmap.launchPrice')}</div>
-              <div className="text-xs text-patriot-red mt-1">Historical Significance</div>
+              <div className="text-xs text-patriot-red mt-1">{t('tokenomicsRoadmap.historicalSignificance')}</div>
             </CardContent>
           </Card>
 
@@ -181,16 +181,16 @@ export default function TokenomicsRoadmap() {
               <Shield className="w-8 h-8 text-patriot-blue mx-auto mb-3" />
               <div className="text-3xl font-bold text-white">{t('hero.solana')}</div>
               <div className="text-gray-400">{t('tokenomicsRoadmap.blockchain')}</div>
-              <div className="text-xs text-patriot-blue mt-1">Fast & Efficient</div>
+              <div className="text-xs text-patriot-blue mt-1">{t('tokenomicsRoadmap.fastEfficient')}</div>
             </CardContent>
           </Card>
 
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-gold/30 text-center">
             <CardContent className="p-6">
               <Calendar className="w-8 h-8 text-patriot-gold mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">July 2026</div>
-              <div className="text-gray-400">Target Milestone</div>
-              <div className="text-xs text-patriot-gold mt-1">America's 250th</div>
+              <div className="text-3xl font-bold text-white">{t('tokenomicsRoadmap.july2026')}</div>
+              <div className="text-gray-400">{t('tokenomicsRoadmap.targetMilestone')}</div>
+              <div className="text-xs text-patriot-gold mt-1">{t('tokenomicsRoadmap.americas250th')}</div>
             </CardContent>
           </Card>
         </div>
@@ -235,7 +235,7 @@ export default function TokenomicsRoadmap() {
                       <span className="text-white">{item.name}</span>
                     </div>
                     <div className="text-gray-400">
-                      {item.value}% • {item.amount.toLocaleString()} tokens
+                      {item.value}% • {item.amount.toLocaleString()} {t('tokenomicsRoadmap.tokens')}
                     </div>
                   </div>
                 ))}
@@ -248,7 +248,7 @@ export default function TokenomicsRoadmap() {
             <CardHeader>
               <CardTitle className="text-2xl text-white flex items-center">
                 <TrendingUp className="w-6 h-6 mr-2 text-patriot-red" />
-                Growth Projections
+{t('tokenomicsRoadmap.growthProjections')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -259,8 +259,8 @@ export default function TokenomicsRoadmap() {
                     <YAxis tick={{ fill: '#ffffff', fontSize: 12 }} />
                     <Tooltip 
                       formatter={(value, name) => [
-                        name === 'revenue' ? `$${value}M` : `${value.toLocaleString()}`,
-                        name === 'revenue' ? 'Revenue' : 'Holders'
+                        name === 'revenue' ? formatters.currency(Number(value) * 1_000_000) : `${value.toLocaleString()}`,
+                        name === 'revenue' ? t('tokenomicsRoadmap.revenue') : t('tokenomicsRoadmap.holders')
                       ]}
                       contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #eab308' }}
                     />
@@ -271,18 +271,18 @@ export default function TokenomicsRoadmap() {
 
               <div className="space-y-3">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-patriot-gold">$31.5M</div>
-                  <div className="text-gray-400 text-sm">Projected Total Market Cap at Launch</div>
+                  <div className="text-2xl font-bold text-patriot-gold">{formatters.currency(31500000)}</div>
+                  <div className="text-gray-400 text-sm">{t('tokenomicsRoadmap.projectedMarketCap')}</div>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                   <div className="text-center">
                     <div className="text-lg font-bold text-white">50,000+</div>
-                    <div className="text-gray-400 text-xs">Target Holders by 2026</div>
+                    <div className="text-gray-400 text-xs">{t('tokenomicsRoadmap.targetHolders2026')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-lg font-bold text-white">$100.00</div>
-                    <div className="text-gray-400 text-xs">America250 Target Price</div>
+                    <div className="text-gray-400 text-xs">{t('tokenomicsRoadmap.america250TargetPrice')}</div>
                   </div>
                 </div>
               </div>
@@ -385,10 +385,10 @@ export default function TokenomicsRoadmap() {
           <CardHeader>
             <CardTitle className="text-2xl text-white text-center flex items-center justify-center">
               <Rocket className="w-6 h-6 mr-2 text-patriot-gold" />
-              Price Target Milestones
+              {t('tokenomicsRoadmap.priceTargetMilestones')}
             </CardTitle>
             <p className="text-gray-300 text-center">
-              Projected price appreciation based on community growth and utility adoption
+              {t('tokenomicsRoadmap.priceAppreciationDesc')}
             </p>
           </CardHeader>
           <CardContent>
@@ -397,7 +397,7 @@ export default function TokenomicsRoadmap() {
                 <div key={index} className="text-center">
                   <div className="bg-white/10 rounded-2xl p-6 border border-patriot-gold/30 hover:border-patriot-gold/60 transition-all duration-300">
                     <div className="text-2xl font-bold text-patriot-gold mb-2">{milestone.price}</div>
-                    <div className="text-white text-sm font-semibold mb-1">{milestone.holders} Holders</div>
+                    <div className="text-white text-sm font-semibold mb-1">{milestone.holders} {t('tokenomicsRoadmap.holdersLabel')}</div>
                     <div className="text-gray-400 text-xs">{milestone.target}</div>
                   </div>
                 </div>
@@ -406,7 +406,7 @@ export default function TokenomicsRoadmap() {
             
             <div className="mt-8 text-center">
               <p className="text-xs text-gray-400 mb-4">
-                * Price projections based on market analysis and are not guaranteed returns
+                {t('tokenomicsRoadmap.priceProjectionsDisclaimer')}
               </p>
               <Button 
                 className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
@@ -415,7 +415,7 @@ export default function TokenomicsRoadmap() {
                   element?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Join Launch Waitlist
+                {t('tokenomicsRoadmap.joinLaunchWaitlist')}
               </Button>
             </div>
           </CardContent>
