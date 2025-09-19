@@ -1644,6 +1644,13 @@ export const translations = {
       videoCall: "Videollamada",
       screenShare: "Compartir Pantalla",
     },
+    social: {
+      instagram: "Instagram",
+      spotify: "Spotify", 
+      youtube: "YouTube",
+      facebook: "Facebook",
+      twitter: "Twitter",
+    },
     // Add additional keys that might be missing
     home: "Inicio",
     back: "Atrás",
