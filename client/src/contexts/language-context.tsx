@@ -12,15 +12,9 @@ import {
 
 export type Language = 
   | "en" // English
-  | "zh" // Chinese (Mandarin)
   | "es" // Spanish
-  | "ru" // Russian
-  | "ko" // Korean
-  | "ja" // Japanese
-  | "pt" // Portuguese
-  | "ar" // Arabic
-  | "tr" // Turkish
-  | "hi"; // Hindi
+  | "zh" // Chinese (Mandarin)
+  | "ru"; // Russian
 
 interface LanguageContextType {
   language: Language;
@@ -51,7 +45,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return (saved as Language) || "en";
   });
 
-  const isRTL = language === "ar"; // Arabic is RTL
+  const isRTL = false; // No RTL languages currently supported
 
   // Save language preference
   const setLanguage = (newLanguage: Language) => {
@@ -62,7 +56,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = newLanguage;
     
     // Update HTML dir attribute for RTL languages
-    document.documentElement.dir = newLanguage === "ar" ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr"; // All supported languages are LTR
   };
 
   // Translation function
