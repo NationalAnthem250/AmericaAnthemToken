@@ -38,9 +38,9 @@ export default function Navigation() {
   };
 
   const socialLinks = [
-    { href: "http://instagram.com/hannah_magnelli", icon: Instagram, label: "Instagram" },
-    { href: "https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB", icon: Music, label: "Spotify" },
-    { href: "https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg", icon: "fab fa-youtube", label: "YouTube" },
+    { href: "http://instagram.com/hannah_magnelli", icon: Instagram, label: t("social.instagram") },
+    { href: "https://open.spotify.com/artist/2YTxM1lpF3cXda1xRv4ISB", icon: Music, label: t("social.spotify") },
+    { href: "https://m.youtube.com/channel/UCat582BBxCZxdWKsG7chlhg", icon: "fab fa-youtube", label: t("social.youtube") },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function Navigation() {
           {/* Brand Text */}
           <div className="flex items-center">
             <h1 className="text-xl font-black text-white">
-              ANTHEM250
+              {t("common.anthem250")}
             </h1>
           </div>
 
@@ -88,7 +88,7 @@ export default function Navigation() {
             <LanguageSelector />
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white hover:text-patriot-gold">
+                <Button variant="ghost" size="icon" className="text-white hover:text-patriot-gold" aria-label={t("nav.openMenu")}>
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
