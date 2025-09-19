@@ -29,6 +29,10 @@ export const ru = {
     minutes: "Минут",
     seconds: "Секунд",
     until: "До 250-летия Америки",
+    timeRemaining: "Осталось времени",
+    july4_2026: "4 июля 2026",
+    celebrateWith: "Празднуйте с нами",
+    historicMoment: "Станьте частью этого исторического момента",
   },
   video: {
     title: "Послушайте исполнение Ханны",
@@ -474,17 +478,6 @@ export const ru = {
     currentLanguage: "Русский",
     switchTo: "Переключиться на",
     availableIn: "Доступно на",
-  },
-  countdown: {
-    days: "Дней",
-    hours: "Часов",
-    minutes: "Минут",
-    seconds: "Секунд",
-    until: "До 250-летия Америки",
-    timeRemaining: "Осталось времени",
-    july4_2026: "4 июля 2026",
-    celebrateWith: "Празднуйте с нами",
-    historicMoment: "Станьте частью этого исторического момента",
   },
   terms: {
     title: "УСЛОВИЯ И",
