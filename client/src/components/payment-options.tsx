@@ -206,8 +206,8 @@ export default function PaymentOptions() {
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
                         <div>
-                          <div className="text-white font-semibold">Solana Network</div>
-                          <div className="text-gray-400 text-sm">Fast & low-cost transactions</div>
+                          <div className="text-white font-semibold">{t('tokenomicsRoadmap.solanaNetwork')}</div>
+                          <div className="text-gray-400 text-sm">{t('paymentOptions.lowerTransactionFeesSolana')}</div>
                         </div>
                       </div>
                       <div className="text-patriot-gold font-bold">$1.77</div>
@@ -217,23 +217,23 @@ export default function PaymentOptions() {
 
                 {/* Benefits for Crypto Users */}
                 <div className="bg-black/30 rounded-lg p-4 border border-patriot-gold/20">
-                  <h4 className="text-patriot-gold font-semibold mb-3">Crypto User Benefits:</h4>
+                  <h4 className="text-patriot-gold font-semibold mb-3">{t('paymentOptions.cryptoUserBenefits')}</h4>
                   <ul className="space-y-2 text-sm text-gray-300">
                     <li className="flex items-center gap-2">
                       <span className="text-patriot-gold">✓</span>
-                      Direct wallet ownership - no intermediaries
+                      {t('paymentOptions.directWalletOwnership')}
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-patriot-gold">✓</span>
-                      Instant marketplace trading capability
+                      {t('paymentOptions.instantMarketplaceTrading')}
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-patriot-gold">✓</span>
-                      Access to advanced tokenomics features
+                      {t('paymentOptions.accessAdvancedTokenomics')}
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-patriot-gold">✓</span>
-                      Lower transaction fees on Solana
+                      {t('paymentOptions.lowerTransactionFeesSolana')}
                     </li>
                   </ul>
                 </div>
