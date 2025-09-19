@@ -15,17 +15,12 @@ type LanguageInfo = {
   nativeName: string;
 };
 
+// Only include languages that have complete translations
 const languages: LanguageInfo[] = [
   { code: "en", name: "English", flag: "🇺🇸", nativeName: "English" },
-  { code: "zh", name: "Chinese", flag: "🇨🇳", nativeName: "中文" },
   { code: "es", name: "Spanish", flag: "🇪🇸", nativeName: "Español" },
+  { code: "zh", name: "Chinese", flag: "🇨🇳", nativeName: "中文" },
   { code: "ru", name: "Russian", flag: "🇷🇺", nativeName: "Русский" },
-  { code: "ko", name: "Korean", flag: "🇰🇷", nativeName: "한국어" },
-  { code: "ja", name: "Japanese", flag: "🇯🇵", nativeName: "日本語" },
-  { code: "pt", name: "Portuguese", flag: "🇧🇷", nativeName: "Português" },
-  { code: "ar", name: "Arabic", flag: "🇸🇦", nativeName: "العربية" },
-  { code: "tr", name: "Turkish", flag: "🇹🇷", nativeName: "Türkçe" },
-  { code: "hi", name: "Hindi", flag: "🇮🇳", nativeName: "हिन्दी" },
 ];
 
 export function LanguageSelector({ 
