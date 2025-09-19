@@ -819,4 +819,23 @@ export const es = {
     profile: "Perfil",
     settings: "Configuración",
   },
+  onboarding: {
+    title: "Elige Tu",
+    titleHighlight: "Camino",
+    subtitle: "Selecciona la experiencia que mejor coincida con tu familiaridad con los NFT y criptomonedas",
+    newTitle: "Nuevo en NFTs",
+    newDescription: "Perfecto para principiantes que quieren aprender sobre coleccionables digitales y el patrimonio patriótico americano",
+    newFeature1: "Orientación paso a paso para configurar billetera",
+    newFeature2: "Contenido educativo sobre NFTs y blockchain",
+    newFeature3: "Proceso de compra simple con opción de tarjeta de crédito",
+    newFeature4: "Apoyo comunitario y recursos de aprendizaje",
+    learnMore: "Aprender Más",
+    cryptoTitle: "Experimentado en Cripto",
+    cryptoDescription: "Ideal para quienes están familiarizados con criptomonedas y quieren acceso directo a tokenomics y características avanzadas",
+    cryptoFeature1: "Información detallada de tokenomics y contratos inteligentes",
+    cryptoFeature2: "Características de trading avanzadas e integración DeFi",
+    cryptoFeature3: "Acceso prioritario a lanzamientos exclusivos y eventos",
+    cryptoFeature4: "Participación en gobernanza y derechos de voto",
+    viewTokenomics: "Ver Tokenomics"
+  },
 };
