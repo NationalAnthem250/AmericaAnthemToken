@@ -618,6 +618,8 @@ export const ru = {
     revenueProjection: "Прогноз доходов",
     revenueMillion: "Доход (млн USD)",
     holdersGrowth: "Рост держателей",
+    holders: "Держатели",
+    revenue: "Доход",
     launchPhase: "Запуск",
     viewDetails: "Посмотреть детальный анализ",
     currentStatus: "Текущий",
