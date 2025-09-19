@@ -1,5 +1,6 @@
 // Import complete translations from separate files
 import { completeTranslations } from './complete-translations';
+import { es } from './complete-translations-es';
 import { ru } from './complete-translations-ru';
 
 // Main translations object with all 10 languages
