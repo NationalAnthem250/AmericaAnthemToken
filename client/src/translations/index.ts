@@ -2,6 +2,7 @@
 import { completeTranslations } from './complete-translations';
 import { es } from './complete-translations-es';
 import { ru } from './complete-translations-ru';
+import { setTranslations } from './registry';
 
 // Main translations object with all 10 languages
 export const translations = {
@@ -929,3 +930,13 @@ export const translations = {
   ru,
   
 };
+
+// Initialize the registry with translations
+setTranslations(translations);
+
+// Add HMR accept for translation updates
+if (import.meta.hot) {
+  import.meta.hot.accept((mod) => {
+    setTranslations(mod?.translations ?? translations);
+  });
+}
