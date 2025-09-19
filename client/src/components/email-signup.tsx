@@ -47,7 +47,7 @@ export default function EmailSignup({
       
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to join waitlist");
+        throw new Error(errorData.error || t('emailSignup.failedError'));
       }
       
       return response.json();
@@ -55,17 +55,17 @@ export default function EmailSignup({
     onSuccess: () => {
       setIsSuccess(true);
       toast({
-        title: "🇺🇸 Welcome to the Revolution!",
-        description: "You'll be first to know when the 250STAR National Anthem NFT launches.",
+        title: t('emailSignup.welcomeTitle'),
+        description: t('emailSignup.welcomeDesc'),
       });
       queryClient.invalidateQueries({ queryKey: ["/api/waitlist"] });
     },
     onError: (error: any) => {
       toast({
-        title: "Registration Error",
+        title: t('emailSignup.errorTitle'),
         description: error.message === "Email already registered for waitlist" 
-          ? "You're already on our patriotic waitlist! Check your email for updates."
-          : "Failed to join waitlist. Please try again.",
+          ? t('emailSignup.alreadyRegistered')
+          : t('emailSignup.errorDesc'),
         variant: error.message.includes("already registered") ? "default" : "destructive",
       });
     },
@@ -102,15 +102,15 @@ export default function EmailSignup({
           <div className="space-y-3 text-sm text-gray-400 mb-4">
             <div className="flex items-center justify-center gap-2">
               <Bell className="w-4 h-4 text-patriot-blue" />
-              <span>Priority launch notifications</span>
+              <span>{t('emailSignup.priorityNotifications')}</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Gift className="w-4 h-4 text-patriot-red" />
-              <span>Exclusive early access opportunities</span>
+              <span>{t('emailSignup.exclusiveAccess')}</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Zap className="w-4 h-4 text-patriot-gold" />
-              <span>Behind-the-scenes updates</span>
+              <span>{t('emailSignup.behindScenes')}</span>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export default function EmailSignup({
             size="sm"
             className="text-patriot-gold border-patriot-gold/50 hover:bg-patriot-gold/10"
           >
-            Sign Up Another Email
+{t('emailSignup.signUpAnother')}
           </Button>
         </CardContent>
       </Card>
@@ -140,7 +140,7 @@ export default function EmailSignup({
           </p>
           <Badge className="mt-2 bg-patriot-red text-white">
             <Users className="w-3 h-3 mr-1" />
-            {t('common.join')} 1,000+ Patriots
+{t('emailSignup.joinPatriots')}
           </Badge>
         </div>
 
@@ -169,7 +169,7 @@ export default function EmailSignup({
             {joinWaitlistMutation.isPending ? (
               <div className="flex items-center">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-patriot-navy mr-2"></div>
-                {`${t('common.join')}ing...`}
+                {t('emailSignup.joining')}
               </div>
             ) : (
               <div className="flex items-center">

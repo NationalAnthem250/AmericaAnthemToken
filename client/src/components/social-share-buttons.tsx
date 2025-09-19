@@ -43,7 +43,7 @@ export default function SocialShareButtons({
 
   const shareButtons = [
     {
-      name: "Twitter",
+      name: t('socialShare.twitter'),
       icon: FaTwitter,
       color: "hover:bg-black",
       bgGradient: "from-gray-800 to-black",
@@ -51,7 +51,7 @@ export default function SocialShareButtons({
       animation: "hover:rotate-12"
     },
     {
-      name: "Facebook",
+      name: t('socialShare.facebook'),
       icon: FaFacebook,
       color: "hover:bg-blue-600",
       bgGradient: "from-blue-600 to-blue-700",
@@ -59,7 +59,7 @@ export default function SocialShareButtons({
       animation: "hover:-rotate-12"
     },
     {
-      name: "LinkedIn",
+      name: t('socialShare.linkedin'),
       icon: FaLinkedin,
       color: "hover:bg-blue-700",
       bgGradient: "from-blue-700 to-blue-800",
@@ -67,7 +67,7 @@ export default function SocialShareButtons({
       animation: "hover:scale-110"
     },
     {
-      name: "WhatsApp",
+      name: t('socialShare.whatsapp'),
       icon: FaWhatsapp,
       color: "hover:bg-green-600",
       bgGradient: "from-green-500 to-green-600",
@@ -75,7 +75,7 @@ export default function SocialShareButtons({
       animation: "hover:bounce"
     },
     {
-      name: "Telegram",
+      name: t('socialShare.telegram'),
       icon: FaTelegram,
       color: "hover:bg-blue-500",
       bgGradient: "from-blue-400 to-blue-500",
@@ -83,7 +83,7 @@ export default function SocialShareButtons({
       animation: "hover:translate-x-1"
     },
     {
-      name: "Reddit",
+      name: t('socialShare.reddit'),
       icon: FaReddit,
       color: "hover:bg-orange-600",
       bgGradient: "from-orange-500 to-orange-600",
@@ -91,7 +91,7 @@ export default function SocialShareButtons({
       animation: "hover:translate-y-[-4px]"
     },
     {
-      name: "Pinterest",
+      name: t('socialShare.pinterest'),
       icon: FaPinterest,
       color: "hover:bg-red-600",
       bgGradient: "from-red-600 to-red-700",

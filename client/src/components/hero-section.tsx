@@ -24,12 +24,12 @@ export default function HeroSection() {
       // Include a default name value (can be updated to collect actual name if needed)
       const requestData = {
         email: data.email,
-        name: "Early Access User" // Default name for quick signup
+        name: t('hero.defaultUser') // Default name for quick signup
       };
       const response = await apiRequest("POST", "/api/waitlist", requestData);
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.error || "Failed to join waitlist");
+        throw new Error(error.error || t('hero.joinWaitlistError'));
       }
       return response.json();
     },
@@ -553,10 +553,10 @@ export default function HeroSection() {
                   >
                     <img
                       src="https://static.wixstatic.com/media/0e0c7c_09bdf1e0833143d7a9628ceb9936f3d6~mv2.jpg/v1/fill/w_465,h_481,al_c,lg_1,q_80,enc_avif,quality_auto/image%20(2)_edited.jpg"
-                      alt="Hannah Magnelli"
+                      alt={t('hero.hannahMagnelliAlt')}
                       className="w-8 h-8 rounded-full object-cover border border-patriot-gold"
                     />
-                    <span className="text-sm">Meet the Team</span>
+                    <span className="text-sm">{t('nav.meetTheTeam')}</span>
                   </button>
                   
                   {/* Press Kit */}
