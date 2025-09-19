@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Loader2 } from "lucide-react";
 import { Redirect } from "wouter";
-import { useLanguage } from "@/contexts/language-context";
+import { useLanguage } from "@/hooks/use-language";
 
 // Reference to javascript_auth_all_persistance integration
 export default function AuthPage() {

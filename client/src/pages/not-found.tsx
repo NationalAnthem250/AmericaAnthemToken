@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
-import { useLanguage } from "@/contexts/language-context";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function NotFound() {
   const { t } = useLanguage();

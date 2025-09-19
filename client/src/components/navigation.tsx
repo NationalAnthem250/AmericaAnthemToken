@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
-import { useLanguage } from "@/contexts/language-context";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);

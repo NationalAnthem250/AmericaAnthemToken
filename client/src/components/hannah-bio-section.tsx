@@ -1,5 +1,5 @@
 import hannahImage from "@assets/82f267b12c0b788bfef3b9c786f981eedc826c98-1_1757459292112.jpeg";
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function HannahBioSection() {
   const { t } = useLanguage();

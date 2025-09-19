@@ -1,4 +1,4 @@
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function Footer() {
   const { t, formatters } = useLanguage();

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { Bell, Mail, Users, Star, Gift, Zap } from "lucide-react";
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 interface EmailSignupProps {
   variant?: 'hero' | 'sidebar' | 'footer' | 'popup';

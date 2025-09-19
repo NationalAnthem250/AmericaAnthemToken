@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SocialShareButtons from '@/components/social-share-buttons';
 import { OptimizedImage } from './optimized-image';
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 import goldenEagleNft from '@assets/Gemini_Generated_Image_bfizbxbfizbxbfiz_1757458891316.png';
 import silverEagleNft from '@assets/Gemini_Generated_Image_mltjs7mltjs7mltj_1757458891317.png';
 import dawnLightNft from '@assets/Gemini_Generated_Image_jjmgmmjjmgmmjjmg_1757458891318.png';

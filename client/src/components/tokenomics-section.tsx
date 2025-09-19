@@ -1,5 +1,5 @@
 import SocialShareButtons from "@/components/social-share-buttons";
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function TokenomicsSection() {
   const { t } = useLanguage();

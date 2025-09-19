@@ -7,7 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { MessageCircle, X, Send } from 'lucide-react';
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 interface ChatWindowProps {
   isOpen: boolean;

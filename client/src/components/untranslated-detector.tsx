@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useLanguage } from '@/contexts/language-context';
-import { translations } from '@/translations';
+import { useLanguage } from '@/hooks/use-language';
+import { getTranslations } from '@/translations/registry';
 
 // Build a Set of all English translation strings for exact matching
 function buildEnglishStringSet(): Set<string> {
@@ -20,7 +20,8 @@ function buildEnglishStringSet(): Set<string> {
     }
   }
   
-  extractStrings(translations.en);
+  const translations = getTranslations();
+  extractStrings(translations.en || {});
   return strings;
 }
 

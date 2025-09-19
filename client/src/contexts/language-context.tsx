@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { 
   formatNumber, 
   formatCurrency, 
@@ -9,41 +9,23 @@ import {
   formatTokenAmount,
   formatList 
 } from '@/lib/i18n-formatters';
-
-export type Language = 
-  | "en" // English
-  | "es" // Spanish
-  | "zh" // Chinese (Mandarin)
-  | "ru"; // Russian
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (language: Language) => void;
-  t: (key: string) => string;
-  isRTL: boolean;
-  formatters: {
-    number: (value: number) => string;
-    currency: (value: number, currency?: string) => string;
-    date: (date: Date | string, style?: 'short' | 'long' | 'full') => string;
-    relativeTime: (date: Date | string) => string;
-    percent: (value: number) => string;
-    compactNumber: (value: number) => string;
-    tokenAmount: (amount: number) => string;
-    list: (items: string[], type?: 'conjunction' | 'disjunction') => string;
-  };
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-// Import translations
-import { translations } from "@/translations";
+import { LanguageContext, type Language } from '@/hooks/use-language';
+// Import translations from registry to avoid HMR invalidation
+import { getTranslations } from '@/translations/registry';
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Get saved language from localStorage or default to English
-    const saved = localStorage.getItem("language");
-    return (saved as Language) || "en";
+    // Preserve language across HMR, fallback to localStorage, then default to English
+    const initial = import.meta.hot?.data?.lang ?? (localStorage.getItem('language') as Language) ?? 'en';
+    return initial;
   });
+
+  // Preserve language state on HMR disposal
+  if (import.meta.hot) {
+    import.meta.hot.dispose((data) => {
+      data.lang = language;
+    });
+  }
 
   const isRTL = false; // No RTL languages currently supported
 
@@ -59,8 +41,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.dir = "ltr"; // All supported languages are LTR
   };
 
-  // Translation function
+  // Translation function using registry to avoid HMR invalidation
   const t = (key: string): string => {
+    const translations = getTranslations();
     const keys = key.split(".");
     let value: any = translations[language];
     
@@ -101,10 +84,3 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-}

@@ -1,8 +1,8 @@
 import { Component, ErrorInfo, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { translations } from "@/translations";
-import type { Language } from "@/contexts/language-context";
+import { getTranslations } from "@/translations/registry";
+import type { Language } from "@/hooks/use-language";
 
 interface Props {
   children?: ReactNode;
@@ -36,7 +36,14 @@ export default class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       const language = (localStorage.getItem('language') as Language) || 'en';
-      const t = translations[language];
+      const translations = getTranslations();
+      const t = translations[language] || translations.en || {
+        error: {
+          title: "Something went wrong",
+          message: "An unexpected error occurred. Please refresh the page to try again.",
+          refreshButton: "Refresh Page"
+        }
+      };
 
       return (
         <div className="min-h-screen bg-gradient-to-b from-patriot-navy to-black flex items-center justify-center p-4">

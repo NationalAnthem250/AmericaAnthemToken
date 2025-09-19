@@ -30,7 +30,7 @@ import {
   Music,
   Globe
 } from "lucide-react";
-import { useLanguage } from '@/contexts/language-context';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function TokenomicsRoadmap() {
   const { t, formatters } = useLanguage();
