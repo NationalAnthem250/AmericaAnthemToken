@@ -154,7 +154,7 @@ export default function HeroSection() {
             onError={() => setIsVideoSupported(false)}
           >
             <source src={flagVideo} type="video/mp4" />
-            Your browser does not support the video tag.
+{t("hero.videoNotSupported")}
           </video>
         ) : (
           /* Fallback background for browsers that don't support video */
@@ -499,22 +499,22 @@ export default function HeroSection() {
                   <div className="flex items-start space-x-3">
                     <span className="text-patriot-gold text-xl">•</span>
                     <div>
-                      <p className="text-white font-semibold">What is it?</p>
-                      <p className="text-gray-300 text-sm">Digital collectible of the National Anthem performed by Hannah Magnelli</p>
+                      <p className="text-white font-semibold">{t("hero.whatIsIt")}</p>
+                      <p className="text-gray-300 text-sm">{t("hero.whatIsItDesc")}</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <span className="text-patriot-gold text-xl">•</span>
                     <div>
-                      <p className="text-white font-semibold">How to buy?</p>
-                      <p className="text-gray-300 text-sm">Connect Solana wallet (Phantom/Solflare) or use credit card via MoonPay</p>
+                      <p className="text-white font-semibold">{t("hero.howToBuy")}</p>
+                      <p className="text-gray-300 text-sm">{t("hero.howToBuyDesc")}</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <span className="text-patriot-gold text-xl">•</span>
                     <div>
-                      <p className="text-white font-semibold">Chain & Requirements</p>
-                      <p className="text-gray-300 text-sm">Solana blockchain • $1.77 per token • Low gas fees</p>
+                      <p className="text-white font-semibold">{t("hero.chainRequirements")}</p>
+                      <p className="text-gray-300 text-sm">{t("hero.chainRequirementsDesc")}</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
@@ -535,7 +535,7 @@ export default function HeroSection() {
                     <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-white font-semibold text-sm">Audit Scheduled Q2 2026</span>
+                    <span className="text-white font-semibold text-sm">{t("hero.auditScheduled")}</span>
                   </div>
                   
                   {/* Legal Link */}
@@ -543,7 +543,7 @@ export default function HeroSection() {
                     onClick={() => scrollToSection('terms-conditions')}
                     className="text-gray-300 hover:text-white text-sm underline transition-colors"
                   >
-                    Terms & Conditions
+{t("hero.termsConditions")}
                   </button>
                   
                   {/* Team Link */}
