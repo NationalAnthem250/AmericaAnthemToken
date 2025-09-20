@@ -34,7 +34,7 @@ const IGNORE_TERMS = new Set([
   'SOL',
   'America250',
   'Hannah Magnelli',
-  'Anthem250',
+  'National Anthem 250',
   'Token',
   'MoonPay',
   'Crossmint',

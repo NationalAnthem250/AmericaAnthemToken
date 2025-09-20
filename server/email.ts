@@ -21,7 +21,7 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
     const mailOptions = {
       from: process.env.EMAIL_USER || ADMIN_EMAIL,
       to: ADMIN_EMAIL,
-      subject: '🇺🇸 New 250STAR Waitlist Registration - Anthem250',
+      subject: '🇺🇸 New 250STAR Waitlist Registration - National Anthem 250',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1e3a8a;">New 250STAR Token Waitlist Registration</h2>
@@ -34,7 +34,7 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
           </div>
           <p style="color: #6b7280;">Someone new has joined the waitlist for Hannah Magnelli's historic National Anthem NFT launch.</p>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="font-size: 12px; color: #9ca3af;">Anthem250 - 250STAR Token Launch</p>
+          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - 250STAR Token Launch</p>
         </div>
       `
     };
@@ -52,7 +52,7 @@ export const sendChatNotification = async (message: ChatMessage) => {
     const mailOptions = {
       from: process.env.EMAIL_USER || ADMIN_EMAIL,
       to: ADMIN_EMAIL,
-      subject: '💬 New Chat Message - Anthem250',
+      subject: '💬 New Chat Message - National Anthem 250',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1e3a8a;">New Chat Message Received</h2>
@@ -65,9 +65,9 @@ export const sendChatNotification = async (message: ChatMessage) => {
               <p style="margin: 10px 0;">${message.message}</p>
             </div>
           </div>
-          <p style="color: #6b7280;">A visitor has sent a message through the Anthem250 chat system.</p>
+          <p style="color: #6b7280;">A visitor has sent a message through the National Anthem 250 chat system.</p>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="font-size: 12px; color: #9ca3af;">Anthem250 - 250STAR Token Launch</p>
+          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - 250STAR Token Launch</p>
         </div>
       `
     };
