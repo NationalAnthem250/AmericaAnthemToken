@@ -14,7 +14,8 @@ export type Language =
   | "en" // English
   | "es" // Spanish
   | "zh" // Chinese (Mandarin)
-  | "ru"; // Russian
+  | "ru" // Russian
+  | "ar"; // Arabic
 
 interface LanguageContextType {
   language: Language;

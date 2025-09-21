@@ -27,7 +27,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     });
   }
 
-  const isRTL = false; // No RTL languages currently supported
+  const isRTL = language === 'ar'; // Arabic is RTL
 
   // Save language preference
   const setLanguage = (newLanguage: Language) => {
@@ -38,7 +38,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = newLanguage;
     
     // Update HTML dir attribute for RTL languages
-    document.documentElement.dir = "ltr"; // All supported languages are LTR
+    document.documentElement.dir = isRTL ? "rtl" : "ltr";
   };
 
   // Translation function using registry to avoid HMR invalidation

@@ -2,6 +2,7 @@
 import { completeTranslations } from './complete-translations';
 import { es } from './complete-translations-es';
 import { ru } from './complete-translations-ru';
+import { ar } from './complete-translations-ar';
 import { setTranslations } from './registry';
 
 // Main translations object with all 10 languages
@@ -947,6 +948,9 @@ export const translations = {
   
   // Russian translations
   ru,
+
+  // Arabic translations
+  ar,
   
 };
 
