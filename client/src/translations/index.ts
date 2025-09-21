@@ -4,6 +4,7 @@ import { es } from './complete-translations-es';
 import { ru } from './complete-translations-ru';
 import { ar } from './complete-translations-ar';
 import { ko } from './complete-translations-ko';
+import { ja } from './complete-translations-ja';
 import { setTranslations } from './registry';
 
 // Main translations object with all 10 languages
@@ -955,6 +956,9 @@ export const translations = {
 
   // Korean translations
   ko,
+
+  // Japanese translations
+  ja,
   
 };
 

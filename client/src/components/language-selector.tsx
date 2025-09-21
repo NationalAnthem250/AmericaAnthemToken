@@ -23,6 +23,7 @@ const languages: LanguageInfo[] = [
   { code: "ru", name: "Russian", flag: "🇷🇺", nativeName: "Русский" },
   { code: "ar", name: "Arabic", flag: "🇸🇦", nativeName: "العربية" },
   { code: "ko", name: "Korean", flag: "🇰🇷", nativeName: "한국어" },
+  { code: "ja", name: "Japanese", flag: "🇯🇵", nativeName: "日本語" },
 ];
 
 export function LanguageSelector({ 
