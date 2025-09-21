@@ -22,6 +22,7 @@ const languages: LanguageInfo[] = [
   { code: "zh", name: "Chinese", flag: "🇨🇳", nativeName: "中文" },
   { code: "ru", name: "Russian", flag: "🇷🇺", nativeName: "Русский" },
   { code: "ar", name: "Arabic", flag: "🇸🇦", nativeName: "العربية" },
+  { code: "ko", name: "Korean", flag: "🇰🇷", nativeName: "한국어" },
 ];
 
 export function LanguageSelector({ 
