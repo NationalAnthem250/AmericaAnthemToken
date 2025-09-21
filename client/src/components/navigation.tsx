@@ -86,32 +86,32 @@ export default function Navigation() {
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
+          {/* Desktop Navigation - Now shows on md+ (including iPad) */}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-white hover:text-patriot-gold transition-colors font-medium"
+                className="text-white hover:text-patriot-gold transition-colors font-medium text-sm lg:text-base"
               >
                 {link.label}
               </button>
             ))}
           </div>
 
-          {/* CTAs and Language Selector */}
-          <div className="hidden lg:flex items-center space-x-3">
+          {/* CTAs and Language Selector - Now shows on md+ (including iPad) */}
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
             <LanguageSelector />
             <Button 
-              className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
+              className="bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold text-sm lg:text-base px-3 lg:px-4"
               onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <i className="fas fa-star mr-2"></i>
+              <i className="fas fa-star mr-1 lg:mr-2"></i>
               {t("nav.joinWaitlist")}
             </Button>
           </div>
 
-          {/* Mobile menu */}
+          {/* Mobile menu - Now only shows on small screens */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
