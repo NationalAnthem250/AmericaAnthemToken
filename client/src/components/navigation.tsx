@@ -10,6 +10,12 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
 
+  // iOS detection for specific touch handling
+  const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  };
+
   // Handle scroll effect with proper cleanup
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +41,28 @@ export default function Navigation() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
-    // Close mobile menu after navigation
-    setIsMobileMenuOpen(false);
+    
+    if (element) {
+      // iOS-specific scrolling behavior
+      if (isIOS()) {
+        // Use explicit scrollTo for better iOS compatibility
+        const elementPosition = element.offsetTop - 80; // Account for fixed header
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // Standard scrollIntoView for other devices
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+    
+    // Close mobile menu after navigation with delay for iOS
+    if (isIOS()) {
+      setTimeout(() => setIsMobileMenuOpen(false), 100);
+    } else {
+      setIsMobileMenuOpen(false);
+    }
   };
 
   const socialLinks = [
@@ -91,7 +116,25 @@ export default function Navigation() {
             <LanguageSelector />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white hover:text-patriot-gold" aria-label={t("nav.openMenu")}>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="text-white hover:text-patriot-gold min-h-[48px] min-w-[48px] touch-manipulation" 
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
+                  aria-label={t("nav.openMenu")}
+                  onTouchStart={(e) => {
+                    if (isIOS()) {
+                      e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+                    }
+                  }}
+                  onTouchEnd={(e) => {
+                    if (isIOS()) {
+                      setTimeout(() => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }, 150);
+                    }
+                  }}
+                >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
@@ -101,17 +144,45 @@ export default function Navigation() {
                     <button
                       key={link.href}
                       onClick={() => scrollToSection(link.href)}
-                      className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left"
+                      onTouchStart={(e) => {
+                        // iOS-specific touch handling
+                        if (isIOS()) {
+                          e.currentTarget.style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+                        }
+                      }}
+                      onTouchEnd={(e) => {
+                        // Reset touch feedback for iOS
+                        if (isIOS()) {
+                          setTimeout(() => {
+                            e.currentTarget.style.backgroundColor = 'transparent';
+                          }, 150);
+                        }
+                      }}
+                      className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left py-3 px-2 rounded-md w-full min-h-[48px] flex items-center touch-manipulation"
+                      style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
                       {link.label}
                     </button>
                   ))}
                   <div className="space-y-4 pt-4">
                     <Button 
-                      className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
+                      className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold min-h-[48px] touch-manipulation"
+                      style={{ WebkitTapHighlightColor: 'transparent' }}
                       onClick={() => {
-                        document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' });
-                        setIsMobileMenuOpen(false);
+                        const element = document.getElementById('participate');
+                        if (element) {
+                          if (isIOS()) {
+                            const elementPosition = element.offsetTop - 80;
+                            window.scrollTo({
+                              top: elementPosition,
+                              behavior: 'smooth'
+                            });
+                            setTimeout(() => setIsMobileMenuOpen(false), 100);
+                          } else {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                            setIsMobileMenuOpen(false);
+                          }
+                        }
                       }}
                     >
                       <i className="fas fa-star mr-2"></i>
