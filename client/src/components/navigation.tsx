@@ -7,6 +7,7 @@ import { useLanguage } from "@/hooks/use-language";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
 
   // Handle scroll effect with proper cleanup
@@ -35,6 +36,8 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+    // Close mobile menu after navigation
+    setIsMobileMenuOpen(false);
   };
 
   const socialLinks = [
@@ -86,7 +89,7 @@ export default function Navigation() {
           {/* Mobile menu */}
           <div className="md:hidden flex items-center space-x-2">
             <LanguageSelector />
-            <Sheet>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-white hover:text-patriot-gold" aria-label={t("nav.openMenu")}>
                   <Menu className="h-6 w-6" />
@@ -106,7 +109,10 @@ export default function Navigation() {
                   <div className="space-y-4 pt-4">
                     <Button 
                       className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold"
-                      onClick={() => document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => {
+                        document.getElementById('participate')?.scrollIntoView({ behavior: 'smooth' });
+                        setIsMobileMenuOpen(false);
+                      }}
                     >
                       <i className="fas fa-star mr-2"></i>
                       {t("nav.joinWaitlist")}
