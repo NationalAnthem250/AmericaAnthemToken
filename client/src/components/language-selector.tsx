@@ -24,6 +24,7 @@ const languages: LanguageInfo[] = [
   { code: "ar", name: "Arabic", flag: "🇸🇦", nativeName: "العربية" },
   { code: "ko", name: "Korean", flag: "🇰🇷", nativeName: "한국어" },
   { code: "ja", name: "Japanese", flag: "🇯🇵", nativeName: "日本語" },
+  { code: "pt", name: "Portuguese", flag: "🇧🇷", nativeName: "Português" },
 ];
 
 export function LanguageSelector({ 
