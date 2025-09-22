@@ -75,7 +75,7 @@ export default function NFTEducation() {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto">
+        <div id="nft-faq" className="max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold text-white text-center mb-8">{t('nftEducation.faqTitle')}</h3>
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="what-is-nft" className="bg-white/10 backdrop-blur-sm rounded-lg border-patriot-gold/30">

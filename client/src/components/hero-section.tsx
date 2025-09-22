@@ -602,7 +602,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 {/* Learn How It Works Button */}
                 <button 
-                  onClick={() => scrollToSection('nft-education')}
+                  onClick={() => scrollToSection('nft-faq')}
                   className="text-white hover:text-patriot-gold transition-colors duration-300 underline text-lg"
                 >
                   Learn How It Works →
