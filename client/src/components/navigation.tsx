@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
@@ -8,6 +8,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   // iOS detection for specific touch handling
   const isIOS = () => {
@@ -32,7 +33,45 @@ export default function Navigation() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [])
+  }, []);
+
+  // iPhone-specific native event listeners for hamburger button
+  useEffect(() => {
+    const hamburgerButton = hamburgerRef.current;
+    if (!hamburgerButton || !isIPhone()) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      console.log('Native touchStart on iPhone hamburger');
+      e.preventDefault();
+      hamburgerButton.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      console.log('Native touchEnd on iPhone hamburger');
+      e.preventDefault();
+      setTimeout(() => {
+        hamburgerButton.style.backgroundColor = 'transparent';
+      }, 150);
+    };
+
+    const handleClick = (e: Event) => {
+      console.log('Native click on iPhone hamburger');
+      e.preventDefault();
+      e.stopPropagation();
+      setIsMobileMenuOpen(prev => !prev);
+    };
+
+    // Add native event listeners for iPhone
+    hamburgerButton.addEventListener('touchstart', handleTouchStart, { passive: false });
+    hamburgerButton.addEventListener('touchend', handleTouchEnd, { passive: false });
+    hamburgerButton.addEventListener('click', handleClick);
+
+    return () => {
+      hamburgerButton.removeEventListener('touchstart', handleTouchStart);
+      hamburgerButton.removeEventListener('touchend', handleTouchEnd);
+      hamburgerButton.removeEventListener('click', handleClick);
+    };
+  }, []);
 
   const navLinks = [
     { href: "video", label: t("nav.about") },
@@ -234,11 +273,14 @@ export default function Navigation() {
             
             {/* Hamburger menu button */}
             <button
+              ref={hamburgerRef}
               onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Hamburger clicked - iPhone:', isIPhone(), 'iOS:', isIOS(), 'menu open:', isMobileMenuOpen);
-                setIsMobileMenuOpen(!isMobileMenuOpen);
+                if (!isIPhone()) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Hamburger clicked - not iPhone');
+                  setIsMobileMenuOpen(!isMobileMenuOpen);
+                }
               }}
               onPointerDown={(e) => {
                 console.log('Hamburger pointerDown - iPhone:', isIPhone(), 'pointerType:', e.pointerType);
