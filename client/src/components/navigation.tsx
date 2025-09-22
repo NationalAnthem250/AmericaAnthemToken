@@ -15,6 +15,11 @@ export default function Navigation() {
            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   };
 
+  // Check if device is iPhone specifically (not iPad)
+  const isIPhone = () => {
+    return /iPhone/.test(navigator.userAgent);
+  };
+
   // Handle scroll effect with proper cleanup
   useEffect(() => {
     const handleScroll = () => {
@@ -140,9 +145,33 @@ export default function Navigation() {
                     {navLinks.map((link) => (
                       <button
                         key={link.href}
-                        onClick={() => scrollToSection(link.href)}
-                        className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left py-3 px-2 rounded-md w-full min-h-[48px] flex items-center"
-                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Navigation link clicked:', link.href, 'on iPhone:', isIPhone());
+                          scrollToSection(link.href);
+                        }}
+                        onTouchStart={(e) => {
+                          // iPhone-specific touch handling
+                          if (isIPhone()) {
+                            e.currentTarget.style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+                          }
+                        }}
+                        onTouchEnd={(e) => {
+                          // Reset touch feedback for iPhone
+                          if (isIPhone()) {
+                            setTimeout(() => {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                            }, 150);
+                          }
+                        }}
+                        className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left py-4 px-3 rounded-md w-full min-h-[52px] flex items-center touch-manipulation active:bg-patriot-red/10"
+                        style={{ 
+                          WebkitTapHighlightColor: 'transparent',
+                          WebkitUserSelect: 'none',
+                          userSelect: 'none'
+                        }}
+                        type="button"
                       >
                         {link.label}
                       </button>
@@ -206,12 +235,36 @@ export default function Navigation() {
             
             {/* Hamburger menu button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-patriot-gold p-2 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-md touch-manipulation"
-              style={{ WebkitTapHighlightColor: 'transparent' }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Hamburger button clicked on iPhone:', isIPhone());
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
+              onTouchStart={(e) => {
+                // iPhone-specific touch handling
+                if (isIPhone()) {
+                  e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+                }
+              }}
+              onTouchEnd={(e) => {
+                // Reset touch feedback for iPhone
+                if (isIPhone()) {
+                  setTimeout(() => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }, 150);
+                }
+              }}
+              className="text-white hover:text-patriot-gold p-3 min-h-[52px] min-w-[52px] flex items-center justify-center rounded-md touch-manipulation active:bg-patriot-gold/20"
+              style={{ 
+                WebkitTapHighlightColor: 'transparent',
+                WebkitUserSelect: 'none',
+                userSelect: 'none'
+              }}
               aria-label={t("nav.openMenu")}
+              type="button"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-7 w-7" />
             </button>
             
             {/* Language selector for mobile */}
