@@ -36,7 +36,7 @@ export function LanguageSelector({
   isMobile?: boolean;
   className?: string;
 }) {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const selectedLanguage = languages.find(l => l.code === language) || languages[0];
 
   const handleLanguageChange = (lang: LanguageInfo) => {
