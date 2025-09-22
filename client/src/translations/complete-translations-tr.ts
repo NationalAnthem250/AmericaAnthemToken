@@ -8,7 +8,7 @@ export const tr = {
     emailPlaceholder: "E-posta adresinizi girin",
     exclusiveAccess: "250STAR token lansmanına özel ön satış erişimi sağlayın",
     launchDate: "Lansman Tarihi",
-    january2025: "Ocak 2025",
+    january2025: "2026",
     tokenPrice: "Token Fiyatı",
     totalSupply: "Toplam Arz",
     blockchain: "Blok Zinciri",

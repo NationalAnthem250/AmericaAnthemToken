@@ -41,13 +41,11 @@ export default function Navigation() {
     if (!hamburgerButton || !isIPhone()) return;
 
     const handleTouchStart = (e: TouchEvent) => {
-      console.log('Native touchStart on iPhone hamburger');
       e.preventDefault();
       hamburgerButton.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
-      console.log('Native touchEnd on iPhone hamburger');
       e.preventDefault();
       setTimeout(() => {
         hamburgerButton.style.backgroundColor = 'transparent';
@@ -55,7 +53,6 @@ export default function Navigation() {
     };
 
     const handleClick = (e: Event) => {
-      console.log('Native click on iPhone hamburger');
       e.preventDefault();
       e.stopPropagation();
       setIsMobileMenuOpen(prev => !prev);
@@ -278,40 +275,7 @@ export default function Navigation() {
                 if (!isIPhone()) {
                   e.preventDefault();
                   e.stopPropagation();
-                  console.log('Hamburger clicked - not iPhone');
                   setIsMobileMenuOpen(!isMobileMenuOpen);
-                }
-              }}
-              onPointerDown={(e) => {
-                console.log('Hamburger pointerDown - iPhone:', isIPhone(), 'pointerType:', e.pointerType);
-                // iPhone-specific pointer handling
-                if (isIPhone() && e.pointerType === 'touch') {
-                  e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
-                }
-              }}
-              onPointerUp={(e) => {
-                console.log('Hamburger pointerUp - iPhone:', isIPhone(), 'pointerType:', e.pointerType);
-                // Reset touch feedback for iPhone
-                if (isIPhone() && e.pointerType === 'touch') {
-                  setTimeout(() => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }, 150);
-                }
-              }}
-              onTouchStart={(e) => {
-                console.log('Hamburger touchStart - iPhone:', isIPhone());
-                // iPhone-specific touch handling
-                if (isIPhone()) {
-                  e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
-                }
-              }}
-              onTouchEnd={(e) => {
-                console.log('Hamburger touchEnd - iPhone:', isIPhone());
-                // Reset touch feedback for iPhone
-                if (isIPhone()) {
-                  setTimeout(() => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }, 150);
                 }
               }}
               className="text-white hover:text-patriot-gold p-3 min-h-[52px] min-w-[52px] flex items-center justify-center rounded-md touch-manipulation active:bg-patriot-gold/20"

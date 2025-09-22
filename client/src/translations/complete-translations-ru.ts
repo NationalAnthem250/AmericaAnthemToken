@@ -8,7 +8,7 @@ export const ru = {
     emailPlaceholder: "Введите ваш email",
     exclusiveAccess: "Получите эксклюзивный доступ к предпродаже токена 250STAR",
     launchDate: "Дата запуска",
-    january2025: "Январь 2025",
+    january2025: "2026",
     tokenPrice: "Цена токена",
     totalSupply: "Общее предложение",
     blockchain: "Блокчейн",

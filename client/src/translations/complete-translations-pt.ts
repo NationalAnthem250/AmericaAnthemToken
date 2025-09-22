@@ -8,7 +8,7 @@ export const pt = {
     emailPlaceholder: "Digite seu e-mail",
     exclusiveAccess: "Obtenha acesso exclusivo à pré-venda do lançamento do token 250STAR",
     launchDate: "Data de Lançamento",
-    january2025: "Janeiro 2025",
+    january2025: "2026",
     tokenPrice: "Preço do Token",
     totalSupply: "Fornecimento Total",
     blockchain: "Blockchain",
