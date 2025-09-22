@@ -41,10 +41,10 @@ interface LanguageContextType {
 
 // Hot-stable context singleton to prevent HMR context mismatches
 const ctxKey = '__LanguageContext__';
-export const LanguageContext = (globalThis as any)[ctxKey] || createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = (globalThis as any)[ctxKey] || createContext<LanguageContextType>({} as LanguageContextType);
 (globalThis as any)[ctxKey] = LanguageContext;
 
-export function useLanguage() {
+export function useLanguage(): LanguageContextType {
   const context = useContext(LanguageContext);
   if (!context) {
     throw new Error("useLanguage must be used within a LanguageProvider");

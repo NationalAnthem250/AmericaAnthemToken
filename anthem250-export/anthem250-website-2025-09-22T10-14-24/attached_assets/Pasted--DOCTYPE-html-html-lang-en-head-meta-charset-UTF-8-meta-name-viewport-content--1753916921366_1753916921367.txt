@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Token Launch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🚀 TokenName</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#team">Team</a>
+    </nav>
+    <div class="countdown" id="countdown">00:15:00</div>
+    <button class="btn">Buy Token</button>
+  </header>
+
+  <section id="about">
+    <h1>About the Project</h1>
+    <p>Brief description of the project goes here.</p>
+  </section>
+
+  <section id="tokenomics">
+    <h2>Tokenomics</h2>
+    <p>Token supply and allocation info here.</p>
+    <div class="chart-placeholder">[ Pie Chart Placeholder ]</div>
+  </section>
+
+  <section id="team">
+    <h2>Team & Advisors</h2>
+    <div class="team-grid">
+      <div class="member-card">
+        <div class="avatar"></div>
+        <h4>Jane Doe</h4>
+        <p>CEO</p>
+      </div>
+      <div class="member-card">
+        <div class="avatar"></div>
+        <h4>John Smith</h4>
+        <p>CTO</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <ul class="roadmap">
+      <li>✅ Q1: Whitepaper Release</li>
+      <li>✅ Q2: Token Pre-sale</li>
+      <li>🕒 Q3: DEX Launch</li>
+      <li>🔜 Q4: Staking + CEX Listings</li>
+    </ul>
+  </section>
+
+  <section id="security">
+    <h2>Security & Audits</h2>
+    <p>Coming soon: CertiK audit + bug bounty program.</p>
+  </section>
+
+  <section id="participate">
+    <h2>How to Participate</h2>
+    <ol>
+      <li>Connect Wallet</li>
+      <li>Join Whitelist</li>
+      <li>Buy Token</li>
+    </ol>
+    <input type="email" placeholder="Enter your email" />
+    <button class="btn">Subscribe</button>
+  </section>
+
+  <section id="socials">
+    <h2>Join the Community</h2>
+    <div class="social-icons">
+      <a href="#">Twitter</a>
+      <a href="#">Telegram</a>
+      <a href="#">Discord</a>
+      <a href="#">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 TokenName — All rights reserved.</p>
+    <a href="#">Terms</a> | <a href="#">Privacy</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
