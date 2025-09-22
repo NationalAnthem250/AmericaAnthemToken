@@ -539,16 +539,16 @@ export default function HeroSection() {
                   </div>
                   
                   {/* Legal Link */}
-                  <button
-                    onClick={() => scrollToSection('terms-conditions')}
+                  <a
+                    href="/terms"
                     className="text-gray-300 hover:text-white text-sm underline transition-colors"
                   >
-{t("hero.termsConditions")}
-                  </button>
+                    {t("hero.termsConditions")}
+                  </a>
                   
                   {/* Team Link */}
                   <button
-                    onClick={() => scrollToSection('hannah-bio')}
+                    onClick={() => scrollToSection('hannah')}
                     className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
                   >
                     <img
