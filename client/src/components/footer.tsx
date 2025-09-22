@@ -3,7 +3,7 @@ import { useLanguage } from '@/hooks/use-language';
 export default function Footer() {
   const { t, formatters } = useLanguage();
   const quickLinks = [
-    { href: "#about", label: t('footer.linkAboutHannah') },
+    { href: "#hannah", label: t('footer.linkAboutHannah') },
     { href: "#token", label: t('footer.linkTokenLaunch') },
     { href: "#anthem", label: t('footer.linkNationalAnthem') },
     { href: "/terms", label: t('footer.linkTermsConditions') },
