@@ -8,7 +8,7 @@ import { useLanguage } from "@/hooks/use-language";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
 
   // iOS detection for specific touch handling
   const isIOS = () => {

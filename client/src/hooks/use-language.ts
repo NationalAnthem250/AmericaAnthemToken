@@ -15,7 +15,12 @@ export type Language =
   | "es" // Spanish
   | "zh" // Chinese (Mandarin)
   | "ru" // Russian
-  | "ar"; // Arabic
+  | "ar" // Arabic
+  | "ko" // Korean
+  | "ja" // Japanese
+  | "pt" // Portuguese
+  | "hi" // Hindi
+  | "tr"; // Turkish
 
 interface LanguageContextType {
   language: Language;
