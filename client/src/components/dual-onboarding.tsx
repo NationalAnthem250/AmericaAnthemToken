@@ -9,6 +9,13 @@ interface DualOnboardingProps {
 
 export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
   const { t } = useLanguage();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <section id="onboarding" className="py-20 bg-gradient-to-b from-patriot-navy to-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +62,13 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                   {t('onboarding.newFeature4')}
                 </li>
               </ul>
-              <Button className="w-full bg-patriot-blue hover:bg-patriot-blue/90 text-white">
+              <Button 
+                className="w-full bg-patriot-blue hover:bg-patriot-blue/90 text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  scrollToSection('nft-education');
+                }}
+              >
                 {t('onboarding.learnMore')}
               </Button>
             </CardContent>
@@ -94,7 +107,13 @@ export default function DualOnboarding({ onSelectPath }: DualOnboardingProps) {
                   {t('onboarding.cryptoFeature4')}
                 </li>
               </ul>
-              <Button className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white">
+              <Button 
+                className="w-full bg-patriot-red hover:bg-patriot-red/90 text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  scrollToSection('tokenomics');
+                }}
+              >
                 {t('onboarding.viewTokenomics')}
               </Button>
             </CardContent>
