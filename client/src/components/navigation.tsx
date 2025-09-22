@@ -113,7 +113,6 @@ export default function Navigation() {
 
           {/* Mobile menu - Now only shows on small screens */}
           <div className="md:hidden flex items-center space-x-2">
-            <LanguageSelector />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button 
@@ -211,6 +210,9 @@ export default function Navigation() {
                 </div>
               </SheetContent>
             </Sheet>
+            <div className="ml-2">
+              <LanguageSelector />
+            </div>
           </div>
         </div>
       </div>
