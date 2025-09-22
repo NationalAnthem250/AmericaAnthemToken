@@ -148,7 +148,6 @@ export default function Navigation() {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          console.log('Navigation link clicked:', link.href, 'on iPhone:', isIPhone());
                           scrollToSection(link.href);
                         }}
                         onTouchStart={(e) => {
@@ -238,7 +237,6 @@ export default function Navigation() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Hamburger button clicked on iPhone:', isIPhone());
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
               onTouchStart={(e) => {
