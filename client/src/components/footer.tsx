@@ -4,7 +4,7 @@ export default function Footer() {
   const { t, formatters } = useLanguage();
   const quickLinks = [
     { href: "#hannah", label: t('footer.linkAboutHannah') },
-    { href: "#token", label: t('footer.linkTokenLaunch') },
+    { href: "#tokenomics", label: t('footer.linkTokenLaunch') },
     { href: "#anthem", label: t('footer.linkNationalAnthem') },
     { href: "/terms", label: t('footer.linkTermsConditions') },
     { href: "https://america250.org/", label: t('footer.linkAmerica250') },
