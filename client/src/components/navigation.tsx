@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
 import { useLanguage } from "@/hooks/use-language";
@@ -8,7 +7,7 @@ import { useLanguage } from "@/hooks/use-language";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   // iOS detection for specific touch handling
   const isIOS = () => {
@@ -86,7 +85,7 @@ export default function Navigation() {
             </h1>
           </div>
 
-          {/* Desktop Navigation - Now shows on md+ (including iPad) */}
+          {/* Desktop Navigation - Shows on md+ (including iPad) */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((link) => (
               <button
@@ -99,7 +98,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTAs and Language Selector - Now shows on md+ (including iPad) */}
+          {/* Desktop CTAs and Language Selector - Shows on md+ (including iPad) */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
             <LanguageSelector />
             <Button 
@@ -111,105 +110,111 @@ export default function Navigation() {
             </Button>
           </div>
 
-          {/* Mobile menu - Now only shows on small screens */}
+          {/* Mobile menu - Only shows on small screens (iPhone) */}
           <div className="md:hidden flex items-center space-x-2">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="text-white hover:text-patriot-gold min-h-[48px] min-w-[48px] touch-manipulation" 
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
-                  aria-label={t("nav.openMenu")}
-                  onTouchStart={(e) => {
-                    if (isIOS()) {
-                      e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
-                    }
-                  }}
-                  onTouchEnd={(e) => {
-                    if (isIOS()) {
-                      setTimeout(() => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                      }, 150);
-                    }
-                  }}
+            {/* Custom iPhone-optimized mobile menu overlay */}
+            {isMobileMenuOpen && (
+              <div 
+                className="fixed inset-0 z-[60] bg-black bg-opacity-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <div 
+                  className="fixed top-0 right-0 h-full w-[300px] bg-white shadow-xl transform transition-transform duration-300 ease-in-out overflow-y-auto"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navLinks.map((link) => (
-                    <button
-                      key={link.href}
-                      onClick={() => scrollToSection(link.href)}
-                      onTouchStart={(e) => {
-                        // iOS-specific touch handling
-                        if (isIOS()) {
-                          e.currentTarget.style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
-                        }
-                      }}
-                      onTouchEnd={(e) => {
-                        // Reset touch feedback for iOS
-                        if (isIOS()) {
-                          setTimeout(() => {
-                            e.currentTarget.style.backgroundColor = 'transparent';
-                          }, 150);
-                        }
-                      }}
-                      className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left py-3 px-2 rounded-md w-full min-h-[48px] flex items-center touch-manipulation"
-                      style={{ WebkitTapHighlightColor: 'transparent' }}
-                    >
-                      {link.label}
-                    </button>
-                  ))}
-                  <div className="space-y-4 pt-4">
-                    <Button 
-                      className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold min-h-[48px] touch-manipulation"
-                      style={{ WebkitTapHighlightColor: 'transparent' }}
-                      onClick={() => {
-                        const element = document.getElementById('participate');
-                        if (element) {
-                          if (isIOS()) {
-                            const elementPosition = element.offsetTop - 80;
-                            window.scrollTo({
-                              top: elementPosition,
-                              behavior: 'smooth'
-                            });
-                            setTimeout(() => setIsMobileMenuOpen(false), 100);
-                          } else {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                            setIsMobileMenuOpen(false);
-                          }
-                        }
-                      }}
-                    >
-                      <i className="fas fa-star mr-2"></i>
-                      {t("nav.joinWaitlist")}
-                    </Button>
-                    <div className="flex items-center space-x-4 pt-4">
-                      {socialLinks.map((social) => (
-                        <a
-                          key={social.href}
-                          href={social.href}
-                          className="text-patriot-navy hover:text-patriot-red transition-colors"
-                          aria-label={social.label}
-                        >
-                          {typeof social.icon === "string" ? (
-                            <i className={`${social.icon} text-xl`}></i>
-                          ) : (
-                            <social.icon className="w-5 h-5" />
-                          )}
-                        </a>
-                      ))}
+                  <div className="flex flex-col space-y-4 p-6 mt-8">
+                    {/* Header with close button */}
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="text-lg font-bold text-patriot-navy">{t("nav.menu")}</h2>
+                      <button
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-patriot-navy hover:text-patriot-red p-2 text-2xl leading-none"
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                        aria-label="Close menu"
+                      >
+                        ✕
+                      </button>
                     </div>
-                    <div className="pt-4 border-t">
-                      <LanguageSelector isMobile={true} />
+                    
+                    {/* Navigation links */}
+                    {navLinks.map((link) => (
+                      <button
+                        key={link.href}
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-lg font-medium text-patriot-navy hover:text-patriot-red transition-colors text-left py-3 px-2 rounded-md w-full min-h-[48px] flex items-center"
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                      >
+                        {link.label}
+                      </button>
+                    ))}
+                    
+                    {/* Join waitlist button */}
+                    <div className="space-y-4 pt-4">
+                      <Button 
+                        className="w-full bg-patriot-gold hover:bg-patriot-gold/90 text-patriot-navy font-bold min-h-[48px]"
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                        onClick={() => {
+                          const element = document.getElementById('participate');
+                          if (element) {
+                            if (isIOS()) {
+                              const elementPosition = element.offsetTop - 80;
+                              window.scrollTo({
+                                top: elementPosition,
+                                behavior: 'smooth'
+                              });
+                              setTimeout(() => setIsMobileMenuOpen(false), 100);
+                            } else {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                              setIsMobileMenuOpen(false);
+                            }
+                          }
+                        }}
+                      >
+                        <i className="fas fa-star mr-2"></i>
+                        {t("nav.joinWaitlist")}
+                      </Button>
+                      
+                      {/* Social links */}
+                      <div className="flex items-center space-x-4 pt-4">
+                        {socialLinks.map((social) => (
+                          <a
+                            key={social.href}
+                            href={social.href}
+                            className="text-patriot-navy hover:text-patriot-red transition-colors"
+                            aria-label={social.label}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {typeof social.icon === "string" ? (
+                              <i className={`${social.icon} text-xl`}></i>
+                            ) : (
+                              <social.icon className="w-5 h-5" />
+                            )}
+                          </a>
+                        ))}
+                      </div>
+                      
+                      {/* Language selector */}
+                      <div className="pt-4 border-t">
+                        <LanguageSelector isMobile={true} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </SheetContent>
-            </Sheet>
+              </div>
+            )}
+            
+            {/* Hamburger menu button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white hover:text-patriot-gold p-2 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-md touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
+              aria-label={t("nav.openMenu")}
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+            
+            {/* Language selector for mobile */}
             <div className="ml-2">
               <LanguageSelector />
             </div>
