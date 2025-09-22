@@ -121,9 +121,9 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Brand Text */}
           <div className="flex items-center">
-            <h1 className="text-xl font-black text-white">
+            <a href="/" className="text-xl font-black text-white hover:text-patriot-gold transition-colors">
               {t("common.anthem250")}
-            </h1>
+            </a>
           </div>
 
           {/* Desktop Navigation - Shows on md+ (including iPad) */}
