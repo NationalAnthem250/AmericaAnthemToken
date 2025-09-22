@@ -237,15 +237,34 @@ export default function Navigation() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                console.log('Hamburger clicked - iPhone:', isIPhone(), 'iOS:', isIOS(), 'menu open:', isMobileMenuOpen);
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
+              onPointerDown={(e) => {
+                console.log('Hamburger pointerDown - iPhone:', isIPhone(), 'pointerType:', e.pointerType);
+                // iPhone-specific pointer handling
+                if (isIPhone() && e.pointerType === 'touch') {
+                  e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+                }
+              }}
+              onPointerUp={(e) => {
+                console.log('Hamburger pointerUp - iPhone:', isIPhone(), 'pointerType:', e.pointerType);
+                // Reset touch feedback for iPhone
+                if (isIPhone() && e.pointerType === 'touch') {
+                  setTimeout(() => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }, 150);
+                }
+              }}
               onTouchStart={(e) => {
+                console.log('Hamburger touchStart - iPhone:', isIPhone());
                 // iPhone-specific touch handling
                 if (isIPhone()) {
                   e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
                 }
               }}
               onTouchEnd={(e) => {
+                console.log('Hamburger touchEnd - iPhone:', isIPhone());
                 // Reset touch feedback for iPhone
                 if (isIPhone()) {
                   setTimeout(() => {
