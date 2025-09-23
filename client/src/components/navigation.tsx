@@ -9,6 +9,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const touchHandled = useRef(false);
 
   // iOS detection for specific touch handling
   const isIOS = () => {
@@ -35,40 +36,23 @@ export default function Navigation() {
     };
   }, []);
 
-  // iPhone-specific native event listeners for hamburger button
-  useEffect(() => {
-    const hamburgerButton = hamburgerRef.current;
-    if (!hamburgerButton || !isIPhone()) return;
+  // Universal mobile menu toggle handler
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      e.preventDefault();
-      hamburgerButton.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      e.preventDefault();
-      setTimeout(() => {
-        hamburgerButton.style.backgroundColor = 'transparent';
-      }, 150);
-    };
-
-    const handleClick = (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setIsMobileMenuOpen(prev => !prev);
-    };
-
-    // Add native event listeners for iPhone
-    hamburgerButton.addEventListener('touchstart', handleTouchStart, { passive: false });
-    hamburgerButton.addEventListener('touchend', handleTouchEnd, { passive: false });
-    hamburgerButton.addEventListener('click', handleClick);
-
-    return () => {
-      hamburgerButton.removeEventListener('touchstart', handleTouchStart);
-      hamburgerButton.removeEventListener('touchend', handleTouchEnd);
-      hamburgerButton.removeEventListener('click', handleClick);
-    };
-  }, []);
+  // Handle hamburger button interaction with touch/click deduplication
+  const handleHamburgerInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (touchHandled.current) {
+      touchHandled.current = false;
+      return;
+    }
+    
+    toggleMobileMenu();
+  };
 
   const navLinks = [
     { href: "video", label: t("nav.about") },
@@ -271,18 +255,23 @@ export default function Navigation() {
             {/* Hamburger menu button */}
             <button
               ref={hamburgerRef}
-              onClick={(e) => {
-                if (!isIPhone()) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setIsMobileMenuOpen(!isMobileMenuOpen);
-                }
+              onClick={handleHamburgerInteraction}
+              onTouchStart={(e) => {
+                touchHandled.current = true;
+                e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+              }}
+              onTouchEnd={(e) => {
+                setTimeout(() => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }, 150);
+                handleHamburgerInteraction(e);
               }}
               className="text-white hover:text-patriot-gold p-3 min-h-[52px] min-w-[52px] flex items-center justify-center rounded-md touch-manipulation active:bg-patriot-gold/20"
               style={{ 
                 WebkitTapHighlightColor: 'transparent',
                 WebkitUserSelect: 'none',
-                userSelect: 'none'
+                userSelect: 'none',
+                cursor: 'pointer'
               }}
               aria-label={t("nav.openMenu")}
               type="button"
