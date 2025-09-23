@@ -9,7 +9,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-  const touchHandled = useRef(false);
+  const lastTouchTime = useRef(0);
 
   // iOS detection for specific touch handling
   const isIOS = () => {
@@ -41,16 +41,8 @@ export default function Navigation() {
     setIsMobileMenuOpen(prev => !prev);
   };
 
-  // Handle hamburger button interaction with touch/click deduplication
-  const handleHamburgerInteraction = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (touchHandled.current) {
-      touchHandled.current = false;
-      return;
-    }
-    
+  // Simple hamburger handler
+  const handleHamburgerClick = () => {
     toggleMobileMenu();
   };
 
@@ -255,23 +247,14 @@ export default function Navigation() {
             {/* Hamburger menu button */}
             <button
               ref={hamburgerRef}
-              onClick={handleHamburgerInteraction}
-              onTouchStart={(e) => {
-                touchHandled.current = true;
-                e.currentTarget.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
-              }}
-              onTouchEnd={(e) => {
-                setTimeout(() => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }, 150);
-                handleHamburgerInteraction(e);
-              }}
+              onClick={handleHamburgerClick}
               className="text-white hover:text-patriot-gold p-3 min-h-[52px] min-w-[52px] flex items-center justify-center rounded-md touch-manipulation active:bg-patriot-gold/20"
               style={{ 
                 WebkitTapHighlightColor: 'transparent',
                 WebkitUserSelect: 'none',
                 userSelect: 'none',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                WebkitTouchCallout: 'none'
               }}
               aria-label={t("nav.openMenu")}
               type="button"
