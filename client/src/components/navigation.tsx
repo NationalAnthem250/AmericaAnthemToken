@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Instagram, Music } from "lucide-react";
+import { Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
 import { useLanguage } from "@/hooks/use-language";
 
@@ -259,7 +259,7 @@ export default function Navigation() {
               aria-label={t("nav.openMenu")}
               type="button"
             >
-              <Menu className="h-7 w-7" />
+              <i className="fas fa-bars text-xl"></i>
             </button>
             
             {/* Language selector for mobile */}
