@@ -76,7 +76,7 @@ export const ko = {
     launchDate: "출시 날짜",
     july4: "2026년 7월 4일 - 미국 250번째 생일",
     totalSupply: "총 공급량",
-    supplyAmount: "1,776,000,000개 토큰 (1776년 기념)",
+    supplyAmount: "17,760,000개 토큰 (1776년 기념)",
     startingPrice: "시작 가격",
     priceAmount: "$1.77 USD",
     blockchain: "블록체인",

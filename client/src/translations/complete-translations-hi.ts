@@ -76,7 +76,7 @@ export const hi = {
     launchDate: "लॉन्च दिनांक",
     july4: "4 जुलाई, 2026 - अमेरिका की 250वीं जन्मदिन",
     totalSupply: "कुल आपूर्ति",
-    supplyAmount: "1,776,000,000 टोकन (1776 का स्मरण)",
+    supplyAmount: "17,760,000 टोकन (1776 का स्मरण)",
     startingPrice: "प्रारंभिक मूल्य",
     priceAmount: "$1.77 USD",
     blockchain: "ब्लॉकचेन",

@@ -76,7 +76,7 @@ export const ar = {
     launchDate: "تاريخ الإطلاق",
     july4: "4 يوليو 2026 - عيد الميلاد الـ250 لأمريكا",
     totalSupply: "إجمالي المعروض",
-    supplyAmount: "1,776,000,000 رمز (إحياءً لذكرى 1776)",
+    supplyAmount: "17,760,000 رمز (إحياءً لذكرى 1776)",
     startingPrice: "السعر الابتدائي",
     priceAmount: "$1.77 دولار أمريكي",
     blockchain: "البلوك تشين",

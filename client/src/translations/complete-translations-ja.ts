@@ -76,7 +76,7 @@ export const ja = {
     launchDate: "発売日",
     july4: "2026年7月4日 - アメリカ250歳の誕生日",
     totalSupply: "総供給量",
-    supplyAmount: "1,776,000,000トークン（1776年を記念）",
+    supplyAmount: "17,760,000トークン（1776年を記念）",
     startingPrice: "開始価格",
     priceAmount: "$1.77 USD",
     blockchain: "ブロックチェーン",
