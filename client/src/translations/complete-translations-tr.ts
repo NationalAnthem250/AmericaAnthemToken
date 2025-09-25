@@ -2,7 +2,7 @@
 export const tr = {
   hero: {
     title: "Amerikan Tarihinin Bir Parçasına Sahip Olun",
-    subtitle: "Amerika'nın 250. yıl dönümünü onurlandıran ilk Ulusal Marş NFT'si",
+    subtitle: "Amerika'nın 250. yıl dönümünü onurlandıran tarihte ilk Ulusal Marş NFT'si",
     joinWaitlist: "Bekleme Listesine Katılın",
     getEarlyAccess: "Erken Erişim Sağlayın",
     emailPlaceholder: "E-posta adresinizi girin",

@@ -16,7 +16,7 @@ export const translations = {
   en: {
     hero: {
       title: "Own Part of American History",
-      subtitle: "The first National Anthem NFT commemorating America's 250th anniversary",
+      subtitle: "The first EVER National Anthem NFT commemorating America's 250th anniversary",
       joinWaitlist: "Join Waitlist",
       getEarlyAccess: "Get Early Access",
       emailPlaceholder: "Enter your email",

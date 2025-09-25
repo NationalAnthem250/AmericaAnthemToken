@@ -2,7 +2,7 @@
 export const es = {
   hero: {
     title: "Posee Parte de la Historia Americana",
-    subtitle: "El primer NFT del Himno Nacional conmemorando el 250º aniversario de América",
+    subtitle: "El primer NFT EN LA HISTORIA del Himno Nacional conmemorando el 250º aniversario de América",
     joinWaitlist: "Unirse a la Lista de Espera",
     getEarlyAccess: "Obtener Acceso Anticipado",
     emailPlaceholder: "Ingrese su correo electrónico",

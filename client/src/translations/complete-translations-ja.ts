@@ -2,7 +2,7 @@
 export const ja = {
   hero: {
     title: "アメリカ歴史の一部を所有する",
-    subtitle: "アメリカ250周年を記念する初の国歌NFT",
+    subtitle: "アメリカ250周年を記念する史上初の国歌NFT",
     joinWaitlist: "ウェイティングリストに参加",
     getEarlyAccess: "早期アクセスを取得",
     emailPlaceholder: "メールアドレスを入力",

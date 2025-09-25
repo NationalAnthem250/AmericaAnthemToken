@@ -3,7 +3,7 @@ export const completeTranslations = {
   zh: {
     hero: {
       title: "拥有美国历史",
-      subtitle: "纪念美国250周年的首个国歌NFT",
+      subtitle: "纪念美国250周年的史上首个国歌NFT",
       joinWaitlist: "加入等候名单",
       getEarlyAccess: "获取早期访问",
       emailPlaceholder: "输入您的邮箱",

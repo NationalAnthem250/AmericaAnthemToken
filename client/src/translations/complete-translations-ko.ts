@@ -2,7 +2,7 @@
 export const ko = {
   hero: {
     title: "미국 역사의 일부를 소유하세요",
-    subtitle: "미국 250주년을 기념하는 최초의 국가 NFT",
+    subtitle: "미국 250주년을 기념하는 역사상 최초의 국가 NFT",
     joinWaitlist: "대기자 명단 가입",
     getEarlyAccess: "조기 액세스 받기",
     emailPlaceholder: "이메일을 입력하세요",
