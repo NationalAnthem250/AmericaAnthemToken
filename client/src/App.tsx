@@ -16,6 +16,7 @@ import { UntranslatedDetector } from "@/components/untranslated-detector";
 // Lazy load non-critical components
 const ChatWindow = lazy(() => import("@/components/chat-window").then(m => ({ default: m.ChatWindow })));
 const Terms = lazy(() => import("@/pages/terms"));
+const BlogPage = lazy(() => import("@/pages/blog"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 const SocialMediaDashboard = lazy(() => import("@/pages/social-media"));
 const AuthPage = lazy(() => import("@/pages/auth-page"));
@@ -27,6 +28,11 @@ function Router() {
       <Route path="/terms">
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-patriot-blue"></div></div>}>
           <Terms />
+        </Suspense>
+      </Route>
+      <Route path="/blog">
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-patriot-blue"></div></div>}>
+          <BlogPage />
         </Suspense>
       </Route>
       <ProtectedRoute path="/social-media" component={() => (

@@ -47,6 +47,7 @@ export const translations = {
       nftCollection: "NFT Collection",
       hannah: "Hannah",
       partnership: "Partnership",
+      blog: "Blog",
       joinWaitlist: "Join Waitlist",
       openMenu: "Open navigation menu",
       meetTheTeam: "Meet the Team",

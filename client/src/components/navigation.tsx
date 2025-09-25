@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Instagram, Music } from "lucide-react";
 import { LanguageSelector } from "./language-selector";
 import { useLanguage } from "@/hooks/use-language";
+import { useLocation } from "wouter";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
   const { t } = useLanguage();
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const lastTouchTime = useRef(0);
@@ -47,29 +49,35 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { href: "video", label: t("nav.about") },
-    { href: "tokenomics", label: t("nav.tokenomics") },
-    { href: "participate", label: t("nav.howToJoin") },
-    { href: "nft", label: t("nav.nftCollection") },
-    { href: "hannah", label: t("nav.hannah") },
-    { href: "america250", label: t("nav.partnership") },
+    { href: "video", label: t("nav.about"), type: "scroll" },
+    { href: "tokenomics", label: t("nav.tokenomics"), type: "scroll" },
+    { href: "participate", label: t("nav.howToJoin"), type: "scroll" },
+    { href: "nft", label: t("nav.nftCollection"), type: "scroll" },
+    { href: "hannah", label: t("nav.hannah"), type: "scroll" },
+    { href: "america250", label: t("nav.partnership"), type: "scroll" },
+    { href: "/blog", label: t("nav.blog"), type: "route" },
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    
-    if (element) {
-      // iOS-specific scrolling behavior
-      if (isIOS()) {
-        // Use explicit scrollTo for better iOS compatibility
-        const elementPosition = element.offsetTop - 80; // Account for fixed header
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
-      } else {
-        // Standard scrollIntoView for other devices
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleNavigation = (href: string, type: string) => {
+    if (type === "route") {
+      setLocation(href);
+    } else {
+      // Scroll to section
+      const element = document.getElementById(href);
+      
+      if (element) {
+        // iOS-specific scrolling behavior
+        if (isIOS()) {
+          // Use explicit scrollTo for better iOS compatibility
+          const elementPosition = element.offsetTop - 80; // Account for fixed header
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        } else {
+          // Standard scrollIntoView for other devices
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }
     
@@ -107,7 +115,7 @@ export default function Navigation() {
             {navLinks.map((link) => (
               <button
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
+                onClick={() => handleNavigation(link.href, link.type)}
                 className="text-white hover:text-patriot-gold transition-colors font-medium text-sm lg:text-base"
               >
                 {link.label}
@@ -160,7 +168,7 @@ export default function Navigation() {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          scrollToSection(link.href);
+                          handleNavigation(link.href, link.type);
                         }}
                         onTouchStart={(e) => {
                           // iPhone-specific touch handling
