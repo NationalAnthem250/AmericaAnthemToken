@@ -21,10 +21,10 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
     const mailOptions = {
       from: process.env.EMAIL_USER || ADMIN_EMAIL,
       to: ADMIN_EMAIL,
-      subject: '🇺🇸 New 250STAR Waitlist Registration - National Anthem 250',
+      subject: '🇺🇸 New NAT250 Waitlist Registration - National Anthem 250',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #1e3a8a;">New 250STAR Token Waitlist Registration</h2>
+          <h2 style="color: #1e3a8a;">New NAT250 Token Waitlist Registration</h2>
           <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${entry.name}</p>
             <p><strong>Email:</strong> ${entry.email}</p>
@@ -34,7 +34,7 @@ export const sendWaitlistNotification = async (entry: WaitlistEntry) => {
           </div>
           <p style="color: #6b7280;">Someone new has joined the waitlist for Hannah Magnelli's historic National Anthem NFT launch.</p>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - 250STAR Token Launch</p>
+          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - NAT250 Token Launch</p>
         </div>
       `
     };
@@ -67,7 +67,7 @@ export const sendChatNotification = async (message: ChatMessage) => {
           </div>
           <p style="color: #6b7280;">A visitor has sent a message through the National Anthem 250 chat system.</p>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - 250STAR Token Launch</p>
+          <p style="font-size: 12px; color: #9ca3af;">National Anthem 250 - NAT250 Token Launch</p>
         </div>
       `
     };
