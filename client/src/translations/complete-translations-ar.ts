@@ -1,7 +1,7 @@
 // Arabic translations
 export const ar = {
   hero: {
-    title: "امتلك التاريخ الأمريكي",
+    title: "امتلك جزءاً من التاريخ الأمريكي",
     subtitle: "أول رمز غير قابل للاستبدال للنشيد الوطني إحياءً للذكرى الـ250 لأمريكا",
     joinWaitlist: "انضم إلى قائمة الانتظار",
     getEarlyAccess: "احصل على الوصول المبكر",
@@ -125,7 +125,7 @@ export const ar = {
     learnMore: "تعلم المزيد",
     shareRevolution: "شارك الثورة",
     joinWaitlist: "انضم لقائمة انتظار الإطلاق",
-    discoverTitle: "اكتشف مجموعة National Anthem 250 NFT - امتلك التاريخ الأمريكي",
+    discoverTitle: "اكتشف مجموعة National Anthem 250 NFT - امتلك جزءاً من التاريخ الأمريكي",
     discoverDesc: "انضم للمجموعة الحصرية NFT التي تضم أداء هانا ماجنيلي للنشيد الوطني للذكرى الـ250 لأمريكا",
   },
   footer: {

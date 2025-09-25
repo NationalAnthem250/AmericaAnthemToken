@@ -1,7 +1,7 @@
 // Turkish translations - Professional translations for Turkish-speaking audiences
 export const tr = {
   hero: {
-    title: "Amerikan Tarihine Sahip Olun",
+    title: "Amerikan Tarihinin Bir Parçasına Sahip Olun",
     subtitle: "Amerika'nın 250. yıl dönümünü onurlandıran ilk Ulusal Marş NFT'si",
     joinWaitlist: "Bekleme Listesine Katılın",
     getEarlyAccess: "Erken Erişim Sağlayın",
@@ -125,7 +125,7 @@ export const tr = {
     learnMore: "Daha Fazla Öğren",
     shareRevolution: "Devrimi Paylaş",
     joinWaitlist: "Lansman Bekleme Listesine Katıl",
-    discoverTitle: "Ulusal Marş 250 NFT Koleksiyonunu Keşfedin - Amerikan Tarihine Sahip Olun",
+    discoverTitle: "Ulusal Marş 250 NFT Koleksiyonunu Keşfedin - Amerikan Tarihinin Bir Parçasına Sahip Olun",
     discoverDesc: "Amerika'nın 250. yıl dönümü için Hannah Magnelli'nin Ulusal Marş performansını içeren özel NFT koleksiyonuna katılın",
   },
   footer: {

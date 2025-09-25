@@ -15,7 +15,7 @@ export const translations = {
   // English - Complete original version
   en: {
     hero: {
-      title: "Own American History",
+      title: "Own Part of American History",
       subtitle: "The first National Anthem NFT commemorating America's 250th anniversary",
       joinWaitlist: "Join Waitlist",
       getEarlyAccess: "Get Early Access",
@@ -139,7 +139,7 @@ export const translations = {
       learnMore: "Learn More",
       shareRevolution: "Share the Revolution",
       joinWaitlist: "Join Launch Waitlist",
-      discoverTitle: "Discover the National Anthem 250 NFT Collection - Own American History",
+      discoverTitle: "Discover the National Anthem 250 NFT Collection - Own Part of American History",
       discoverDesc: "Join the exclusive NFT collection featuring Hannah Magnelli's National Anthem performance for America's 250th anniversary",
     },
     footer: {
@@ -441,7 +441,7 @@ export const translations = {
       faq4A: "You receive a digital certificate proving ownership, the high-quality recording, exclusive content, and access to our community of fellow patriots.",
       faq5Q: "Can I sell or trade my NFT later?",
       faq5A: "Yes! NFTs can be traded on various marketplaces. Many people collect them as investments or to preserve for future generations.",
-      ctaButton: "I'm Ready to Own American History",
+      ctaButton: "I'm Ready to Own Part of American History",
     },
     timeline: {
       title: "AMERICA'S",

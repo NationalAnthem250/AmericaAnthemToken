@@ -1,7 +1,7 @@
 // Hindi translations - Professional translations for Hindi-speaking audiences
 export const hi = {
   hero: {
-    title: "अमेरिकी इतिहास का मालिक बनें",
+    title: "अमेरिकी इतिहास के हिस्से के मालिक बनें",
     subtitle: "अमेरिका की 250वीं वर्षगांठ मनाने वाला पहला राष्ट्रगान NFT",
     joinWaitlist: "प्रतीक्षा सूची में शामिल हों",
     getEarlyAccess: "पूर्व पहुंच प्राप्त करें",

@@ -1,7 +1,7 @@
 // Japanese translations - Professional translations for Japanese-speaking audiences
 export const ja = {
   hero: {
-    title: "アメリカの歴史を所有する",
+    title: "アメリカ歴史の一部を所有する",
     subtitle: "アメリカ250周年を記念する初の国歌NFT",
     joinWaitlist: "ウェイティングリストに参加",
     getEarlyAccess: "早期アクセスを取得",
@@ -409,7 +409,7 @@ export const ja = {
     faq4A: "所有権を証明するデジタル証明書、高品質録音、独占コンテンツ、そして仲間の愛国者のコミュニティへのアクセスを受け取ります。",
     faq5Q: "後でNFTを売買や取引できますか？",
     faq5A: "はい！NFTは様々なマーケットプレイスで取引できます。多くの人々が投資として収集したり、将来の世代のために保存したりしています。",
-    ctaButton: "アメリカの歴史を所有する準備ができました",
+    ctaButton: "アメリカ歴史の一部を所有する準備ができました",
     whyMatters: "なぜ重要か",
     whyMattersDesc: "ハンナ・マニェリの国歌NFTを購入することで、あなたはアメリカ250周年のために作成されたこの歴史的録音の認証された所有者になります。",
     whatYouGet: "何を得るか",

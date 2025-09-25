@@ -1,7 +1,7 @@
 // Portuguese translations - Professional translations for Portuguese-speaking audiences
 export const pt = {
   hero: {
-    title: "Possua a História Americana",
+    title: "Possua Parte da História Americana",
     subtitle: "O primeiro NFT do Hino Nacional comemorando o 250º aniversário da América",
     joinWaitlist: "Junte-se à Lista de Espera",
     getEarlyAccess: "Obtenha Acesso Antecipado",

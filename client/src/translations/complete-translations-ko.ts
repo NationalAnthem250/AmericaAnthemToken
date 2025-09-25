@@ -1,7 +1,7 @@
 // Korean translations - Professional translations for Korean-speaking audiences
 export const ko = {
   hero: {
-    title: "미국 역사를 소유하세요",
+    title: "미국 역사의 일부를 소유하세요",
     subtitle: "미국 250주년을 기념하는 최초의 국가 NFT",
     joinWaitlist: "대기자 명단 가입",
     getEarlyAccess: "조기 액세스 받기",
@@ -341,7 +341,7 @@ export const ko = {
     title: "NAT250",
     titleHighlight: "출시에",
     titleEnd: "참여하세요",
-    subtitle: "최초의 국가 NFT에 투자하는 수천 명의 애국적 미국인들과 함께하세요 - 블록체인에서 디지털 미국 역사를 소유하세요",
+    subtitle: "최초의 국가 NFT에 투자하는 수천 명의 애국적 미국인들과 함께하세요 - 블록체인에서 디지털 미국 역사의 일부를 소유하세요",
     step1: "대기자 명단 가입",
     step1Desc: "NAT250 토큰 출시 알림을 받고 우선 액세스를 확보하려면 등록하세요.",
     step2: "지갑 연결",
