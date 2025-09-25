@@ -27,7 +27,7 @@ function buildEnglishStringSet(): Set<string> {
 
 // Brand terms and technical terms that should never be translated
 const IGNORE_TERMS = new Set([
-  '250STAR',
+  'NAT250',
   'NFT',
   'NFTs',
   'Solana',
