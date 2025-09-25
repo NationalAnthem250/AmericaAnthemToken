@@ -623,7 +623,7 @@ export default function HeroSection() {
                   <div className="text-sm text-gray-300">Per Token</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">1.776B</div>
+                  <div className="text-2xl font-bold text-white">17.76M</div>
                   <div className="text-sm text-gray-300">Total Supply</div>
                 </div>
                 <div>

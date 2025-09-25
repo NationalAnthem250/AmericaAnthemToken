@@ -36,7 +36,7 @@ export default function TokenomicsSection() {
                   <div className="text-center">
                     <div className="text-4xl font-black text-patriot-navy">17.76M</div>
                     <div className="text-sm text-gray-600">
-                      <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> {t('tokenomics.tokens')}
+                      <span className="text-blue-600">NAT</span><span className="text-red-600">250</span> {t('tokenomics.tokens')}
                     </div>
                     <div className="text-xs text-patriot-gold font-semibold">{t('tokenomics.commemorating')}</div>
                   </div>
@@ -53,7 +53,7 @@ export default function TokenomicsSection() {
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t('tokenomics.tokenName')}:</span>
                   <span className="font-semibold">
-                    <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span>
+                    <span className="text-blue-600">NAT</span><span className="text-red-600">250</span>
                   </span>
                 </div>
                 <div className="flex justify-between">
