@@ -20,7 +20,7 @@ export default function TokenSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-patriot-navy mb-6">
-            <span className="text-red-600">250</span><span className="text-gray-800 text-stroke">ST</span><span className="text-blue-600">AR</span> {t('token.title')}
+            <span className="text-blue-600">NAT</span><span className="text-red-600">250</span> {t('token.title')}
           </h2>
           <div className="mb-6">
             <span className="bg-patriot-navy text-white px-6 py-2 rounded-full font-bold text-xl">
@@ -72,21 +72,21 @@ export default function TokenSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-black text-patriot-navy mb-6">
-                <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> {t('token.tokenDetails')}
+                <span className="text-blue-600">NAT</span><span className="text-red-600">250</span> {t('token.tokenDetails')}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <i className="fas fa-coins text-patriot-red mr-3"></i>
                   <span className="font-semibold">{t('token.tokenName')}:</span>
                   <span className="ml-2 font-bold">
-                    <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span>
+                    <span className="text-blue-600">NAT</span><span className="text-red-600">250</span>
                   </span>
                 </div>
                 <div className="flex items-center">
                   <i className="fas fa-tag text-patriot-red mr-3"></i>
                   <span className="font-semibold">{t('token.ticker')}:</span>
                   <span className="ml-2 font-bold">
-                    $<span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span>
+                    $<span className="text-blue-600">NAT</span><span className="text-red-600">250</span>
                   </span>
                 </div>
                 <div className="flex items-center">

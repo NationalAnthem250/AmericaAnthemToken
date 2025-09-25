@@ -18,7 +18,7 @@ export default function TokenomicsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
-            <span className="text-red-600">250</span><span className="text-white" style={{ WebkitTextStroke: '1px #000' }}>ST</span><span className="text-blue-600">AR</span> <span className="text-patriot-red">{t('tokenomics.title')}</span>
+            <span className="text-blue-600">NAT</span><span className="text-red-600">250</span> <span className="text-patriot-red">{t('tokenomics.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('tokenomics.subtitle')}
