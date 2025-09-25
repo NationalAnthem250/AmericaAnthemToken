@@ -184,7 +184,7 @@ export default function Footer() {
                 {t('footer.tokenDisclaimer')}
               </p>
               <p>
-                <strong>{t('token.network')}:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>{t('token.supply')}:</strong> {formatters.tokenAmount(1776000000)} total tokens commemorating the year of American independence. <strong>{t('token.price')}:</strong> {formatters.currency(1.77)} per token in honor of 1776.
+                <strong>{t('token.network')}:</strong> Built on Solana blockchain for fast, low-cost transactions. <strong>{t('token.supply')}:</strong> {formatters.tokenAmount(17760000)} total tokens commemorating the year of American independence. <strong>{t('token.price')}:</strong> {formatters.currency(1.77)} per token in honor of 1776.
               </p>
               <p className="text-xs text-gray-400 mt-4">
                 {t('footer.projectDisclaimer')}

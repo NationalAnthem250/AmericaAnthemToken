@@ -36,12 +36,12 @@ export default function TokenomicsRoadmap() {
   const { t, formatters } = useLanguage();
   // Token allocation data
   const tokenAllocation = [
-    { name: t('tokenomicsRoadmap.publicSale'), value: 40, amount: 710400000, color: "#DC2626" },
-    { name: t('tokenomicsRoadmap.communityRewards'), value: 25, amount: 444000000, color: "#EAB308" },
-    { name: t('tokenomicsRoadmap.hannahMagnelli'), value: 15, amount: 266400000, color: "#1D4ED8" },
-    { name: t('tokenomicsRoadmap.development'), value: 10, amount: 177600000, color: "#059669" },
-    { name: t('tokenomicsRoadmap.marketing'), value: 5, amount: 88800000, color: "#7C3AED" },
-    { name: t('tokenomicsRoadmap.reserveTreasury'), value: 5, amount: 88800000, color: "#DC2626" }
+    { name: t('tokenomicsRoadmap.publicSale'), value: 40, amount: 7104000, color: "#DC2626" },
+    { name: t('tokenomicsRoadmap.communityRewards'), value: 25, amount: 4440000, color: "#EAB308" },
+    { name: t('tokenomicsRoadmap.hannahMagnelli'), value: 15, amount: 2664000, color: "#1D4ED8" },
+    { name: t('tokenomicsRoadmap.development'), value: 10, amount: 1776000, color: "#059669" },
+    { name: t('tokenomicsRoadmap.marketing'), value: 5, amount: 888000, color: "#7C3AED" },
+    { name: t('tokenomicsRoadmap.reserveTreasury'), value: 5, amount: 888000, color: "#DC2626" }
   ];
 
   // Revenue projection data
@@ -161,7 +161,7 @@ export default function TokenomicsRoadmap() {
           <Card className="bg-white/10 backdrop-blur-sm border-patriot-gold/30 text-center">
             <CardContent className="p-6">
               <Coins className="w-8 h-8 text-patriot-gold mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white">{formatters.tokenAmount(1776000000)}</div>
+              <div className="text-3xl font-bold text-white">{formatters.tokenAmount(17760000)}</div>
               <div className="text-gray-400">{t('tokenomicsRoadmap.totalSupply')}</div>
               <div className="text-xs text-patriot-gold mt-1">{t('tokenomicsRoadmap.commemorating1776')}</div>
             </CardContent>

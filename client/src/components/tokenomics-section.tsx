@@ -4,13 +4,13 @@ import { useLanguage } from '@/hooks/use-language';
 export default function TokenomicsSection() {
   const { t } = useLanguage();
   const tokenomicsData = [
-    { label: t('tokenomics.totalSupply'), value: "1,776,000,000", color: "text-patriot-red", percentage: 100 },
-    { label: t('tokenomics.publicSale'), value: "710,400,000", color: "text-patriot-gold", percentage: 40 },
-    { label: t('tokenomics.communityRewards'), value: "444,000,000", color: "text-green-400", percentage: 25 },
-    { label: t('tokenomics.hannahMagnelli'), value: "266,400,000", color: "text-patriot-blue", percentage: 15 },
-    { label: t('tokenomics.development'), value: "177,600,000", color: "text-purple-400", percentage: 10 },
-    { label: t('tokenomics.marketing'), value: "88,800,000", color: "text-pink-400", percentage: 5 },
-    { label: t('tokenomics.reserveTreasury'), value: "88,800,000", color: "text-orange-400", percentage: 5 },
+    { label: t('tokenomics.totalSupply'), value: "17,760,000", color: "text-patriot-red", percentage: 100 },
+    { label: t('tokenomics.publicSale'), value: "7,104,000", color: "text-patriot-gold", percentage: 40 },
+    { label: t('tokenomics.communityRewards'), value: "4,440,000", color: "text-green-400", percentage: 25 },
+    { label: t('tokenomics.hannahMagnelli'), value: "2,664,000", color: "text-patriot-blue", percentage: 15 },
+    { label: t('tokenomics.development'), value: "1,776,000", color: "text-purple-400", percentage: 10 },
+    { label: t('tokenomics.marketing'), value: "888,000", color: "text-pink-400", percentage: 5 },
+    { label: t('tokenomics.reserveTreasury'), value: "888,000", color: "text-orange-400", percentage: 5 },
   ];
 
   return (
@@ -34,7 +34,7 @@ export default function TokenomicsSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-patriot-red via-patriot-blue to-patriot-gold opacity-20"></div>
                 <div className="absolute inset-4 bg-white rounded-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-4xl font-black text-patriot-navy">1.776B</div>
+                    <div className="text-4xl font-black text-patriot-navy">17.76M</div>
                     <div className="text-sm text-gray-600">
                       <span className="text-red-600">250</span><span className="text-gray-800">ST</span><span className="text-blue-600">AR</span> {t('tokenomics.tokens')}
                     </div>
@@ -58,7 +58,7 @@ export default function TokenomicsSection() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t('tokenomics.totalSupply')}:</span>
-                  <span className="font-semibold text-patriot-red">1,776,000,000</span>
+                  <span className="font-semibold text-patriot-red">17,760,000</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">{t('tokenomics.launchPrice')}:</span>

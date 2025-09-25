@@ -96,8 +96,8 @@ export function formatCompactNumber(value: number, language: string): string {
 // Format token amount (special case for NAT250 token)
 export function formatTokenAmount(amount: number, language: string): string {
   const formatted = formatNumber(amount, language);
-  // For 1,776,000,000 tokens, keep the symbolic meaning
-  if (amount === 1776000000) {
+  // For 17,760,000 tokens, keep the symbolic meaning
+  if (amount === 17760000) {
     const year1776 = language === 'en' ? '(Commemorating 1776)' : 
                      language === 'zh' ? '（纪念1776年）' :
                      language === 'es' ? '(Conmemorando 1776)' :

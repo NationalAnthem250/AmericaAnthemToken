@@ -25,7 +25,7 @@ export default function CryptoAdvanced() {
               <CardTitle className="text-patriot-gold text-lg">Total Supply</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-white">1,776,000,000</div>
+              <div className="text-3xl font-bold text-white">17,760,000</div>
               <p className="text-gray-400 text-sm">Commemorating 1776</p>
             </CardContent>
           </Card>

@@ -70,7 +70,7 @@ export default function VideoSection() {
               <div className="text-gray-300 text-sm">
                 <div className="flex justify-between">
                   <span>{t('token.supply')}:</span>
-                  <span className="text-patriot-gold">1,776,000,000 tokens</span>
+                  <span className="text-patriot-gold">17,760,000 tokens</span>
                 </div>
                 <div className="flex justify-between mt-1">
                   <span>{t('token.network')}:</span>

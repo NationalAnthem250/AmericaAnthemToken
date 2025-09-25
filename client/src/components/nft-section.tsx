@@ -135,7 +135,7 @@ export function NFTSection() {
             <div className="text-3xl font-bold text-patriot-gold">{formatters.currency(1.77)}</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
-            <div className="text-3xl font-bold text-patriot-red mb-2">{formatters.tokenAmount(1776000000)}</div>
+            <div className="text-3xl font-bold text-patriot-red mb-2">{formatters.tokenAmount(17760000)}</div>
             <div className="text-white text-sm">{t('nft.totalSupply')}</div>
           </div>
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
