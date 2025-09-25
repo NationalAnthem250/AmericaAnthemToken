@@ -26,7 +26,7 @@ export default function TermsConditions() {
               </p>
             </div>
 
-            {/* Nature of 250STAR Tokens */}
+            {/* Nature of NAT250 Tokens */}
             <div>
               <h3 className="text-2xl font-bold text-patriot-gold mb-4">{t('terms.section2Title')}</h3>
               <div className="space-y-4">

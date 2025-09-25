@@ -130,7 +130,7 @@ export default function TokenomicsSection() {
           <SocialShareButtons 
             variant="compact" 
             position="center"
-            title="Check out the 250STAR Tokenomics - Commemorating America's 250th Anniversary"
+            title="Check out the NAT250 Tokenomics - Commemorating America's 250th Anniversary"
             description="Learn about the transparent token allocation designed for America's semiquincentennial celebration"
           />
         </div>

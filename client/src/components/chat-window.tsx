@@ -91,7 +91,7 @@ export function ChatWindow({ isOpen, onToggle }: ChatWindowProps) {
               <X className="h-4 w-4" />
             </Button>
           </div>
-          <p className="text-sm text-patriot-gold">{t('chatWindow.askAbout250STAR')}</p>
+          <p className="text-sm text-patriot-gold">{t('chatWindow.askAboutNAT250')}</p>
         </CardHeader>
         <CardContent className="p-4">
           <form onSubmit={handleSubmit} className="space-y-4">

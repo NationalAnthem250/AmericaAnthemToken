@@ -117,7 +117,7 @@ export default function PaymentOptions() {
                   <CardContent className="p-4">
                     <div className="flex justify-between items-center text-lg">
                       <span className="text-gray-300">
-                        {selectedAmount} × 250STAR {selectedAmount > 1 ? t('paymentOptions.tokensPlural') : t('paymentOptions.tokens')}
+                        {selectedAmount} × NAT250 {selectedAmount > 1 ? t('paymentOptions.tokensPlural') : t('paymentOptions.tokens')}
                       </span>
                       <span className="text-patriot-gold font-bold">
                         {formatters.currency(selectedAmount * 17.76)}

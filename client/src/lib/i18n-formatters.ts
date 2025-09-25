@@ -93,7 +93,7 @@ export function formatCompactNumber(value: number, language: string): string {
   }).format(value);
 }
 
-// Format token amount (special case for 250STAR token)
+// Format token amount (special case for NAT250 token)
 export function formatTokenAmount(amount: number, language: string): string {
   const formatted = formatNumber(amount, language);
   // For 1,776,000,000 tokens, keep the symbolic meaning

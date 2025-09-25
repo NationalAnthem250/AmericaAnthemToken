@@ -128,7 +128,7 @@ export function NFTSection() {
           </Card>
         </div>
 
-        {/* 250STAR Token Stats */}
+        {/* NAT250 Token Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-patriot-gold/20">
             <div className="text-2xl font-bold text-white mb-1">{t('nft.tokenPrice')}</div>
