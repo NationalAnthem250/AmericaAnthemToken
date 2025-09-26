@@ -41,7 +41,7 @@ interface BlogSectionProps {
 }
 
 export default function BlogSection({ 
-  wordpressUrl = "https://your-wordpress-site.com", 
+  wordpressUrl = "https://anthem250th-ubpsy.wordpress.com", 
   postsPerPage = 6 
 }: BlogSectionProps) {
   const { t } = useLanguage();
@@ -72,13 +72,8 @@ export default function BlogSection({
         setLoading(true);
         setError(null);
         
-        const params = new URLSearchParams({
-          per_page: postsPerPage.toString(),
-          status: 'publish',
-          _embed: 'true'
-        });
-        
-        const endpoint = `${wordpressUrl}/wp-json/wp/v2/posts?${params}`;
+        // Use backend proxy to avoid CORS issues
+        const endpoint = `/api/blog/posts?per_page=${postsPerPage}`;
         
         const response = await fetch(endpoint, {
           headers: {

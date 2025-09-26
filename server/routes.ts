@@ -42,6 +42,86 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ ok: true });
   });
 
+  // WordPress blog proxy endpoint to handle CORS
+  app.get("/api/blog/posts", async (req: Request, res: Response) => {
+    try {
+      const { per_page = 6, page = 1 } = req.query;
+      const wordpressUrl = "https://anthem250th-ubpsy.wordpress.com";
+      
+      // Try different WordPress.com REST API endpoints
+      const endpoints = [
+        `${wordpressUrl}/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}&status=publish&_embed=true`,
+        `https://public-api.wordpress.com/rest/v1.1/sites/anthem250th-ubpsy.wordpress.com/posts?number=${per_page}&page=${page}`,
+        `https://public-api.wordpress.com/wp/v2/sites/anthem250th-ubpsy.wordpress.com/posts?per_page=${per_page}&page=${page}&status=publish`
+      ];
+
+      let posts = null;
+      let lastError = null;
+
+      for (const endpoint of endpoints) {
+        try {
+          console.log(`Trying WordPress endpoint: ${endpoint}`);
+          const response = await fetch(endpoint, {
+            headers: {
+              'Accept': 'application/json',
+              'User-Agent': 'NAT250-Blog-Reader/1.0'
+            }
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            
+            // Handle different API response formats
+            if (Array.isArray(data)) {
+              posts = data;
+            } else if (data.posts && Array.isArray(data.posts)) {
+              posts = data.posts;
+            } else if (data.data && Array.isArray(data.data)) {
+              posts = data.data;
+            }
+            
+            if (posts) {
+              console.log(`Successfully fetched ${posts.length} posts from ${endpoint}`);
+              break;
+            }
+          }
+        } catch (err) {
+          lastError = err;
+          console.log(`Failed to fetch from ${endpoint}:`, err);
+          continue;
+        }
+      }
+
+      if (!posts) {
+        // Fallback: Return mock blog post data
+        console.log("All WordPress endpoints failed, returning fallback data");
+        posts = [
+          {
+            id: 1,
+            title: { rendered: "Welcome to NAT250 Blog" },
+            excerpt: { rendered: "Stay tuned for updates about America's first National Anthem NFT project..." },
+            date: new Date().toISOString(),
+            link: wordpressUrl,
+            content: { rendered: "Welcome to the official NAT250 blog. Stay tuned for exciting updates about America's first National Anthem NFT project commemorating our nation's 250th anniversary." }
+          }
+        ];
+      }
+
+      // Set CORS headers
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      
+      res.json(posts);
+    } catch (error) {
+      console.error("WordPress proxy error:", error);
+      res.status(500).json({ 
+        error: "Failed to fetch blog posts", 
+        message: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
   // Download export endpoint
   app.get("/download/export", (req, res) => {
     const exportDir = path.join(process.cwd(), 'anthem250-export');

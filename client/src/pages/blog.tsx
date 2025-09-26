@@ -20,7 +20,7 @@ export default function BlogPage() {
 
       {/* Blog Content */}
       <BlogSection 
-        wordpressUrl={import.meta.env.VITE_WORDPRESS_URL || "https://your-wordpress-site.com"}
+        wordpressUrl={import.meta.env.VITE_WORDPRESS_URL || "https://anthem250th-ubpsy.wordpress.com"}
         postsPerPage={9}
       />
     </div>
