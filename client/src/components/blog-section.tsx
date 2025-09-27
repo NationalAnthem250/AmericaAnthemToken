@@ -41,7 +41,7 @@ interface BlogSectionProps {
 }
 
 export default function BlogSection({ 
-  wordpressUrl = "https://anthem250th-ubpsy.wordpress.com", 
+  wordpressUrl = "https://anthem250th-ubpsy.wpcomstaging.com", 
   postsPerPage = 6 
 }: BlogSectionProps) {
   const { t } = useLanguage();
