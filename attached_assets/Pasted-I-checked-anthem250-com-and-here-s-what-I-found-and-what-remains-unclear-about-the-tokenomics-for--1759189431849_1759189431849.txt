@@ -1,0 +1,35 @@
+I checked anthem250.com and here’s what I found (and what remains unclear) about the tokenomics for “Anthem 250 / 250STAR.” The site hints at details, but it lacks full transparency in many areas.
+
+⸻
+
+What the site does say
+
+From the website:
+	•	The site mentions there is “detailed tokenomics and smart contract information” available to “those familiar with cryptocurrency” via the website.  ￼
+	•	The homepage states that tokenomics and smart contract details are parts of the advanced / technical sections.  ￼
+
+So the site suggests that they have detailed tokenomics and the smart contract published somewhere (maybe via a link or technical section), but as of what I saw, I could not locate a concrete breakdown (numbers, percentages, or full contract audit) in the visible public pages or marketing pages.
+
+⸻
+
+What is not clearly disclosed / what is ambiguous
+
+Here are the gaps or uncertainties based on what I observed:
+
+Tokenomics Aspect	Not Clearly Disclosed / Ambiguous
+Total supply	I did not find a reliable public number for how many tokens (or NFTs) will exist in total.
+Allocation / distribution	No visible breakdown (e.g. what percentage goes to team, marketing, community, reserves, advisors, staking).
+Vesting / lockups	I did not see terms about locking or vesting of tokens for founders or early investors to prevent dump risk.
+Minting / inflation / burning	No clear mechanism described for new minting over time, or whether there is a burn / deflationary model.
+Utility / token function	The site leans heavily on symbolic / commemorative value (owning a digital “National Anthem” asset) rather than describing utility (governance, staking, revenue share, access, etc.).
+Smart contract address / audits	I couldn’t find a linked contract address or public audit / verification of the smart contract in what I browsed.
+Liquidity / listing plan	There’s no explicit roadmap or promise visible (in the public marketing sections) about when or how it will list on DEXs, AMMs, or other exchanges.
+
+
+⸻
+
+My inferred assessment
+
+Because the site states that “detailed tokenomics and smart contract information” exist, it’s possible that those details are hidden behind a gated technical page or available to a vetted audience. But from a due diligence / investor perspective, the fact that public-facing tokenomics aren’t obvious is a red flag in my view.
+
+If you like, I can dig deeper (blockchain explorers, contract code repositories, or developer channels) to try to uncover the tokenomics that the site doesn’t publicly show. Do you want me to do that?
