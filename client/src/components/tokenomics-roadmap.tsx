@@ -421,6 +421,335 @@ export default function TokenomicsRoadmap() {
           </CardContent>
         </Card>
 
+        {/* Transparency & Technical Details */}
+        <div className="mt-16 space-y-8">
+          <h3 className="text-3xl font-bold text-white text-center mb-12">
+            FULL <span className="text-patriot-gold">TRANSPARENCY</span> & TECHNICAL DETAILS
+          </h3>
+
+          {/* Smart Contract & Security */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="bg-white/5 border-green-500/30">
+              <CardHeader>
+                <CardTitle className="text-xl text-white flex items-center">
+                  <Shield className="w-6 h-6 mr-2 text-green-500" />
+                  Smart Contract & Audits
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-white font-semibold">Security Audit Scheduled</span>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Full smart contract audit by reputable third-party security firm scheduled for Q1 2025 prior to launch.
+                  </p>
+                </div>
+                
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Blockchain:</span>
+                    <span className="text-white font-semibold">Solana (SPL Token)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Contract Address:</span>
+                    <span className="text-patriot-gold font-semibold">To be published at launch</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Audit Report:</span>
+                    <span className="text-patriot-gold font-semibold">Available post-audit</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Verification:</span>
+                    <span className="text-white">Solana Explorer</span>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-white/10">
+                  <h5 className="text-white font-semibold mb-2">Security Features:</h5>
+                  <ul className="space-y-1 text-sm text-gray-300">
+                    <li>• No admin mint authority (fixed supply)</li>
+                    <li>• No freeze authority</li>
+                    <li>• Immutable contract code</li>
+                    <li>• Multi-signature treasury wallet</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-patriot-blue/30">
+              <CardHeader>
+                <CardTitle className="text-xl text-white flex items-center">
+                  <Lock className="w-6 h-6 mr-2 text-patriot-blue" />
+                  Vesting & Lock-up Schedule
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-300 text-sm mb-4">
+                  Team and artist allocations are locked to prevent early dumping and ensure long-term commitment.
+                </p>
+
+                <div className="space-y-3">
+                  <div className="bg-patriot-red/10 border border-patriot-red/30 rounded-lg p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-semibold">Hannah Magnelli (15%)</span>
+                      <span className="text-patriot-red text-sm">2.66M tokens</span>
+                    </div>
+                    <p className="text-gray-400 text-xs">
+                      50% locked for 12 months, remaining 50% vested quarterly over 24 months
+                    </p>
+                  </div>
+
+                  <div className="bg-patriot-blue/10 border border-patriot-blue/30 rounded-lg p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-semibold">Development Team (10%)</span>
+                      <span className="text-patriot-blue text-sm">1.78M tokens</span>
+                    </div>
+                    <p className="text-gray-400 text-xs">
+                      100% locked for 6 months, then vested monthly over 18 months
+                    </p>
+                  </div>
+
+                  <div className="bg-patriot-gold/10 border border-patriot-gold/30 rounded-lg p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-semibold">Reserve/Treasury (5%)</span>
+                      <span className="text-patriot-gold text-sm">888K tokens</span>
+                    </div>
+                    <p className="text-gray-400 text-xs">
+                      Multi-sig controlled, releases require community governance approval
+                    </p>
+                  </div>
+
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-semibold">Public Sale (40%)</span>
+                      <span className="text-green-500 text-sm">7.10M tokens</span>
+                    </div>
+                    <p className="text-gray-400 text-xs">
+                      No lock-up, freely tradable immediately upon purchase
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Supply Mechanics */}
+          <Card className="bg-gradient-to-r from-patriot-red/10 to-patriot-blue/10 border-patriot-gold/50">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white flex items-center justify-center">
+                <Coins className="w-6 h-6 mr-2 text-patriot-gold" />
+                Supply Mechanics & Token Economics
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center p-4 bg-white/5 rounded-lg border border-patriot-red/30">
+                  <div className="text-3xl mb-2">🔒</div>
+                  <h5 className="text-white font-bold mb-2">Fixed Supply</h5>
+                  <p className="text-gray-300 text-sm">
+                    <strong className="text-patriot-red">17,760,000 tokens</strong> - Absolute maximum. No additional minting ever possible after initial creation.
+                  </p>
+                </div>
+
+                <div className="text-center p-4 bg-white/5 rounded-lg border border-patriot-blue/30">
+                  <div className="text-3xl mb-2">🔥</div>
+                  <h5 className="text-white font-bold mb-2">Deflationary Burn</h5>
+                  <p className="text-gray-300 text-sm">
+                    <strong className="text-patriot-blue">0.25% of all transactions</strong> permanently burned, reducing circulating supply over time.
+                  </p>
+                </div>
+
+                <div className="text-center p-4 bg-white/5 rounded-lg border border-green-500/30">
+                  <div className="text-3xl mb-2">📈</div>
+                  <h5 className="text-white font-bold mb-2">Scarcity Model</h5>
+                  <p className="text-gray-300 text-sm">
+                    As supply decreases through burns and holding increases, <strong className="text-green-500">value appreciates</strong> naturally.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-patriot-navy/50 rounded-lg border border-patriot-gold/30">
+                <h5 className="text-white font-semibold mb-3 flex items-center">
+                  <TrendingUp className="w-5 h-5 mr-2 text-patriot-gold" />
+                  No Inflation Risk
+                </h5>
+                <p className="text-gray-300 text-sm">
+                  Unlike traditional cryptocurrencies with ongoing emissions, NAT250 has a permanent cap. The smart contract has no mint authority, ensuring the supply can never increase. Combined with the burn mechanism, the circulating supply will only decrease over time, creating natural scarcity and upward price pressure as adoption grows.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Liquidity & Exchange Listings */}
+          <Card className="bg-white/5 border-purple-500/30">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white flex items-center justify-center">
+                <Rocket className="w-6 h-6 mr-2 text-purple-500" />
+                Liquidity & Exchange Listing Strategy
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="text-white font-bold mb-3 flex items-center">
+                      <div className="w-2 h-2 bg-patriot-gold rounded-full mr-2"></div>
+                      Phase 1: Initial Liquidity (Launch)
+                    </h5>
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <span className="text-patriot-gold mr-2">•</span>
+                        <span><strong>Raydium DEX</strong> - Primary trading pair NAT250/USDC with initial liquidity of $250,000</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-patriot-gold mr-2">•</span>
+                        <span><strong>Orca DEX</strong> - Secondary liquidity pool for increased accessibility</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-patriot-gold mr-2">•</span>
+                        <span>Liquidity locked for minimum 12 months via Solana lock contracts</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h5 className="text-white font-bold mb-3 flex items-center">
+                      <div className="w-2 h-2 bg-patriot-blue rounded-full mr-2"></div>
+                      Phase 2: CEX Listings (Q2-Q3 2025)
+                    </h5>
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <span className="text-patriot-blue mr-2">•</span>
+                        <span>Applications submitted to major centralized exchanges (Coinbase, Kraken, Binance.US)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-patriot-blue mr-2">•</span>
+                        <span>Target: Minimum 2 Tier-1 CEX listings by July 4, 2025</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-patriot-blue mr-2">•</span>
+                        <span>Marketing budget allocated for listing fees and promotional campaigns</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                  <h5 className="text-white font-bold mb-2 flex items-center">
+                    <svg className="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Liquidity Commitment
+                  </h5>
+                  <p className="text-gray-300 text-sm">
+                    10% of all public sale proceeds will be added to DEX liquidity pools within 48 hours of sale milestones. All liquidity pool tokens will be time-locked and cannot be removed by the team, ensuring permanent trading availability.
+                  </p>
+                </div>
+
+                <div className="text-center pt-4 border-t border-white/10">
+                  <p className="text-gray-400 text-sm mb-4">
+                    <strong className="text-white">Market Making Partnership:</strong> Professional market makers engaged to ensure healthy trading volume and price stability post-launch.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Token Utility Expansion */}
+          <Card className="bg-gradient-to-br from-patriot-navy/50 via-patriot-red/20 to-patriot-blue/20 border-patriot-gold/50">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white text-center">
+                Token Utility & Holder Benefits
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h5 className="text-patriot-gold font-bold">Immediate Utility (Launch)</h5>
+                  <ul className="space-y-2 text-sm text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-patriot-gold mr-2">✓</span>
+                      <span><strong>Ownership of historic performance:</strong> Digital rights to Hannah Magnelli's National Anthem recording</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-gold mr-2">✓</span>
+                      <span><strong>Exclusive content access:</strong> Behind-the-scenes footage, interviews, rehearsal recordings</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-gold mr-2">✓</span>
+                      <span><strong>Commemorative certificate:</strong> Digital certificate of authenticity and participation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-gold mr-2">✓</span>
+                      <span><strong>Community membership:</strong> Access to exclusive holder Discord channels and events</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h5 className="text-patriot-red font-bold">Future Utility (Roadmap)</h5>
+                  <ul className="space-y-2 text-sm text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-patriot-red mr-2">→</span>
+                      <span><strong>Governance rights:</strong> Vote on future project decisions and fund allocations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-red mr-2">→</span>
+                      <span><strong>Event access:</strong> Priority tickets to Hannah Magnelli performances and America250 events</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-red mr-2">→</span>
+                      <span><strong>Physical merchandise:</strong> Ability to redeem tokens for limited-edition physical collectibles</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-patriot-red mr-2">→</span>
+                      <span><strong>Revenue sharing:</strong> Potential revenue share from future licensing and commercial use</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-white/5 rounded-lg border border-patriot-blue/30">
+                <p className="text-gray-300 text-sm">
+                  <strong className="text-white">Long-term Vision:</strong> NAT250 tokens are designed to appreciate in value through a combination of fixed supply, deflationary burns, growing utility, and increasing cultural significance as we approach America's 250th anniversary in 2026. Holders become part of a historic moment in American commemorative digital art.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Legal & Compliance */}
+          <Card className="bg-white/5 border-patriot-gold/30">
+            <CardHeader>
+              <CardTitle className="text-xl text-white flex items-center justify-center">
+                <Shield className="w-6 h-6 mr-2 text-patriot-gold" />
+                Legal & Regulatory Compliance
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4 text-sm text-gray-300">
+                <p>
+                  <strong className="text-white">Securities Compliance:</strong> NAT250 tokens are structured as commemorative digital collectibles with utility features, not as investment securities. Legal analysis conducted by specialized crypto attorneys to ensure compliance with U.S. securities laws.
+                </p>
+                <p>
+                  <strong className="text-white">KYC/AML:</strong> Optional KYC verification available for larger purchases and exchange listings. Standard AML procedures implemented for all transactions above $10,000.
+                </p>
+                <p>
+                  <strong className="text-white">Tax Reporting:</strong> All U.S.-based holders will receive appropriate tax documentation (Form 1099) for sales above IRS reporting thresholds.
+                </p>
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-xs text-gray-400">
+                    <strong>Disclaimer:</strong> This is not financial advice. Cryptocurrency investments carry risk. Past performance does not guarantee future results. Price projections are estimates only and not guarantees. Always conduct your own research and consult with financial advisors before investing.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </section>
   );
