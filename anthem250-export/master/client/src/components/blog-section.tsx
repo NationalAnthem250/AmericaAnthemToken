@@ -51,9 +51,9 @@ export default function BlogSection({
 
   // Strip HTML tags from content
   const stripHtml = (html: string): string => {
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
-    return temp.textContent || temp.innerText || '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   };
 
   // Format date
@@ -169,7 +169,7 @@ export default function BlogSection({
                     )}
                   </div>
                   <CardTitle className="text-xl text-patriot-navy line-clamp-2">
-                    <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                    {stripHtml(post.title.rendered)}
                   </CardTitle>
                 </CardHeader>
                 
