@@ -1,0 +1,43 @@
+Done — I dug into the site and here’s a concise, sourced summary of what I found about Anthem250’s tokenomics (and what’s missing).
+
+What I found on the site
+
+The token is marketed on the site as NAT250 (referred to as the token for the Anthem 250 project) and the site copy advertises “Purchase NAT250 tokens at $1.77 each” for priority access. 
+anthem250.com
+
+What the site claims but does not publicly show
+
+The site states there is “detailed tokenomics and smart contract information” available for technically-familiar users, but that information is not exposed on the public pages I could load. 
+anthem250.com
++1
+
+Key tokenomics details that are not publicly available (and are important)
+
+Total supply (how many NAT250 exist) — not stated publicly.
+
+Allocation breakdown (team, advisors, community, reserve, public sale percentages) — not visible.
+
+Vesting / lockup schedules for team/insiders — not published.
+
+Smart contract address / public audit — not posted on the public site.
+
+Minting / burn / inflation mechanics — not described.
+
+Liquidity / listing roadmap (which DEXs/AMMs or centralized exchanges, and when) — not detailed.
+These absences are based on my review of the publicly accessible site; the site’s copy implies details exist but they appear gated or otherwise not displayed. 
+anthem250.com
++1
+
+Short assessment
+
+There is a clear marketing price ($1.77 / NAT250) and a clear branding story, but essential on-chain and tokenomics transparency is missing from the public pages. That’s a red flag for anyone doing due diligence: without supply, allocations, contract address, and vesting info, it’s very difficult to evaluate dilution risk, central control, or potential for dumps.
+
+Next steps I can take for you (pick any)
+
+Search blockchain explorers (Ethereum, Solana, BSC, etc.) for a NAT250 / NAT token contract and pull verified contract details (supply, holders, transactions).
+
+Search GitHub / Etherscan / Solscan for a published smart contract or audit linked to Anthem250.
+
+Crawl the site source (JS bundles) to try to find hidden endpoints, JSON files, or gated tokenomics pages.
+
+Draft a short, professional message you can send the Anthem250 team requesting the missing tokenomics and contract address (so you can get verifiable info).
