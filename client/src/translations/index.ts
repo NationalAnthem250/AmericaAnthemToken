@@ -327,7 +327,7 @@ export const translations = {
       critical: "Critical",
       completed: "Completed",
       pending: "Pending",
-      q4_2024: "Q4 2024",
+      q4_2024: "Q4 2025",
       america250: "America250",
       historicalSignificance: "Historical Significance",
       fastEfficient: "Fast & Efficient",
@@ -350,7 +350,7 @@ export const translations = {
       phase2Label: "Phase 2", 
       phase3Label: "Phase 3",
       phase4Label: "Phase 4",
-      q2_2024: "Q2 2024",
+      q2_2024: "Q2 2025",
     },
     participate: {
       title: "JOIN THE",
