@@ -290,7 +290,7 @@ export const translations = {
       phase3: "Phase 3: Expansion",
       phase4: "Phase 4: America250 Celebration",
       timeline: "Timeline",
-      q1_2024: "Q1 2024",
+      q1_2024: "Q1 2025",
       q2_q3_2024: "Q2-Q3 2024",
       q4_2024_q2_2025: "Q4 2024 - Q2 2025",
       year_2025_2026: "2025-2026",
